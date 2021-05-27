@@ -29,11 +29,13 @@ fi
 
 pwd="$(dirname "$0")"
 example="$pwd/../terraform/client.tf.example"
-dev="$pwd/../terraform/dev/modules/${realm}/client-${client}.tf"
-test="$pwd/../terraform/test/modules/${realm}/client-${client}.tf"
-prod="$pwd/../terraform/prod/modules/${realm}/client-${client}.tf"
+dev="$pwd/../terraform/keycloak-dev/modules/${realm}/client-${client}.tf"
+test="$pwd/../terraform/keycloak-test/modules/${realm}/client-${client}.tf"
+prod="$pwd/../terraform/keycloak-prod/modules/${realm}/client-${client}.tf"
 
 template=$(envsubst <"$example")
 echo "$template" >"$dev"
 echo "$template" >"$test"
 echo "$template" >"$prod"
+
+echo "The client '${client}' generated successfully."

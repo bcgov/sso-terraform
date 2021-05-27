@@ -3,5 +3,5 @@ module "client_${client}" {
 
   realm_id            = data.keycloak_realm.this.id
   client_name         = "${client}"
-  valid_redirect_uris = []
+  valid_redirect_uris = ["*"]
 }
