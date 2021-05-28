@@ -1,9 +1,10 @@
 provider "keycloak" {
+  realm         = "master"
   client_id     = var.client_id
   client_secret = var.client_secret
-  username      = "admin"
-  password      = "Pa55w0rd"
-  url           = "http://127.0.0.1:8080"
+  username      = var.username
+  password      = var.password
+  url           = var.keycloak_url
 }
 
 module "onestopauth" {

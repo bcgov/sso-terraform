@@ -61,7 +61,7 @@ jobs:
       - name: Run Terraform
         run: |
           terraform init
-          terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="username=$KEYCLOAK_USERNAME" -var="password=Pa55w0rd"
+          terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="username=$KEYCLOAK_USERNAME" -var="password=$KEYCLOAK_PASSWORD"
         working-directory: ./terraform/keycloak-dev
       - name: Run local app
         run: |
