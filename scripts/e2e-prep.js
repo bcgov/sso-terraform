@@ -1,14 +1,19 @@
 const KcAdminClient = require('keycloak-admin').default;
 
-const kcAdminClient = new KcAdminClient({ baseUrl: `${process.env.KEYCLOAK_URL}/auth` });
+const KEYCLOAK_URL = process.env.KEYCLOAK_URL || 'http://127.0.0.1:8080';
+const KEYCLOAK_USERNAME = process.env.KEYCLOAK_USERNAME || 'admin';
+const KEYCLOAK_PASSWORD = process.env.KEYCLOAK_PASSWORD || 'Pa55w0rd';
+const KEYCLOAK_CLIENT = process.env.KEYCLOAK_CLIENT || 'admin-cli';
+
+const kcAdminClient = new KcAdminClient({ baseUrl: `${KEYCLOAK_URL}/auth` });
 
 async function main() {
   try {
     await kcAdminClient.auth({
       grantType: 'password',
       clientId: 'admin-cli',
-      username: process.env.KEYCLOAK_USERNAME,
-      password: process.env.KEYCLOAK_PASSWORD,
+      username: KEYCLOAK_USERNAME,
+      password: KEYCLOAK_PASSWORD,
     });
 
     const createRealm = (realm) => kcAdminClient.realms.create({ realm });
@@ -20,11 +25,11 @@ async function main() {
     console.log(payload);
 
     const clients = await kcAdminClient.clients.find({ realm: 'master' });
-    const adminCli = clients.find((v) => v.clientId === 'admin-cli');
+    const adminCli = clients.find((v) => v.clientId === KEYCLOAK_CLIENT);
 
     await kcAdminClient.clients.update(
       { id: adminCli.id, realm: 'master' },
-      { publicClient: false, secret: process.env.KEYCLOAK_PASSWORD }
+      { publicClient: false, serviceAccountsEnabled: true, secret: KEYCLOAK_PASSWORD }
     );
   } catch (err) {
     console.error(err);
