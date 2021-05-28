@@ -9,7 +9,7 @@ on: push
 #       - completed
 
 jobs:
-  pre-commit:
+  e2e:
     runs-on: ubuntu-18.04
     env:
       KEYCLOAK_URL: http://127.0.0.1:3000
@@ -52,5 +52,5 @@ jobs:
         run: |
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
           echo $KEYCLOAK_URL
-          wait-on $KEYCLOAK_URL
+          node_modules/.bin/wait-on $KEYCLOAK_URL
           node scripts/e2e-prep.js
