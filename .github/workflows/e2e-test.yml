@@ -1,0 +1,30 @@
+name: Test E2E
+
+on:
+  workflow_run:
+    workflows: ["Check code/commit conventions"]
+    types:
+      - completed
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v1
+      - name: Cache tools
+        uses: actions/cache@v2
+        with:
+          path: |
+            /home/runner/.asdf
+          key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+      - name: Install required tools
+        run: |
+          cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add || true
+          asdf plugin-update --all
+          asdf install
+          asdf reshim
+      - name: Run local Keycloak instance
+        run: |
+          docker-compose -f dockerfiles/keycloak-postgres.yml up
