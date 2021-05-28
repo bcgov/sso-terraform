@@ -1,10 +1,12 @@
 name: Test E2E
 
-on:
-  workflow_run:
-    workflows: ["Check code/commit conventions"]
-    types:
-      - completed
+on: push
+
+# on:
+#   workflow_run:
+#     workflows: ["Check code/commit conventions"]
+#     types:
+#       - completed
 
 jobs:
   pre-commit:
