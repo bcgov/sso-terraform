@@ -12,9 +12,10 @@ jobs:
   e2e:
     runs-on: ubuntu-18.04
     env:
-      KEYCLOAK_URL: http://127.0.0.1:3000
+      KEYCLOAK_URL: http://127.0.0.1:8080
       KEYCLOAK_USERNAME: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
+      APP_URL: http://127.0.0.1:3000
     steps:
       - uses: actions/checkout@v2
 
@@ -51,6 +52,10 @@ jobs:
       - name: Run local Keycloak instance
         run: |
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
-          echo $KEYCLOAK_URL
           node_modules/.bin/wait-on $KEYCLOAK_URL
           node scripts/e2e-prep.js
+      - name: Run local app
+        run: |
+          yarn dev & yarn wait-on $APP_URL
+          yarn cypress run
+        working-directory: ./examples/next-app
