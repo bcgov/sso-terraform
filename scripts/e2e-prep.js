@@ -16,7 +16,7 @@ async function main() {
       password: KEYCLOAK_PASSWORD,
     });
 
-    const createRealm = (realm) => kcAdminClient.realms.create({ realm });
+    const createRealm = (realm) => kcAdminClient.realms.create({ realm, enabled: true });
 
     const payload = await Promise.all(
       ['onestopauth', 'onestopauth-business', 'onestopauth-basic', 'onestopauth-both'].map(createRealm)
