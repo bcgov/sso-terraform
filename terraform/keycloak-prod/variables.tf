@@ -5,6 +5,17 @@ variable "client_id" {
 
 variable "client_secret" {
   description = "The client_secret for the Keycloak client"
+  default     = ""
+}
+
+variable "username" {
+  description = "The username of the user used by the provider for authentication via the password grant"
+  default     = ""
+}
+
+variable "password" {
+  description = "The password of the user used by the provider for authentication via the password grant"
+  default     = ""
 }
 
 variable "keycloak_url" {
