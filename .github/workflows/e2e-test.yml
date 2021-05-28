@@ -50,6 +50,13 @@ jobs:
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
           node_modules/.bin/wait-on $KEYCLOAK_URL --timeout 500000
           node scripts/e2e-prep.js
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+      - name: Run Terraform
+        run: |
+          terraform init
+          terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="client_secret=$KEYCLOAK_PASSWORD"
+        working-directory: ./terraform/keycloak-dev
       - name: Run local app
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 200000

@@ -18,6 +18,14 @@ async function main() {
     );
 
     console.log(payload);
+
+    const clients = await kcAdminClient.clients.find({ realm: 'master' });
+    const adminCli = clients.find((v) => v.clientId === 'admin-cli');
+
+    await kcAdminClient.clients.update(
+      { id: adminCli.id, realm: 'master' },
+      { publicClient: false, secret: process.env.KEYCLOAK_PASSWORD }
+    );
   } catch (err) {
     console.error(err);
   }
