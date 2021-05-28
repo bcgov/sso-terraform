@@ -11,7 +11,7 @@ async function main() {
   try {
     await kcAdminClient.auth({
       grantType: 'password',
-      clientId: 'admin-cli',
+      clientId: KEYCLOAK_CLIENT,
       username: KEYCLOAK_USERNAME,
       password: KEYCLOAK_PASSWORD,
     });
