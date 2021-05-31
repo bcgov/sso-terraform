@@ -47,7 +47,11 @@ jobs:
           asdf plugin-update --all
           asdf install
           asdf reshim
+
       - name: Run local Keycloak instance
+        env:
+          GH_OAUTH_CLIENT_ID: ${{ secrets.CI_GH_OAUTH_CLIENT_ID }}
+          GH_OAUTH_CLIENT_SECRET: ${{ secrets.CI_GH_OAUTH_CLIENT_SECRET }}
         run: |
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
           node_modules/.bin/wait-on $KEYCLOAK_URL --timeout 500000
@@ -64,6 +68,10 @@ jobs:
           terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="username=$KEYCLOAK_USERNAME" -var="password=$KEYCLOAK_PASSWORD"
         working-directory: ./terraform/keycloak-dev
       - name: Run local app
+        env:
+          CYPRESS_APP_URL: "$APP_URL"
+          CYPRESS_GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
+          CYPRESS_GH_PASSWORD: ${{ secrets.CI_GH_PASSWORD }}
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 200000
           yarn cypress run
