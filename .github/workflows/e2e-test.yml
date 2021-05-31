@@ -102,7 +102,7 @@ jobs:
             }
           </style>
           <video controls>
-            <source src="actions.spec.js" type="video/mp4">
+            <source src="actions.spec.js.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           </body></html>
