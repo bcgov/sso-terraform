@@ -12,10 +12,10 @@ jobs:
   e2e:
     runs-on: ubuntu-18.04
     env:
-      KEYCLOAK_URL: http://127.0.0.1:8080
+      KEYCLOAK_URL: http://localhost:8080
       KEYCLOAK_USERNAME: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
-      APP_URL: http://127.0.0.1:3000
+      APP_URL: http://localhost:3000
       KEYCLOAK_REALM: onestopauth
       KEYCLOAK_CLIENT_ID: test-client
     steps:
@@ -97,11 +97,11 @@ jobs:
           <!DOCTYPE html><html><body>
           <style>
             video {
-              width: 100%    !important;
-              height: auto   !important;
+              width: 90%    !important;
+              height: auto  !important;
             }
           </style>
-          <video controls>
+          <video controls autoplay>
             <source src="actions.spec.js.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
