@@ -2,13 +2,6 @@ name: Test E2E
 
 on: push
 
-# on:
-#   workflow_run:
-#     workflows: ["Check code/commit conventions"]
-#     branches: [master]
-#     types:
-#       - completed
-
 jobs:
   e2e:
     runs-on: ubuntu-18.04
@@ -87,6 +80,7 @@ jobs:
 
       # Cypress Arifacts
       - name: Store Cypress artifacts
+        if: github.ref == 'refs/heads/master'
         env:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
           CYPRESS_VIDEOS: /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
