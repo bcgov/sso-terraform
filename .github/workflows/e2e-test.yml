@@ -69,9 +69,9 @@ jobs:
           terraform init
           terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="username=$KEYCLOAK_USERNAME" -var="password=$KEYCLOAK_PASSWORD"
         working-directory: ./terraform/keycloak-dev
-      - name: Run local app
+      - name: Run local app & e2e tests
         env:
-          CYPRESS_APP_URL: "$APP_URL"
+          CYPRESS_APP_URL: ${{ env.APP_URL }}
           CYPRESS_GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
           CYPRESS_GH_PASSWORD: ${{ secrets.CI_GH_PASSWORD }}
         run: |
