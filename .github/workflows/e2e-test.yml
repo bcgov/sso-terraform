@@ -82,5 +82,5 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: |
-            const script = require('./scripts/script.js')
+            const script = require('./scripts/store-cypress-video.js')
             console.log(script({github, context}))
