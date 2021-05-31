@@ -88,10 +88,25 @@ jobs:
       - name: Store Cypress artifacts
         env:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
+          CYPRESS_VIDEOS: /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
         run: |
           sleep 10
           rm -rf .git
-          cd /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
+          cd "$CYPRESS_VIDEOS"
+          cat >"$CYPRESS_VIDEOS/index.html" <<EOF
+          <!DOCTYPE html><html><body>
+          <style>
+            video {
+              width: 100%    !important;
+              height: auto   !important;
+            }
+          </style>
+          <video controls>
+            <source src="actions.spec.js" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          </body></html>
+          EOF
           git init
           git config user.name "$GH_USERNAME"
           git config user.email "$GH_USERNAME@users.noreply.github.com"
