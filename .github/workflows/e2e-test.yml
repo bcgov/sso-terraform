@@ -50,6 +50,7 @@ jobs:
           asdf install
           asdf reshim
 
+      # Keycloak
       - name: Run local Keycloak instance
         env:
           GH_OAUTH_CLIENT_ID: ${{ secrets.CI_GH_OAUTH_CLIENT_ID }}
@@ -58,6 +59,8 @@ jobs:
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
           node_modules/.bin/wait-on $KEYCLOAK_URL --timeout 500000
           node scripts/e2e-prep.js
+
+      # Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
       - name: Add Realm test client
@@ -69,6 +72,8 @@ jobs:
           terraform init
           terraform apply -auto-approve -var="keycloak_url=$KEYCLOAK_URL" -var="username=$KEYCLOAK_USERNAME" -var="password=$KEYCLOAK_PASSWORD"
         working-directory: ./terraform/keycloak-dev
+
+      # NodeJS APP & Cypress
       - name: Run local app & e2e tests
         env:
           CYPRESS_APP_URL: ${{ env.APP_URL }}
@@ -78,6 +83,8 @@ jobs:
           yarn dev & yarn wait-on $APP_URL --timeout 200000
           yarn cypress run
         working-directory: ./examples/next-app
+
+      # Cypress Arifacts
       - name: Store Cypress video
         env:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}

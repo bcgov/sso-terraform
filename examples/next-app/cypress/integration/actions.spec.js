@@ -2,8 +2,8 @@
 
 describe('Test Keycloak client GitHub IDP', () => {
   const appUrl = Cypress.env('APP_URL') || 'http://127.0.0.1:3000';
-  const ghUsername = Cypress.env('GH_USERNAME') || '';
-  const ghPassword = Cypress.env('GH_PASSWORD') || '';
+  const ghUsername = Cypress.env('GH_USERNAME') || 'testuser';
+  const ghPassword = Cypress.env('GH_PASSWORD') || 'testuser';
 
   it('can login via GitHub IDP', () => {
     cy.visit(appUrl);
