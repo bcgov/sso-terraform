@@ -79,8 +79,17 @@ jobs:
           yarn cypress run
         working-directory: ./examples/next-app
       - name: Store Cypress video
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const script = require('./scripts/store-cypress-video.js')
-            console.log(script({github, context}))
+        env:
+          GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
+        run: |
+          rm -rf .git
+          cd /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
+          git init
+          git config user.name "$GH_USERNAME"
+          git config user.email "$GH_USERNAME@users.noreply.github.com"
+          git config commit.gpgsign false
+          git add .
+          git commit -m "initial commit"
+          git branch -M cypress/artifacts
+          git remote add origin "https://$GH_USERNAME:${{ secrets.CI_GITHUB_TOKEN }}@github.com/bcgov/sso_terraform.git"
+          git push -uf origin cypress/artifacts
