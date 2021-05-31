@@ -82,7 +82,7 @@ jobs:
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 200000
           yarn cypress run
-          sleep 15
+          sleep 60
         working-directory: ./examples/next-app
 
       # Cypress Arifacts
@@ -101,7 +101,7 @@ jobs:
               height: auto  !important;
             }
           </style>
-          <video controls autoplay>
+          <video controls autoplay muted>
             <source src="actions.spec.js.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
