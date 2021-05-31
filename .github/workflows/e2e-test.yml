@@ -82,6 +82,7 @@ jobs:
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 200000
           yarn cypress run
+          sleep 15
         working-directory: ./examples/next-app
 
       # Cypress Arifacts
@@ -90,7 +91,6 @@ jobs:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
           CYPRESS_VIDEOS: /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
         run: |
-          sleep 10
           rm -rf .git
           cd "$CYPRESS_VIDEOS"
           cat >"$CYPRESS_VIDEOS/index.html" <<EOF
