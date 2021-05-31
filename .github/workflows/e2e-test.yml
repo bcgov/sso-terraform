@@ -82,7 +82,7 @@ jobs:
           CYPRESS_GH_PASSWORD: ${{ secrets.CI_GH_PASSWORD }}
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 60000
-          yarn cypress run --record
+          yarn cypress run
         working-directory: ./examples/next-app
 
       # Cypress Arifacts
