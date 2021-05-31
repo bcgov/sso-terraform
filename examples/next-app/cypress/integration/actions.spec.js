@@ -22,7 +22,6 @@ describe('Test Keycloak client GitHub IDP', () => {
     cy.get('#password').clear().type(ghPassword);
     cy.get('input[type=submit]').click();
 
-    cy.wait(5000)
     cy.screenshot()
   });
 });
