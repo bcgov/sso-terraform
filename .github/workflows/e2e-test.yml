@@ -78,3 +78,9 @@ jobs:
           yarn dev & yarn wait-on $APP_URL --timeout 200000
           yarn cypress run
         working-directory: ./examples/next-app
+      - name: Store Cypress video
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const script = require('./scripts/script.js')
+            console.log(script({github, context}))
