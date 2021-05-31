@@ -5,6 +5,7 @@ on: push
 # on:
 #   workflow_run:
 #     workflows: ["Check code/commit conventions"]
+#     branches: [master]
 #     types:
 #       - completed
 
@@ -79,18 +80,14 @@ jobs:
           CYPRESS_APP_URL: ${{ env.APP_URL }}
           CYPRESS_GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
           CYPRESS_GH_PASSWORD: ${{ secrets.CI_GH_PASSWORD }}
-        run: |
-          yarn dev & yarn wait-on $APP_URL --timeout 200000
-          yarn cypress run
-          sleep 60
-        working-directory: ./examples/next-app
-
-      # Cypress Arifacts
-      - name: Store Cypress artifacts
-        env:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
           CYPRESS_VIDEOS: /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
         run: |
+          pushd ./examples/next-app
+          yarn dev & yarn wait-on $APP_URL --timeout 200000
+          yarn cypress run
+          popd
+          sleep 60
           rm -rf .git
           cd "$CYPRESS_VIDEOS"
           cat >"$CYPRESS_VIDEOS/index.html" <<EOF
