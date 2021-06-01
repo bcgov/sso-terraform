@@ -1,0 +1,61 @@
+# see https://docs.docker.com/compose/compose-file/compose-file-v3/#args
+
+version: "3.4"
+
+x-keycloak_environment: &keycloak_environment
+  DB_VENDOR: POSTGRES
+  DB_DATABASE: keycloak
+  DB_USER: keycloak
+  DB_SCHEMA: public
+  DB_PASSWORD: password
+  KEYCLOAK_USER: admin
+  KEYCLOAK_PASSWORD: Pa55w0rd
+  # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+  #JDBC_PARAMS: "ssl=true"
+
+x-postgres_environment: &postgres_environment
+  POSTGRES_DB: keycloak
+  POSTGRES_USER: keycloak
+  POSTGRES_PASSWORD: password
+
+services:
+  postgres_broker:
+    image: postgres
+    volumes:
+      - postgres_data_broker:/var/lib/postgresql/data
+    environment:
+      <<: *postgres_environment
+  keycloak_broker:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      <<: *keycloak_environment
+      DB_ADDR: postgres_broker
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres_broker
+
+  postgres_provider:
+    image: postgres
+    volumes:
+      - postgres_data_provider:/var/lib/postgresql/data
+    environment:
+      <<: *postgres_environment
+  keycloak_provider:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      <<: *keycloak_environment
+      DB_ADDR: postgres_provider
+    command:
+      - "-b 0.0.0.0"
+      - "-Djboss.http.port=9080"
+    ports:
+      - 9080:9080
+    depends_on:
+      - postgres_provider
+
+volumes:
+  postgres_data_broker:
+    driver: local
+  postgres_data_provider:
+    driver: local
