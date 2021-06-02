@@ -59,8 +59,8 @@ jobs:
         uses: hashicorp/setup-terraform@v1
       - name: Add Realm test client
         run: |
-          ./add-client.sh "$KEYCLOAK_REALM" "$KEYCLOAK_CLIENT_ID"
-        working-directory: ./.bin
+          ./add-client.sh "$KEYCLOAK_REALM" "$KEYCLOAK_CLIENT_ID" --dev
+        working-directory: ./bin
       - name: Run Terraform
         run: |
           terraform init
