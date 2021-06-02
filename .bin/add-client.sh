@@ -28,10 +28,11 @@ if [[ ! " ${available_realms[@]} " =~ " ${realm} " ]]; then
 fi
 
 pwd="$(dirname "$0")"
-example="$pwd/../terraform/client.tf.example"
-dev="$pwd/../terraform/keycloak-dev/modules/${realm}/client-${client}.tf"
-test="$pwd/../terraform/keycloak-test/modules/${realm}/client-${client}.tf"
-prod="$pwd/../terraform/keycloak-prod/modules/${realm}/client-${client}.tf"
+terraform="$pwd/../terraform"
+example="$terraform/client.tf.example"
+dev="$terraform/keycloak-dev/clients/${realm}/client-${client}.tf"
+test="$terraform/keycloak-test/clients/${realm}/client-${client}.tf"
+prod="$terraform/keycloak-prod/clients/${realm}/client-${client}.tf"
 
 template=$(envsubst <"$example")
 echo "$template" >"$dev"

@@ -48,9 +48,9 @@ services:
       DB_ADDR: postgres_provider
     command:
       - "-b 0.0.0.0"
-      - "-Djboss.http.port=9080"
+      - "-Djboss.http.port=8081"
     ports:
-      - 9080:9080
+      - 8081:8081
     depends_on:
       - postgres_provider
 
