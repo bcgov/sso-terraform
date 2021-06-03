@@ -1,3 +1,3 @@
 data "keycloak_realm" "this" {
-  realm = "onestopauth"
+  realm = "onestopauth-both"
 }
