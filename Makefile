@@ -18,7 +18,3 @@ local-setup:
 .PHONY: dev-setup
 dev-setup:
 	docker-compose -f dockerfiles/keycloak-postgres.yml up
-
-.PHONY: add-client
-add-client:
-	@@.bin/add-client.sh ${REALM} ${CLIENT}

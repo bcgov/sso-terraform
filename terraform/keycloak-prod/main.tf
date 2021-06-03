@@ -8,17 +8,17 @@ provider "keycloak" {
 }
 
 module "onestopauth" {
-  source = "./modules/onestopauth"
+  source = "./realms/onestopauth"
 }
 
 module "onestopauth_business" {
-  source = "./modules/onestopauth-business"
+  source = "./realms/onestopauth-business"
 }
 
 module "onestopauth_basic" {
-  source = "./modules/onestopauth-basic"
+  source = "./realms/onestopauth-basic"
 }
 
 module "onestopauth_both" {
-  source = "./modules/onestopauth-both"
+  source = "./realms/onestopauth-both"
 }

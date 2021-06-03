@@ -12,6 +12,7 @@ jobs:
       APP_URL: http://localhost:3000
       KEYCLOAK_REALM: onestopauth
       KEYCLOAK_CLIENT_ID: test-client
+      KEYCLOAK_CLIENT_SECRET: Pa55w0rd
     steps:
       - uses: actions/checkout@v2
 
@@ -59,8 +60,8 @@ jobs:
         uses: hashicorp/setup-terraform@v1
       - name: Add Realm test client
         run: |
-          ./add-client.sh "$KEYCLOAK_REALM" "$KEYCLOAK_CLIENT_ID"
-        working-directory: ./.bin
+          ./add-client.sh "$KEYCLOAK_REALM" "$KEYCLOAK_CLIENT_ID" --dev --ci
+        working-directory: ./bin
       - name: Run Terraform
         run: |
           terraform init

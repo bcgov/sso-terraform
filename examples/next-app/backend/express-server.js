@@ -22,7 +22,7 @@ const kcConfig = {
   'client-id': KEYCLOAK_CLIENT_ID,
   'auth-server-url': `${KEYCLOAK_URL}/auth`,
   'ssl-required': 'external',
-  'public-client': true,
+  'public-client': !KEYCLOAK_CLIENT_SECRET,
   'confidential-port': 0,
   secret: KEYCLOAK_CLIENT_SECRET,
 };
