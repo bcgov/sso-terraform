@@ -2,26 +2,29 @@
 
 // This workflow doesn't work well in a CI environment,
 // due to the anti-fraud detection mechanism of GitHub.
-describe('Test Keycloak client GitHub IDP', () => {
+describe('Test Keycloak client via Keycloak OIDC IDP', () => {
   const appUrl = Cypress.env('APP_URL') || 'http://localhost:3000';
   const keycloakUrl = Cypress.env('KEYCLOAK_URL') || 'http://localhost:8080';
-  const ghUsername = Cypress.env('GH_USERNAME') || 'testuser';
-  const ghPassword = Cypress.env('GH_PASSWORD') || 'testuser';
+  const testUsername = Cypress.env('TEST_USERNAME') || 'testuser';
 
-  it('can login via GitHub IDP', () => {
+  it('can login via Keycloak OIDC IDP', () => {
     cy.visit(appUrl);
     cy.get('#login').click();
 
     cy.url().should('contain', keycloakUrl);
 
-    cy.get('#social-github').click();
+    cy.get('#social-keycloak-oidc').click();
 
-    cy.url().should('contain', 'https://github.com/login?');
+    cy.url().should('contain', 'client_id=providerclient');
 
-    cy.get('#login_field').clear().type(ghUsername);
-    cy.get('#password').clear().type(ghPassword);
-    cy.get('input[type=submit]').click();
+    cy.get('#username').clear().type(testUsername);
+    cy.get('#password').clear().type(testUsername);
+    cy.get('#kc-login').click();
 
-    cy.screenshot()
+    cy.url().should('contain', appUrl);
+
+    cy.get(`span#idp`).contains('keycloak-oidc');
+
+    cy.screenshot();
   });
 });

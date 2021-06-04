@@ -47,9 +47,6 @@ jobs:
 
       # Keycloak
       - name: Run local Keycloak instance
-        env:
-          GH_OAUTH_CLIENT_ID: ${{ secrets.CI_GH_OAUTH_CLIENT_ID }}
-          GH_OAUTH_CLIENT_SECRET: ${{ secrets.CI_GH_OAUTH_CLIENT_SECRET }}
         run: |
           docker-compose -f dockerfiles/keycloak-postgres.yml up -d
           node_modules/.bin/wait-on $KEYCLOAK_URL --timeout 120000
@@ -72,8 +69,8 @@ jobs:
       - name: Run local app & e2e tests
         env:
           CYPRESS_APP_URL: ${{ env.APP_URL }}
-          CYPRESS_GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
-          CYPRESS_GH_PASSWORD: ${{ secrets.CI_GH_PASSWORD }}
+          CYPRESS_KEYCLOAK_URL: ${{ env.KEYCLOAK_URL }}
+          CYPRESS_TEST_USERNAME: testuser
         run: |
           yarn dev & yarn wait-on $APP_URL --timeout 60000
           yarn cypress run
@@ -109,5 +106,5 @@ jobs:
           git add .
           git commit -m "initial commit"
           git branch -M cypress/artifacts
-          git remote add origin "https://$GH_USERNAME:${{ secrets.CI_GITHUB_TOKEN }}@github.com/bcgov/sso_terraform.git"
+          git remote add origin "https://$GH_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/bcgov/sso_terraform.git"
           git push -uf origin cypress/artifacts
