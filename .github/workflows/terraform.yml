@@ -34,6 +34,19 @@ jobs:
 
       - name: Terraform Variables
         run: |
+          cat >"versions.tf" <<EOF
+          terraform {
+            required_version = ">= 0.15.3"
+            backend "remote" {
+              hostname     = "app.terraform.io"
+              organization = "bcgov"
+              workspaces {
+                name = "xgr00q-dev-keycloak_cust"
+              }
+            }
+          }
+          EOF
+
           cat >"ci.auto.tfvars" <<EOF
           dev_client_secret="${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}"
           test_client_secret="${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}"
