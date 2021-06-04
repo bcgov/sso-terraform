@@ -32,6 +32,15 @@ jobs:
         run: terraform init
         working-directory: ./terraform
 
+      - name: Terraform Variables
+        run: |
+          cat >"ci.auto.tfvars" <<EOF
+          dev_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
+          test_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
+          prod_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
+          EOF
+        working-directory: ./terraform
+
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'

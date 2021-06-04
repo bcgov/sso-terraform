@@ -1,7 +1,7 @@
 # KEYCLOAK_DEV
 variable "dev_client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
-  default     = "admin-cli"
+  default     = "terraform-cli"
 }
 
 variable "dev_client_secret" {
@@ -21,13 +21,13 @@ variable "dev_password" {
 
 variable "dev_keycloak_url" {
   description = "The URL of the Keycloak instance"
-  default     = "http://localhost:8080"
+  default     = "https://dev.oidc.gov.bc.ca"
 }
 
 # KEYCLOAK_TEST
 variable "test_client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
-  default     = "admin-cli"
+  default     = "terraform-cli"
 }
 
 variable "test_client_secret" {
@@ -47,13 +47,13 @@ variable "test_password" {
 
 variable "test_keycloak_url" {
   description = "The URL of the Keycloak instance"
-  default     = "http://localhost:8080"
+  default     = "https://test.oidc.gov.bc.ca"
 }
 
 # KEYCLOAK_PROD
 variable "prod_client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
-  default     = "admin-cli"
+  default     = "terraform-cli"
 }
 
 variable "prod_client_secret" {
@@ -73,5 +73,5 @@ variable "prod_password" {
 
 variable "prod_keycloak_url" {
   description = "The URL of the Keycloak instance"
-  default     = "http://localhost:8080"
+  default     = "https://oidc.gov.bc.ca"
 }
