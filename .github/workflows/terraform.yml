@@ -35,9 +35,9 @@ jobs:
       - name: Terraform Variables
         run: |
           cat >"ci.auto.tfvars" <<EOF
-          dev_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
-          test_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
-          prod_client_secret="${{ secrets.TFC_TEAM_TOKEN }}"
+          dev_client_secret="${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}"
+          test_client_secret="${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}"
+          prod_client_secret="${{ secrets.KEYCLOAK_PROD_CLIENT_SECRET }}"
           EOF
         working-directory: ./terraform
 
