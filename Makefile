@@ -18,3 +18,7 @@ local-setup:
 .PHONY: dev-setup
 dev-setup:
 	docker-compose -f dockerfiles/keycloak-postgres.yml up
+
+.PHONY: dev-setup-multi
+dev-setup-multi:
+	docker-compose -f dockerfiles/keycloak-postgres-multiple.yml up
