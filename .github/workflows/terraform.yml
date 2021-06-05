@@ -27,16 +27,12 @@ jobs:
         run: terraform fmt -check
         working-directory: ./terraform
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
-        working-directory: ./terraform
-
       - name: Terraform Variables
         run: |
           cat >"versions.tf" <<EOF
           terraform {
             backend "remote" {
+              hostname     = "app.terraform.io"
               organization = "bcgov"
               workspaces {
                 name = "xgr00q-dev-keycloak_cust"
@@ -52,11 +48,17 @@ jobs:
           EOF
         working-directory: ./terraform
 
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ./terraform
+
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
         working-directory: ./terraform
+        continue-on-error: true
 
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
