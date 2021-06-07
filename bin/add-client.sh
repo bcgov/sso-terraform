@@ -2,7 +2,7 @@
 
 help="\
     Usages:
-        $0 <realm> <client> [--dev] [--test] [--prod] [--ci] or
+        $0 <realm> <client> [--dev] [--test] [--prod] [--ci]
 
     Available Realms:
        - onestopauth
@@ -17,6 +17,16 @@ help="\
 
     Options:
         --ci    Set client secret to 'Pa55w0rd' for testing in CI.
+
+    Notes:
+        - Only one 'realm' can be used at a time.
+        - Only one 'client' can be created at a time.
+        - Multiple environment flags can be set.
+
+    Examples:
+        $ ./bin/add-client.sh onestopauth test-client --dev
+        $ ./bin/add-client.sh onestopauth-basic test-client --dev --prod
+        $ ./bin/add-client.sh onestopauth-both test-client --dev --test --prod --ci
     "
 
 if [ "$#" -lt 2 ]; then
