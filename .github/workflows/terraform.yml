@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "terraform/**"
+      - ".github/**"
   pull_request:
+    paths:
+      - "terraform/**"
+      - ".github/**"
 
 env:
   TF_VERSION: 0.15.3
@@ -35,7 +41,7 @@ jobs:
               hostname     = "app.terraform.io"
               organization = "bcgov"
               workspaces {
-                name = "xgr00q-dev-keycloak_cust"
+                name = "${{ secrets.TFC_WORKSPACE }}"
               }
             }
           }
