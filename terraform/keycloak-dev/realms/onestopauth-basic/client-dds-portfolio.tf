@@ -3,6 +3,6 @@ module "client_dds-portfolio" {
 
   realm_id            = data.keycloak_realm.this.id
   client_name         = "dds-portfolio"
-  valid_redirect_uris = ["https://oauth2fider.apps.silver.devops.gov.bc.ca","https://oauth2fider.apps.silver.devops.gov.bc.ca/settings"]
+  valid_redirect_uris = ["https://oauth2fider.apps.silver.devops.gov.bc.ca", "https://oauth2fider.apps.silver.devops.gov.bc.ca/settings"]
 
 }
