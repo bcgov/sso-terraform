@@ -1,0 +1,59 @@
+name: Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      projectName:
+        description: "Project Name"
+        required: true
+      identityProviders:
+        description: "Identity Providers"
+        required: true
+      validRedirectUrls:
+        description: "Valid Redirect Urls"
+        required: true
+      environments:
+        description: "Environments"
+        required: true
+
+jobs:
+  iss:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      # NPM PACKAGES
+      - uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Yarn dependencies in root
+        run: yarn
+
+      # ASDF TOOLS
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v1
+      - name: Cache tools
+        uses: actions/cache@v2
+        with:
+          path: |
+            /home/runner/.asdf
+          key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+      - name: Install required tools
+        run: |
+          cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add || true
+          asdf plugin-update --all
+          asdf install
+          asdf reshim
+      - name: Install python tools
+        run: |
+          pip install -r requirements.txt
+          asdf reshim
+
+      - uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const script = require('./scripts/github-script.js')
+            console.log(await script({ github, context }))
