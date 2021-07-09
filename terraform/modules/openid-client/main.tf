@@ -59,12 +59,12 @@ resource "keycloak_generic_client_protocol_mapper" "idir_userid_mapper" {
   protocol        = "openid-connect"
   protocol_mapper = "oidc-usermodel-attribute-mapper"
   config = {
-    "user.session.note" : "idir_userid",
+    "user.attribute" : "idir_userid",
     "claim.name" : "idir_userid",
     "jsonType.label" : "String",
     "id.token.claim" : "true",
     "access.token.claim" : "true",
-    "access.tokenResponse.claim" : "false"
+    "userinfo.token.claim" : "true"
   }
 }
 
@@ -75,11 +75,11 @@ resource "keycloak_generic_client_protocol_mapper" "bceid_userid_mapper" {
   protocol        = "openid-connect"
   protocol_mapper = "oidc-usermodel-attribute-mapper"
   config = {
-    "user.session.note" : "bceid_userid",
+    "user.attribute" : "bceid_userid",
     "claim.name" : "bceid_userid",
     "jsonType.label" : "String",
     "id.token.claim" : "true",
     "access.token.claim" : "true",
-    "access.tokenResponse.claim" : "false"
+    "userinfo.token.claim" : "true"
   }
 }
