@@ -51,3 +51,35 @@ resource "keycloak_generic_client_protocol_mapper" "identity_provider_mapper" {
     "access.tokenResponse.claim" : "false"
   }
 }
+
+resource "keycloak_generic_client_protocol_mapper" "idir_userid_mapper" {
+  realm_id        = var.realm_id
+  client_id       = keycloak_openid_client.this.id
+  name            = "idir_userid"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-attribute-mapper"
+  config = {
+    "user.session.note" : "idir_userid",
+    "claim.name" : "idir_userid",
+    "jsonType.label" : "String",
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "access.tokenResponse.claim" : "false"
+  }
+}
+
+resource "keycloak_generic_client_protocol_mapper" "bceid_userid_mapper" {
+  realm_id        = var.realm_id
+  client_id       = keycloak_openid_client.this.id
+  name            = "bceid_userid"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-attribute-mapper"
+  config = {
+    "user.session.note" : "bceid_userid",
+    "claim.name" : "bceid_userid",
+    "jsonType.label" : "String",
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "access.tokenResponse.claim" : "false"
+  }
+}
