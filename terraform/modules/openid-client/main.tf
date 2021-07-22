@@ -83,3 +83,36 @@ resource "keycloak_generic_client_protocol_mapper" "bceid_userid_mapper" {
     "userinfo.token.claim" : "true"
   }
 }
+
+
+resource "keycloak_generic_client_protocol_mapper" "bceid_business_guid_mapper" {
+  realm_id        = var.realm_id
+  client_id       = keycloak_openid_client.this.id
+  name            = "bceid_business_guid"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-attribute-mapper"
+  config = {
+    "user.attribute" : "bceid_business_guid",
+    "claim.name" : "bceid_business_guid",
+    "jsonType.label" : "String",
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "userinfo.token.claim" : "true"
+  }
+}
+
+resource "keycloak_generic_client_protocol_mapper" "bceid_business_name_mapper" {
+  realm_id        = var.realm_id
+  client_id       = keycloak_openid_client.this.id
+  name            = "bceid_business_name"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-attribute-mapper"
+  config = {
+    "user.attribute" : "bceid_business_name",
+    "claim.name" : "bceid_business_name",
+    "jsonType.label" : "String",
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "userinfo.token.claim" : "true"
+  }
+}
