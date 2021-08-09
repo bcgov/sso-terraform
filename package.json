@@ -1,5 +1,5 @@
 {
-  "name": "sso_terraform",
+  "name": "sso-terraform",
   "version": "1.0.0",
   "description": "<!--- [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE) --->",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bcgov/sso_terraform.git"
+    "url": "git+https://github.com/bcgov/sso-terraform.git"
   },
   "author": "Junmin Ahn",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bcgov/sso_terraform/issues"
+    "url": "https://github.com/bcgov/sso-terraform/issues"
   },
-  "homepage": "https://github.com/bcgov/sso_terraform#readme",
+  "homepage": "https://github.com/bcgov/sso-terraform#readme",
   "devDependencies": {
     "@octokit/rest": "^18.5.5",
     "axios": "^0.21.1",
