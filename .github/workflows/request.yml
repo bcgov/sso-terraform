@@ -3,21 +3,27 @@ name: Request
 on:
   workflow_dispatch:
     inputs:
-      projectName:
-        description: "Project Name"
+      requestId:
+        description: "Request ID"
         required: true
-      identityProviders:
-        description: "Identity Providers"
+      clientName:
+        description: "Client Name"
         required: true
-      validRedirectUrls:
-        description: "Valid Redirect Urls"
+      realmName:
+        description: "Realm Name"
+        required: true
+      publicAccess:
+        description: "Public Access"
+        required: true
+      validRedirectUris:
+        description: "Valid Redirect Uris"
         required: true
       environments:
         description: "Environments"
         required: true
 
 jobs:
-  iss:
+  request-client:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -52,6 +58,8 @@ jobs:
           asdf reshim
 
       - uses: actions/github-script@v4
+        env:
+            GH_SECRET: ${{ secrets.GH_SECRET }}
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
