@@ -21,6 +21,7 @@
   "homepage": "https://github.com/bcgov/sso_terraform#readme",
   "devDependencies": {
     "@octokit/rest": "^18.5.5",
+    "axios": "^0.21.1",
     "keycloak-admin": "^1.14.17",
     "lodash": "^4.17.21",
     "shelljs": "^0.8.4",
