@@ -140,6 +140,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
         working-directory: ./terraform
+        continue-on-error: true
 
       - name: Get PR Number
         id: prNumber

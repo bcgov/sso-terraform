@@ -2,9 +2,9 @@ const axios = require('axios');
 
 const realms = ['onestopauth', 'onestopauth-basic', 'onestopauth-both', 'onestopauth-business'];
 const modules = ['keycloak_dev', 'keycloak_test', 'keycloak_prod'];
-const TF_ADDITIONS_ALLOWED = 6;
-const TF_DELETIONS_ALLOWED = 6;
-const TF_UPDATES_ALLOWED = 6;
+const TF_ADDITIONS_ALLOWED = 12;
+const TF_DELETIONS_ALLOWED = 12;
+const TF_UPDATES_ALLOWED = 12;
 const FILE_CHANGES_ALLOWED = 3;
 
 const isAllowedChanges = ({ count, limit, message } = {}) => {
@@ -88,13 +88,25 @@ module.exports = async ({ github, context }) => {
     data.isAllowedToMerge = isAllowedToMerge(data);
 
     console.log('sending data,', JSON.stringify(data));
-    await axios.put(`${API_URL}?status=plan`, data, { headers: { Authorization: AUTHORIZATION } });
+    const updateStatus = () => axios.put(`${API_URL}?status=plan`, data, { headers: { Authorization: AUTHORIZATION } });
+
+    let success = false;
+    for (let x = 0; x < 5; x++) {
+      await updateStatus().then(
+        () => (success = true),
+        () => (success = false),
+      );
+      if (success) break;
+    }
+
+    if (!success) throw Error('failed to update the plan status');
   } catch (error) {
     await axios.put(
       `${API_URL}?status=plan`,
       { prNumber: PR_NUMBER, planSuccess: false, planDetails: { error } },
-      { headers: { Authorization: AUTHORIZATION } }
+      { headers: { Authorization: AUTHORIZATION } },
     );
-    return { error };
+
+    throw error;
   }
 };
