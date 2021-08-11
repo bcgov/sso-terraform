@@ -2,7 +2,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const generateClients = require('./generate-clients');
 const axios = require('axios');
-const API_URL = 'https://gcp9dahm4c.execute-api.ca-central-1.amazonaws.com/test/actions?status=create';
+const API_URL = 'https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions?status=create';
 const axiosConfig = { headers: { Authorization: process.env.GH_SECRET } };
 
 // This module runs in GitHub Action `github-script`
