@@ -2,9 +2,9 @@ const axios = require('axios');
 
 const realms = ['onestopauth', 'onestopauth-basic', 'onestopauth-both', 'onestopauth-business'];
 const modules = ['keycloak_dev', 'keycloak_test', 'keycloak_prod'];
-const TF_ADDITIONS_ALLOWED = 12;
-const TF_DELETIONS_ALLOWED = 12;
-const TF_UPDATES_ALLOWED = 12;
+const TF_ADDITIONS_ALLOWED = 18;
+const TF_DELETIONS_ALLOWED = 18;
+const TF_UPDATES_ALLOWED = 18;
 const FILE_CHANGES_ALLOWED = 3;
 
 const isAllowedChanges = ({ count, limit, message } = {}) => {
