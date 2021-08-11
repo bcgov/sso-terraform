@@ -117,16 +117,19 @@ module.exports = async ({ github, context }) => {
       labels: labels.join(','),
     });
 
-    await Promise.all(
-      issuesRes.data.map((issue) => {
-        return github.issues.update({
-          owner,
-          repo,
-          issue_number: issue.id,
-          state: 'closed',
-        });
-      }),
-    );
+    console.log(issuesRes);
+
+    // TODO:
+    // await Promise.all(
+    //   issuesRes.data.map((issue) => {
+    //     return github.issues.update({
+    //       owner,
+    //       repo,
+    //       issue_number: issue.id,
+    //       state: 'closed',
+    //     });
+    //   }),
+    // );
 
     // create a new pr for the target client
     let pr = await github.pulls.create({
