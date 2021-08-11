@@ -19,7 +19,7 @@ jobs:
   terraform:
     runs-on: ubuntu-18.04
     env:
-      API_URL: 'https://gcp9dahm4c.execute-api.ca-central-1.amazonaws.com/test/actions/'
+      API_URL: 'https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions/'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -140,6 +140,7 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
         working-directory: ./terraform
+        continue-on-error: true
 
       - name: Get PR Number
         id: prNumber
