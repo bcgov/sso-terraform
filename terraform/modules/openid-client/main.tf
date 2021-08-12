@@ -136,7 +136,7 @@ resource "keycloak_generic_client_protocol_mapper" "client_roles_mapper" {
   config = {
     "claim.name" : "client_roles",
     "jsonType.label" : "String",
-    "usermodel.clientRoleMapping.clientId" : keycloak_openid_client.this.id,
+    "usermodel.clientRoleMapping.clientId" : var.client_name,
     "id.token.claim" : "true",
     "access.token.claim" : "true",
     "userinfo.token.claim" : "true",
