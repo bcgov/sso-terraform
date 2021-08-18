@@ -57,11 +57,8 @@ jobs:
           pip install -r requirements.txt
           asdf reshim
 
-      - uses: actions/github-script@v4
-        env:
-            GH_SECRET: ${{ secrets.GH_SECRET }}
+      - uses: bcgov/sso-requests-actions/request@v0.2.0
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          script: |
-            const script = require('./scripts/github-script.js')
-            console.log(await script({ github, context }))
+          api-url: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions?status=create"
+          auth-secret: ${{ secrets.GH_SECRET }}
