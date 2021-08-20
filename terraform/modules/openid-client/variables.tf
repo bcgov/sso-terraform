@@ -145,6 +145,12 @@ variable "exclude_session_state_from_auth_response" {
   default     = false
 }
 
+variable "roles" {
+  description = "Client roles to create in the openid client of the realm"
+  type        = list(string)
+  default     = []
+}
+
 # authentication_flow_binding_overrides and authorization is not covered in here
 # https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/openid_client#authentication_flow_binding_overrides
 # https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/openid_client#authorization

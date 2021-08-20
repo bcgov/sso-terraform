@@ -36,6 +36,16 @@ resource "keycloak_openid_client" "this" {
   exclude_session_state_from_auth_response = var.exclude_session_state_from_auth_response
 }
 
+# see https://mrparkers.github.io/terraform-provider-keycloak/resources/keycloak_user_roles
+resource "keycloak_role" "client_role" {
+  for_each = { for v in var.roles : v => v }
+
+  realm_id    = var.realm_id
+  client_id   = keycloak_openid_client.this.id
+  name        = each.value
+  description = each.value
+}
+
 resource "keycloak_generic_client_protocol_mapper" "identity_provider_mapper" {
   realm_id        = var.realm_id
   client_id       = keycloak_openid_client.this.id
@@ -114,5 +124,22 @@ resource "keycloak_generic_client_protocol_mapper" "bceid_business_name_mapper" 
     "id.token.claim" : "true",
     "access.token.claim" : "true",
     "userinfo.token.claim" : "true"
+  }
+}
+
+resource "keycloak_generic_client_protocol_mapper" "client_roles_mapper" {
+  realm_id        = var.realm_id
+  client_id       = keycloak_openid_client.this.id
+  name            = "client_roles"
+  protocol        = "openid-connect"
+  protocol_mapper = "oidc-usermodel-client-role-mapper"
+  config = {
+    "claim.name" : "client_roles",
+    "jsonType.label" : "String",
+    "usermodel.clientRoleMapping.clientId" : var.client_name,
+    "id.token.claim" : "true",
+    "access.token.claim" : "true",
+    "userinfo.token.claim" : "true",
+    "multivalued" : "true"
   }
 }

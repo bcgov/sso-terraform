@@ -1,6 +1,9 @@
 name: Test E2E
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   e2e:
@@ -81,7 +84,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         env:
           GH_USERNAME: ${{ secrets.CI_GH_USERNAME }}
-          CYPRESS_VIDEOS: /home/runner/work/sso_terraform/sso_terraform/examples/next-app/cypress/videos
+          CYPRESS_VIDEOS: /home/runner/work/sso-terraform/sso-terraform/examples/next-app/cypress/videos
         run: |
           rm -rf .git
           cd "$CYPRESS_VIDEOS"
@@ -106,5 +109,5 @@ jobs:
           git add .
           git commit -m "initial commit"
           git branch -M cypress/artifacts
-          git remote add origin "https://$GH_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/bcgov/sso_terraform.git"
+          git remote add origin "https://$GH_USERNAME:${{ secrets.GITHUB_TOKEN }}@github.com/bcgov/sso-terraform.git"
           git push -uf origin cypress/artifacts
