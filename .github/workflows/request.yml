@@ -1,4 +1,4 @@
-name: Request
+name: "Client Request"
 
 on:
   workflow_dispatch:
