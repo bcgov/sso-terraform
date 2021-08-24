@@ -1,4 +1,4 @@
-name: Request
+name: "Client Request"
 
 on:
   workflow_dispatch:
@@ -60,6 +60,6 @@ jobs:
       - uses: bcgov/sso-requests-actions/request@v0.5.0
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          api-url: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions?status=create"
+          api-url: "https://gcp9dahm4c.execute-api.ca-central-1.amazonaws.com/test/actions?status=create"
           auth-secret: ${{ secrets.GH_SECRET }}
-          tf-module-ref: main
+          tf-module-ref: dev
