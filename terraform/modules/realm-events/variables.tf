@@ -17,7 +17,7 @@ variable "admin_events_details_enabled" {
 variable "events_enabled" {
   description = "When true, events from enabled_event_types are saved to the database, making them available through the admin console"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "events_expiration" {
