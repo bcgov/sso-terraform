@@ -1,5 +1,6 @@
 locals {
-  target_realms = ["v45fd2kb"]
+  target_realms = []
+  # target_realms = ["v45fd2kb"]
 }
 
 module "realm_events" {
