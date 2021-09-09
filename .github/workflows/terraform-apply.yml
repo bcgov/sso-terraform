@@ -104,5 +104,5 @@ jobs:
           timeout: "60000"
 
       - name: Fail action if apply failed
-        if: steps.prNumber.outputs.botLabel == '"auto_generated"' && steps.apply.outcome == 'failure'
+        if: steps.apply.outcome == 'failure'
         run: exit 1
