@@ -6,6 +6,7 @@ module "keycloak_dev" {
   keycloak_url  = var.dev_keycloak_url
   username      = var.dev_username
   password      = var.dev_password
+  event_realms  = var.dev_event_realms
 }
 
 module "keycloak_test" {
@@ -16,6 +17,7 @@ module "keycloak_test" {
   keycloak_url  = var.test_keycloak_url
   username      = var.test_username
   password      = var.test_password
+  event_realms  = var.test_event_realms
 }
 
 module "keycloak_prod" {
@@ -26,4 +28,5 @@ module "keycloak_prod" {
   keycloak_url  = var.prod_keycloak_url
   username      = var.prod_username
   password      = var.prod_password
+  event_realms  = var.prod_event_realms
 }

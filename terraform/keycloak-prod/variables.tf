@@ -22,3 +22,9 @@ variable "keycloak_url" {
   description = "The URL of the Keycloak instance"
   default     = "http://localhost:8080"
 }
+
+variable "event_realms" {
+  description = "The realms to enable event logging in the Keycloak server"
+  type        = list(string)
+  default     = []
+}

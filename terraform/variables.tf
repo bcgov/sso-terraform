@@ -78,6 +78,7 @@ variable "prod_keycloak_url" {
 
 variable "dev_event_realms" {
   description = "The realms to enable event logging in Dev Keycloak server"
+  type        = list(string)
   default = [
     "vtkayq4c", // SBC_With_BCEID
     "v45fd2kb", // Student Online
@@ -89,6 +90,7 @@ variable "dev_event_realms" {
 
 variable "test_event_realms" {
   description = "The realms to enable event logging in Test Keycloak server"
+  type        = list(string)
   default = [
     "vtkayq4c", // SBC_With_BCEID
     "v45fd2kb", // Student Online
@@ -100,5 +102,6 @@ variable "test_event_realms" {
 
 variable "prod_event_realms" {
   description = "The realms to enable event logging in Prod Keycloak server"
+  type        = list(string)
   default     = []
 }
