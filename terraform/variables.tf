@@ -75,3 +75,33 @@ variable "prod_keycloak_url" {
   description = "The URL of the Keycloak instance"
   default     = "https://oidc.gov.bc.ca"
 }
+
+variable "dev_event_realms" {
+  description = "The realms to enable event logging in Dev Keycloak server"
+  type        = list(string)
+  default = [
+    "vtkayq4c", // SBC_With_BCEID
+    "v45fd2kb", // Student Online
+    "ytaqhqia", // BCStats
+    "fcf0kpqr", // registries
+    "tz0e228w", // Court Services
+  ]
+}
+
+variable "test_event_realms" {
+  description = "The realms to enable event logging in Test Keycloak server"
+  type        = list(string)
+  default = [
+    "vtkayq4c", // SBC_With_BCEID
+    "v45fd2kb", // Student Online
+    "ytaqhqia", // BCStats
+    "fcf0kpqr", // registries
+    "tz0e228w", // Court Services
+  ]
+}
+
+variable "prod_event_realms" {
+  description = "The realms to enable event logging in Prod Keycloak server"
+  type        = list(string)
+  default     = []
+}
