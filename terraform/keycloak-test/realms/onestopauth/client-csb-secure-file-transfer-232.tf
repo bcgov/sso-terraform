@@ -3,6 +3,6 @@ module "client_csb-secure-file-transfer-232" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "csb-secure-file-transfer-232"
   valid_redirect_uris = [
-    "https://csb-sft-test.apps.silver.devops.gov.bc.ca/apps/oidc_login/oidc"
+    "https://test.jag.gov.bc.ca/csb-sft"
   ]
 }
