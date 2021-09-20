@@ -1,0 +1,58 @@
+name: "Manual Terraform Run"
+
+on: workflow_dispatch
+
+env:
+  TF_VERSION: 0.15.3
+
+jobs:
+  terraform:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          cli_config_credentials_token: ${{ secrets.TFC_TEAM_TOKEN }}
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+        working-directory: ./terraform
+
+      - name: Terraform Variables
+        run: |
+          cat >"versions.tf" <<EOF
+          terraform {
+            backend "remote" {
+              hostname     = "app.terraform.io"
+              organization = "bcgov"
+              workspaces {
+                name = "${{ secrets.TFC_WORKSPACE }}"
+              }
+            }
+          }
+          EOF
+
+          cat >"ci.auto.tfvars" <<EOF
+          dev_keycloak_url="${{ secrets.KEYCLOAK_DEV_URL }}"
+          test_keycloak_url="${{ secrets.KEYCLOAK_TEST_URL }}"
+          prod_keycloak_url="${{ secrets.KEYCLOAK_PROD_URL }}"
+          dev_client_secret="${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}"
+          test_client_secret="${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}"
+          prod_client_secret="${{ secrets.KEYCLOAK_PROD_CLIENT_SECRET }}"
+          EOF
+        working-directory: ./terraform
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve
+        working-directory: ./terraform
