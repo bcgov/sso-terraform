@@ -126,7 +126,7 @@ jobs:
           plan-result: "${{ steps.plan.outcome }}"
           pr-number: "${{ github.event.number }}"
           pr-branch: "${{ github.event.pull_request.head.ref }}"
-          allowed-additions: "21"
+          allowed-additions: "24"
           allowed-deletions: "21"
           allowed-updates: "21"
           allowed-file-changes: "3"
