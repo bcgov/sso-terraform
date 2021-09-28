@@ -5,8 +5,7 @@ module "client_hets" {
   client_name = "hets"
   valid_redirect_uris = [
     "https://hets-e0cee6-prod.apps.silver.devops.gov.bc.ca/*",
-    "https://hets.th.gov.bc.ca/*",
-    "http://localhost:3000/*"
+    "https://hets.th.gov.bc.ca/*"
   ]
   web_origins                = ["+"]
   access_type                = "PUBLIC"
