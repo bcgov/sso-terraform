@@ -5,6 +5,8 @@ module "client_sso-test-2-2" {
   valid_redirect_uris = [
     "http://localhost:3000",
     "http://localhost:3000/*",
+    "http://localhost:5000",
+    "http://localhost:5000/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_type                = "PUBLIC"
