@@ -3,6 +3,6 @@ module "client_front-counter-bc-fider-661" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "front-counter-bc-fider-661"
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "https://fcbc-fider.apps.silver.devops.gov.bc.ca/"
   ]
 }
