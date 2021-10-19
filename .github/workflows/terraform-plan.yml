@@ -127,8 +127,8 @@ jobs:
           pr-number: "${{ github.event.number }}"
           pr-branch: "${{ github.event.pull_request.head.ref }}"
           allowed-additions: "24"
-          allowed-deletions: "21"
-          allowed-updates: "21"
+          allowed-deletions: "24"
+          allowed-updates: "24"
           allowed-file-changes: "3"
 
       - name: Terraform Plan Status
