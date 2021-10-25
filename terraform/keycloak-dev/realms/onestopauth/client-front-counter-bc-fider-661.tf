@@ -5,4 +5,5 @@ module "client_front-counter-bc-fider-661" {
   valid_redirect_uris = [
     "https://fcbcfiderdev.apps.silver.devops.gov.bc.ca"
   ]
+  description = "CSS App Created"
 }
