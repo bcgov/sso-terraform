@@ -3,8 +3,9 @@ module "client_clean-transportation-data-hub-595" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "clean-transportation-data-hub-595"
   valid_redirect_uris = [
-    "https://cthub-dev-11.apps.silver.devops.gov.bc.ca",
-    "https://cthub-dev.apps.silver.devops.gov.bc.ca"
+    "https://cthub-dev-*.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-dev-11.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-dev.apps.silver.devops.gov.bc.ca/"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
