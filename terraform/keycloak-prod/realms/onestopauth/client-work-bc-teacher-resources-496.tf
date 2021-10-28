@@ -5,4 +5,6 @@ module "client_work-bc-teacher-resources-496" {
   valid_redirect_uris = [
     "https://admin-jobboard.workbc.ca/*"
   ]
+  description = "CSS App Created"
+
 }

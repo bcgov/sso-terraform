@@ -5,4 +5,5 @@ module "client_csb-secure-file-transfer-232" {
   valid_redirect_uris = [
     "https://jag.gov.bc.ca/csb-sft/*"
   ]
+  description = "CSS App Created"
 }
