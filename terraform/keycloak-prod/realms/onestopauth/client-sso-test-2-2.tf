@@ -10,4 +10,6 @@ module "client_sso-test-2-2" {
   web_origins = [
     "+"
   ]
+  description = "System Default"
+
 }
