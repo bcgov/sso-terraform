@@ -6,4 +6,5 @@ module "client_work-bc-job-board-496" {
     "https://dev-admin-jobboard.workbc.ca/*",
     "https://localhost:44364/*"
   ]
+  web_origins = ["https://dev-admin-jobboard.workbc.ca", "https://localhost:44364"]
 }

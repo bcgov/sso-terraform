@@ -5,4 +5,5 @@ module "client_work-bc-job-board-496" {
   valid_redirect_uris = [
     "https://test-admin-jobboard.workbc.ca/*"
   ]
+  web_origins = ["https://test-admin-jobboard.workbc.ca"]
 }
