@@ -6,5 +6,5 @@ module "client_work-bc-job-board-496" {
     "https://admin-jobboard.workbc.ca/*"
   ]
   description = "CSS App Created"
-  web_origins           = ["https://admin-jobboard.workbc.ca"]
+  web_origins = ["https://admin-jobboard.workbc.ca"]
 }
