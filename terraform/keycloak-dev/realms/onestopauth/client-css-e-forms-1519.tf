@@ -3,7 +3,7 @@ module "client_css-e-forms-1519" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "css-e-forms-1519"
   valid_redirect_uris = [
-    "https://keycloak-7d3aa1-dev.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/oidc/endpoint"
+    "https://keycloak-7d3aa1-dev.apps.silver.devops.gov.bc.ca"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
