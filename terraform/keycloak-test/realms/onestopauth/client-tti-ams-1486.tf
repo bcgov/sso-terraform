@@ -14,7 +14,4 @@ module "client_tti-ams-1486" {
     "https://mhreviewboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir"
   ]
   description = "CSS App Created"
-  web_origins = [
-    "+"
-  ]
 }
