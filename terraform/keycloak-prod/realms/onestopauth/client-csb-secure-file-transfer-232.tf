@@ -3,7 +3,7 @@ module "client_csb-secure-file-transfer-232" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "csb-secure-file-transfer-232"
   valid_redirect_uris = [
-    "https://jag.gov.bc.ca/csb-sft/*"
+    "https://jag.gov.bc.ca/court-nextcloud/*"
   ]
   description = "CSS App Created"
 }
