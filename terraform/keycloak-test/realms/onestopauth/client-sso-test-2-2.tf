@@ -5,6 +5,7 @@ module "client_sso-test-2-2" {
   valid_redirect_uris = [
     "http://localhost"
   ]
+  description                = "CSS App Created"
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
