@@ -117,7 +117,7 @@ jobs:
         run: yarn
 
       - name: Save terraform plan event
-        uses: bcgov/sso-requests-actions/plan@v0.8.0
+        uses: bcgov/sso-requests-actions/plan@v0.10.0
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           api-url: "${{ env.API_URL }}"
