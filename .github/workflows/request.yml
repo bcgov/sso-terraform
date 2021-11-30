@@ -21,6 +21,9 @@ on:
       environments:
         description: "Environments"
         required: true
+      browserFlowOverride:
+        description: "Browser Flow Override"
+        required: true
 
 jobs:
   request-client:
