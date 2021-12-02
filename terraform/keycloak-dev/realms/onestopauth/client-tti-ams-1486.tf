@@ -8,6 +8,8 @@ module "client_tti-ams-1486" {
     "https://bcrb--newqa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://cabro--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--amsqa.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardsboard--qa04.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardstribunal--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://lrb--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://mhreviewboard--qa.my.salesforce.com/services/authcallback/PathfinderIdir"
   ]
