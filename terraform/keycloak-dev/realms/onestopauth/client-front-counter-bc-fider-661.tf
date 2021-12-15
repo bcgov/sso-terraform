@@ -7,8 +7,7 @@ module "client_front-counter-bc-fider-661" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "front-counter-bc-fider-661"
   valid_redirect_uris = [
-    "https://v191fider.apps.silver.devops.gov.bc.ca/oauth/_hs72sbrfrh/callback",
-    "https://v191fider.apps.silver.devops.gov.bc.ca/oauth/_hs72sbrfrh/callback/"
+    "https://fcbcdevfider.apps.silver.devops.gov.bc.ca/oauth/_rihqijuv0r/callback"
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
