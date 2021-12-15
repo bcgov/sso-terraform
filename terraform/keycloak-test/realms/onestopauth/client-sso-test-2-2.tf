@@ -3,7 +3,7 @@ module "client_sso-test-2-2" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "sso-test-2-2"
   valid_redirect_uris = [
-    "http://localhost"
+    "http://localhost-test"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
