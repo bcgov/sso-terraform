@@ -3,7 +3,7 @@ module "client_invasives-bc-1849" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "invasives-bc-1849"
   valid_redirect_uris = [
-    "https://invasivesbci.apps.silver.devops.gov.bc.ca"
+    "https://invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
   ]
   description = "CSS App Created"
 }
