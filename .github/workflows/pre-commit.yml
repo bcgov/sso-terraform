@@ -18,7 +18,7 @@ jobs:
       - name: Install required tools
         run: |
           cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add || true
-          asdf plugin-update --all
+          asdf plugin-update --all || true
           asdf install
           asdf reshim
       - name: Rerun Pre-Commit Hooks on CI
