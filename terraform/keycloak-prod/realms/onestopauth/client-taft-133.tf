@@ -3,8 +3,7 @@ module "client_taft-133" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "taft-133"
   valid_redirect_uris = [
-    "https://idm-prod-taft.apps.silver.devops.gov.bc.ca/auth/realms/taft/broker/idir/endpoint"
+    "https://idm-demo-taft.apps.silver.devops.gov.bc.ca/auth/realms/taft/broker/idir/endpoint"
   ]
   description = "CSS App Created"
-
 }
