@@ -122,8 +122,8 @@ jobs:
         id: pr
         run: |
           prs=$(curl -H "Accept: application/vnd.github.groot-preview+json" https://api.github.com/repos/${{github.repository}}/commits/${{github.sha}}/pulls)
-          toJSON($prs)
-          pr=toJSON($(jq ".[0]" <<< "$pr"))
+          echo $prs
+          pr=$(jq ".[0]" <<< "$prs")
           echo "::set-output name=pr::$pr"
 
       - name: Save terraform plan event
