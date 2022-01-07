@@ -9,6 +9,6 @@ module "client_invasives-bc-1849" {
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
-    "+"
+    "https://invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
   ]
 }
