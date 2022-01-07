@@ -17,6 +17,7 @@ module "client_invasives-bc-1849" {
     "invasivesbc://127.0.0.1:3000/*",
     "invasivesbc://192.168.1.105:8000/*",
     "invasivesbc://192.168.1.105:8100/*",
+    "invasivesbc://localhost/*",
     "invasivesbc://localhost:3000/*"
   ]
   description                = "CSS App Created"
