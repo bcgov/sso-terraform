@@ -118,9 +118,15 @@ jobs:
       - name: Install Yarn dependencies in root
         run: yarn
 
+      - name: Get PR
+        id: pr
+        run: |
+          prs=$(curl -H "Accept: application/vnd.github.groot-preview+json" https://api.github.com/repos/${{github.repository}}/commits/${{github.sha}}/pulls)
+          echo "::set-output name=first::$(jq ".[0]" <<< "$prs")"
+
       - name: Save terraform plan event
         uses: bcgov/sso-requests-actions/plan@v0.11.0
-        # if: contains(github.event.pull_request.labels.*.name, 'auto_generated')
+        if: contains(steps.pr.first.labels.*.name, 'auto_generated')
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           api-url: "${{ env.API_URL }}"
