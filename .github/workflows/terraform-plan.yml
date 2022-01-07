@@ -15,6 +15,8 @@ jobs:
     env:
       API_URL: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
+      - uses: hmarr/debug-action@v2
+
       - name: Checkout
         uses: actions/checkout@v2
 
