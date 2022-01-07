@@ -5,6 +5,7 @@ module "client_roadsafety-digital-forms" {
   client_name = "roadsafety-digital-forms"
   valid_redirect_uris = [
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://rsbc-dh-prohibition-web-app-pr-94.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-pr-96.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-uat.apps.silver.devops.gov.bc.ca/*",
     "http://localhost:8080/*"
