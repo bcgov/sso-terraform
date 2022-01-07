@@ -127,7 +127,7 @@ jobs:
 
       - name: Save terraform plan event
         uses: bcgov/sso-requests-actions/plan@v0.11.0
-        if: contains(fromJSON(steps.pr.outputs.pr).labels.*.name, 'auto_generated')
+        if: contains(steps.pr.outputs.pr.labels.*.name, 'auto_generated')
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           api-url: "${{ env.API_URL }}"
