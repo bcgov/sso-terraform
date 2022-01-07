@@ -126,7 +126,7 @@ jobs:
           echo "::set-output name=pr::$pr"
 
       - name: Save terraform plan event
-        uses: bcgov/sso-requests-actions/plan@v0.11.0
+        uses: bcgov/sso-requests-actions/plan@v0.12.0
         if: contains(steps.pr.outputs.pr.labels.*.name, 'auto_generated')
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
