@@ -122,7 +122,8 @@ jobs:
         id: pr
         run: |
           prs=$(curl -H "Accept: application/vnd.github.groot-preview+json" https://api.github.com/repos/${{github.repository}}/commits/${{github.sha}}/pulls)
-          echo "::set-output name=pr::$(jq ".[0]" <<< "$prs")"
+          pr=$(jq ".[0]" <<< "$pr")
+          echo "::set-output name=pr::$pr"
 
       - name: Save terraform plan event
         uses: bcgov/sso-requests-actions/plan@v0.11.0
