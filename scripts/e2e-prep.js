@@ -34,7 +34,16 @@ async function main() {
       password: KEYCLOAK_PASSWORD,
     });
 
-    const createRealm = (realm) => kcAdminClient.realms.create({ realm, enabled: true });
+    const createRealm = async (realm) => {
+      await kcAdminClient.realms.create({ realm, enabled: true });
+      return kcAdminClient.authenticationManagement.createFlow({
+        alias: 'IDIR redirector',
+        realm,
+        providerId: realm,
+        topLevel: true,
+        builtIn: false,
+      });
+    };
 
     const realms = await kcAdminClient.realms.find();
 
