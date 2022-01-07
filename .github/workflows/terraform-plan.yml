@@ -125,6 +125,11 @@ jobs:
           echo $pr
           echo "::set-output name=pr::$pr"
 
+      - name: Get PR2
+        id: pr2
+        run: |
+          echo ${{ steps.pr.outputs.pr.labels }}
+
       - name: Save terraform plan event
         uses: bcgov/sso-requests-actions/plan@v0.12.0
         if: contains(steps.pr.outputs.pr.labels.*.name, 'auto_generated')
