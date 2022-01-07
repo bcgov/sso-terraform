@@ -6,6 +6,8 @@ module "client_invasives-bc-1849" {
     "capacitor://127.0.0.1:3000/*",
     "capacitor://192.168.1.105:8000/*",
     "capacitor://192.168.1.105:8100/*",
+    "capacitor://localhost",
+    "capacitor://localhost*",
     "capacitor://localhost:3000/*",
     "capacitor://localhost:8100/*",
     "http://127.0.0.1:3000/home/*",
@@ -17,6 +19,8 @@ module "client_invasives-bc-1849" {
     "invasivesbc://127.0.0.1:3000/*",
     "invasivesbc://192.168.1.105:8000/*",
     "invasivesbc://192.168.1.105:8100/*",
+    "invasivesbc://localhost",
+    "invasivesbc://localhost*",
     "invasivesbc://localhost/*",
     "invasivesbc://localhost:3000/*"
   ]
