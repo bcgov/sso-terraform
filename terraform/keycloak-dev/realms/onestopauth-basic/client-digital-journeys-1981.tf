@@ -1,10 +1,9 @@
-module "client_invasives-bc-1849" {
+module "client_digital-journeys-1981" {
   source      = "github.com/bcgov/sso-terraform-keycloak-client?ref=main"
   realm_id    = data.keycloak_realm.this.id
-  client_name = "invasives-bc-1849"
+  client_name = "digital-journeys-1981"
   valid_redirect_uris = [
-    "http://127.0.0.1:3000/home/landing",
-    "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
+    "http://localhost:1000"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"

@@ -1,10 +1,9 @@
-module "client_invasives-bc-1849" {
+module "client_connectivity-intake-2014" {
   source      = "github.com/bcgov/sso-terraform-keycloak-client?ref=main"
   realm_id    = data.keycloak_realm.this.id
-  client_name = "invasives-bc-1849"
+  client_name = "connectivity-intake-2014"
   valid_redirect_uris = [
-    "http://127.0.0.1:3000/home/landing",
-    "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
+    "https://example.com/not/configured/yet"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"

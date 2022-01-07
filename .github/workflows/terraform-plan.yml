@@ -15,6 +15,8 @@ jobs:
     env:
       API_URL: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
+      - uses: hmarr/debug-action@v2
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -115,6 +117,14 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install Yarn dependencies in root
         run: yarn
+
+      - name: Get PR
+        id: pr
+        run: |
+          prs=$(curl -H "Accept: application/vnd.github.groot-preview+json" https://api.github.com/repos/${{github.repository}}/commits/${{github.sha}}/pulls)
+          echo $prs
+          pr=$(jq ".[0]" <<< "$prs")
+          echo "::set-output name=pr::$pr"
 
       - name: Save terraform plan event
         uses: bcgov/sso-requests-actions/plan@v0.12.0

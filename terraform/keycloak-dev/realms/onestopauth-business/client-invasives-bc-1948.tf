@@ -6,10 +6,5 @@ module "client_invasives-bc-1948" {
     "http://127.0.0.1:3000/home/landing",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
   ]
-  description                = "CSS App Created"
-  access_type                = "PUBLIC"
-  pkce_code_challenge_method = "S256"
-  web_origins = [
-    "+"
-  ]
+  description = "CSS App Created"
 }

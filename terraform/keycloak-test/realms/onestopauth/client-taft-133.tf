@@ -6,4 +6,5 @@ module "client_taft-133" {
     "https://idm-test-taft.apps.silver.devops.gov.bc.ca/auth/realms/taft/broker/idir/endpoint",
     "https://localhost:8080/auth/realms/taft/broker/idir/endpoint"
   ]
+  description = "CSS App Created"
 }
