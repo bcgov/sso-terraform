@@ -5,8 +5,9 @@ module "client_invasives-bc-1849" {
   valid_redirect_uris = [
     "capacitor://127.0.0.1:3000/*",
     "capacitor://192.168.1.105:8000/*",
-    "capacitor://192.168.1.105:8100/*invasivesbc://localhost:3000/*",
+    "capacitor://192.168.1.105:8100/*",
     "capacitor://localhost:3000/*",
+    "capacitor://localhost:8100/*",
     "http://127.0.0.1:3000/home/*",
     "http://192.168.1.105:8000/*",
     "http://192.168.1.105:8100/*",
