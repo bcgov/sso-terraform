@@ -3,12 +3,12 @@ module "client_connectivity-intake-2014" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "connectivity-intake-2014"
   valid_redirect_uris = [
-    "https://example.com/not/configured/yet"
+    "https://connectivity-intake-dev.apps.silver.devops.gov.bc.ca/"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
-    "+"
+    "https://connectivity-intake-dev.apps.silver.devops.gov.bc.ca/"
   ]
 }
