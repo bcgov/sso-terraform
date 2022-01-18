@@ -3,7 +3,8 @@ module "client_awp-2146" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "awp-2146"
   valid_redirect_uris = [
-    "https://dev-awp.th.gov.bc.ca/"
+    "https://dev-awp.th.gov.bc.ca/",
+    "https://localhost:44341/*"
   ]
   description = "CSS App Created"
 }
