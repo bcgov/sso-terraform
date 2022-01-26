@@ -3,6 +3,7 @@ module "client_roadsafety-digital-forms-2443" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "roadsafety-digital-forms-2443"
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "http://localhost:8080/*",
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-pr-104.apps.silver.devops.gov.bc.ca/*",
@@ -13,10 +14,12 @@ module "client_roadsafety-digital-forms-2443" {
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
+    "http://localhost:3000/*",
     "http://localhost:8080/*",
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-pr-104.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-pr-96.apps.silver.devops.gov.bc.ca/*",
-    "https://rsbc-dh-prohibition-web-app-uat.apps.silver.devops.gov.bc.ca/*"
+    "https://rsbc-dh-prohibition-web-app-uat.apps.silver.devops.gov.bc.ca/*",
+    "+"
   ]
 }
