@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "terraform/**"
-      - ".github/**"
+      - ".github/workflows/terraform-apply.yml"
 
 env:
   TF_VERSION: 0.15.3
