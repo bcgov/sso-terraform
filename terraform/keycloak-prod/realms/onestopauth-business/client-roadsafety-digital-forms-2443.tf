@@ -3,13 +3,13 @@ module "client_roadsafety-digital-forms-2443" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "roadsafety-digital-forms-2443"
   valid_redirect_uris = [
-    "http://localhost:8080/*"
+    "https://jag.gov.bc.ca/roadside-forms/*"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
-    "http://localhost:8080/*",
+    "https://jag.gov.bc.ca/roadside-forms/*",
     "+"
   ]
 }
