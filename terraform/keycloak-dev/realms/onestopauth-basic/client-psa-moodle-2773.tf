@@ -3,7 +3,8 @@ module "client_psa-moodle-2773" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "psa-moodle-2773"
   valid_redirect_uris = [
-    "https://moodle-950003-dev.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php"
+    "https://moodle-950003-dev.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php",
+    "https://moodle.virtuallearn.ca/admin/oauth2callback.php"
   ]
   description = "CSS App Created"
 }
