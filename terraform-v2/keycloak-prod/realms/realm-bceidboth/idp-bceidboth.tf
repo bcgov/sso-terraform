@@ -13,7 +13,7 @@ resource "keycloak_saml_identity_provider" "bceidboth" {
   single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
   single_logout_service_url  = ""
 
-  name_id_policy_format = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+  name_id_policy_format = "Persistent"
   principal_type        = "SUBJECT"
 
   backchannel_supported      = false
