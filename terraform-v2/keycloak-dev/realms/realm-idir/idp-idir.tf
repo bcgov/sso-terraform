@@ -14,6 +14,7 @@ resource "keycloak_saml_identity_provider" "idir" {
   single_logout_service_url  = ""
 
   name_id_policy_format = "Persistent"
+  principal_type        = "SUBJECT"
 
   backchannel_supported      = false
   post_binding_response      = true
@@ -23,6 +24,7 @@ resource "keycloak_saml_identity_provider" "idir" {
   force_authn         = true
   validate_signature  = true
   signing_certificate = "<UPDATE_ME>"
+
 
   extra_config = {
     "authnContextComparisonType" = "exact"
