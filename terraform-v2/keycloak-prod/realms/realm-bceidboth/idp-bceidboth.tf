@@ -7,18 +7,18 @@ resource "keycloak_saml_identity_provider" "bceidboth" {
   enabled     = true
   store_token = false
   trust_email = false
-  sync_mode   = "FORCE"
+  sync_mode   = "IMPORT"
 
   entity_id                  = "${var.keycloak_url}/auth/realms/${var.realm_name}"
   single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
-  single_logout_service_url  = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2slo"
+  single_logout_service_url  = ""
 
   name_id_policy_format = "Persistent"
 
   backchannel_supported      = false
   post_binding_response      = true
   post_binding_authn_request = true
-  post_binding_logout        = true
+  post_binding_logout        = false
 
   force_authn         = true
   validate_signature  = true
