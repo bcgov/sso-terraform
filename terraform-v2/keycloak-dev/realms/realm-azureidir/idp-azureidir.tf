@@ -7,7 +7,7 @@ resource "keycloak_oidc_identity_provider" "azureidir" {
   enabled     = true
   store_token = false
   trust_email = false
-  sync_mode   = "FORCE"
+  sync_mode   = "IMPORT"
 
   authorization_url = "${var.azureidir_keycloak_url}/auth"
   token_url         = "${var.azureidir_keycloak_url}/token"
