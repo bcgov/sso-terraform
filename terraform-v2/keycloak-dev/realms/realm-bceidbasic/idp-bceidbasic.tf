@@ -44,7 +44,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_displayname" {
 
   extra_config = {
     syncMode         = "INHERIT"
-    "attribute.name" = "displayname"
+    "attribute.name" = "displayName"
     "user.attribute" = "display_name"
   }
 }
