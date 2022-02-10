@@ -75,6 +75,19 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_user_guid"
   }
 }
 
+resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_username" {
+  realm                    = keycloak_realm.this.id
+  name                     = "bceid_username"
+  identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
+  identity_provider_mapper = "saml-user-attribute-idp-mapper"
+
+  extra_config = {
+    syncMode         = "INHERIT"
+    "attribute.name" = "username"
+    "user.attribute" = "bceid_username"
+  }
+}
+
 # resource "keycloak_custom_identity_provider_mapper" "bceidbasic_username" {
 #   realm                    = keycloak_realm.this.id
 #   name                     = "username"

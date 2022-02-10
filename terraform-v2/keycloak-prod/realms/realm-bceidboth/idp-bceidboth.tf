@@ -44,7 +44,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_displayname" {
 
   extra_config = {
     syncMode         = "INHERIT"
-    "attribute.name" = "displayname"
+    "attribute.name" = "displayName"
     "user.attribute" = "display_name"
   }
 }
@@ -62,9 +62,9 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_email" {
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid1" {
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid" {
   realm                    = keycloak_realm.this.id
-  name                     = "bceid_user_guid1"
+  name                     = "bceid_user_guid"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidboth.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
 
@@ -75,29 +75,16 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid1"
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid2" {
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_username" {
   realm                    = keycloak_realm.this.id
-  name                     = "bceid_user_guid2"
+  name                     = "bceid_username"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidboth.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "attribute.name" = "SMGOV_USERGUID"
-    "user.attribute" = "bceid_user_guid"
-  }
-}
-
-resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_name" {
-  realm                    = keycloak_realm.this.id
-  name                     = "bceid_user_name"
-  identity_provider_alias  = keycloak_saml_identity_provider.bceidboth.alias
-  identity_provider_mapper = "saml-user-attribute-idp-mapper"
-
-  extra_config = {
-    syncMode         = "INHERIT"
-    "attribute.name" = "SMGOV_USERDISPLAYNAME"
-    "user.attribute" = "bceid_user_name"
+    "attribute.name" = "username"
+    "user.attribute" = "bceid_username"
   }
 }
 
