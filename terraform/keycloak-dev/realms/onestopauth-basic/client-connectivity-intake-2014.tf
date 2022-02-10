@@ -6,12 +6,5 @@ module "client_connectivity-intake-2014" {
     "http://localhost:3000/*",
     "https://connectivity-intake-dev.apps.silver.devops.gov.bc.ca/*"
   ]
-  description                = "CSS App Created"
-  access_type                = "PUBLIC"
-  pkce_code_challenge_method = "S256"
-  web_origins = [
-    "http://localhost:3000/*",
-    "https://connectivity-intake-dev.apps.silver.devops.gov.bc.ca/*",
-    "+"
-  ]
+  description = "CSS App Created"
 }
