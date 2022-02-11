@@ -3,7 +3,8 @@ module "client_coms-2839" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "coms-2839"
   valid_redirect_uris = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://localhost:4000"
   ]
   description = "CSS App Created"
 }
