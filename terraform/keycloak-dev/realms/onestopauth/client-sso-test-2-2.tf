@@ -15,6 +15,7 @@ module "client_sso-test-2-2" {
     "http://localhost:3000",
     "http://localhost:3000/*",
     "http://localhost:5000/*",
-    "https://bcgov.github.io/keycloak-example-apps/*"
+    "https://bcgov.github.io/keycloak-example-apps/*",
+    "+"
   ]
 }
