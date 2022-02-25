@@ -3,7 +3,7 @@ module "client_connectivity-intake-2014" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "connectivity-intake-2014"
   valid_redirect_uris = [
-    "https://connectivity-intake-test.apps.silver.devops.gov.bc.ca/*"
+    "https://connectivity-rtp-test.apps.silver.devops.gov.bc.ca/home"
   ]
   description = "CSS App Created"
 }
