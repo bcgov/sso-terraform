@@ -48,4 +48,8 @@ resource "keycloak_openid_client_default_scopes" "client_standard_default_scopes
     "email",
     keycloak_openid_client_scope.idp_scope.name,
   ]
+
+  depends_on = [
+    keycloak_openid_client.standard,
+  ]
 }
