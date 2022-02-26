@@ -58,5 +58,7 @@ jobs:
 
       - name: Terraform Destroy
         id: destroy
-        run: terraform destroy -auto-approve
+        run: |
+          terraform state list | cut -f 1 -d '[' | xargs -L 1 terraform state rm
+          terraform destroy -auto-approve
         working-directory: ./terraform-v2
