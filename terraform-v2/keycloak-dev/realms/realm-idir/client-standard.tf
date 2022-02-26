@@ -39,13 +39,13 @@ resource "keycloak_generic_client_protocol_mapper" "client_standard_mappers" {
   }
 }
 
-# resource "keycloak_openid_client_default_scopes" "client_standard_default_scopes" {
-#   realm_id  = keycloak_realm.this.id
-#   client_id = keycloak_openid_client.standard.id
+resource "keycloak_openid_client_default_scopes" "client_standard_default_scopes" {
+  realm_id  = keycloak_realm.this.id
+  client_id = keycloak_openid_client.standard.id
 
-#   default_scopes = [
-#     "profile",
-#     "email",
-#     keycloak_openid_client_scope.idp_scope.name,
-#   ]
-# }
+  default_scopes = [
+    "profile",
+    "email",
+    keycloak_openid_client_scope.idp_scope.name,
+  ]
+}
