@@ -1,12 +1,12 @@
-# module "keycloak_dev" {
-#   source = "./keycloak-dev"
+module "keycloak_dev" {
+  source = "./keycloak-dev"
 
-#   client_id     = var.dev_client_id
-#   client_secret = var.dev_client_secret
-#   keycloak_url  = var.dev_keycloak_url
-#   username      = var.dev_username
-#   password      = var.dev_password
-# }
+  client_id     = var.dev_client_id
+  client_secret = var.dev_client_secret
+  keycloak_url  = var.dev_keycloak_url
+  username      = var.dev_username
+  password      = var.dev_password
+}
 
 module "keycloak_test" {
   source = "./keycloak-test"
