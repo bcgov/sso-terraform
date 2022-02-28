@@ -13,6 +13,7 @@ module "client_invasives-bc-1849" {
   web_origins = [
     "https://invasivesbci.apps.silver.devops.gov.bc.ca",
     "https://invasivesbci.apps.silver.devops.gov.bc.ca/*",
-    "https://invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
+    "https://invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "+"
   ]
 }

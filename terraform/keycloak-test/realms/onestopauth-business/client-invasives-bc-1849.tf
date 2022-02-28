@@ -31,6 +31,7 @@ module "client_invasives-bc-1849" {
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
     "invasivesbc://localhost",
     "invasivesbc://localhost*",
-    "invasivesbc://localhost/*"
+    "invasivesbc://localhost/*",
+    "+"
   ]
 }

@@ -20,6 +20,7 @@ module "client_invasives-bc-1849" {
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/*",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "invasivesbc://*",
     "invasivesbc://127.0.0.1:3000/*",
     "invasivesbc://192.168.1.105:8000/*",
     "invasivesbc://192.168.1.105:8100/*",
@@ -49,12 +50,14 @@ module "client_invasives-bc-1849" {
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/*",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "invasivesbc://*",
     "invasivesbc://127.0.0.1:3000/*",
     "invasivesbc://192.168.1.105:8000/*",
     "invasivesbc://192.168.1.105:8100/*",
     "invasivesbc://localhost",
     "invasivesbc://localhost*",
     "invasivesbc://localhost/*",
-    "invasivesbc://localhost:3000/*"
+    "invasivesbc://localhost:3000/*",
+    "+"
   ]
 }
