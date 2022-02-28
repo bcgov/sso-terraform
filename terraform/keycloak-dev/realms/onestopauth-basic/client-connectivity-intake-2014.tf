@@ -4,7 +4,7 @@ module "client_connectivity-intake-2014" {
   client_name = "connectivity-intake-2014"
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "https://connectivity-rtp-dev.apps.silver.devops.gov.bc.ca/home"
+    "https://connectivity-rtp-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   description = "CSS App Created"
 }
