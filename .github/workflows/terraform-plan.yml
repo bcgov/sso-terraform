@@ -12,6 +12,7 @@ env:
 jobs:
   terraform:
     runs-on: ubuntu-18.04
+    timeout-minutes: 30
     env:
       API_URL: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
