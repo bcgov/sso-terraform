@@ -131,7 +131,7 @@ jobs:
           echo "::set-output name=pr::$prstr"
 
       - name: Save terraform plan event
-        uses: bcgov/sso-requests-actions/plan@v0.12.0
+        uses: bcgov/sso-requests-actions/plan@v0.16.0
         if: contains(fromJSON(steps.pr.outputs.pr).labels.*.name, 'auto_generated')
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
@@ -141,10 +141,9 @@ jobs:
           plan-result: "${{ steps.plan.outcome }}"
           pr-number: "${{ github.event.number }}"
           pr-branch: "${{ github.event.pull_request.head.ref }}"
-          allowed-additions: "27"
-          allowed-deletions: "27"
-          allowed-updates: "27"
           allowed-file-changes: "3"
+          allowed-file-additions: "100"
+          allowed-file-deletions: "100"
 
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
