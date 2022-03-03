@@ -11,6 +11,9 @@ module "client_clean-transportation-data-hub-595" {
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
+    "https://cthub-dev-*.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-dev.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
 }
