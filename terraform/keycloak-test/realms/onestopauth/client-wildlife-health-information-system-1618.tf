@@ -9,6 +9,7 @@ module "client_wildlife-health-information-system-1618" {
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
+    "https://moe-whis-test.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
 }
