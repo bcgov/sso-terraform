@@ -3,7 +3,7 @@ name: Test E2E
 on:
   push:
     branches:
-      - main
+      - revisitherelater
 
 jobs:
   e2e:

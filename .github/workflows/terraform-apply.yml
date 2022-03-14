@@ -1,12 +1,6 @@
-name: "Terraform Apply"
+name: Terraform Apply
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "terraform/**"
-      - ".github/workflows/terraform-apply.yml"
+on: workflow_dispatch
 
 env:
   TF_VERSION: 0.15.3
@@ -16,31 +10,63 @@ jobs:
     runs-on: ubuntu-18.04
     timeout-minutes: 30
     env:
-      API_URL: ${{secrets.WEBAPP_API_URL}}
+      API_URL: ${{ secrets.WEBAPP_API_URL }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: hmarr/debug-action@v2
+      - uses: actions/checkout@v2
+
+      - name: Check if Action Runs Already
+        id: action
+        run: |
+          workflow=$(echo "${{ github.event.workflow }}" | cut -d/ -f3)
+          runs=$(curl -H "Accept: application/vnd.github.groot-preview+json" "https://api.github.com/repos/${{github.repository}}/actions/workflows/$workflow/runs?status=in_progress")
+          count=$(jq ".total_count" <<< "$runs")
+          echo "$count"
+          echo "::set-output name=count::$count"
 
       - name: Wake Up API
+        if: steps.action.outputs.count == '1'
         uses: fjogeleit/http-request-action@master
         with:
-          url: "${{env.API_URL}}"
+          url: "${{ env.API_URL }}/heartbeat"
           method: "GET"
-          customHeaders: '{"Authorization": "${{secrets.GH_SECRET}}"}'
+          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
+          timeout: "60000"
         continue-on-error: true
 
+      - name: Fetch Requests Count
+        if: steps.action.outputs.count == '1'
+        id: requests
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: "${{ env.API_URL }}/batch/items"
+          method: "GET"
+          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
+          timeout: "60000"
+
+      - name: Get Requests Count
+        if: steps.action.outputs.count == '1'
+        id: count
+        run: |
+          count=$(jq length <<< ${{ steps.requests.outputs.response }})
+          echo "$count"
+          echo "::set-output name=count::$count"
+
       - name: Setup Terraform
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ env.TF_VERSION }}
           cli_config_credentials_token: ${{ secrets.TFC_TEAM_TOKEN }}
 
       - name: Terraform Format
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         id: fmt
         run: terraform fmt -check
         working-directory: ./terraform
 
       - name: Terraform Variables
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         run: |
           cat >"versions.tf" <<EOF
           terraform {
@@ -65,6 +91,7 @@ jobs:
         working-directory: ./terraform
 
       - name: Terraform Init
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         id: init
         run: terraform init
         working-directory: ./terraform
@@ -79,36 +106,19 @@ jobs:
         run: yarn
 
       - name: Terraform Apply
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         id: apply
-        if: github.ref == 'refs/heads/main'
         run: |
-          until terraform apply -auto-approve || false;
-          do echo retrying in 30 seconds...
-          sleep 30
-          done
+          terraform apply -auto-approve
         working-directory: ./terraform
         continue-on-error: true
 
-      - name: Get PR Number
-        id: prNumber
-        run: |
-          pr=$(curl -H "Accept: application/vnd.github.groot-preview+json" https://api.github.com/repos/${{github.repository}}/commits/${{github.sha}}/pulls)
-          number=$(jq ".[0].number" <<< "$pr")
-          fullLabels=$(jq ".[0].labels" <<< "$pr")
-          botLabel=$(jq -c '.[] | select(.name | contains("auto_generated")).name' <<< "$fullLabels")
-          echo "::set-output name=number::$number"
-          echo "::set-output name=botLabel::$botLabel"
-
-      - name: Update Apply Status
+      - name: Update Requests Status
+        if: steps.action.outputs.count == '1' && steps.count.outputs.count != '0'
         uses: fjogeleit/http-request-action@master
-        if: steps.prNumber.outputs.botLabel == '"auto_generated"'
         with:
-          url: "${{env.API_URL}}?status=apply"
+          url: "${{ env.API_URL }}/batch/items"
           method: "PUT"
-          data: '{"prNumber": ${{ steps.prNumber.outputs.number }}, "applySuccess": "${{steps.apply.outcome != ''failure''}}"}'
-          customHeaders: '{"Authorization": "${{secrets.GH_SECRET}}"}'
+          data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.apply.outcome != ''failure'' }}"}'
+          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
           timeout: "60000"
-
-      - name: Fail action if apply failed
-        if: steps.apply.outcome == 'failure'
-        run: exit 1

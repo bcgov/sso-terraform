@@ -1,4 +1,4 @@
-name: "Client Request"
+name: Client Request
 
 on:
   workflow_dispatch:
@@ -29,6 +29,7 @@ jobs:
   request-client:
     runs-on: ubuntu-18.04
     steps:
+      - uses: hmarr/debug-action@v2
       - uses: actions/checkout@v2
 
       # NPM PACKAGES
@@ -61,9 +62,9 @@ jobs:
           pip install -r requirements.txt
           asdf reshim
 
-      - uses: bcgov/sso-requests-actions/request@v0.16.0
+      - uses: bcgov/sso-requests-actions/request@v0.17.0
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          api-url: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions"
+          api-url: ${{ secrets.WEBAPP_API_URL }}
           auth-secret: ${{ secrets.GH_SECRET }}
           tf-module-ref: main

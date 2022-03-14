@@ -1,4 +1,4 @@
-name: "Manual Terraform Run"
+name: Manual Terraform Run
 
 on: workflow_dispatch
 

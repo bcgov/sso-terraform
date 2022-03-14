@@ -1,4 +1,4 @@
-name: "Manual Terraform V2 Run"
+name: Manual Terraform V2 Run
 
 on: workflow_dispatch
 
@@ -13,8 +13,8 @@ jobs:
   terraform:
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: hmarr/debug-action@v2
+      - uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
