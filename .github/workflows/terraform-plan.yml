@@ -1,10 +1,6 @@
-name: "Terraform Plan"
+name: Terraform Plan
 
-on:
-  pull_request:
-    paths:
-      - "terraform/**"
-      - ".github/workflows/terraform-plan.yml"
+on: workflow_dispatch
 
 env:
   TF_VERSION: 0.15.3
@@ -13,21 +9,9 @@ jobs:
   terraform:
     runs-on: ubuntu-18.04
     timeout-minutes: 30
-    env:
-      API_URL: "https://kgodz1zmk2.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
       - uses: hmarr/debug-action@v2
-
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Wake Up API
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{env.API_URL}}"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{secrets.GH_SECRET}}"}'
-        continue-on-error: true
+      - uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -73,74 +57,3 @@ jobs:
         id: plan
         run: terraform plan -no-color
         working-directory: ./terraform
-        continue-on-error: true
-
-      - name: Truncate Terraform Plan
-        run: |
-          plan=$(tail -n 500 <<'EOF'
-          ${{ steps.plan.outputs.stdout }}
-          EOF
-          )
-          echo "PLAN<<EOF" >> $GITHUB_ENV
-          echo "${plan}" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-
-            <details><summary>Show Plan</summary>
-
-            \`\`\`
-            ${process.env.PLAN}
-            \`\`\`
-
-            </details>
-
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
-
-      # NPM PACKAGES
-      - uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install Yarn dependencies in root
-        run: yarn
-
-      - name: Get PR
-        id: pr
-        run: |
-          pr=$(curl -H "Accept: application/vnd.github.groot-preview+json" ${{github.event.pull_request._links.issue.href}})
-          prstr=$(jq -c '.' <<< "$pr")
-          echo "::set-output name=pr::$prstr"
-
-      - name: Save terraform plan event
-        uses: bcgov/sso-requests-actions/plan@v0.16.0
-        if: contains(fromJSON(steps.pr.outputs.pr).labels.*.name, 'auto_generated')
-        with:
-          github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          api-url: "${{ env.API_URL }}"
-          auth-secret: ${{ secrets.GH_SECRET }}
-          plan-output: "${{ env.PLAN }}"
-          plan-result: "${{ steps.plan.outcome }}"
-          pr-number: "${{ github.event.number }}"
-          pr-branch: "${{ github.event.pull_request.head.ref }}"
-          allowed-file-changes: "3"
-          allowed-file-additions: "100"
-          allowed-file-deletions: "100"
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1

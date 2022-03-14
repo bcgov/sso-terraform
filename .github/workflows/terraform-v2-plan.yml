@@ -1,10 +1,6 @@
-name: "Terraform V2 Plan"
+name: Terraform V2 Plan
 
-on:
-  pull_request:
-    paths:
-      - "terraform-v2/**"
-      - ".github/workflows/terraform-v2-plan.yml"
+on: workflow_dispatch
 
 env:
   TF_VERSION: 1.1.4
@@ -21,8 +17,7 @@ jobs:
       API_URL: "https://gcp9dahm4c.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
       - uses: hmarr/debug-action@v2
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Wake Up API
         uses: fjogeleit/http-request-action@master

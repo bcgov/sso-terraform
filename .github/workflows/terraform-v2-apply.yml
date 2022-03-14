@@ -1,12 +1,6 @@
-name: "Terraform V2 Apply"
+name: Terraform V2 Apply
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "terraform-v2/**"
-      - ".github/workflows/terraform-v2-apply.yml"
+on: workflow_dispatch
 
 env:
   TF_VERSION: 1.1.4
@@ -23,8 +17,7 @@ jobs:
       API_URL: ${{secrets.WEBAPP_API_URL}}
     steps:
       - uses: hmarr/debug-action@v2
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Wake Up API
         uses: fjogeleit/http-request-action@master
