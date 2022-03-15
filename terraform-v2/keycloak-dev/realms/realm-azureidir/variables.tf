@@ -11,5 +11,5 @@ variable "realm_name" {
 }
 
 variable "standard_realm_name" {
-  default = "onestopauth"
+  default = "standard"
 }

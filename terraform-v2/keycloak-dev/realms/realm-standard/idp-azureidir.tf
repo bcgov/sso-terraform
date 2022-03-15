@@ -33,28 +33,28 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_displayname" {
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "azureidir_azureidir_userid" {
+resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_username" {
   realm                    = keycloak_realm.this.id
-  name                     = "azureidir_userid"
+  name                     = "idir_username"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "azureidir_userid"
-    "user.attribute" = "azureidir_userid"
+    "claim"          = "idir_username"
+    "user.attribute" = "idir_username"
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "azureidir_azureidir_guid" {
+resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_user_guid" {
   realm                    = keycloak_realm.this.id
-  name                     = "azureidir_guid"
+  name                     = "idir_user_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "azureidir_guid"
-    "user.attribute" = "azureidir_guid"
+    "claim"          = "idir_user_guid"
+    "user.attribute" = "idir_user_guid"
   }
 }

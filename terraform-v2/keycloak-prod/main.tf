@@ -1,5 +1,5 @@
 locals {
-  standard_realm_name      = "onestopauth"
+  standard_realm_name      = "standard"
   idir_realm_name          = "idir"
   azureidir_realm_name     = "azureidir"
   bceidbasic_realm_name    = "bceidbasic"
@@ -7,8 +7,8 @@ locals {
   bceidboth_realm_name     = "bceidboth"
 }
 
-module "onestopauth" {
-  source       = "./realms/realm-onestopauth"
+module "standard" {
+  source       = "./realms/realm-standard"
   keycloak_url = var.keycloak_url
 
   standard_realm_name      = local.standard_realm_name
