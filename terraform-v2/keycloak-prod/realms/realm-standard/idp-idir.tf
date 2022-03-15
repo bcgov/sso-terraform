@@ -33,28 +33,40 @@ resource "keycloak_custom_identity_provider_mapper" "idir_displayname" {
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "idir_idir_userid" {
+resource "keycloak_custom_identity_provider_mapper" "idir_idir_username" {
   realm                    = keycloak_realm.this.id
-  name                     = "idir_userid"
+  name                     = "idir_username"
   identity_provider_alias  = keycloak_oidc_identity_provider.idir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "idir_userid"
-    "user.attribute" = "idir_userid"
+    "claim"          = "idir_username"
+    "user.attribute" = "idir_username"
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "idir_idir_guid" {
+resource "keycloak_custom_identity_provider_mapper" "idir_idir_user_guid" {
   realm                    = keycloak_realm.this.id
-  name                     = "idir_guid"
+  name                     = "idir_user_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.idir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "idir_guid"
-    "user.attribute" = "idir_guid"
+    "claim"          = "idir_user_guid"
+    "user.attribute" = "idir_user_guid"
+  }
+}
+
+resource "keycloak_custom_identity_provider_mapper" "idir_username" {
+  realm                    = keycloak_realm.this.id
+  name                     = "username"
+  identity_provider_alias  = keycloak_saml_identity_provider.idir.alias
+  identity_provider_mapper = "oidc-username-idp-mapper"
+
+  extra_config = {
+    syncMode = "INHERIT"
+    template = "$${CLAIM.preferred_username}@$${ALIAS}"
   }
 }

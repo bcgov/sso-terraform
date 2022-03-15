@@ -33,15 +33,54 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_displayname" {
   }
 }
 
-resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_userid" {
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid" {
   realm                    = keycloak_realm.this.id
-  name                     = "bceid_userid"
+  name                     = "bceid_user_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
     syncMode         = "INHERIT"
-    "claim"          = "bceid_userid"
-    "user.attribute" = "bceid_userid"
+    "claim"          = "bceid_user_guid"
+    "user.attribute" = "bceid_user_guid"
+  }
+}
+
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_username" {
+  realm                    = keycloak_realm.this.id
+  name                     = "bceid_username"
+  identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
+  identity_provider_mapper = "oidc-user-attribute-idp-mapper"
+
+  extra_config = {
+    syncMode         = "INHERIT"
+    "claim"          = "bceid_username"
+    "user.attribute" = "bceid_username"
+  }
+}
+
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_guid" {
+  realm                    = keycloak_realm.this.id
+  name                     = "bceid_business_guid"
+  identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
+  identity_provider_mapper = "oidc-user-attribute-idp-mapper"
+
+  extra_config = {
+    syncMode         = "INHERIT"
+    "claim"          = "bceid_business_guid"
+    "user.attribute" = "bceid_business_guid"
+  }
+}
+
+resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_name" {
+  realm                    = keycloak_realm.this.id
+  name                     = "bceid_business_name"
+  identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
+  identity_provider_mapper = "oidc-user-attribute-idp-mapper"
+
+  extra_config = {
+    syncMode         = "INHERIT"
+    "claim"          = "bceid_business_name"
+    "user.attribute" = "bceid_business_name"
   }
 }

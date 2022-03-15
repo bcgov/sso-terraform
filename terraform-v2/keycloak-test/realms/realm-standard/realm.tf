@@ -1,8 +1,8 @@
 resource "keycloak_realm" "this" {
   realm             = var.standard_realm_name
   enabled           = true
-  display_name      = "Onestopauth"
-  display_name_html = "<b>Onestopauth</b>"
+  display_name      = "standard"
+  display_name_html = "<b>standard</b>"
 
   login_with_email_allowed = false
   duplicate_emails_allowed = true

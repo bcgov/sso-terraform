@@ -3,7 +3,7 @@ variable "keycloak_url" {
 }
 
 variable "standard_realm_name" {
-  default = "onestopauth"
+  default = "standard"
 }
 
 variable "idir_realm_name" {}
