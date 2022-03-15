@@ -1,4 +1,4 @@
-name: Manual Terraform V2 Run
+name: Terraform V2 Run
 
 on: workflow_dispatch
 

@@ -1,4 +1,4 @@
-name: Manual Terraform V2 Destroy
+name: Terraform V2 Destroy
 
 on: workflow_dispatch
 
