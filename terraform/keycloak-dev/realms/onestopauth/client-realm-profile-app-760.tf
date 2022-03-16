@@ -4,6 +4,7 @@ module "client_realm-profile-app-760" {
   client_name = "realm-profile-app-760"
   valid_redirect_uris = [
     "http://localhost:3000/*",
+    "http://localhost:8000/*",
     "http://localhost:8080/*",
     "http://realm-registry-b861c7-dev.apps.silver.devops.gov.bc.ca/*",
     "http://realm-registry-dev.apps.silver.devops.gov.bc.ca/*",
