@@ -58,3 +58,15 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_username" 
     "user.attribute" = "bceid_username"
   }
 }
+
+resource "keycloak_custom_identity_provider_mapper" "bceidbasic_username" {
+  realm                    = keycloak_realm.this.id
+  name                     = "username"
+  identity_provider_alias  = keycloak_oidc_identity_provider.bceidbasic.alias
+  identity_provider_mapper = "oidc-username-idp-mapper"
+
+  extra_config = {
+    syncMode = "INHERIT"
+    template = "$${CLAIM.preferred_username}@$${ALIAS}"
+  }
+}
