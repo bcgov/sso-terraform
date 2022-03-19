@@ -1,22 +1,3 @@
-locals {
-  idp_names = [
-    var.idir_realm_name,
-    var.azureidir_realm_name,
-    var.bceidbasic_realm_name,
-    var.bceidbusiness_realm_name,
-    var.bceidboth_realm_name,
-  ]
-}
-
-resource "keycloak_openid_client_scope" "idp_client_scopes" {
-  for_each = toset(local.idp_names)
-
-  realm_id               = keycloak_realm.this.id
-  name                   = each.key
-  description            = "${each.key} idp client scope"
-  include_in_token_scope = false
-}
-
 resource "keycloak_openid_client" "test_client" {
   realm_id = keycloak_realm.this.id
 
