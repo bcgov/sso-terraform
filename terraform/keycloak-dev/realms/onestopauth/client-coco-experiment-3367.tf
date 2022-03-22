@@ -3,6 +3,7 @@ module "client_coco-experiment-3367" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "coco-experiment-3367"
   valid_redirect_uris = [
+    "http://localhost:8080/app",
     "https://localhost:8080/app"
   ]
   description = "CSS App Created"
