@@ -12,6 +12,7 @@ module "client_invasives-bc-1849" {
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/*",
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "invasivesbc://*",
     "invasivesbc://localhost",
     "invasivesbc://localhost*",
     "invasivesbc://localhost/*"
@@ -29,6 +30,7 @@ module "client_invasives-bc-1849" {
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/*",
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
     "https://test-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "invasivesbc://*",
     "invasivesbc://localhost",
     "invasivesbc://localhost*",
     "invasivesbc://localhost/*",
