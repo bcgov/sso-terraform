@@ -3,7 +3,7 @@ module "client_work-bc-career-compass-3136" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "work-bc-career-compass-3136"
   valid_redirect_uris = [
-    "https://careerdiscoveryquizzes/openid-connect/keycloak"
+    "https://careerdiscoveryquizzes/openid-connect/*"
   ]
   description = "CSS App Created"
 }
