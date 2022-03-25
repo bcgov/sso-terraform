@@ -66,3 +66,8 @@ module "bceidboth" {
   realm_name          = local.bceidboth_realm_name
   standard_realm_name = local.standard_realm_name
 }
+
+module "standard_clients" {
+  source            = "./standard-clients"
+  standard_realm_id = module.standard.realm_id
+}

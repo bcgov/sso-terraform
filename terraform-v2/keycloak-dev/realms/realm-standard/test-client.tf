@@ -21,3 +21,27 @@ resource "keycloak_openid_client" "test_client" {
     # direct_grant_id =
   }
 }
+resource "keycloak_role" "client_role1" {
+  realm_id    = keycloak_realm.this.id
+  client_id   = keycloak_openid_client.test_client.id
+  name        = "client_role1"
+  description = "client_role1"
+}
+
+
+resource "keycloak_role" "client_role2" {
+  realm_id    = keycloak_realm.this.id
+  client_id   = keycloak_openid_client.test_client.id
+  name        = "client_role2"
+  description = "client_role2"
+}
+
+resource "keycloak_role" "admin_role" {
+  realm_id  = keycloak_realm.this.id
+  client_id = keycloak_openid_client.test_client.id
+  name      = "admin_role"
+  composite_roles = [
+    keycloak_role.client_role2.id,
+    keycloak_role.client_role1.id,
+  ]
+}
