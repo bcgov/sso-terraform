@@ -4,7 +4,11 @@ module "client_coco-experiment-2-3400" {
   client_name = "coco-experiment-2-3400"
   valid_redirect_uris = [
     "http://localhost:8080/*",
-    "http://localhost:8080/app"
+    "http://localhost:8080/app",
+    "http://localhost:8081/*",
+    "http://localhost:8081/app",
+    "http://localhost:8082/*",
+    "http://localhost:8082/app"
   ]
   description = "CSS App Created"
 }
