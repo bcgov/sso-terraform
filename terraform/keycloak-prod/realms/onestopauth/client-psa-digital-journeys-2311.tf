@@ -3,7 +3,7 @@ module "client_psa-digital-journeys-2311" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "psa-digital-journeys-2311"
   valid_redirect_uris = [
-    "http://localhost:3000"
+    "https://digital-journeys-keycloak.apps.silver.devops.gov.bc.ca/auth/realms/psa-digital-journey/*"
   ]
   description = "CSS App Created"
 }
