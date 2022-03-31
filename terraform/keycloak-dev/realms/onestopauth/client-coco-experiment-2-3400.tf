@@ -8,7 +8,8 @@ module "client_coco-experiment-2-3400" {
     "http://localhost:8081/*",
     "http://localhost:8081/app",
     "http://localhost:8082/*",
-    "http://localhost:8082/app"
+    "http://localhost:8082/app",
+    "http://localhost:9090/*"
   ]
   description = "CSS App Created"
 }
