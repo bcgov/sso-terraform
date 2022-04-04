@@ -8,6 +8,7 @@ module "client_sso-requests" {
     "https://bcgov.github.io/sso-terraform-dev/*",
     "https://bcgov.github.io/sso-requests-dev/*",
     "https://bcgov.github.io/sso-requests-test/*",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "http://localhost:3000/*"
   ]
   web_origins                = ["https://bcgov.github.io", "http://localhost:3000"]
