@@ -78,7 +78,7 @@ jobs:
               hostname     = "app.terraform.io"
               organization = "bcgov"
               workspaces {
-                name = "${{ secrets.TFC_WORKSPACE }}"
+                name = "${{ env.TFC_WORKSPACE }}"
               }
             }
           }
@@ -126,3 +126,7 @@ jobs:
           data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.apply.outcome != ''failure'' }}"}'
           customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
           timeout: "60000"
+
+      - name: Set Failure Code
+        if: steps.apply.outcome == 'failure'
+        run: exit 1

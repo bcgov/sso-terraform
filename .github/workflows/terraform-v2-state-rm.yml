@@ -1,6 +1,11 @@
-name: Terraform V2 Destroy
+name: Terraform V2 State Remove
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      resource_address:
+        description: Resource Address
+        required: true
 
 env:
   TF_VERSION: 1.1.4
@@ -56,9 +61,11 @@ jobs:
         run: terraform init
         working-directory: ./terraform-v2
 
-      - name: Terraform Destroy
+        # see https://www.terraform.io/cli/commands/state/rm
+      - name: Terraform State Remove
         id: destroy
         run: |
-          terraform state list | cut -f 1 -d '[' | xargs -L 1 terraform state rm || true
-          terraform destroy -auto-approve
+          address=${{ github.event.inputs.resource_address }}
+          echo "$address"
+          terraform state rm "$address"
         working-directory: ./terraform-v2

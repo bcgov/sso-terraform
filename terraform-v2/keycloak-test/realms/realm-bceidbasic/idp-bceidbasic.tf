@@ -1,6 +1,6 @@
 # see https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/saml_identity_provider
 resource "keycloak_saml_identity_provider" "bceidbasic" {
-  realm        = keycloak_realm.this.id
+  realm        = module.realm.id
   alias        = var.realm_name
   display_name = var.realm_name
 
@@ -37,7 +37,7 @@ resource "keycloak_saml_identity_provider" "bceidbasic" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidbasic_displayname" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "display_name"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
@@ -50,7 +50,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_displayname" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidbasic_email" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "email"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
@@ -63,7 +63,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_email" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_user_guid" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_user_guid"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
@@ -76,7 +76,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_user_guid"
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_username" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_username"
   identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
   identity_provider_mapper = "saml-user-attribute-idp-mapper"
@@ -89,7 +89,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidbasic_bceid_username" 
 }
 
 # resource "keycloak_custom_identity_provider_mapper" "bceidbasic_username" {
-#   realm                    = keycloak_realm.this.id
+#   realm                    = module.realm.id
 #   name                     = "username"
 #   identity_provider_alias  = keycloak_saml_identity_provider.bceidbasic.alias
 #   identity_provider_mapper = "saml-username-idp-mapper"

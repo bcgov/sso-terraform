@@ -1,15 +1,8 @@
-resource "keycloak_openid_client_scope" "scope" {
-  realm_id               = var.realm_id
-  name                   = var.scope_name
-  description            = "${var.scope_name} idp client scope"
-  include_in_token_scope = true
-}
-
 resource "keycloak_generic_client_protocol_mapper" "client_mappers" {
   for_each = toset(var.attributes)
 
-  realm_id        = var.realm_id
-  client_scope_id = keycloak_openid_client_scope.scope.id
+  realm_id  = var.realm_id
+  client_id = var.client_id
 
   name            = each.key
   protocol        = "openid-connect"

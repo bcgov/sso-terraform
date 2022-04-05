@@ -53,7 +53,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -upgrade
         working-directory: ./terraform-v2
 
       - name: Terraform Apply

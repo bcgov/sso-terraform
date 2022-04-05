@@ -1,5 +1,5 @@
 resource "keycloak_openid_client" "test_client" {
-  realm_id = keycloak_realm.this.id
+  realm_id = module.realm.id
 
   client_id = "test_client"
   name      = "test_client"

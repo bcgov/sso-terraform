@@ -1,6 +1,6 @@
 # see https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/oidc_identity_provider
 resource "keycloak_oidc_identity_provider" "bceidboth" {
-  realm        = keycloak_realm.this.id
+  realm        = module.realm.id
   alias        = var.bceidboth_realm_name
   display_name = var.bceidboth_realm_name
 
@@ -21,7 +21,7 @@ resource "keycloak_oidc_identity_provider" "bceidboth" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_displayname" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "display_name"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -34,7 +34,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_displayname" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_user_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -47,7 +47,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_user_guid" 
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_username" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_username"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -60,7 +60,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_username" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_guid" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_business_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -73,7 +73,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_gu
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_name" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "bceid_business_name"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -86,7 +86,7 @@ resource "keycloak_custom_identity_provider_mapper" "bceidboth_bceid_business_na
 }
 
 resource "keycloak_custom_identity_provider_mapper" "bceidboth_username" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "username"
   identity_provider_alias  = keycloak_oidc_identity_provider.bceidboth.alias
   identity_provider_mapper = "oidc-username-idp-mapper"
