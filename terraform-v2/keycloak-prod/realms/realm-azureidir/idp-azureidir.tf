@@ -1,6 +1,6 @@
 # see https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/oidc_identity_provider
 resource "keycloak_oidc_identity_provider" "azureidir" {
-  realm        = keycloak_realm.this.id
+  realm        = module.realm.id
   alias        = var.realm_name
   display_name = var.realm_name
 
@@ -23,7 +23,7 @@ resource "keycloak_oidc_identity_provider" "azureidir" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_firstname" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "first_name"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -36,7 +36,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_firstname" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_lastname" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "last_name"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -49,7 +49,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_lastname" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_displayname" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "display_name"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -62,7 +62,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_displayname" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_email" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "email"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -75,7 +75,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_email" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_username" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "idir_username"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
@@ -88,7 +88,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_username" {
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_user_guid" {
-  realm                    = keycloak_realm.this.id
+  realm                    = module.realm.id
   name                     = "idir_user_guid"
   identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"

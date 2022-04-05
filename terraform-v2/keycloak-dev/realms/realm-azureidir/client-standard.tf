@@ -3,10 +3,10 @@ locals {
 }
 
 resource "keycloak_openid_client" "standard" {
-  realm_id = keycloak_realm.this.id
+  realm_id = module.realm.id
 
-  client_id = var.standard_realm_name
-  name      = var.standard_realm_name
+  client_id = "${var.standard_realm_name}-realm"
+  name      = "${var.standard_realm_name}-realm"
 
   enabled                      = true
   standard_flow_enabled        = true
@@ -20,27 +20,16 @@ resource "keycloak_openid_client" "standard" {
   web_origins         = []
 }
 
-resource "keycloak_generic_client_protocol_mapper" "client_standard_mappers" {
-  for_each = toset(local.idp_public_attrs)
-
-  realm_id  = keycloak_realm.this.id
+module "standard_client_mappers" {
+  source    = "../../../shared/client-attribute-mappers"
+  realm_id  = module.realm.id
   client_id = keycloak_openid_client.standard.id
 
-  name            = each.key
-  protocol        = "openid-connect"
-  protocol_mapper = "oidc-usermodel-attribute-mapper"
-  config = {
-    "user.attribute" : each.key,
-    "claim.name" : each.key,
-    "jsonType.label" : "String",
-    "id.token.claim" : "true",
-    "access.token.claim" : "true",
-    "userinfo.token.claim" : "true"
-  }
+  attributes = local.idp_public_attrs
 }
 
 resource "keycloak_openid_client_default_scopes" "client_standard_default_scopes" {
-  realm_id  = keycloak_realm.this.id
+  realm_id  = module.realm.id
   client_id = keycloak_openid_client.standard.id
 
   default_scopes = [
