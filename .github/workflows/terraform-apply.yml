@@ -43,7 +43,7 @@ jobs:
         id: requests
         uses: fjogeleit/http-request-action@master
         with:
-          url: "${{ env.API_URL }}/batch/items"
+          url: "${{ env.API_URL }}/batch/items/silver"
           # url: "${{ env.API_URL }}/batch/items/silver"
           method: "GET"
           customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
