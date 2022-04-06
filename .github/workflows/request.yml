@@ -3,26 +3,8 @@ name: Client Request
 on:
   workflow_dispatch:
     inputs:
-      requestId:
-        description: "Request ID"
-        required: true
-      clientName:
-        description: "Client Name"
-        required: true
-      realmName:
-        description: "Realm Name"
-        required: true
-      publicAccess:
-        description: "Public Access"
-        required: true
-      validRedirectUris:
-        description: "Valid Redirect Uris"
-        required: true
-      environments:
-        description: "Environments"
-        required: true
-      browserFlowOverride:
-        description: "Browser Flow Override"
+      integration:
+        description: Integration Payload
         required: true
 
 jobs:
