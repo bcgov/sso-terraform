@@ -10,7 +10,7 @@ resource "keycloak_saml_identity_provider" "idir" {
   sync_mode   = "IMPORT"
 
   entity_id                  = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
-  single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
+  single_sign_on_service_url = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
   single_logout_service_url  = ""
 
   name_id_policy_format = "Persistent"
