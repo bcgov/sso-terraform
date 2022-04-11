@@ -5,6 +5,6 @@ module "realm" {
 }
 
 module "idp_auth_flow" {
-  source   = "../auth-browser-standard"
+  source   = "../../../shared/auth-browser-standard"
   realm_id = module.realm.id
 }

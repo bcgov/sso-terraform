@@ -25,6 +25,7 @@ resource "keycloak_saml_identity_provider" "idir" {
   validate_signature  = true
   signing_certificate = "<UPDATE_ME>"
 
+
   extra_config = {
     "authnContextComparisonType" = "exact"
   }
