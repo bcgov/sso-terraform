@@ -1,5 +1,5 @@
 module "standard_client" {
-  source              = "../../../shared/standard-client"
+  source              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id            = module.realm.id
   client_id           = "${var.standard_realm_name}-realm"
   valid_redirect_uris = ["${var.keycloak_url}/auth/realms/${var.standard_realm_name}/broker/${var.realm_name}/endpoint"]

@@ -44,7 +44,7 @@ jobs:
           pip install -r requirements.txt
           asdf reshim
 
-      - uses: bcgov/sso-requests-actions/request@v0.20.0
+      - uses: bcgov/sso-requests-actions/request@v0.24.0
         with:
           github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           api-url: ${{ secrets.WEBAPP_API_URL }}
