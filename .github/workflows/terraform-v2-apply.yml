@@ -12,67 +12,22 @@ env:
 jobs:
   terraform:
     runs-on: ubuntu-18.04
-    timeout-minutes: 30
-    env:
-      API_URL: ${{ secrets.WEBAPP_API_URL }}
     steps:
       - uses: hmarr/debug-action@v2
       - uses: actions/checkout@v2
 
-      - name: Check if Action Runs Already
-        id: action
-        run: |
-          workflow=$(echo "${{ github.event.workflow }}" | cut -d/ -f3)
-          runs=$(curl -H "Accept: application/vnd.github.groot-preview+json" "https://api.github.com/repos/${{github.repository}}/actions/workflows/$workflow/runs?status=in_progress")
-          count=$(jq ".total_count" <<< "$runs")
-          [[ $count = '0' || $count = '1' ]] && running="false" || running="true"
-          echo "$count"
-          echo "$running"
-          echo "::set-output name=running::$running"
-
-      - name: Wake Up API
-        if: steps.action.outputs.running == 'false'
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/heartbeat"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
-        continue-on-error: true
-
-      - name: Fetch Requests Count
-        if: steps.action.outputs.running == 'false'
-        id: requests
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/batch/items/gold"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
-
-      - name: Get Requests Count
-        if: steps.action.outputs.running == 'false'
-        id: count
-        run: |
-          count=$(jq length <<< ${{ steps.requests.outputs.response }})
-          echo "$count"
-          echo "::set-output name=count::$count"
-
       - name: Setup Terraform
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: ${{ env.TF_VERSION }}
           cli_config_credentials_token: ${{ secrets.TFC_TEAM_TOKEN }}
 
       - name: Terraform Format
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
         id: fmt
         run: terraform fmt -check
         working-directory: ./terraform-v2
 
       - name: Terraform Variables
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
         run: |
           cat >"versions.tf" <<EOF
           terraform {
@@ -97,38 +52,11 @@ jobs:
         working-directory: ./terraform-v2
 
       - name: Terraform Init
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
         id: init
         run: terraform init -upgrade
         working-directory: ./terraform-v2
 
-      # NPM PACKAGES
-      - uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install Yarn dependencies in root
-        run: yarn
-
       - name: Terraform Apply
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
         id: apply
-        run: |
-          terraform apply -auto-approve
+        run: terraform apply -auto-approve
         working-directory: ./terraform-v2
-        continue-on-error: true
-
-      - name: Update Requests Status
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/batch/items"
-          method: "PUT"
-          data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.apply.outcome != ''failure'' }}"}'
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
-
-      - name: Set Failure Code
-        if: steps.apply.outcome == 'failure'
-        run: exit 1
