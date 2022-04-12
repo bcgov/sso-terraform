@@ -75,3 +75,13 @@ variable "prod_keycloak_url" {
   description = "The URL of the Keycloak instance"
   default     = "https://loginproxy.gov.bc.ca"
 }
+
+variable "test_siteminder_signing_certificate" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_siteminder_signing_certificate" {
+  type      = string
+  sensitive = true
+}
