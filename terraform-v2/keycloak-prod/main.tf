@@ -35,6 +35,7 @@ module "idir" {
   keycloak_url        = var.keycloak_url
   realm_name          = local.idir_realm_name
   standard_realm_name = local.standard_realm_name
+  signing_certificate = var.siteminder_signing_certificate
 }
 
 module "azureidir" {
@@ -50,6 +51,7 @@ module "bceidbasic" {
   keycloak_url        = var.keycloak_url
   realm_name          = local.bceidbasic_realm_name
   standard_realm_name = local.standard_realm_name
+  signing_certificate = var.siteminder_signing_certificate
 }
 
 
@@ -58,6 +60,7 @@ module "bceidbusiness" {
   keycloak_url        = var.keycloak_url
   realm_name          = local.bceidbusiness_realm_name
   standard_realm_name = local.standard_realm_name
+  signing_certificate = var.siteminder_signing_certificate
 }
 
 module "bceidboth" {
@@ -65,6 +68,7 @@ module "bceidboth" {
   keycloak_url        = var.keycloak_url
   realm_name          = local.bceidboth_realm_name
   standard_realm_name = local.standard_realm_name
+  signing_certificate = var.siteminder_signing_certificate
 }
 
 module "standard_clients" {

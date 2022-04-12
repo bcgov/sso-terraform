@@ -26,3 +26,8 @@ variable "keycloak_url" {
 variable "azureidir_keycloak_url" {
   default = "https://login.microsoftonline.com/abcde/oauth2/v2.0"
 }
+
+variable "siteminder_signing_certificate" {
+  type      = string
+  sensitive = true
+}

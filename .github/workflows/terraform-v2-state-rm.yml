@@ -53,6 +53,8 @@ jobs:
           dev_client_secret="${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}"
           test_client_secret="${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}"
           prod_client_secret="${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}"
+          test_siteminder_signing_certificate="${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}"
+          prod_siteminder_signing_certificate="${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}"
           EOF
         working-directory: ./terraform-v2
 

@@ -23,16 +23,10 @@ resource "keycloak_saml_identity_provider" "bceidboth" {
 
   force_authn         = true
   validate_signature  = true
-  signing_certificate = "<UPDATE_ME>"
+  signing_certificate = var.signing_certificate
 
   extra_config = {
     "authnContextComparisonType" = "exact"
-  }
-
-  lifecycle {
-    ignore_changes = [
-      signing_certificate,
-    ]
   }
 }
 
