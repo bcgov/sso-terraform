@@ -63,7 +63,7 @@ jobs:
         run: terraform apply -auto-approve
         working-directory: ./terraform-v2
 
-      - uses: bcgov/sso-requests-actions/keycloak@v0.25.0
+      - uses: bcgov/sso-requests-actions/keycloak@v0.26.0
         with:
           dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
           test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
