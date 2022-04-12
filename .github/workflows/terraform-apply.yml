@@ -56,12 +56,3 @@ jobs:
         id: apply
         run: terraform apply -auto-approve
         working-directory: ./terraform
-
-      - uses: bcgov/sso-requests-actions/keycloak@v0.25.0
-        with:
-          dev-keycloak-url: ${{ secrets.KEYCLOAK_DEV_URL }}
-          test-keycloak-url: ${{ secrets.KEYCLOAK_TEST_URL }}
-          prod-keycloak-url: ${{ secrets.KEYCLOAK_PROD_URL }}
-          dev-client-secret: ${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}
-          test-client-secret: ${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}
-          prod-client-secret: ${{ secrets.KEYCLOAK_PROD_CLIENT_SECRET }}
