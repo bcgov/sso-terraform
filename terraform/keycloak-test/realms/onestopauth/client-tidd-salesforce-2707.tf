@@ -3,7 +3,8 @@ module "client_tidd-salesforce-2707" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "tidd-salesforce-2707"
   valid_redirect_uris = [
-    "https://tradeandinvestbc--test.my.salesforce.com/"
+    "https://tradeandinvestbc--test.my.salesforce.com/",
+    "https://tradeandinvestbclightning--test.my.salesforce.com/services/authcallback/PathfinderIdir"
   ]
   description = "CSS App Created"
 }
