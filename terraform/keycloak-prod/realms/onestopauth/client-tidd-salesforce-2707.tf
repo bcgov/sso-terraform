@@ -4,7 +4,7 @@ module "client_tidd-salesforce-2707" {
   client_name = "tidd-salesforce-2707"
   valid_redirect_uris = [
     "https://tradeandinvestbc.my.salesforce.com/services/authcallback/BCGovSSOIdir",
-    "https://tradeandinvestbc.my.salesforce.com/services/authcallback/BCGovSSOIdir"
+    "https://tradeandinvestbclightning.my.salesforce.com/services/authcallback/BCGovSSOIdir"
   ]
   description = "CSS App Created"
 }
