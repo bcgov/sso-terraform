@@ -3,7 +3,7 @@ module "april-27-zorin-test-idir-only-3639" {
   realm_id    = var.standard_realm_id
   client_name = "april-27-zorin-test-idir-only-3639"
   valid_redirect_uris = [
-    "http://localhost:10004"
+    "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -18,7 +18,7 @@ module "april-27-zorin-test-idir-only-3639" {
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
-    "http://localhost:10004",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
 }
