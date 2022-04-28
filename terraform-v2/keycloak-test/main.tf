@@ -1,14 +1,15 @@
 locals {
-  standard_realm_name      = "standard"
-  idir_realm_name          = "idir"
-  azureidir_realm_name     = "azureidir"
-  bceidbasic_realm_name    = "bceidbasic"
-  bceidbusiness_realm_name = "bceidbusiness"
-  bceidboth_realm_name     = "bceidboth"
+  standard_realm_name                   = "standard"
+  idir_realm_name                       = "idir"
+  azureidir_realm_name                  = "azureidir"
+  bceidbasic_realm_name                 = "bceidbasic"
+  bceidbusiness_realm_name              = "bceidbusiness"
+  bceidboth_realm_name                  = "bceidboth"
+  siteminder_single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
 module "standard" {
-  source       = "./realms/realm-standard"
+  source       = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-standard"
   keycloak_url = var.keycloak_url
 
   standard_realm_name      = local.standard_realm_name
@@ -31,15 +32,17 @@ module "standard" {
 }
 
 module "idir" {
-  source              = "./realms/realm-idir"
-  keycloak_url        = var.keycloak_url
-  realm_name          = local.idir_realm_name
-  standard_realm_name = local.standard_realm_name
-  signing_certificate = var.siteminder_signing_certificate
+  source                     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-idir"
+  keycloak_url               = var.keycloak_url
+  realm_name                 = local.idir_realm_name
+  standard_realm_name        = local.standard_realm_name
+  saml_entity_id             = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
+  single_sign_on_service_url = local.siteminder_single_sign_on_service_url
+  signing_certificate        = var.siteminder_signing_certificate
 }
 
 module "azureidir" {
-  source                 = "./realms/realm-azureidir"
+  source                 = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-azureidir"
   keycloak_url           = var.keycloak_url
   realm_name             = local.azureidir_realm_name
   standard_realm_name    = local.standard_realm_name
@@ -47,28 +50,34 @@ module "azureidir" {
 }
 
 module "bceidbasic" {
-  source              = "./realms/realm-bceidbasic"
-  keycloak_url        = var.keycloak_url
-  realm_name          = local.bceidbasic_realm_name
-  standard_realm_name = local.standard_realm_name
-  signing_certificate = var.siteminder_signing_certificate
+  source                     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidbasic"
+  keycloak_url               = var.keycloak_url
+  realm_name                 = local.bceidbasic_realm_name
+  standard_realm_name        = local.standard_realm_name
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasic/"
+  single_sign_on_service_url = local.siteminder_single_sign_on_service_url
+  signing_certificate        = var.siteminder_signing_certificate
 }
 
 
 module "bceidbusiness" {
-  source              = "./realms/realm-bceidbusiness"
-  keycloak_url        = var.keycloak_url
-  realm_name          = local.bceidbusiness_realm_name
-  standard_realm_name = local.standard_realm_name
-  signing_certificate = var.siteminder_signing_certificate
+  source                     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidbusiness"
+  keycloak_url               = var.keycloak_url
+  realm_name                 = local.bceidbusiness_realm_name
+  standard_realm_name        = local.standard_realm_name
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbusiness/"
+  single_sign_on_service_url = local.siteminder_single_sign_on_service_url
+  signing_certificate        = var.siteminder_signing_certificate
 }
 
 module "bceidboth" {
-  source              = "./realms/realm-bceidboth"
-  keycloak_url        = var.keycloak_url
-  realm_name          = local.bceidboth_realm_name
-  standard_realm_name = local.standard_realm_name
-  signing_certificate = var.siteminder_signing_certificate
+  source                     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidboth"
+  keycloak_url               = var.keycloak_url
+  realm_name                 = local.bceidboth_realm_name
+  standard_realm_name        = local.standard_realm_name
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness/"
+  single_sign_on_service_url = local.siteminder_single_sign_on_service_url
+  signing_certificate        = var.siteminder_signing_certificate
 }
 
 module "standard_clients" {
