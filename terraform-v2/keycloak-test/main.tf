@@ -36,7 +36,7 @@ module "idir" {
   keycloak_url               = var.keycloak_url
   realm_name                 = local.idir_realm_name
   standard_realm_name        = local.standard_realm_name
-  saml_entity_id             = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_idir/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
 }
