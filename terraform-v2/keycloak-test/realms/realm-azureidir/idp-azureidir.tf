@@ -1,31 +1,19 @@
 # see https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/oidc_identity_provider
-resource "keycloak_oidc_identity_provider" "azureidir" {
-  realm        = module.realm.id
-  alias        = var.realm_name
-  display_name = var.realm_name
-
-  enabled     = true
-  store_token = false
-  trust_email = false
-  sync_mode   = "IMPORT"
-
+module "azureidir_idp" {
+  source            = "github.com/bcgov/sso-terraform-modules?ref=main/modules/oidc-idp"
+  realm_id          = module.realm.id
+  alias             = var.realm_name
   authorization_url = "${var.azureidir_keycloak_url}/auth"
   token_url         = "${var.azureidir_keycloak_url}/token"
   user_info_url     = "${var.azureidir_keycloak_url}/userinfo"
   client_id         = "<UPDATE_ME>"
   client_secret     = "<UPDATE_ME>"
-
-  validate_signature = false
-
-  extra_config = {
-    "clientAuthMethod" = "client_secret_post"
-  }
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_firstname" {
   realm                    = module.realm.id
   name                     = "first_name"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
@@ -38,7 +26,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_firstname" {
 resource "keycloak_custom_identity_provider_mapper" "azureidir_lastname" {
   realm                    = module.realm.id
   name                     = "last_name"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
@@ -51,7 +39,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_lastname" {
 resource "keycloak_custom_identity_provider_mapper" "azureidir_displayname" {
   realm                    = module.realm.id
   name                     = "display_name"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
@@ -64,7 +52,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_displayname" {
 resource "keycloak_custom_identity_provider_mapper" "azureidir_email" {
   realm                    = module.realm.id
   name                     = "email"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
@@ -77,7 +65,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_email" {
 resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_username" {
   realm                    = module.realm.id
   name                     = "idir_username"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
@@ -90,7 +78,7 @@ resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_username" {
 resource "keycloak_custom_identity_provider_mapper" "azureidir_idir_user_guid" {
   realm                    = module.realm.id
   name                     = "idir_user_guid"
-  identity_provider_alias  = keycloak_oidc_identity_provider.azureidir.alias
+  identity_provider_alias  = module.azureidir_idp.alias
   identity_provider_mapper = "oidc-user-attribute-idp-mapper"
 
   extra_config = {
