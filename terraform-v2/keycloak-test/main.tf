@@ -84,3 +84,11 @@ module "standard_clients" {
   source            = "./standard-clients"
   standard_realm_id = module.standard.realm_id
 }
+
+module "master_idir_link" {
+  source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
+  keycloak_url     = var.keycloak_url
+  idp_realm_id     = module.idir.realm_id
+  idp_realm_name   = module.idir.realm_name
+  idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
+}
