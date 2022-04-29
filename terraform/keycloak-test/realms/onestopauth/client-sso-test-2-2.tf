@@ -4,7 +4,8 @@ module "client_sso-test-2-2" {
   client_name = "sso-test-2-2"
   valid_redirect_uris = [
     "http://localhost",
-    "http://localhost/*"
+    "http://localhost/*",
+    "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
@@ -12,6 +13,7 @@ module "client_sso-test-2-2" {
   web_origins = [
     "http://localhost",
     "http://localhost/*",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
 }
