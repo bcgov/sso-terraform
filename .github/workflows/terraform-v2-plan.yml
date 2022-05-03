@@ -30,4 +30,6 @@ jobs:
           kc-dev-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
           kc-test-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
           kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
+          test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
+          prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
           plan: true
