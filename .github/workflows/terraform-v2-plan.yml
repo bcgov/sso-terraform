@@ -13,135 +13,21 @@ jobs:
   terraform:
     runs-on: ubuntu-18.04
     timeout-minutes: 30
-    env:
-      API_URL: "https://gcp9dahm4c.execute-api.ca-central-1.amazonaws.com/test/actions/"
     steps:
       - uses: hmarr/debug-action@v2
       - uses: actions/checkout@v2
 
-      - name: Wake Up API
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{env.API_URL}}"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{secrets.GH_SECRET}}"}'
-        continue-on-error: true
-
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.27.0
         with:
-          terraform_version: ${{ env.TF_VERSION }}
-          cli_config_credentials_token: ${{ secrets.TFC_TEAM_TOKEN }}
-
-      - name: Terraform Format
-        id: fmt
-        run: terraform fmt -check
-        working-directory: ./terraform-v2
-
-      - name: Terraform Variables
-        run: |
-          cat >"versions.tf" <<EOF
-          terraform {
-            backend "remote" {
-              hostname     = "app.terraform.io"
-              organization = "bcgov"
-              workspaces {
-                name = "${{ env.TFC_WORKSPACE }}"
-              }
-            }
-          }
-          EOF
-
-          cat >"ci.auto.tfvars" <<EOF
-          dev_keycloak_url="${{ env.KEYCLOAK_V2_DEV_URL }}"
-          test_keycloak_url="${{ env.KEYCLOAK_V2_TEST_URL }}"
-          prod_keycloak_url="${{ env.KEYCLOAK_V2_PROD_URL }}"
-          dev_client_secret="${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}"
-          test_client_secret="${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}"
-          prod_client_secret="${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}"
-          test_siteminder_signing_certificate="${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}"
-          prod_siteminder_signing_certificate="${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}"
-          EOF
-        working-directory: ./terraform-v2
-
-      - name: Terraform Init
-        id: init
-        run: terraform init -upgrade
-        working-directory: ./terraform-v2
-
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan -no-color
-        working-directory: ./terraform-v2
-        continue-on-error: true
-
-      - name: Truncate Terraform Plan
-        run: |
-          plan=$(tail -n 500 <<'EOF'
-          ${{ steps.plan.outputs.stdout }}
-          EOF
-          )
-          echo "PLAN<<EOF" >> $GITHUB_ENV
-          echo "${plan}" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const output = `### Terraform - V2
-            #### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-
-            <details><summary>Show Plan</summary>
-
-            \`\`\`
-            ${process.env.PLAN}
-            \`\`\`
-
-            </details>
-
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
-
-      # NPM PACKAGES
-      - uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install Yarn dependencies in root
-        run: yarn
-
-      - name: Get PR
-        id: pr
-        run: |
-          pr=$(curl -H "Accept: application/vnd.github.groot-preview+json" ${{github.event.pull_request._links.issue.href}})
-          prstr=$(jq -c '.' <<< "$pr")
-          echo "::set-output name=pr::$prstr"
-
-      - name: Save terraform plan event
-        uses: bcgov/sso-requests-actions/plan@v0.16.0
-        if: contains(fromJSON(steps.pr.outputs.pr).labels.*.name, 'auto_generated')
-        with:
-          github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          api-url: "${{ env.API_URL }}"
-          auth-secret: ${{ secrets.GH_SECRET }}
-          plan-output: "${{ env.PLAN }}"
-          plan-result: "${{ steps.plan.outcome }}"
-          pr-number: "${{ github.event.number }}"
-          pr-branch: "${{ github.event.pull_request.head.ref }}"
-          allowed-file-changes: "3"
-          allowed-file-additions: "100"
-          allowed-file-deletions: "100"
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
+          context: ./terraform-v2
+          tf-version: ${{ env.TF_VERSION }}
+          tf-team-token: ${{ secrets.TFC_TEAM_TOKEN }}
+          tf-workspace: ${{ env.TFC_WORKSPACE }}
+          kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
+          kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
+          kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
+          kc-dev-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
+          kc-test-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
+          kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
+          plan: true

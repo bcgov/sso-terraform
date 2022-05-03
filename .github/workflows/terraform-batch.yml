@@ -4,10 +4,10 @@ on: workflow_dispatch
 
 env:
   TF_VERSION: 0.15.3
-
-
-
-
+  TFC_WORKSPACE: xgr00q-dev-keycloak_cust
+  KEYCLOAK_DEV_URL: https://dev.oidc.gov.bc.ca
+  KEYCLOAK_TEST_URL: https://test.oidc.gov.bc.ca
+  KEYCLOAK_PROD_URL: https://oidc.gov.bc.ca
 
 jobs:
   terraform:
@@ -46,7 +46,6 @@ jobs:
         uses: fjogeleit/http-request-action@master
         with:
           url: "${{ env.API_URL }}/batch/items/silver"
-          # url: "${{ env.API_URL }}/batch/items/silver"
           method: "GET"
           customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
           timeout: "60000"
@@ -61,64 +60,25 @@ jobs:
 
       - name: Setup Terraform
         if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        uses: hashicorp/setup-terraform@v1
+        id: tf
+        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.27.0
         with:
-          terraform_version: ${{ env.TF_VERSION }}
-          cli_config_credentials_token: ${{ secrets.TFC_TEAM_TOKEN }}
-
-      - name: Terraform Format
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        id: fmt
-        run: terraform fmt -check
-        working-directory: ./terraform
-
-      - name: Terraform Variables
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        run: |
-          cat >"versions.tf" <<EOF
-          terraform {
-            backend "remote" {
-              hostname     = "app.terraform.io"
-              organization = "bcgov"
-              workspaces {
-                name = "${{ secrets.TFC_WORKSPACE }}"
-              }
-            }
-          }
-          EOF
-
-          cat >"ci.auto.tfvars" <<EOF
-          dev_keycloak_url="${{ secrets.KEYCLOAK_DEV_URL }}"
-          test_keycloak_url="${{ secrets.KEYCLOAK_TEST_URL }}"
-          prod_keycloak_url="${{ secrets.KEYCLOAK_PROD_URL }}"
-          dev_client_secret="${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}"
-          test_client_secret="${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}"
-          prod_client_secret="${{ secrets.KEYCLOAK_PROD_CLIENT_SECRET }}"
-          EOF
-        working-directory: ./terraform
-
-      - name: Terraform Init
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        id: init
-        run: terraform init -upgrade
-        working-directory: ./terraform
+          context: ./terraform
+          tf-version: ${{ env.TF_VERSION }}
+          tf-team-token: ${{ secrets.TFC_TEAM_TOKEN }}
+          tf-workspace: ${{ env.TFC_WORKSPACE }}
+          kc-dev-url: ${{ env.KEYCLOAK_DEV_URL }}
+          kc-test-url: ${{ env.KEYCLOAK_TEST_URL }}
+          kc-prod-url: ${{ env.KEYCLOAK_PROD_URL }}
+          kc-dev-secret: ${{ secrets.KEYCLOAK_DEV_CLIENT_SECRET }}
+          kc-test-secret: ${{ secrets.KEYCLOAK_TEST_CLIENT_SECRET }}
+          kc-prod-secret: ${{ secrets.KEYCLOAK_PROD_CLIENT_SECRET }}
+          apply: true
+        continue-on-error: true
 
       # NPM PACKAGES
-      - uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install Yarn dependencies in root
-        run: yarn
-
-      - name: Terraform Apply
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
-        id: apply
-        run: |
-          terraform apply -auto-approve
-        working-directory: ./terraform
-        continue-on-error: true
+      - name: Setup NPM Packages
+        uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.27.0
 
       - name: Update Requests Status
         if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
@@ -126,10 +86,10 @@ jobs:
         with:
           url: "${{ env.API_URL }}/batch/items"
           method: "PUT"
-          data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.apply.outcome != ''failure'' }}"}'
+          data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.tf.outputs.apply != ''failure'' }}"}'
           customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
           timeout: "60000"
 
       - name: Set Failure Code
-        if: steps.apply.outcome == 'failure'
+        if: steps.tf.outputs.apply == 'failure'
         run: exit 1
