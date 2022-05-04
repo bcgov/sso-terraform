@@ -17,6 +17,8 @@ module "tians-gold-testing-4-28-3644" {
   idps = [
     "idir",
     "bceidbasic",
+    "bceidbusiness",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
