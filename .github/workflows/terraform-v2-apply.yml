@@ -34,7 +34,7 @@ jobs:
           prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
           apply: true
 
-      - uses: bcgov/sso-requests-actions/keycloak@v0.26.0
+      - uses: bcgov/sso-requests-actions/keycloak@v0.29.0
         with:
           dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
           test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}

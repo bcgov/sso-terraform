@@ -92,3 +92,17 @@ module "master_idir_link" {
   idp_realm_name   = module.idir.realm_name
   idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
 }
+
+module "master_viewer_role" {
+  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-viewer-role"
+  realm_names = ["standard", "idir", "azureidir", "bceidbasic", "bceidbusiness", "bceidboth"]
+
+  depends_on = [
+    module.standard,
+    module.idir,
+    module.azureidir,
+    module.bceidbasic,
+    module.bceidbusiness,
+    module.bceidboth,
+  ]
+}
