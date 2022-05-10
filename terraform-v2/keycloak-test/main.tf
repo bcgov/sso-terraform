@@ -95,7 +95,7 @@ module "master_idir_link" {
 
 module "master_viewer_role" {
   source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-viewer-role"
-  realm_names = ["standard", "idir", "azureidir", "bceidbasic", "bceidbusiness", "bceidboth"]
+  realm_names = ["master", "standard", "idir", "azureidir", "bceidbasic", "bceidbusiness", "bceidboth"]
 
   depends_on = [
     module.standard,
