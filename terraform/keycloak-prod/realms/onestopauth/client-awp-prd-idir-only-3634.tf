@@ -4,6 +4,7 @@ module "client_awp-prd-idir-only-3634" {
   client_name = "awp-prd-idir-only-3634"
   valid_redirect_uris = [
     "https://awp.th.gov.bc.ca/*",
+    "https://dev-awp.th.gov.bc.ca/*",
     "https://rft-awp.th.gov.bc.ca/*"
   ]
   description = "CSS App Created"
