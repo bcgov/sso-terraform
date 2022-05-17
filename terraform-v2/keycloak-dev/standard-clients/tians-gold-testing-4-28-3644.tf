@@ -9,7 +9,7 @@ module "tians-gold-testing-4-28-3644" {
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
-  access_token_lifespan               = 300
+  access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
