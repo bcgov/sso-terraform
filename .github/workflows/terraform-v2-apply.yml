@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Terraform
-        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.28.0
+        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.31.0
         with:
           context: ./terraform-v2
           tf-version: ${{ env.TF_VERSION }}
@@ -32,6 +32,15 @@ jobs:
           kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
           test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
           prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
+          dev-azureidir-tenant-id: ${{ secrets.DEV_AZUREIDIR_TENANT_ID }}
+          dev-azureidir-client-id: ${{ secrets.DEV_AZUREIDIR_CLIENT_ID }}
+          dev-azureidir-client-secret: ${{ secrets.DEV_AZUREIDIR_CLIENT_SECRET }}
+          test-azureidir-tenant-id: ${{ secrets.TEST_AZUREIDIR_TENANT_ID }}
+          test-azureidir-client-id: ${{ secrets.TEST_AZUREIDIR_CLIENT_ID }}
+          test-azureidir-client-secret: ${{ secrets.TEST_AZUREIDIR_CLIENT_SECRET }}
+          prod-azureidir-tenant-id: ${{ secrets.PROD_AZUREIDIR_TENANT_ID }}
+          prod-azureidir-client-id: ${{ secrets.PROD_AZUREIDIR_CLIENT_ID }}
+          prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
           apply: true
 
       - uses: bcgov/sso-requests-actions/keycloak@v0.29.0

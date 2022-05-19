@@ -23,11 +23,22 @@ variable "keycloak_url" {
   default     = "http://localhost:8080"
 }
 
-variable "azureidir_keycloak_url" {
-  default = "https://login.microsoftonline.com/abcde/oauth2/v2.0"
+variable "siteminder_signing_certificate" {
+  type      = string
+  sensitive = true
 }
 
-variable "siteminder_signing_certificate" {
+variable "azureidir_tenant_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "azureidir_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "azureidir_client_secret" {
   type      = string
   sensitive = true
 }
