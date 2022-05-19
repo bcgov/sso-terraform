@@ -75,6 +75,15 @@ jobs:
           kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
           test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
           prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
+          dev-azureidir-tenant-id: ${{ secrets.DEV_AZUREIDIR_TENANT_ID }}
+          dev-azureidir-client-id: ${{ secrets.DEV_AZUREIDIR_CLIENT_ID }}
+          dev-azureidir-client-secret: ${{ secrets.DEV_AZUREIDIR_CLIENT_SECRET }}
+          test-azureidir-tenant-id: ${{ secrets.TEST_AZUREIDIR_TENANT_ID }}
+          test-azureidir-client-id: ${{ secrets.TEST_AZUREIDIR_CLIENT_ID }}
+          test-azureidir-client-secret: ${{ secrets.TEST_AZUREIDIR_CLIENT_SECRET }}
+          prod-azureidir-tenant-id: ${{ secrets.PROD_AZUREIDIR_TENANT_ID }}
+          prod-azureidir-client-id: ${{ secrets.PROD_AZUREIDIR_CLIENT_ID }}
+          prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
           apply: true
         continue-on-error: true
 

@@ -7,6 +7,9 @@ module "keycloak_dev" {
   username                       = var.dev_username
   password                       = var.dev_password
   siteminder_signing_certificate = var.test_siteminder_signing_certificate
+  azureidir_tenant_id            = var.dev_azureidir_tenant_id
+  azureidir_client_id            = var.dev_azureidir_client_id
+  azureidir_client_secret        = var.dev_azureidir_client_secret
 }
 
 module "keycloak_test" {
@@ -18,6 +21,9 @@ module "keycloak_test" {
   username                       = var.test_username
   password                       = var.test_password
   siteminder_signing_certificate = var.test_siteminder_signing_certificate
+  azureidir_tenant_id            = var.test_azureidir_tenant_id
+  azureidir_client_id            = var.test_azureidir_client_id
+  azureidir_client_secret        = var.test_azureidir_client_secret
 }
 
 module "keycloak_prod" {
@@ -29,4 +35,7 @@ module "keycloak_prod" {
   username                       = var.prod_username
   password                       = var.prod_password
   siteminder_signing_certificate = var.prod_siteminder_signing_certificate
+  azureidir_tenant_id            = var.prod_azureidir_tenant_id
+  azureidir_client_id            = var.prod_azureidir_client_id
+  azureidir_client_secret        = var.prod_azureidir_client_secret
 }
