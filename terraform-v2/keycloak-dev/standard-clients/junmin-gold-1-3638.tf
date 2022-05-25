@@ -7,7 +7,7 @@ module "junmin-gold-1-3638" {
   realm_id    = var.standard_realm_id
   client_name = "junmin-gold-1-3638"
   valid_redirect_uris = [
-    "http://localhost:3000",
+    "http://localhost:3001",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_token_lifespan               = ""
@@ -26,7 +26,7 @@ module "junmin-gold-1-3638" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000",
+    "http://localhost:3001",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
