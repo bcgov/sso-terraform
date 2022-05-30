@@ -3,7 +3,7 @@ module "client_conn-ccbc-portal-3700" {
   realm_id    = data.keycloak_realm.this.id
   client_name = "conn-ccbc-portal-3700"
   valid_redirect_uris = [
-    "https://ccbc-test.apps.silver.devops.gov.bc.ca/"
+    "https://ccbc-test.apps.silver.devops.gov.bc.ca/dashboard"
   ]
   description = "CSS App Created"
 }
