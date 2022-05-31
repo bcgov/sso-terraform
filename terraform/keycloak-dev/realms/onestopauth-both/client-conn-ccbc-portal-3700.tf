@@ -4,7 +4,7 @@ module "client_conn-ccbc-portal-3700" {
   client_name = "conn-ccbc-portal-3700"
   valid_redirect_uris = [
     "http://localhost:3000/auth-callback",
-    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/dashboard"
+    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/auth-callback"
   ]
   description = "CSS App Created"
 }
