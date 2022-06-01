@@ -3,9 +3,9 @@ data "keycloak_authentication_flow" "junmin_gold_1_3638_browserflow" {
   alias    = "idp stopper"
 }
 module "junmin-gold-1-3638" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_name = "junmin-gold-1-3638"
+  source    = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id  = var.standard_realm_id
+  client_id = "junmin-gold-1-3638"
   valid_redirect_uris = [
     "http://localhost:3000",
     "https://bcgov.github.io/keycloak-example-apps/*"
