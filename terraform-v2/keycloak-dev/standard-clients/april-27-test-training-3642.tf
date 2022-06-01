@@ -3,9 +3,9 @@ data "keycloak_authentication_flow" "april_27_test_training_3642_browserflow" {
   alias    = "idp stopper"
 }
 module "april-27-test-training-3642" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_name = "april-27-test-training-3642"
+  source    = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id  = var.standard_realm_id
+  client_id = "april-27-test-training-3642"
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
