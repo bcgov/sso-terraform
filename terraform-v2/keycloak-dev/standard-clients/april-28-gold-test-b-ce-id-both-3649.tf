@@ -3,9 +3,10 @@ data "keycloak_authentication_flow" "april_28_gold_test_b_ce_id_both_3649_browse
   alias    = "idp stopper"
 }
 module "april-28-gold-test-b-ce-id-both-3649" {
-  source    = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id  = var.standard_realm_id
-  client_id = "april-28-gold-test-b-ce-id-both-3649"
+  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id    = var.standard_realm_id
+  client_id   = "april-28-gold-test-b-ce-id-both-3649"
+  client_name = ""
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
