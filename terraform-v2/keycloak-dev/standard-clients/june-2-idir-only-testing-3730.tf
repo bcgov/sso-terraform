@@ -10,11 +10,11 @@ module "june-2-idir-only-testing-3730" {
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
-  access_token_lifespan               = ""
-  client_session_idle_timeout         = ""
-  client_session_max_lifespan         = ""
-  client_offline_session_idle_timeout = ""
-  client_offline_session_max_lifespan = ""
+  access_token_lifespan               = 600
+  client_session_idle_timeout         = 600
+  client_session_max_lifespan         = 600
+  client_offline_session_idle_timeout = 600
+  client_offline_session_max_lifespan = 600
   idps = [
     "idir",
     "azureidir",
