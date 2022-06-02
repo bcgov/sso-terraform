@@ -8,6 +8,7 @@ module "june-2-b-ce-id-basic-non-prod-3731" {
   client_id   = "june-2-b-ce-id-basic-non-prod-3731"
   client_name = "June 2 BCeID Basic Non Prod"
   valid_redirect_uris = [
+    "http://localhost:6000",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_token_lifespan               = ""
@@ -25,6 +26,7 @@ module "june-2-b-ce-id-basic-non-prod-3731" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:6000",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
