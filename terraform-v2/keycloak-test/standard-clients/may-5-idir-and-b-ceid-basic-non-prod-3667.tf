@@ -3,9 +3,10 @@ data "keycloak_authentication_flow" "may_5_idir_and_b_ceid_basic_non_prod_3667_b
   alias    = "idp stopper"
 }
 module "may-5-idir-and-b-ceid-basic-non-prod-3667" {
-  source    = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id  = var.standard_realm_id
-  client_id = "may-5-idir-and-b-ceid-basic-non-prod-3667"
+  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id    = var.standard_realm_id
+  client_id   = "may-5-idir-and-b-ceid-basic-non-prod-3667"
+  client_name = ""
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
