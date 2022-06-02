@@ -17,6 +17,7 @@ module "june-2-b-ce-id-both-azure-ad-non-prod-3733" {
   client_offline_session_max_lifespan = ""
   idps = [
     "azureidir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
