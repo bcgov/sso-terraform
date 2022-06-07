@@ -7,6 +7,7 @@ module "client_itvr-2674" {
     "http://localhost:3000/*",
     "https://itvr-dev-102.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev-148.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-150.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   description                = "CSS App Created"
@@ -16,6 +17,7 @@ module "client_itvr-2674" {
     "http://localhost:3000/*",
     "https://itvr-dev-102.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev-148.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-150.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
