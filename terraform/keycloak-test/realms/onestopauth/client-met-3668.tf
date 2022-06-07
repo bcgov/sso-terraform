@@ -4,7 +4,7 @@ module "client_met-3668" {
   client_id   = "met-3668"
   client_name = "met-3668"
   valid_redirect_uris = [
-    "https://met-oidc-dev.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint"
+    "https://met-oidc-test.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint"
   ]
   description = "CSS App Created"
 }
