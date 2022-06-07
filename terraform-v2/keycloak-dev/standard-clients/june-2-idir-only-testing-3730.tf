@@ -8,6 +8,8 @@ module "june-2-idir-only-testing-3730" {
   client_id   = "june-2-idir-only-testing-3730"
   client_name = "June 2 IDIR Only Testing"
   valid_redirect_uris = [
+    "http://localhost:3000",
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_token_lifespan               = 600
@@ -26,6 +28,8 @@ module "june-2-idir-only-testing-3730" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000",
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
