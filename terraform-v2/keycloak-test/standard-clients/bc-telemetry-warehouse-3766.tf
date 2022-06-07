@@ -8,7 +8,7 @@ module "bc-telemetry-warehouse-3766" {
   client_id   = "bc-telemetry-warehouse-3766"
   client_name = "BC Telemetry Warehouse (TEST)"
   valid_redirect_uris = [
-    "http://moe-bctw-test.apps.silver.devops.gov.bc.ca/*"
+    "https://moe-bctw-test.apps.silver.devops.gov.bc.ca/"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -26,7 +26,7 @@ module "bc-telemetry-warehouse-3766" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://moe-bctw-test.apps.silver.devops.gov.bc.ca/*",
+    "https://moe-bctw-test.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
 }

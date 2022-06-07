@@ -8,7 +8,7 @@ module "bc-telemetry-warehouse-3766" {
   client_id   = "bc-telemetry-warehouse-3766"
   client_name = "BC Telemetry Warehouse"
   valid_redirect_uris = [
-    "http://telemetry.nrs.gov.bc.ca/*"
+    "https://telemetry.nrs.gov.bc.ca/"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -26,7 +26,7 @@ module "bc-telemetry-warehouse-3766" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://telemetry.nrs.gov.bc.ca/*",
+    "https://telemetry.nrs.gov.bc.ca/",
     "+"
   ]
 }
