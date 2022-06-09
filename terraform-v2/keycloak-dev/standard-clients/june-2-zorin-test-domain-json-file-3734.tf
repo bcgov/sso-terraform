@@ -8,7 +8,6 @@ module "june-2-zorin-test-domain-json-file-3734" {
   client_id   = "june-2-zorin-test-domain-json-file-3734"
   client_name = "June 2 zorin test domain json file"
   valid_redirect_uris = [
-    "http://localhost:3000/",
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
