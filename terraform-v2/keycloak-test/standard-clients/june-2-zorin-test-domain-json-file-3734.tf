@@ -23,10 +23,4 @@ module "june-2-zorin-test-domain-json-file-3734" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.june_2_zorin_test_domain_json_file_3734_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://bcgov.github.io/keycloak-example-apps/*",
-    "+"
-  ]
 }
