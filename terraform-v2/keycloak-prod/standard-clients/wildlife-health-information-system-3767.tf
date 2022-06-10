@@ -8,7 +8,6 @@ module "wildlife-health-information-system-3767" {
   client_id   = "wildlife-health-information-system-3767"
   client_name = "Wildlife Health Information System"
   valid_redirect_uris = [
-    "https://whis-ui-prod.apps.silver.devops.gov.bc.ca/",
     "https://wildlifehealth.nrs.gov.bc.ca/"
   ]
   access_token_lifespan               = ""
@@ -27,7 +26,6 @@ module "wildlife-health-information-system-3767" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://whis-ui-prod.apps.silver.devops.gov.bc.ca/",
     "https://wildlifehealth.nrs.gov.bc.ca/",
     "+"
   ]
