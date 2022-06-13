@@ -1,6 +1,7 @@
 module "client_invasives-bc-1849" {
   source      = "github.com/bcgov/sso-terraform-keycloak-client?ref=main"
   realm_id    = data.keycloak_realm.this.id
+  client_id   = "invasives-bc-1849"
   client_name = "invasives-bc-1849"
   valid_redirect_uris = [
     "capacitor://127.0.0.1:3000/*",
@@ -10,6 +11,8 @@ module "client_invasives-bc-1849" {
     "capacitor://localhost*",
     "capacitor://localhost:3000/*",
     "capacitor://localhost:8100/*",
+    "http://*",
+    "http://*:8100/*",
     "http://10.0.0.106:8100",
     "http://10.0.0.106:8100/*",
     "http://127.0.0.1:3000/home/*",
@@ -50,6 +53,8 @@ module "client_invasives-bc-1849" {
     "capacitor://localhost*",
     "capacitor://localhost:3000/*",
     "capacitor://localhost:8100/*",
+    "http://*",
+    "http://*:8100/*",
     "http://10.0.0.106:8100",
     "http://10.0.0.106:8100/*",
     "http://127.0.0.1:3000/home/*",
