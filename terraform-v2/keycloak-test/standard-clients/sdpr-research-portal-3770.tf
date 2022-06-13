@@ -8,8 +8,7 @@ module "sdpr-research-portal-3770" {
   client_id   = "sdpr-research-portal-3770"
   client_name = "SDPR Research portal"
   valid_redirect_uris = [
-    "https://research-portal-ba7244-test.apps.silver.devops.gov.bc.ca",
-    "https://research-portal-ba7244-test.apps.silver.devops.gov.bc.ca/nfa/*"
+    "https://research-portal-ba7244-test.apps.silver.devops.gov.bc.ca/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
