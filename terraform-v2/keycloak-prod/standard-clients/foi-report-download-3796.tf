@@ -9,8 +9,10 @@ module "foi-report-download-3796" {
   client_name = "FOI Report Download"
   valid_redirect_uris = [
     "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca",
+    "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/",
     "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/*",
     "https://foireport.analytics.gov.bc.ca",
+    "https://foireport.analytics.gov.bc.ca/",
     "https://foireport.analytics.gov.bc.ca/*"
   ]
   access_token_lifespan               = ""
@@ -29,8 +31,10 @@ module "foi-report-download-3796" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca",
+    "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/",
     "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/*",
     "https://foireport.analytics.gov.bc.ca",
+    "https://foireport.analytics.gov.bc.ca/",
     "https://foireport.analytics.gov.bc.ca/*",
     "+"
   ]

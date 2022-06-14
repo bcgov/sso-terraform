@@ -13,6 +13,7 @@ module "foi-report-download-3796" {
     "http://localhost:8080",
     "http://localhost:8080/*",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca",
+    "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca/",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   access_token_lifespan               = ""
@@ -35,6 +36,7 @@ module "foi-report-download-3796" {
     "http://localhost:8080",
     "http://localhost:8080/*",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca",
+    "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca/",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
