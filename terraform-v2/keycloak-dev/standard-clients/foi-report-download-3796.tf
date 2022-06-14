@@ -8,6 +8,10 @@ module "foi-report-download-3796" {
   client_id   = "foi-report-download-3796"
   client_name = "FOI Report Download (DEV)"
   valid_redirect_uris = [
+    "http://localhost:8000",
+    "http://localhost:8000/*",
+    "http://localhost:8080",
+    "http://localhost:8080/*",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca"
   ]
   access_token_lifespan               = ""
@@ -25,6 +29,10 @@ module "foi-report-download-3796" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:8000",
+    "http://localhost:8000/*",
+    "http://localhost:8080",
+    "http://localhost:8080/*",
     "https://foi-report-download-556e1b-dev.apps.silver.devops.gov.bc.ca",
     "+"
   ]
