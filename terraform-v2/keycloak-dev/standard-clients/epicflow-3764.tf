@@ -8,7 +8,7 @@ module "epicflow-3764" {
   client_id   = "epicflow-3764"
   client_name = "EPICFLOW"
   valid_redirect_uris = [
-    "https://forms-flow-web-dc383e-dev.apps.silver.devops.gov.bc.ca"
+    "https://keycloak-dc383e-dev.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/keycloak-oidc/endpoint"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
