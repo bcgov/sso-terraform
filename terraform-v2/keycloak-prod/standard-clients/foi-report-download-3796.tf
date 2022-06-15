@@ -27,15 +27,4 @@ module "foi-report-download-3796" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.foi_report_download_3796_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca",
-    "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/",
-    "https://foi-report-download-556e1b-prod.apps.silver.devops.gov.bc.ca/*",
-    "https://foireport.analytics.gov.bc.ca",
-    "https://foireport.analytics.gov.bc.ca/",
-    "https://foireport.analytics.gov.bc.ca/*",
-    "+"
-  ]
 }
