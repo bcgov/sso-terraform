@@ -3,10 +3,12 @@ data "keycloak_authentication_flow" "tians_gold_testing_4_28_3644_browserflow" {
   alias    = "idp stopper"
 }
 module "tians-gold-testing-4-28-3644" {
-  source    = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id  = var.standard_realm_id
-  client_id = "tians-gold-testing-4-28-3644"
+  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id    = var.standard_realm_id
+  client_id   = "tians-gold-testing-4-28-3644"
+  client_name = ""
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
   access_token_lifespan               = ""
@@ -27,6 +29,7 @@ module "tians-gold-testing-4-28-3644" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
