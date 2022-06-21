@@ -29,15 +29,4 @@ module "coco-gold-3829" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.coco_gold_3829_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "http://localhost:8080/*",
-    "http://localhost:8081/*",
-    "http://localhost:8082/*",
-    "https://localhost:8080/*",
-    "https://localhost:8081/*",
-    "https://localhost:8082/*",
-    "+"
-  ]
 }
