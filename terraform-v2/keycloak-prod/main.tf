@@ -108,3 +108,10 @@ module "master_viewer_role" {
     module.bceidboth,
   ]
 }
+
+resource "keycloak_realm_events" "master_events" {
+  realm_id = "master"
+
+  admin_events_enabled         = true
+  admin_events_details_enabled = true
+}
