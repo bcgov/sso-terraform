@@ -9,7 +9,10 @@ module "bc-telemetry-warehouse-3766" {
   client_name = "BC Telemetry Warehouse (DEV)"
   valid_redirect_uris = [
     "http://localhost:1111/",
-    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/"
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
+    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -28,7 +31,10 @@ module "bc-telemetry-warehouse-3766" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:1111/",
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*",
     "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
+    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
 }
