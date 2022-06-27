@@ -6,7 +6,7 @@ module "hwp-3862" {
   source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id    = var.standard_realm_id
   client_id   = "hwp-3862"
-  client_name = "hwp"
+  client_name = "hwp-login"
   valid_redirect_uris = [
     "http://localhost:8080"
   ]
