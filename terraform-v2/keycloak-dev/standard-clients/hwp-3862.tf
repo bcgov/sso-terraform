@@ -8,7 +8,7 @@ module "hwp-3862" {
   client_id   = "hwp-3862"
   client_name = "hwp-login"
   valid_redirect_uris = [
-    "http://localhost:8080"
+    "http://localhost:8080/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
