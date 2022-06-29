@@ -8,7 +8,7 @@ module "hwp-3862" {
   client_id   = "hwp-3862"
   client_name = "hwp-login"
   valid_redirect_uris = [
-    "http://localhost:8080/*"
+    "http://localhost:5000/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -22,10 +22,4 @@ module "hwp-3862" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.hwp_3862_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "http://localhost:8080/*",
-    "+"
-  ]
 }
