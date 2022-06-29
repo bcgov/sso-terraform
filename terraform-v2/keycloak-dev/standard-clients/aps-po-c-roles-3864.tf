@@ -6,8 +6,9 @@ module "aps-po-c-roles-3864" {
   source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id    = var.standard_realm_id
   client_id   = "aps-po-c-roles-3864"
-  client_name = "APS PoC Roles"
+  client_name = "APS PoC Roleshello-py-api-api-gov-bc-ca.dev.api.gov.bc.ca"
   valid_redirect_uris = [
+    "https://*",
     "https://hello-py-api-api-gov-bc-ca.dev.api.gov.bc.ca/cb"
   ]
   access_token_lifespan               = ""
