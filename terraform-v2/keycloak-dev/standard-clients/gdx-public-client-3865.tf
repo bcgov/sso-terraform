@@ -8,6 +8,7 @@ module "gdx-public-client-3865" {
   client_id   = "gdx-public-client-3865"
   client_name = "gdx-public-client"
   valid_redirect_uris = [
+    "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:3000/*"
   ]
   access_token_lifespan               = ""
@@ -25,6 +26,7 @@ module "gdx-public-client-3865" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:3000/*",
     "+"
   ]
