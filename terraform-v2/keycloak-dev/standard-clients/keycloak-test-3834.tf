@@ -8,7 +8,7 @@ module "keycloak-test-3834" {
   client_id   = "keycloak-test-3834"
   client_name = "keycloak-test"
   valid_redirect_uris = [
-    "http://localhost:3000"
+    "http://localhost:3000/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
