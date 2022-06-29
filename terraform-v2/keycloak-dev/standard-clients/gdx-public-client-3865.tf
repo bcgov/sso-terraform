@@ -8,8 +8,8 @@ module "gdx-public-client-3865" {
   client_id   = "gdx-public-client-3865"
   client_name = "gdx-public-client"
   valid_redirect_uris = [
-    "http://localhost:3000/",
-    "https://localhost:3000"
+    "http://localhost:3000/*",
+    "https://localhost:3000/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
@@ -26,8 +26,8 @@ module "gdx-public-client-3865" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/",
-    "https://localhost:3000",
+    "http://localhost:3000/*",
+    "https://localhost:3000/*",
     "+"
   ]
 }
