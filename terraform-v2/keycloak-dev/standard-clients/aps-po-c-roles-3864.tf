@@ -8,7 +8,7 @@ module "aps-po-c-roles-3864" {
   client_id   = "aps-po-c-roles-3864"
   client_name = "APS PoC Roles"
   valid_redirect_uris = [
-    "https://hello-py-api-api-gov-bc-ca.dev.api.gov.bc.ca"
+    "https://hello-py-api-api-gov-bc-ca.dev.api.gov.bc.ca/"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
