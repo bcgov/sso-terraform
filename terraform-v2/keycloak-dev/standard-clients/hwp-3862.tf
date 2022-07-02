@@ -8,7 +8,8 @@ module "hwp-3862" {
   client_id   = "hwp-3862"
   client_name = "hwp-login"
   valid_redirect_uris = [
-    "http://localhost:5000/*"
+    "http://localhost:5000/*",
+    "https://hwp-express-api-d63404-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
