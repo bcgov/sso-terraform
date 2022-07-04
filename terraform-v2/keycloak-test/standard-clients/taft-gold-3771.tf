@@ -8,6 +8,7 @@ module "taft-gold-3771" {
   client_id   = "taft-gold-3771"
   client_name = "TAFT-GOLD"
   valid_redirect_uris = [
+    "https://idm-demo-taft.apps.silver.devops.gov.bc.ca/auth/realms/taft/broker/idir/endpoint",
     "https://idm-test-taft.apps.silver.devops.gov.bc.ca/auth/realms/taft/broker/idir/endpoint"
   ]
   access_token_lifespan               = ""
