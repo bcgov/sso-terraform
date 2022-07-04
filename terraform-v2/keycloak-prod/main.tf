@@ -93,6 +93,7 @@ module "master_idir_link" {
   idp_realm_id     = module.idir.realm_id
   idp_realm_name   = module.idir.realm_name
   idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
+  otp_required     = true
 }
 
 module "master_viewer_role" {
