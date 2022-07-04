@@ -5,10 +5,7 @@ module "client_itvr-2674" {
   client_name = "itvr-2674"
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "https://itvr-dev-102.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-148.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-150.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-163.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-205.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   description                = "CSS App Created"
@@ -16,10 +13,7 @@ module "client_itvr-2674" {
   pkce_code_challenge_method = "S256"
   web_origins = [
     "http://localhost:3000/*",
-    "https://itvr-dev-102.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-148.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-150.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-dev-163.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-205.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
