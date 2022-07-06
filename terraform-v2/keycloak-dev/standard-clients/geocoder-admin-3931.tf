@@ -8,7 +8,7 @@ module "geocoder-admin-3931" {
   client_id   = "geocoder-admin-3931"
   client_name = "Geocoder Admin"
   valid_redirect_uris = [
-    "https://geocoder-config-admin-dev.apps.gov.bc.ca"
+    "http://localhost:1000"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
