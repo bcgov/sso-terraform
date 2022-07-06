@@ -4,8 +4,7 @@ module "client_bc-public-service-agency-bi-3670" {
   client_id   = "bc-public-service-agency-bi-3670"
   client_name = "bc-public-service-agency-bi-3670"
   valid_redirect_uris = [
-    "https://localhost:9595",
-    "https://localhost:9595/Home/Authentication"
+    "https://localhost:9595/*"
   ]
   description = "CSS App Created"
 }
