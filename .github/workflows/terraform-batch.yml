@@ -18,19 +18,7 @@ jobs:
       - uses: hmarr/debug-action@v2
       - uses: actions/checkout@v2
 
-      - name: Check if Action Runs Already
-        id: action
-        run: |
-          workflow=$(echo "${{ github.event.workflow }}" | cut -d/ -f3)
-          runs=$(curl -H "Accept: application/vnd.github.groot-preview+json" "https://api.github.com/repos/${{github.repository}}/actions/workflows/$workflow/runs?status=in_progress")
-          count=$(jq ".total_count" <<< "$runs")
-          [[ $count = '0' || $count = '1' ]] && running="false" || running="true"
-          echo "$count"
-          echo "$running"
-          echo "::set-output name=running::$running"
-
       - name: Wake Up API
-        if: steps.action.outputs.running == 'false'
         uses: fjogeleit/http-request-action@master
         with:
           url: "${{ env.API_URL }}/heartbeat"
@@ -40,7 +28,6 @@ jobs:
         continue-on-error: true
 
       - name: Fetch Requests Count
-        if: steps.action.outputs.running == 'false'
         id: requests
         uses: fjogeleit/http-request-action@master
         with:
@@ -50,15 +37,19 @@ jobs:
           timeout: "60000"
 
       - name: Get Requests Count
-        if: steps.action.outputs.running == 'false'
         id: count
         run: |
           count=$(jq length <<< ${{ steps.requests.outputs.response }})
           echo "$count"
           echo "::set-output name=count::$count"
 
+      - name: Pull the main branch again
+        if: steps.count.outputs.count != '0'
+        run: |
+          git pull origin main --rebase
+
       - name: Setup Terraform
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
+        if: steps.count.outputs.count != '0'
         id: tf
         uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.33.0
         with:
@@ -78,12 +69,12 @@ jobs:
           apply: true
         continue-on-error: true
 
-      # NPM PACKAGES
       - name: Setup NPM Packages
+        if: steps.count.outputs.count != '0'
         uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.33.0
 
       - name: Update Requests Status
-        if: steps.action.outputs.running == 'false' && steps.count.outputs.count != '0'
+        if: steps.count.outputs.count != '0'
         uses: fjogeleit/http-request-action@master
         with:
           url: "${{ env.API_URL }}/batch/items"
