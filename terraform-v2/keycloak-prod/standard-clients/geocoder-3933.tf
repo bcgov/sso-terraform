@@ -8,7 +8,7 @@ module "geocoder-3933" {
   client_id   = "geocoder-3933"
   client_name = "Geocoder"
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "https://*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
