@@ -8,6 +8,7 @@ module "bc-data-catalogue-3863" {
   client_id   = "bc-data-catalogue-3863"
   client_name = "BC Data Catalogue"
   valid_redirect_uris = [
+    "https://*",
     "https://dwelf.data.gov.bc.ca/client-api/callback",
     "https://localhost:3000/client-api/callback"
   ]
