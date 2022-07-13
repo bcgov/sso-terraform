@@ -6,6 +6,7 @@ module "client_itvr-2674" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://itvr-dev-205.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-228.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   description                = "CSS App Created"
@@ -14,6 +15,7 @@ module "client_itvr-2674" {
   web_origins = [
     "http://localhost:3000/*",
     "https://itvr-dev-205.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-dev-228.apps.silver.devops.gov.bc.ca/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
