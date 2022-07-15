@@ -8,8 +8,7 @@ module "pecsf-greenfield-3936" {
   client_id   = "pecsf-greenfield-3936"
   client_name = "PECSF Greenfield"
   valid_redirect_uris = [
-    "http://localhost:8000/login/keycloak/callback",
-    "https://pecsf.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
+    "https://pecsf-test.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
