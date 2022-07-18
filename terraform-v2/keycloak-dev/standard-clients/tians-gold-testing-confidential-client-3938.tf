@@ -8,7 +8,7 @@ module "tians-gold-testing-confidential-client-3938" {
   client_id   = "tians-gold-testing-confidential-client-3938"
   client_name = "Tian's Gold Testing - Confidential Client"
   valid_redirect_uris = [
-    "http://localhost:3000"
+    "http://localhost:3000/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
