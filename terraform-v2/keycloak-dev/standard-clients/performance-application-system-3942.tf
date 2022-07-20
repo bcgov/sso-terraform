@@ -8,7 +8,7 @@ module "performance-application-system-3942" {
   client_id   = "performance-application-system-3942"
   client_name = "Performance ASystem"
   valid_redirect_uris = [
-    "http://localhost:8000",
+    "http://localhost:8000/login/keycloak/callback",
     "https://performance-332842-dev.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
   ]
   access_token_lifespan               = ""
