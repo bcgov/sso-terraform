@@ -8,6 +8,7 @@ module "alcs-3944" {
   client_id   = "alcs-3944"
   client_name = "ALCS Development"
   valid_redirect_uris = [
+    "http://localhost:8080/*",
     "https://alcs-dev.apps.silver.devops.gov.bc.ca"
   ]
   access_token_lifespan               = ""
