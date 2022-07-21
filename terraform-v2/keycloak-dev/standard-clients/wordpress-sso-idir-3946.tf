@@ -8,7 +8,9 @@ module "wordpress-sso-idir-3946" {
   client_id   = "wordpress-sso-idir-3946"
   client_name = "wordpress-sso-idir"
   valid_redirect_uris = [
-    "https://cloud-test.apps.silver.devops.gov.bc.ca/*"
+    "https://0.0.0.0/*",
+    "https://cloud-test.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost/*"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
