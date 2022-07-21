@@ -8,7 +8,7 @@ module "test-nk-3952" {
   client_id   = "test-nk-3952"
   client_name = "test-nk"
   valid_redirect_uris = [
-    "http://localhost:3000/oauth/cognito"
+    "http://localhost:3000/oauth"
   ]
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
