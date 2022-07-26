@@ -23,8 +23,8 @@ module "coms-3964" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:3000",
-    "http://localhost:8080",
-    "http://localhost:8081"
+    "http://localhost:3000/*",
+    "http://localhost:8080/*",
+    "http://localhost:8081/*"
   ]
 }
