@@ -3,13 +3,10 @@ data "keycloak_authentication_flow" "tians_gold_testing_confidential_client_3938
   alias    = "idp stopper"
 }
 module "tians-gold-testing-confidential-client-3938" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_id   = "tians-gold-testing-confidential-client-3938"
-  client_name = "Tian's Gold Testing - Confidential Client"
-  valid_redirect_uris = [
-    "http://localhost:3000/*"
-  ]
+  source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id                            = var.standard_realm_id
+  client_id                           = "tians-gold-testing-confidential-client-3938"
+  client_name                         = "Tian's Gold Testing - Confidential Client"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -17,9 +14,15 @@ module "tians-gold-testing-confidential-client-3938" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.tians_gold_testing_confidential_client_3938_browserflow.id
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
+  valid_redirect_uris = [
+    "http://localhost:3000/*"
+  ]
 }
