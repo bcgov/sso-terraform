@@ -22,6 +22,6 @@ module "kuro-testing-example-app-3832" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://test.com"
+    "http://localhost:3000/oauth"
   ]
 }
