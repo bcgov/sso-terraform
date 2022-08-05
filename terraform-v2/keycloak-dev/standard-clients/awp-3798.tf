@@ -23,6 +23,7 @@ module "awp-3798" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://awp-offline.azurewebsites.net/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://localhost:44317/*",
     "https://localhost:44341/*"
