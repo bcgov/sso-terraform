@@ -36,7 +36,7 @@ module "idir" {
   keycloak_url               = var.keycloak_url
   realm_name                 = local.idir_realm_name
   standard_realm_name        = local.standard_realm_name
-  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_idir/"
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_idir1/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
 }
@@ -56,7 +56,7 @@ module "bceidbasic" {
   keycloak_url               = var.keycloak_url
   realm_name                 = local.bceidbasic_realm_name
   standard_realm_name        = local.standard_realm_name
-  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasic/"
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasic1/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
 }
@@ -67,7 +67,7 @@ module "bceidbusiness" {
   keycloak_url               = var.keycloak_url
   realm_name                 = local.bceidbusiness_realm_name
   standard_realm_name        = local.standard_realm_name
-  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbusiness/"
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbusiness1/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
 }
@@ -77,7 +77,7 @@ module "bceidboth" {
   keycloak_url               = var.keycloak_url
   realm_name                 = local.bceidboth_realm_name
   standard_realm_name        = local.standard_realm_name
-  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness/"
+  saml_entity_id             = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness1/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
 }
