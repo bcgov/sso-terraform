@@ -51,7 +51,7 @@ jobs:
       - name: Setup Terraform
         if: steps.count.outputs.count != '0'
         id: tf
-        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.38.0
+        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.39.0
         with:
           context: ./terraform-v2
           tf-version: ${{ env.TF_VERSION }}
@@ -82,7 +82,7 @@ jobs:
 
       - name: Setup NPM Packages
         if: steps.count.outputs.count != '0'
-        uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.38.0
+        uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.39.0
 
       - name: Update Requests Status
         if: steps.count.outputs.count != '0'
