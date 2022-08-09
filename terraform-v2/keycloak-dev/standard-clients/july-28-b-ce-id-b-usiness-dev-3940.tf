@@ -24,6 +24,7 @@ module "july-28-b-ce-id-b-usiness-dev-3940" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
+    "http://localhost:3000/api/auth/callback/keycloak/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
@@ -31,6 +32,7 @@ module "july-28-b-ce-id-b-usiness-dev-3940" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
+    "http://localhost:3000/api/auth/callback/keycloak/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
 }
