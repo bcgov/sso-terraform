@@ -22,6 +22,17 @@ module "trans-action-3979" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev-transaction.th.gov.bc.ca/"
+    "http://localhost:3000/*",
+    "http://localhost:3002/*",
+    "http://localhost:44705/*",
+    "https://dev-transaction.th.gov.bc.ca/",
+    "https://dev-transaction.th.gov.bc.ca/*",
+    "https://transaction-0-vlpweg-dev.pathfinder.gov.bc.ca/*",
+    "https://transaction-122-vlpweg-dev.pathfinder.gov.bc.ca/*",
+    "https://transaction-144-55b94d-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://transaction-55b94d-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://transaction-vlpweg-dev.pathfinder.gov.bc.ca/*",
+    "https://transaction-vlpweg-prod.pathfinder.gov.bc.ca/*",
+    "https://transaction-vlpweg-test.pathfinder.gov.bc.ca/*"
   ]
 }
