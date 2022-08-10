@@ -25,6 +25,7 @@ module "fms-3983" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://localhost:4200",
+    "https://dev.sso.silvacom.com/*",
     "https://online.silvacom.com/fmsmof_bcUAT/HarvestPlanner.html"
   ]
 }
