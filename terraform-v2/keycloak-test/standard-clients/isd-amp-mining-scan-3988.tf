@@ -22,6 +22,6 @@ module "isd-amp-mining-scan-3988" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://sso.apps-isd.sd.gov.bc.ca/auth/realms/mining-test/broker/keycloak-oidc/endpoint"
+    "https://sso.apps-isd.sd.gov.bc.ca/auth/realms/mining-test/broker/oidc/endpoint"
   ]
 }
