@@ -24,7 +24,7 @@ module "slam-3943" {
   web_origins = [
     "http://localhost:3000/",
     "http://localhost:3000/api/auth/callback/keycloak",
-    "https://dev.slam.im.gov.bc.ca/",
+    "https://dev.slam.im.gov.bc.ca/api/auth/callback/keycloak",
     "+"
   ]
   standard_flow_enabled    = true
@@ -32,6 +32,6 @@ module "slam-3943" {
   valid_redirect_uris = [
     "http://localhost:3000/",
     "http://localhost:3000/api/auth/callback/keycloak",
-    "https://dev.slam.im.gov.bc.ca/"
+    "https://dev.slam.im.gov.bc.ca/api/auth/callback/keycloak"
   ]
 }
