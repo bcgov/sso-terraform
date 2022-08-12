@@ -23,6 +23,7 @@ module "fms-3983" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://online.silvacom.com/fmsmof_bc/HarvestPlanner.html"
+    "https://online.silvacom.com/fmsmof_bc/HarvestPlanner.html",
+    "https://sso.silvacom.com/*"
   ]
 }
