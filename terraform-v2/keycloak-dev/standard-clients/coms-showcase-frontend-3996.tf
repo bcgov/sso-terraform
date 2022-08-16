@@ -23,12 +23,12 @@ module "coms-showcase-frontend-3996" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://coms-dev-master.apps.silver.devops.gov.bc.ca:8081/*",
+    "https://comss-dev-master.apps.silver.devops.gov.bc.ca:8081/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://coms-dev-master.apps.silver.devops.gov.bc.ca:8081/*"
+    "https://comss-dev-master.apps.silver.devops.gov.bc.ca:8081/*"
   ]
 }
