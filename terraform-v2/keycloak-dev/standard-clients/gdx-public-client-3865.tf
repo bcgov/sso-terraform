@@ -3,14 +3,10 @@ data "keycloak_authentication_flow" "gdx_public_client_3865_browserflow" {
   alias    = "idp stopper"
 }
 module "gdx-public-client-3865" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_id   = "gdx-public-client-3865"
-  client_name = "gdx-public-client"
-  valid_redirect_uris = [
-    "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://localhost:3000/*"
-  ]
+  source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id                            = var.standard_realm_id
+  client_id                           = "gdx-public-client-3865"
+  client_name                         = "gdx-public-client"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -30,5 +26,11 @@ module "gdx-public-client-3865" {
     "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:3000/*",
     "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
+  valid_redirect_uris = [
+    "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost:3000/*"
   ]
 }
