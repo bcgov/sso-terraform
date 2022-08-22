@@ -22,6 +22,7 @@ module "land-use-planning-4000" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:4200/*"
+    "http://localhost:4200/*",
+    "http://localhost:4200/admin/*"
   ]
 }
