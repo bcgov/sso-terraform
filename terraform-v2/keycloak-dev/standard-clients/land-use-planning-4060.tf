@@ -23,11 +23,13 @@ module "land-use-planning-4060" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:4200/*",
+    "https://localhost:3000/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:4200/*"
+    "http://localhost:4200/*",
+    "https://localhost:3000/*"
   ]
 }
