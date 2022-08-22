@@ -27,7 +27,7 @@ module "hmcr-3998" {
     "http://localhost:27238/*",
     "http://localhost:3000/*",
     "http://localhost:5767/*",
-    "https://dev-hmcr.th.gov.bc.ca",
+    "https://dev-hmcr.th.gov.bc.ca/*",
     "https://hmcr-0-d3d940-dev.apps.silver.devops.gov.bc.ca/*",
     "https://hmcr-0-txkggj-dev.pathfinder.gov.bc.ca/*",
     "https://hmcr-504-txkggj-dev.pathfinder.gov.bc.ca/*",

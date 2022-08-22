@@ -23,6 +23,6 @@ module "hmcr-3998" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://tst-hmcr.th.gov.bc.ca"
+    "https://tst-hmcr.th.gov.bc.ca/*"
   ]
 }
