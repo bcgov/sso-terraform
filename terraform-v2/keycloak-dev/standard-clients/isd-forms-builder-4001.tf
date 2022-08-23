@@ -22,6 +22,7 @@ module "isd-forms-builder-4001" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://obdev.apps.silver.devops.gov.bc.ca/oauth2/callback"
+    "https://obdev.apps.silver.devops.gov.bc.ca/oauth2/callback",
+    "https://openidconnect.net/callback"
   ]
 }
