@@ -3,15 +3,10 @@ data "keycloak_authentication_flow" "bc_data_catalogue_3863_browserflow" {
   alias    = "idp stopper"
 }
 module "bc-data-catalogue-3863" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_id   = "bc-data-catalogue-3863"
-  client_name = "BC Data Catalogue"
-  valid_redirect_uris = [
-    "http://localhost:3000/client-api/callback",
-    "https://dwelf.data.gov.bc.ca/client-api/callback",
-    "https://localhost:3000/client-api/callback"
-  ]
+  source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id                            = var.standard_realm_id
+  client_id                           = "bc-data-catalogue-3863"
+  client_name                         = "BC Data Catalogue"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -24,4 +19,12 @@ module "bc-data-catalogue-3863" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.bc_data_catalogue_3863_browserflow.id
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
+  valid_redirect_uris = [
+    "http://localhost:3000/client-api/callback",
+    "https://bikar.data.gov.bc.ca/client-api/callback",
+    "https://dwelf.data.gov.bc.ca/client-api/callback",
+    "https://localhost:3000/client-api/callback"
+  ]
 }
