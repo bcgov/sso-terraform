@@ -24,7 +24,7 @@ module "conn-ccbc-portal-3934" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:3000/auth-callback",
-    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/auth-callback"
+    "http://localhost:3000/*",
+    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
