@@ -11,18 +11,18 @@ jobs:
   request-client:
     runs-on: ubuntu-18.04
     steps:
-      - uses: hmarr/debug-action@v2
-      - uses: actions/checkout@v2
+    - uses: hmarr/debug-action@v2
+    - uses: actions/checkout@v2
 
-      - name: Setup Tools
-        uses: bcgov/sso-requests-actions/actions/setup-tools@v0.39.0
+    - name: Setup Tools
+      uses: bcgov/sso-requests-actions/actions/setup-tools@v0.39.0
 
-      - name: Setup NPM Packages
-        uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.39.0
+    - name: Setup NPM Packages
+      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.39.0
 
-      - uses: bcgov/sso-requests-actions/request@v0.39.0
-        with:
-          github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          api-url: ${{ secrets.WEBAPP_API_URL }}
-          auth-secret: ${{ secrets.GH_SECRET }}
-          tf-module-ref: main
+    - uses: bcgov/sso-requests-actions/request@v0.39.0
+      with:
+        github-token: ${{ secrets.GH_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+        api-url: ${{ secrets.WEBAPP_API_URL }}
+        auth-secret: ${{ secrets.GH_SECRET }}
+        tf-module-ref: main

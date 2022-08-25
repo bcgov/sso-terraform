@@ -1,6 +1,6 @@
 # see https://docs.docker.com/compose/compose-file/compose-file-v3/#args
 
-version: "3.4"
+version: '3.4'
 
 x-keycloak_environment: &keycloak_environment
   DB_VENDOR: POSTGRES
@@ -22,7 +22,7 @@ services:
   postgres_broker:
     image: postgres
     volumes:
-      - postgres_data_broker:/var/lib/postgresql/data
+    - postgres_data_broker:/var/lib/postgresql/data
     environment:
       <<: *postgres_environment
   keycloak_broker:
@@ -31,14 +31,14 @@ services:
       <<: *keycloak_environment
       DB_ADDR: postgres_broker
     ports:
-      - 8080:8080
+    - 8080:8080
     depends_on:
-      - postgres_broker
+    - postgres_broker
 
   postgres_provider:
     image: postgres
     volumes:
-      - postgres_data_provider:/var/lib/postgresql/data
+    - postgres_data_provider:/var/lib/postgresql/data
     environment:
       <<: *postgres_environment
   keycloak_provider:
@@ -47,12 +47,12 @@ services:
       <<: *keycloak_environment
       DB_ADDR: postgres_provider
     command:
-      - "-b 0.0.0.0"
-      - "-Djboss.http.port=8081"
+    - -b 0.0.0.0
+    - -Djboss.http.port=8081
     ports:
-      - 8081:8081
+    - 8081:8081
     depends_on:
-      - postgres_provider
+    - postgres_provider
 
 volumes:
   postgres_data_broker:

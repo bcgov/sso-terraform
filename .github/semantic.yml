@@ -16,14 +16,14 @@ anyCommit: false
 # See: https://github.com/commitizen/conventional-commit-types/blob/v2.3.0/index.json
 # You can override the valid types
 types:
-  - feat
-  - fix
-  - improvement
-  - docs
-  - refactor
-  - test
-  - ci
-  - chore
+- feat
+- fix
+- improvement
+- docs
+- refactor
+- test
+- ci
+- chore
 
 # Allow use of Merge commits (eg on github: "Merge branch 'main' into feature/ride-unicorns")
 # this is only relevant when using commitsOnly: true (or titleAndCommits: true)
