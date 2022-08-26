@@ -2,9 +2,9 @@ name: compliance
 description: |
   This project is in proof of concept mode and will not run anything in production and will not use real user data. When this changes we will update this file.
 spec:
-  - name: PIA
-    status: not-required
-    last-updated: '2021-06-07'
-  - name: STRA
-    status: not-required
-    last-updated: '2021-06-07'
+- name: PIA
+  status: not-required
+  last-updated: '2021-06-07'
+- name: STRA
+  status: not-required
+  last-updated: '2021-06-07'

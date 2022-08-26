@@ -15,85 +15,85 @@ jobs:
     env:
       API_URL: ${{ secrets.WEBAPP_API_URL }}
     steps:
-      - uses: hmarr/debug-action@v2
-      - uses: actions/checkout@v2
+    - uses: hmarr/debug-action@v2
+    - uses: actions/checkout@v2
 
-      - name: Wake Up API
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/heartbeat"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
-        continue-on-error: true
+    - name: Wake Up API
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ env.API_URL }}/heartbeat
+        method: GET
+        customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
+        timeout: '60000'
+      continue-on-error: true
 
-      - name: Fetch Requests Count
-        id: requests
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/batch/items/gold"
-          method: "GET"
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
+    - name: Fetch Requests Count
+      id: requests
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ env.API_URL }}/batch/items/gold
+        method: GET
+        customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
+        timeout: '60000'
 
-      - name: Get Requests Count
-        id: count
-        run: |
-          count=$(jq length <<< ${{ steps.requests.outputs.response }})
-          echo "$count"
-          echo "::set-output name=count::$count"
+    - name: Get Requests Count
+      id: count
+      run: |
+        count=$(jq length <<< ${{ steps.requests.outputs.response }})
+        echo "$count"
+        echo "::set-output name=count::$count"
 
-      - name: Pull the main branch again
-        if: steps.count.outputs.count != '0'
-        run: |
-          git pull origin main --rebase
+    - name: Pull the main branch again
+      if: steps.count.outputs.count != '0'
+      run: |
+        git pull origin main --rebase
 
-      - name: Setup Terraform
-        if: steps.count.outputs.count != '0'
-        id: tf
-        uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.39.0
-        with:
-          context: ./terraform-v2
-          tf-version: ${{ env.TF_VERSION }}
-          tf-s3-bucket: "xgr00q-prod-keycloak"
-          tf-s3-bucket-key: "keycloak/gold"
-          tf-s3-access-key: ${{ secrets.TF_S3_ACCESS_KEY }}
-          tf-s3-secret-key: ${{ secrets.TF_S3_SECRET_KEY }}
-          tf-s3-role-arn: ${{ secrets.TF_S3_ROLE_ARN }}
-          kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
-          kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
-          kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
-          kc-dev-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
-          kc-test-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
-          kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
-          test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
-          prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
-          dev-azureidir-tenant-id: ${{ secrets.DEV_AZUREIDIR_TENANT_ID }}
-          dev-azureidir-client-id: ${{ secrets.DEV_AZUREIDIR_CLIENT_ID }}
-          dev-azureidir-client-secret: ${{ secrets.DEV_AZUREIDIR_CLIENT_SECRET }}
-          test-azureidir-tenant-id: ${{ secrets.TEST_AZUREIDIR_TENANT_ID }}
-          test-azureidir-client-id: ${{ secrets.TEST_AZUREIDIR_CLIENT_ID }}
-          test-azureidir-client-secret: ${{ secrets.TEST_AZUREIDIR_CLIENT_SECRET }}
-          prod-azureidir-tenant-id: ${{ secrets.PROD_AZUREIDIR_TENANT_ID }}
-          prod-azureidir-client-id: ${{ secrets.PROD_AZUREIDIR_CLIENT_ID }}
-          prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
-          apply: true
-        continue-on-error: true
+    - name: Setup Terraform
+      if: steps.count.outputs.count != '0'
+      id: tf
+      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.39.0
+      with:
+        context: ./terraform-v2
+        tf-version: ${{ env.TF_VERSION }}
+        tf-s3-bucket: xgr00q-prod-keycloak
+        tf-s3-bucket-key: keycloak/gold
+        tf-s3-access-key: ${{ secrets.TF_S3_ACCESS_KEY }}
+        tf-s3-secret-key: ${{ secrets.TF_S3_SECRET_KEY }}
+        tf-s3-role-arn: ${{ secrets.TF_S3_ROLE_ARN }}
+        kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
+        kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
+        kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
+        kc-dev-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
+        kc-test-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
+        kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
+        test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
+        prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
+        dev-azureidir-tenant-id: ${{ secrets.DEV_AZUREIDIR_TENANT_ID }}
+        dev-azureidir-client-id: ${{ secrets.DEV_AZUREIDIR_CLIENT_ID }}
+        dev-azureidir-client-secret: ${{ secrets.DEV_AZUREIDIR_CLIENT_SECRET }}
+        test-azureidir-tenant-id: ${{ secrets.TEST_AZUREIDIR_TENANT_ID }}
+        test-azureidir-client-id: ${{ secrets.TEST_AZUREIDIR_CLIENT_ID }}
+        test-azureidir-client-secret: ${{ secrets.TEST_AZUREIDIR_CLIENT_SECRET }}
+        prod-azureidir-tenant-id: ${{ secrets.PROD_AZUREIDIR_TENANT_ID }}
+        prod-azureidir-client-id: ${{ secrets.PROD_AZUREIDIR_CLIENT_ID }}
+        prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
+        apply: true
+      continue-on-error: true
 
-      - name: Setup NPM Packages
-        if: steps.count.outputs.count != '0'
-        uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.39.0
+    - name: Setup NPM Packages
+      if: steps.count.outputs.count != '0'
+      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.39.0
 
-      - name: Update Requests Status
-        if: steps.count.outputs.count != '0'
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "${{ env.API_URL }}/batch/items"
-          method: "PUT"
-          data: '{"ids": ${{ steps.requests.outputs.response }}, "success": "${{ steps.apply.outcome != ''failure'' }}"}'
-          customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
-          timeout: "60000"
+    - name: Update Requests Status
+      if: steps.count.outputs.count != '0'
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ env.API_URL }}/batch/items
+        method: PUT
+        data: "{\"ids\": ${{ steps.requests.outputs.response }}, \"success\": \"${{ steps.apply.outcome != 'failure' }}\"}"
+        customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
+        timeout: '60000'
 
-      - name: Set Failure Code
-        if: steps.apply.outcome == 'failure'
-        run: exit 1
+    - name: Set Failure Code
+      if: steps.apply.outcome == 'failure'
+      run: exit 1
