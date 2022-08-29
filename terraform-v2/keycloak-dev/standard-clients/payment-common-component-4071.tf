@@ -23,7 +23,6 @@ module "payment-common-component-4071" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "https://payments-fider.apps.silver.devops.gov.bc.ca",
-    "https://payments-fider.apps.silver.devops.gov.bc.ca/*",
     "https://payments-fider.apps.silver.devops.gov.bc.ca/oauth/_pw1oye8jek/callback"
   ]
 }
