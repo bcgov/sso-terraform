@@ -24,6 +24,7 @@ module "conn-ccbc-portal-3934" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://ccbc-test.apps.silver.devops.gov.bc.ca/*"
+    "https://ccbc-test.apps.silver.devops.gov.bc.ca/*",
+    "https://test.connectingcommunitiesbc.ca/*"
   ]
 }

@@ -25,6 +25,7 @@ module "conn-ccbc-portal-3934" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://ccbc-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev.connectingcommunitiesbc.ca/*"
   ]
 }
