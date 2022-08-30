@@ -6,7 +6,7 @@ module "conn-ccbc-portal-3934" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "conn-ccbc-portal-3934"
-  client_name                         = "conn-ccbc-portal"
+  client_name                         = "Connecting Communities BC (test)"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -23,7 +23,6 @@ module "conn-ccbc-portal-3934" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://ccbc-test.apps.silver.devops.gov.bc.ca/*",
     "https://test.connectingcommunitiesbc.ca/*"
   ]
 }
