@@ -22,7 +22,7 @@ module "aqss-3932" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://aqadvisories-eservice-ef3999-dev.apps.gold.devops.gov.bc.ca/*",
+    "http://aqadvisories-eservice-ef3999-dev.apps.silver.devops.gov.bc.ca/*",
     "http://localhost:3000"
   ]
 }
