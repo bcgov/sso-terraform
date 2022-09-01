@@ -22,6 +22,6 @@ module "software-as-a-service-saa-s-website-4079" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cloud.gov.bc.ca/saas/"
+    "https://cloud.gov.bc.ca/saas"
   ]
 }
