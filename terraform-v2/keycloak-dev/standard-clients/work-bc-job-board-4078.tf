@@ -22,6 +22,8 @@ module "work-bc-job-board-4078" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev-admin-jobboard.workbc.ca/*"
+    "https://dev-admin-jobboard.workbc.ca/*",
+    "https://localhost:44364/*",
+    "https://localhost:7001/*"
   ]
 }
