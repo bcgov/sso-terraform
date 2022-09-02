@@ -87,6 +87,11 @@ module "standard_clients" {
   standard_realm_id = module.standard.realm_id
 }
 
+module "standard_service_clients" {
+  source            = "./standard-service-accounts"
+  standard_realm_id = module.standard.realm_id
+}
+
 module "master_idir_link" {
   source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
@@ -114,4 +119,8 @@ resource "keycloak_realm_events" "master_events" {
 
   admin_events_enabled         = true
   admin_events_details_enabled = true
+
+  events_listeners = [
+    "jboss-logging"
+  ]
 }
