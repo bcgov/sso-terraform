@@ -1,0 +1,108 @@
+name: Terraform
+
+on:
+  push:
+    branches:
+    - dev
+    - main
+    paths:
+    - terraform-v2-custom/**
+    - .github/workflows/terraform-v2-custom.yml
+  pull_request:
+    paths:
+    - terraform-v2-custom/**
+    - .github/workflows/terraform-v2-custom.yml
+
+env:
+  TF_VERSION: 1.1.4
+  KEYCLOAK_V2_DEV_URL: https://dev.loginproxy.gov.bc.ca
+  KEYCLOAK_V2_TEST_URL: https://test.loginproxy.gov.bc.ca
+  KEYCLOAK_V2_PROD_URL: https://loginproxy.gov.bc.ca
+
+jobs:
+  terraform:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: hmarr/debug-action@v2
+    - uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: ${{ env.TF_VERSION }}
+
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -check
+      working-directory: ./terraform-v2-custom
+
+    - name: Terraform Variables
+      run: |
+        cat >"config.tf" <<EOF
+        terraform {
+          backend "s3" {
+            bucket = "xgr00q-prod-keycloak"
+            key    = "keycloak/gold-custom"
+            region = "ca-central-1"
+            access_key = "${{ secrets.TF_S3_ACCESS_KEY }}"
+            secret_key = "${{ secrets.TF_S3_SECRET_KEY }}"
+            role_arn   = "${{ secrets.TF_S3_ROLE_ARN }}"
+          }
+        }
+        EOF
+
+        cat >"ci.auto.tfvars" <<EOF
+        dev_keycloak_url="${{ env.KEYCLOAK_V2_DEV_URL }}"
+        test_keycloak_url="${{ env.KEYCLOAK_V2_TEST_URL }}"
+        prod_keycloak_url="${{ env.KEYCLOAK_V2_PROD_URL }}"
+        dev_client_secret="${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}"
+        test_client_secret="${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}"
+        prod_client_secret="${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}"
+        EOF
+      working-directory: ./terraform-v2-custom
+
+    - name: Terraform Init
+      id: init
+      run: terraform init -upgrade
+      working-directory: ./terraform-v2-custom
+
+    - name: Terraform Plan
+      id: plan
+      if: github.event_name == 'pull_request'
+      run: terraform plan -no-color
+      working-directory: ./terraform-v2-custom
+      continue-on-error: true
+
+    - uses: actions/github-script@0.9.0
+      if: github.event_name == 'pull_request'
+      env:
+        PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+          #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+          <details><summary>Show Plan</summary>
+
+          \`\`\`${process.env.PLAN}\`\`\`
+
+          </details>
+
+          *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          })
+
+    - name: Terraform Plan Status
+      if: steps.plan.outcome == 'failure'
+      run: exit 1
+
+    - name: Terraform Apply
+      if: github.event_name == 'push'
+      run: terraform apply -auto-approve
+      working-directory: ./terraform-v2-custom
