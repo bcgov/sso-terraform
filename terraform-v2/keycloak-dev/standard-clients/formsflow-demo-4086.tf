@@ -6,7 +6,7 @@ module "formsflow-demo-4086" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "formsflow-demo-4086"
-  client_name                         = "SBC formsflow demo"
+  client_name                         = "SBC formsflow BPM Demo"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -22,6 +22,6 @@ module "formsflow-demo-4086" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://forms-flow-idm-d7202f-test.apps.silver.devops.gov.bc.ca"
+    "https://forms-flow-bpm-d7202f-test.apps.silver.devops.gov.bc.ca"
   ]
 }
