@@ -24,7 +24,6 @@ module "education-common-4080" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost*",
-    "https://soam-dev.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-basic-bceid/endpoint",
-    "https://soam-dev.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-idir/endpoint"
+    "https://soam-dev.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold_keycloak_bcdevexchange_idir/endpoint"
   ]
 }
