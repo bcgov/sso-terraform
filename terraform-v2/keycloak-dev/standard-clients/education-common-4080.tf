@@ -23,6 +23,7 @@ module "education-common-4080" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost*",
     "https://soam-dev.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-basic-bceid/endpoint",
     "https://soam-dev.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-idir/endpoint"
   ]
