@@ -23,14 +23,20 @@ module "ches-showcase-frontend-4105" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost",
     "http://localhost/*",
+    "http://localhost:8081",
+    "http://localhost:8081/*",
     "https://chess-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost",
     "http://localhost/*",
+    "http://localhost:8081",
+    "http://localhost:8081/*",
     "https://chess-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
