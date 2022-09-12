@@ -23,6 +23,7 @@ module "cdogs-showcase-4094" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localhost:8080",
     "http://localhost:8080/*",
     "https://dgrsc-dev.apps.silver.devops.gov.bc.ca/*"
   ]
