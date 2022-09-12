@@ -6,7 +6,7 @@ module "cdogs-showcase-frontend-4097" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "cdogs-showcase-frontend-4097"
-  client_name                         = "CDOGS Showcase frontend (PROD environment)"
+  client_name                         = "CDOGS Showcase frontend"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
