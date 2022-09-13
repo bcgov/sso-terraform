@@ -23,12 +23,12 @@ module "wps-3981" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://l*",
+    "http://localhost*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://l*"
+    "http://localhost*"
   ]
 }
