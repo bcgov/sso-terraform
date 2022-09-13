@@ -23,6 +23,6 @@ module "sabc-applications-vss-4101" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://10.0.0.51:8015/app-login",
-    "https://tbtb-vss-06cb9b-prod.apps.silver.devops.gov.bc.ca/sso-login"
+    "https://tbtb-vss-06cb9b-prod.apps.silver.devops.gov.bc.ca/app-login"
   ]
 }
