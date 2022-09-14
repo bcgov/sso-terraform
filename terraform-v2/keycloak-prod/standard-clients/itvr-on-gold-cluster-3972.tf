@@ -14,7 +14,6 @@ module "itvr-on-gold-cluster-3972" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
@@ -23,12 +22,12 @@ module "itvr-on-gold-cluster-3972" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://itvr-test.apps.silver.devops.gov.bc.ca/*",
+    "https://electric-vehicle-rebates.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://itvr-test.apps.silver.devops.gov.bc.ca/*"
+    "https://electric-vehicle-rebates.gov.bc.ca/*"
   ]
 }
