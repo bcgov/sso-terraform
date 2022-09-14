@@ -24,6 +24,7 @@ module "fsa-cognito-idir-sm-dev-4107" {
   web_origins = [
     "http://oidcdebugger-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
     "https://bcgov.github.io/keycloak-example-apps/",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
@@ -32,6 +33,7 @@ module "fsa-cognito-idir-sm-dev-4107" {
   valid_redirect_uris = [
     "http://oidcdebugger-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
     "https://bcgov.github.io/keycloak-example-apps/",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/"
   ]
 }
