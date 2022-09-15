@@ -14,6 +14,7 @@ module "sept-14-idir-first-then-b-ceid-4110" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
