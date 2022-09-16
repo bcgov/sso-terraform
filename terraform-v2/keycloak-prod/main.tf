@@ -5,6 +5,7 @@ locals {
   bceidbasic_realm_name                 = "bceidbasic"
   bceidbusiness_realm_name              = "bceidbusiness"
   bceidboth_realm_name                  = "bceidboth"
+  github_realm_name                     = "github"
   siteminder_single_sign_on_service_url = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
@@ -18,6 +19,7 @@ module "standard" {
   bceidbasic_realm_name    = local.bceidbasic_realm_name
   bceidbusiness_realm_name = local.bceidbusiness_realm_name
   bceidboth_realm_name     = local.bceidboth_realm_name
+  github_realm_name        = local.github_realm_name
 
   idir_client_id              = module.idir.standard_client_id
   idir_client_secret          = module.idir.standard_client_secret
@@ -29,6 +31,8 @@ module "standard" {
   bceidbusiness_client_secret = module.bceidbusiness.standard_client_secret
   bceidboth_client_id         = module.bceidboth.standard_client_id
   bceidboth_client_secret     = module.bceidboth.standard_client_secret
+  github_client_id            = module.github.standard_client_id
+  github_client_secret        = module.github.standard_client_secret
 }
 
 module "idir" {
@@ -80,6 +84,16 @@ module "bceidboth" {
   saml_entity_id             = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness/"
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
+}
+
+module "github" {
+  source              = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-github"
+  keycloak_url        = var.keycloak_url
+  realm_name          = local.github_realm_name
+  standard_realm_name = local.standard_realm_name
+  client_id           = var.github_client_id
+  client_secret       = var.github_client_secret
+  github_org          = "bcgov"
 }
 
 module "standard_clients" {

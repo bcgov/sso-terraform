@@ -1,50 +1,29 @@
+# sso-terraform
 
-# <application_license_badge>
-<!--- [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE) --->
+This repository stores the Terraform scripts to provision BCGov SSO infrastructure in Silver and Gold Keycloak instances.
 
-# BC Gov Terraform Template
+## Workflow
 
-This repo provides a starting point for users who want to create valid Terraform modules stored in GitHub.
+The general workflow for an SSO integration creation/update is:
 
-## Third-Party Products/Libraries used and the licenses they are covered by
-<!--- product/library and path to the LICENSE --->
-<!--- Example: <library_name> - [![GitHub](<shield_icon_link>)](<path_to_library_LICENSE>) --->
+1. The requester makes a request via [CSS self-service app](https://bcgov.github.io/sso-requests).
+1. The [CSS self-service app](https://bcgov.github.io/sso-requests) backend server dispatches `request` GitHub action.
 
-## Project Status
-- [x] Development
-- [ ] Production/Maintenance
+   - see [.github/workflows/request.yml](.github/workflows/request.yml)
 
-## Documentation
-<!--- Point to another readme or create a GitHub Pages (https://guides.github.com/features/pages/) --->
+1. The `request` GitHub action creates a PR with the changes and send the PR information to [CSS self-service app](https://bcgov.github.io/sso-requests) backend server.
+1. The [CSS self-service app](https://bcgov.github.io/sso-requests) backend server merges the PR via GitHub API endpoint.
+1. The [CSS self-service app](https://bcgov.github.io/sso-requests) batch service dispatches `terraform-batch` GitHub actions every given interval.
 
-## Getting Started
-<!--- setup env vars, secrets, instructions... --->
+   - see [.github/workflows/terraform-batch.yml](.github/workflows/terraform-batch.yml)
+   - see [.github/workflows/terraform-v2-batch.yml](.github/workflows/terraform-v2-batch.yml)
 
-## Getting Help or Reporting an Issue
-<!--- Example below, modify accordingly --->
-To report bugs/issues/feature requests, please file an [issue](../../issues).
+1. The `terraform-batch` GitHub actions communicate with the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server to check if there is a pending request and if so, applies the Terraform scripts.
+1. Once the Terraform scripts applied, it sends the results back to the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server.
 
+## Related Repositories
 
-## How to Contribute
-<!--- Example below, modify accordingly --->
-If you would like to contribute, please see our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
-
-Please note that this project is released with a [Contributor Code of Conduct](./CODE_OF_CONDUCT.md).
-By participating in this project you agree to abide by its terms.
-
-
-## License
-<!--- Example below, modify accordingly --->
-    Copyright 2018 Province of British Columbia
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
+1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
+1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
+1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.
