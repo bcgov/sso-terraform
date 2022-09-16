@@ -20,3 +20,10 @@ The general workflow for an SSO integration creation/update is:
 
 1. The `terraform-batch` GitHub actions communicate with the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server to check if there is a pending request and if so, applies the Terraform scripts.
 1. Once the Terraform scripts applied, it sends the results back to the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server.
+
+## Related Repositories
+
+1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
+1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
+1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
+1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.

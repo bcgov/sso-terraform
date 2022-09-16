@@ -6,4 +6,11 @@ terraform {
     key    = "keycloak/gold"
     region = "ca-central-1"
   }
+
+  required_providers {
+    keycloak = {
+      source  = "mrparkers/keycloak"
+      version = "3.10.0"
+    }
+  }
 }
