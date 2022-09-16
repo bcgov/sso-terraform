@@ -23,6 +23,8 @@ module "resume-bundler-4106" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localhost:3000/*",
+    "http://localhost:8002/*",
     "https://resume-bundler-dev.es.workbc.ca/*"
   ]
 }
