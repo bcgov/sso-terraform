@@ -22,6 +22,7 @@ module "trans-action-3979" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://hets.th.gov.bc.ca/",
     "https://transaction.th.gov.bc.ca/",
     "https://transaction.th.gov.bc.ca/*",
     "+"
@@ -29,6 +30,7 @@ module "trans-action-3979" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://hets.th.gov.bc.ca/",
     "https://transaction.th.gov.bc.ca/",
     "https://transaction.th.gov.bc.ca/*"
   ]
