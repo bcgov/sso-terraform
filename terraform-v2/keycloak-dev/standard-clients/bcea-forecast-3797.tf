@@ -3,14 +3,10 @@ data "keycloak_authentication_flow" "bcea_forecast_3797_browserflow" {
   alias    = "idp stopper"
 }
 module "bcea-forecast-3797" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
-  realm_id    = var.standard_realm_id
-  client_id   = "bcea-forecast-3797"
-  client_name = "BCEA Forecast - Development"
-  valid_redirect_uris = [
-    "http://localhost:3000/*",
-    "https://bcea-forecast-d9436d-dev.apps.silver.devops.gov.bc.ca/*"
-  ]
+  source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id                            = var.standard_realm_id
+  client_id                           = "bcea-forecast-3797"
+  client_name                         = "BCEA Forecast - Development"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -23,4 +19,10 @@ module "bcea-forecast-3797" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.bcea_forecast_3797_browserflow.id
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
+  valid_redirect_uris = [
+    "http://localhost:3000/*",
+    "https://bcea-forecast-d9436d-dev.apps.silver.devops.gov.bc.ca/*"
+  ]
 }
