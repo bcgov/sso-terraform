@@ -33,11 +33,7 @@ module "wps-3981" {
     "https://psu.nrs.gov.bc.ca/morecast",
     "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/c-haines",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/fire-behaviour-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/fwi-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/hfi-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast",
+    "https://wps-prod.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -54,10 +50,6 @@ module "wps-3981" {
     "https://psu.nrs.gov.bc.ca/morecast",
     "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/c-haines",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/fire-behaviour-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/fwi-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/hfi-calculator",
-    "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast"
+    "https://wps-prod.apps.silver.devops.gov.bc.ca/*"
   ]
 }
