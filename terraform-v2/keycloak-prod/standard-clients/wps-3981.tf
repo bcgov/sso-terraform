@@ -23,9 +23,11 @@ module "wps-3981" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://psu.nrs.gov.bc.ca",
+    "https://psu.nrs.gov.bc.ca/*",
     "https://psu.nrs.gov.bc.ca/c-haines",
     "https://psu.nrs.gov.bc.ca/fire-behaviour-advisory",
     "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator",
+    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator/*",
     "https://psu.nrs.gov.bc.ca/fwi-calculator",
     "https://psu.nrs.gov.bc.ca/hfi-calculator",
     "https://psu.nrs.gov.bc.ca/morecast",
@@ -42,9 +44,11 @@ module "wps-3981" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://psu.nrs.gov.bc.ca",
+    "https://psu.nrs.gov.bc.ca/*",
     "https://psu.nrs.gov.bc.ca/c-haines",
     "https://psu.nrs.gov.bc.ca/fire-behaviour-advisory",
     "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator",
+    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator/*",
     "https://psu.nrs.gov.bc.ca/fwi-calculator",
     "https://psu.nrs.gov.bc.ca/hfi-calculator",
     "https://psu.nrs.gov.bc.ca/morecast",
