@@ -15,6 +15,7 @@ module "junmin-awesome-saml-4084" {
     "idir",
     "azureidir",
     "bceidbasic",
+    "github",
     "common"
   ]
   description                  = "CSS App Created"
