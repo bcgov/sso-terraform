@@ -24,14 +24,6 @@ module "wps-3981" {
   web_origins = [
     "https://psu.nrs.gov.bc.ca",
     "https://psu.nrs.gov.bc.ca/*",
-    "https://psu.nrs.gov.bc.ca/c-haines",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-advisory",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator/*",
-    "https://psu.nrs.gov.bc.ca/fwi-calculator",
-    "https://psu.nrs.gov.bc.ca/hfi-calculator",
-    "https://psu.nrs.gov.bc.ca/morecast",
-    "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/*",
     "+"
@@ -41,14 +33,6 @@ module "wps-3981" {
   valid_redirect_uris = [
     "https://psu.nrs.gov.bc.ca",
     "https://psu.nrs.gov.bc.ca/*",
-    "https://psu.nrs.gov.bc.ca/c-haines",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-advisory",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator",
-    "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator/*",
-    "https://psu.nrs.gov.bc.ca/fwi-calculator",
-    "https://psu.nrs.gov.bc.ca/hfi-calculator",
-    "https://psu.nrs.gov.bc.ca/morecast",
-    "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/*"
   ]
