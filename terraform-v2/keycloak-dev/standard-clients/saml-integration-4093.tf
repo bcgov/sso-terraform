@@ -14,6 +14,7 @@ module "saml-integration-4093" {
   ]
   idps = [
     "idir",
+    "github",
     "common"
   ]
   description                  = "CSS App Created"
