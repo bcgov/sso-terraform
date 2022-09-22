@@ -6,7 +6,7 @@ module "ccof-4115" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "ccof-4115"
-  client_name                         = "CCOF"
+  client_name                         = "MYCCS"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
