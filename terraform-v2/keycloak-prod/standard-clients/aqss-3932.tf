@@ -22,7 +22,7 @@ module "aqss-3932" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://aqss.nrs.gov.bc.ca/admin.html",
-    "https://aqss.nrs.gov.bc.ca/stats.html"
+    "http://aqss.nrs.gov.bc.ca/admin.html",
+    "http://aqss.nrs.gov.bc.ca/stats.html"
   ]
 }
