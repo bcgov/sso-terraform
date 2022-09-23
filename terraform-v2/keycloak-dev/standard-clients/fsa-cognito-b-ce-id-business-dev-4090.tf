@@ -22,12 +22,14 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:8080",
+    "https://fam-cognito-usable-kodiak.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:8080"
+    "https://fam-cognito-usable-kodiak.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
   ]
 }
