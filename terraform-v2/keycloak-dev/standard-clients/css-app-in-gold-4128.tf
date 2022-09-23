@@ -1,12 +1,8 @@
-data "keycloak_authentication_flow" "css_app_in_gold_4128_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "css-app-in-gold-4128" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "css-app-in-gold-4128"
-  client_name                         = "CSS App in GOLD"
+  client_name                         = "Common Hosted Single Sign-on"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -18,7 +14,7 @@ module "css-app-in-gold-4128" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.css_app_in_gold_4128_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
