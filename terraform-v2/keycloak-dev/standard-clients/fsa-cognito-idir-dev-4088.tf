@@ -13,27 +13,17 @@ module "fsa-cognito-idir-dev-4088" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "azureidir",
+    "idir",
     "common"
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.fsa_cognito_idir_dev_4088_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "http://localhost:8080",
-    "http://oidcdebugger-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
-    "https://bcgov.github.io/keycloak-example-apps",
-    "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8080",
-    "http://oidcdebugger-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
-    "https://bcgov.github.io/keycloak-example-apps",
+    "https://fam-cognito-usable-kodiak.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/"
   ]
 }
