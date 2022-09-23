@@ -25,6 +25,7 @@ module "fsa-cognito-idir-sm-dev-4107" {
     "http://oidcdebugger-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
     "https://bcgov.github.io/keycloak-example-apps/",
     "https://bcgov.github.io/keycloak-example-apps/*",
+    "https://fam-cognito-usable-kodiak.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/"
   ]
