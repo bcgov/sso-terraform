@@ -19,9 +19,17 @@ module "css-app-in-gold-4128" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.css_app_in_gold_4128_browserflow.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://bcgov.github.io/sso-requests-preview/*",
+    "https://bcgov.github.io/sso-requests/*",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://localhost"
+    "https://bcgov.github.io/sso-requests-preview/*",
+    "https://bcgov.github.io/sso-requests/*"
   ]
 }
