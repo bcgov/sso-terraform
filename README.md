@@ -27,3 +27,18 @@ The general workflow for an SSO integration creation/update is:
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
 1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
 1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.
+
+## Custom Realms in Gold cluster
+
+Custom realms are managed by Terrafrom in a separate Terraform backend state for Gold Keycloak instances. To create a new custom realm, create a new Terraform script that has the required definition of the realm:
+
+```sh
+cd terraform-v2-custom/keycloak-<env>/custom-realms
+cat >>"new-realm.tf" <<EOF
+module "new-realm" {
+  source     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/custom-realm"
+  realm_name = "new-realm"
+  enabled    = true
+}
+EOF
+```
