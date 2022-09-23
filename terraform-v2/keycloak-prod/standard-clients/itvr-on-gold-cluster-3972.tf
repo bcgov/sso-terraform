@@ -13,7 +13,6 @@ module "itvr-on-gold-cluster-3972" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "idir",
     "common"
   ]
   description                  = "CSS App Created"
