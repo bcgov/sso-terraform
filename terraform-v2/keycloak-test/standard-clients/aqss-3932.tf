@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "aqss_3932_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "aqss-3932" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,10 +14,11 @@ module "aqss-3932" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.aqss_3932_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://aqadvisories-eservice-ef3999-test.apps.silver.devops.gov.bc.ca/*"
+    "http://aqadvisories-eservice-ef3999-test.apps.silver.devops.gov.bc.ca/*",
+    "https://aqadvisories-eservice-ef3999-test.apps.silver.devops.gov.bc.ca/post/*"
   ]
 }
