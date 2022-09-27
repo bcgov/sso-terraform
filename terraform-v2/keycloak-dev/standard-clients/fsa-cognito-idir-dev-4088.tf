@@ -18,7 +18,7 @@ module "fsa-cognito-idir-dev-4088" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://fam-usable-kodiak.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://fam-user-pool-aware-boar-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://fam-user-pool-mature-mole-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/"
