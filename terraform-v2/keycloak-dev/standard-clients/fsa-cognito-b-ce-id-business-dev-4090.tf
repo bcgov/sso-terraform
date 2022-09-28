@@ -15,16 +15,8 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
   description                  = "CSS App Created"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://fam-user-pool-mature-mole-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://fam-user-pool-mature-mole-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
