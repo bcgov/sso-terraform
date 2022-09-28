@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "fsa_cognito_b_ce_id_business_dev_4090_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "fsa-cognito-b-ce-id-business-dev-4090" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,7 +14,7 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.fsa_cognito_b_ce_id_business_dev_4090_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
