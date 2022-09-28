@@ -12,6 +12,7 @@ module "client_tti-ams-1486" {
     "https://bcrb--qa.sandbox.lightning.force.com/services/authcallback/PathfinderIdir",
     "https://cabro--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://cabro--qa.sandbox.lightning.force.com/services/authcallback/PathfinderIdir",
+    "https://cabro--qa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--amsqa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--amsqa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--qa04.my.salesforce.com/services/authcallback/PathfinderIdir",
