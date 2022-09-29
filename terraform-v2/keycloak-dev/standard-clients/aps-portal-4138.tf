@@ -10,6 +10,7 @@ module "aps-portal-4138" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "azureidir",
     "bceidbusiness",
     "github",
     "common"
