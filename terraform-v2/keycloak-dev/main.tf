@@ -87,7 +87,7 @@ module "bceidboth" {
 }
 
 module "github" {
-  source              = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-github"
+  source              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-github"
   keycloak_url        = var.keycloak_url
   realm_name          = local.github_realm_name
   standard_realm_name = local.standard_realm_name
