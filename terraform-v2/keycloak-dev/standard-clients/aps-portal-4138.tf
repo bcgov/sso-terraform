@@ -20,6 +20,7 @@ module "aps-portal-4138" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint"
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint",
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint/logout_response"
   ]
 }
