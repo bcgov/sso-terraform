@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "trans_action_3979_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "trans-action-3979" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,14 +14,15 @@ module "trans-action-3979" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.trans_action_3979_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
     "http://localhost:3002/*",
     "http://localhost:44705/*",
-    "https://dev-hets.th.gov.bc.ca/",
+    "https://dev-hets.th.gov.bc.ca/*",
+    "https://dev-schoolbus.th.gov.bc.ca/*",
     "https://dev-transaction.th.gov.bc.ca/",
     "https://dev-transaction.th.gov.bc.ca/*",
     "https://transaction-0-vlpweg-dev.pathfinder.gov.bc.ca/*",
@@ -43,7 +40,8 @@ module "trans-action-3979" {
     "http://localhost:3000/*",
     "http://localhost:3002/*",
     "http://localhost:44705/*",
-    "https://dev-hets.th.gov.bc.ca/",
+    "https://dev-hets.th.gov.bc.ca/*",
+    "https://dev-schoolbus.th.gov.bc.ca/*",
     "https://dev-transaction.th.gov.bc.ca/",
     "https://dev-transaction.th.gov.bc.ca/*",
     "https://transaction-0-vlpweg-dev.pathfinder.gov.bc.ca/*",
