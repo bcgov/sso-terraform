@@ -18,8 +18,11 @@ resource "keycloak_openid_client" "test_client" {
   access_type   = "PUBLIC"
   client_secret = ""
 
-  valid_redirect_uris = ["https://bcgov.github.io/keycloak-example-apps/*"]
-  web_origins         = ["+"]
+  valid_redirect_uris = [
+    "https://bcgov.github.io/keycloak-example-apps/*",
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*"
+  ]
+  web_origins = ["+"]
 
   authentication_flow_binding_overrides {
     browser_id = data.keycloak_authentication_flow.idp_stopper.id
