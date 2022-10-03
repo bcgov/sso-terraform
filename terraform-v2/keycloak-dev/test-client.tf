@@ -1,3 +1,8 @@
+data "keycloak_authentication_flow" "idp_stopper" {
+  realm_id = module.standard.realm_id
+  alias    = "idp stopper"
+}
+
 resource "keycloak_openid_client" "test_client" {
   realm_id = module.standard.realm_id
 
@@ -17,19 +22,13 @@ resource "keycloak_openid_client" "test_client" {
   web_origins         = ["+"]
 
   authentication_flow_binding_overrides {
-    browser_id = module.idp_auth_flow.flow_id
+    browser_id = data.keycloak_authentication_flow.idp_stopper.id
   }
 }
 
-data "keycloak_authentication_flow" "idp_stopper" {
-  realm_id = module.standard.realm_id
-  alias    = "idp stopper"
-}
-
-
 resource "keycloak_openid_client_default_scopes" "test_client_default_scopes" {
   realm_id  = module.standard.realm_id
-  client_id = data.keycloak_authentication_flow.idp_stopper.id
+  client_id = keycloak_openid_client.test_client.id
 
   default_scopes = [
     "profile",
