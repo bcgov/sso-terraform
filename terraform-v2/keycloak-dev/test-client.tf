@@ -7,7 +7,7 @@ resource "keycloak_openid_client" "test_client" {
   realm_id = module.standard.realm_id
 
   client_id = "test-client"
-  name      = "SSO Dev Test"
+  name      = "SSO Gold Dev"
 
   enabled                      = true
   standard_flow_enabled        = true
