@@ -17,12 +17,15 @@ module "test_client" {
     "bceidboth",
     "github",
   ]
-  override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  standard_flow_enabled      = true
+  service_accounts_enabled   = false
+  access_type                = "PUBLIC"
+  pkce_code_challenge_method = "S256"
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*"
   ]
+  web_origins                  = ["+"]
+  override_authentication_flow = true
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
