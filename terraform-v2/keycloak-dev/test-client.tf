@@ -3,39 +3,12 @@ data "keycloak_authentication_flow" "idp_stopper" {
   alias    = "idp stopper"
 }
 
-resource "keycloak_openid_client" "test_client" {
-  realm_id = module.standard.realm_id
-
-  client_id = "test-client"
-  name      = "SSO Gold Dev"
-
-  enabled                      = true
-  standard_flow_enabled        = true
-  implicit_flow_enabled        = false
-  direct_access_grants_enabled = false
-  service_accounts_enabled     = false
-
-  access_type   = "PUBLIC"
-  client_secret = ""
-
-  valid_redirect_uris = [
-    "https://bcgov.github.io/keycloak-example-apps/*",
-    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*"
-  ]
-  web_origins = ["+"]
-
-  authentication_flow_binding_overrides {
-    browser_id = data.keycloak_authentication_flow.idp_stopper.id
-  }
-}
-
-resource "keycloak_openid_client_default_scopes" "test_client_default_scopes" {
-  realm_id  = module.standard.realm_id
-  client_id = keycloak_openid_client.test_client.id
-
-  default_scopes = [
-    "profile",
-    "email",
+module "test-client" {
+  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  realm_id    = module.standard.realm_id
+  client_id   = "test-client"
+  client_name = "SSO Gold Dev"
+  idps = [
     "common",
     "idir",
     "azureidir",
@@ -43,5 +16,13 @@ resource "keycloak_openid_client_default_scopes" "test_client_default_scopes" {
     "bceidbusiness",
     "bceidboth",
     "github",
+  ]
+  override_authentication_flow = true
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
+  valid_redirect_uris = [
+    "https://bcgov.github.io/keycloak-example-apps/*",
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*"
   ]
 }
