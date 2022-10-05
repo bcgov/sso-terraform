@@ -18,8 +18,8 @@ module "ministry-of-finance-intranet-3804" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/",
-    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/openid-connect/keycloak"
+    "https://dev.intranet.fin.gov.bc.ca/",
+    "https://dev.intranet.fin.gov.bc.ca/*",
+    "https://dev.intranet.fin.gov.bc.ca/openid-connect/keycloak"
   ]
 }
