@@ -19,6 +19,7 @@ module "alcs-3944" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost:8080/*",
     "https://alcs-test-api.apps.silver.devops.gov.bc.ca/*",
     "https://alcs-test.apps.silver.devops.gov.bc.ca"
   ]
