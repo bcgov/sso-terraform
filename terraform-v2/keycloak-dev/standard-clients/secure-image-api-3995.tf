@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "secure_image_api_3995_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "secure-image-api-3995" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,10 +14,10 @@ module "secure-image-api-3995" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.secure_image_api_3995_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev-secure-image.apps.silver.devops.gov.bc.ca/v1/auth/callback"
+    "https://dev-secure-image-kcg.apps.silver.devops.gov.bc.ca/v1/auth/callback"
   ]
 }
