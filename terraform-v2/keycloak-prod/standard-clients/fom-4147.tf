@@ -18,16 +18,16 @@ module "fom-4147" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://fom-nrs-prd.apps.silver.devops.gov.bc.ca/*",
-    "https://fom-prod.nrs.gov.bc.ca/*",
-    "https://fom.apps.silver.devops.gov.bc.ca/*",
+    "https://fom-nrs.apps.silver.devops.gov.bc.ca/*",
+    "https://fom-prd.apps.silver.devops.gov.bc.ca/*",
+    "https://fom.nrs.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://fom-nrs-prd.apps.silver.devops.gov.bc.ca/*",
-    "https://fom-prod.nrs.gov.bc.ca/*",
-    "https://fom.apps.silver.devops.gov.bc.ca/*"
+    "https://fom-nrs.apps.silver.devops.gov.bc.ca/*",
+    "https://fom-prd.apps.silver.devops.gov.bc.ca/*",
+    "https://fom.nrs.gov.bc.ca/*"
   ]
 }
