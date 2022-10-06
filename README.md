@@ -43,4 +43,6 @@ module "new-realm" {
 EOF
 ```
 
+This terraform file is applied when the PR is merged into the `main` branch.  A github action will trigger, adding the custom realm to the gold cluster.  Deleting the `new-realm.tf` file will delete the custom realm when the change is merged into the `main` branch.
+
 - Please use `Kebab case` for the custom realm Terraform files. e.g. `sso-team-test.tf`
