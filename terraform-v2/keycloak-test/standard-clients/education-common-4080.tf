@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "education_common_4080_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "education-common-4080" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -19,11 +15,14 @@ module "education-common-4080" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.education_common_4080_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-basic-bceid/endpoint",
-    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold-idir/endpoint"
+    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold_keycloak_bcdevexchange_idir/endpoint",
+    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_bceid/endpoint",
+    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_bceid/endpoint/logout_response",
+    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_idir/endpoint",
+    "https://soam-test.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_idir/endpoint/logout_response"
   ]
 }
