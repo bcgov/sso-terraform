@@ -20,7 +20,7 @@ module "bc-telemetry-warehouse-3766" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:1111/",
-    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
-    "https://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*"
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/",
+    "http://moe-bctw-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
