@@ -30,7 +30,7 @@ The general workflow for an SSO integration creation/update is:
 
 ## Custom Realms in Gold cluster
 
-Custom realms are managed by Terrafrom in a separate Terraform backend state for Gold Keycloak instances. To create a new custom realm, create a new Terraform script that has the required definition of the realm:
+Gold custom realms are managed by Terrafrom in a separate Terraform backend state. To create a new custom realm, create a new Terraform script that has the required definition of the realm:
 
 ```sh
 cd terraform-v2-custom/keycloak-<env>/custom-realms
@@ -42,3 +42,5 @@ module "new-realm" {
 }
 EOF
 ```
+
+- Please use `Kebab case` for the custom realm Terraform files. e.g. `sso-team-test.tf`
