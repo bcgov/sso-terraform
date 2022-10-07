@@ -43,7 +43,7 @@ module "new-realm" {
 EOF
 ```
 
-also, update the `realm_names` attribute of `master_viewer_role` located in the individual environment's `main.tf` to give the `viewer` privileges to the `Master Viewer`.
+also, update the list of `realm_names`, an attribute of `master_viewer_role` located in the individual environment’s main.tf file. This gives the the `viewer` privileges to the `Master Viewer`.
 
 This terraform file is applied when the PR is merged into the `main` branch. A github action will trigger, adding the custom realm to the gold cluster. Deleting the `new-realm.tf` file will delete the custom realm when the change is merged into the `main` branch.
 
