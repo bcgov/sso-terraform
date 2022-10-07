@@ -18,6 +18,6 @@ module "digital-feedback-4170" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://digital-feedback.apps.silver.devops.gov.bc.ca/"
+    "https://digital-feedback.apps.silver.devops.gov.bc.ca/*"
   ]
 }
