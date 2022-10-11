@@ -7,7 +7,7 @@ module "master_viewer_role" {
   role_name   = "viewer-custom-realms"
   realm_names = [
     "bcparks-service-transformation",
-    "zorin-dev-custom-realm"
+    "zorin-dev-custom-realm",
   ]
 
   depends_on = [
