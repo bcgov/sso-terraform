@@ -10,6 +10,7 @@ module "education-common-4080" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
