@@ -51,7 +51,7 @@ jobs:
     - name: Setup Terraform
       if: steps.count.outputs.count != '0'
       id: tf
-      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.48.0
+      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.50.0
       with:
         context: ./terraform
         tf-version: ${{ env.TF_VERSION }}
@@ -61,6 +61,7 @@ jobs:
         tf-s3-access-key: ${{ secrets.TF_S3_ACCESS_KEY }}
         tf-s3-secret-key: ${{ secrets.TF_S3_SECRET_KEY }}
         tf-s3-role-arn: ${{ secrets.TF_S3_ROLE_ARN }}
+        kc-provider-version: 3.10.0
         kc-dev-url: ${{ env.KEYCLOAK_DEV_URL }}
         kc-test-url: ${{ env.KEYCLOAK_TEST_URL }}
         kc-prod-url: ${{ env.KEYCLOAK_PROD_URL }}
@@ -72,7 +73,7 @@ jobs:
 
     - name: Setup NPM Packages
       if: steps.count.outputs.count != '0'
-      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.48.0
+      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.50.0
 
     - name: Update Requests Status
       if: steps.count.outputs.count != '0'

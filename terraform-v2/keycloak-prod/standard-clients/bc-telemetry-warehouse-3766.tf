@@ -18,6 +18,6 @@ module "bc-telemetry-warehouse-3766" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://telemetry.nrs.gov.bc.ca/*"
+    "http://telemetry.nrs.gov.bc.ca/*"
   ]
 }

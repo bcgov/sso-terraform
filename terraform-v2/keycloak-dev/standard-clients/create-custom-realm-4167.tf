@@ -1,15 +1,15 @@
-module "itvr-on-gold-cluster-3972" {
+module "create-custom-realm-4167" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
-  client_id                           = "itvr-on-gold-cluster-3972"
-  client_name                         = "ITVR on Gold Cluster"
+  client_id                           = "create-custom-realm-4167"
+  client_name                         = "createCustomRealm"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "bceidbasic",
+    "idir",
     "common"
   ]
   description                  = "CSS App Created"
@@ -18,12 +18,12 @@ module "itvr-on-gold-cluster-3972" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://electric-vehicle-rebates.gov.bc.ca/*",
+    "http://localhost:3000",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://electric-vehicle-rebates.gov.bc.ca/*"
+    "http://localhost:3000"
   ]
 }

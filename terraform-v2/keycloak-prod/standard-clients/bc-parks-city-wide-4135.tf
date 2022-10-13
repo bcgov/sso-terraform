@@ -18,6 +18,6 @@ module "bc-parks-city-wide-4135" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://v4.citywidesolutions.com/v4_client/*"
+    "https://keycloak.citywidesolutions.com/auth/realms/cw-bcparks/broker/oidc-gold-prod/endpoint"
   ]
 }
