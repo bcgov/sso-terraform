@@ -2,7 +2,7 @@ module "bio-hub-browser-4230" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "bio-hub-browser-4230"
-  client_name                         = "BioHub Dev"
+  client_name                         = "BioHub Test"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
