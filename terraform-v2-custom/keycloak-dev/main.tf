@@ -8,7 +8,8 @@ module "master_viewer_role" {
   realm_names = [
     "bcparks-service-transformation",
     "zorin-dev-custom-realm",
-    "health-gateway-gold"
+    "health-gateway-gold",
+    "platform-services"
   ]
 
   depends_on = [
