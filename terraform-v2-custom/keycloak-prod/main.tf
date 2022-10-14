@@ -7,7 +7,8 @@ module "master_viewer_role" {
   role_name = "viewer-custom-realms"
   realm_names = [
     "bcparks-service-transformation",
-    "health-gateway-gold"
+    "health-gateway-gold",
+    "platform-services"
   ]
 
   depends_on = [
