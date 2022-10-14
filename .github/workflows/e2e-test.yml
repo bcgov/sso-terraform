@@ -7,7 +7,7 @@ on:
 
 jobs:
   e2e:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     env:
       KEYCLOAK_URL: http://localhost:8080
       KEYCLOAK_USERNAME: admin
