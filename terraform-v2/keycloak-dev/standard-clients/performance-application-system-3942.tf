@@ -2,7 +2,7 @@ module "performance-application-system-3942" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "performance-application-system-3942"
-  client_name                         = "Performance Application Platform"
+  client_name                         = "Performance Development Platform"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
