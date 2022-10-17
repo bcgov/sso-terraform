@@ -23,6 +23,9 @@ module "ministry-of-finance-intranet-3804" {
     "http://localhost:8000/openid-connect/keycloak",
     "https://dev.intranet.fin.gov.bc.ca/",
     "https://dev.intranet.fin.gov.bc.ca/*",
-    "https://dev.intranet.fin.gov.bc.ca/openid-connect/keycloak"
+    "https://dev.intranet.fin.gov.bc.ca/openid-connect/keycloak",
+    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/",
+    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://fin-intra-app-route-a1a681-dev.apps.silver.devops.gov.bc.ca/openid-connect/keycloak"
   ]
 }
