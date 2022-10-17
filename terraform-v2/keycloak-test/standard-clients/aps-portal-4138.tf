@@ -21,7 +21,8 @@ module "aps-portal-4138" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint",
-    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint/logout_response"
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/bceid-business/endpoint",
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/github/endpoint",
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint"
   ]
 }
