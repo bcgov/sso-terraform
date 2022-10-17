@@ -16,6 +16,7 @@ module "client_tti-ams-1486" {
     "https://civilresolutionbc--amsqa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--qa04.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--qa04.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardsboard--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardstribunal--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardstribunal--qa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://lrb--qa.my.salesforce.com/services/authcallback/PathfinderIdir",
