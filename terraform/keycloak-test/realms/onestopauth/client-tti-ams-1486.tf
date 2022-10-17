@@ -10,6 +10,7 @@ module "client_tti-ams-1486" {
     "https://cabro--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardsboard--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardstribunal--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://lrb--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://mhreviewboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir"
