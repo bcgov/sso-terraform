@@ -23,8 +23,12 @@ module "aps-portal-4138" {
   valid_redirect_uris = [
     "http://localhost:4180/oauth2/callback",
     "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint",
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps-v2/broker/sso-gold/endpoint/logout_response",
     "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/bceid-business/endpoint",
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/bceid-business/endpoint/logout_response",
     "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/github/endpoint",
-    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint"
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/github/endpoint/logout_response",
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint",
+    "https://authz-apps-gov-bc-ca.dev.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint/logout_response"
   ]
 }

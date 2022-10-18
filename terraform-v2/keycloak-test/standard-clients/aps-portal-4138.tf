@@ -22,7 +22,10 @@ module "aps-portal-4138" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/bceid-business/endpoint",
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/bceid-business/endpoint/logout_response",
     "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/github/endpoint",
-    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint"
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/github/endpoint/logout_response",
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint",
+    "https://authz-apps-gov-bc-ca.test.api.gov.bc.ca/auth/realms/aps/broker/idir/endpoint/logout_response"
   ]
 }
