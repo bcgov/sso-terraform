@@ -20,6 +20,7 @@ module "platform-services-4261" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "https://argocd.apps.klab.devops.gov.bc.ca/",
-    "https://registry.developer.gov.bc.ca/"
+    "https://registry.developer.gov.bc.ca/",
+    "https://test.loginproxy.gov.bc.ca/auth/realms/platform-services/*"
   ]
 }
