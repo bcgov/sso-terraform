@@ -2,7 +2,7 @@ module "ccof-4115" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "ccof-4115"
-  client_name                         = "MYCCS"
+  client_name                         = "CCOF"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -18,6 +18,7 @@ module "ccof-4115" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost*"
+    "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback",
+    "https://test.mychildcareservices.gov.bc.ca/api/auth/callback"
   ]
 }
