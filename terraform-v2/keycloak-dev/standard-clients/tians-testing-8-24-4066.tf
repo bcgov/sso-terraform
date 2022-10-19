@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "tians_testing_8_24_4066_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "tians-testing-8-24-4066" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -21,7 +17,7 @@ module "tians-testing-8-24-4066" {
   ]
   description                  = "CSS App Created"
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.tians_testing_8_24_4066_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
