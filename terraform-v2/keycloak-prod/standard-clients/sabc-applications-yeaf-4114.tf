@@ -18,7 +18,9 @@ module "sabc-applications-yeaf-4114" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://10.0.0.51:8017/api-login",
     "http://10.0.0.51:8017/app-login",
+    "https://tbtb-yeaf-06cb9b-prod.apps.silver.devops.gov.bc.ca/api-login",
     "https://tbtb-yeaf-06cb9b-prod.apps.silver.devops.gov.bc.ca/app-login"
   ]
 }
