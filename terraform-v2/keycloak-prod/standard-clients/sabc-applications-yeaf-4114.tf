@@ -9,7 +9,6 @@ module "sabc-applications-yeaf-4114" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "idir",
     "azureidir",
     "common"
   ]
