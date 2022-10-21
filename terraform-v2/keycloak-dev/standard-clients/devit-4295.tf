@@ -18,6 +18,6 @@ module "devit-4295" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://devit.gaming.gov.bc.ca/*"
+    "https://devit.gaming.gov.bc.ca/openid-connect/keycloak"
   ]
 }
