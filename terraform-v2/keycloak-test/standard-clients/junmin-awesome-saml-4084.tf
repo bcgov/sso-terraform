@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "junmin_awesome_saml_4084_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "junmin-awesome-saml-4084" {
   source             = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client-saml"
   realm_id           = var.standard_realm_id
@@ -14,11 +10,12 @@ module "junmin-awesome-saml-4084" {
   idps = [
     "idir",
     "azureidir",
-    "bceidbasic",
+    "bceidboth",
     "github",
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.junmin_awesome_saml_4084_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
