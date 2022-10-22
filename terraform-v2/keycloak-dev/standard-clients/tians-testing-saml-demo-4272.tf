@@ -10,9 +10,11 @@ module "tians-testing-saml-demo-4272" {
   idps = [
     "idir",
     "azureidir",
+    "github",
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
