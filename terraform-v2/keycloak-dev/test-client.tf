@@ -15,7 +15,7 @@ module "test_client" {
     "bceidbasic",
     "bceidbusiness",
     "bceidboth",
-    "github",
+    "githubbcgov",
   ]
   standard_flow_enabled      = true
   service_accounts_enabled   = false
