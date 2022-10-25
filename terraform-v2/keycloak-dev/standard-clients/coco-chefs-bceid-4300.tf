@@ -9,6 +9,7 @@ module "coco-chefs-bceid-4300" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "idir",
     "bceidbasic",
     "bceidbusiness",
     "common"
