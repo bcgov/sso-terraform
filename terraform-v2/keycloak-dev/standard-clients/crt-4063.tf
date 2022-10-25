@@ -2,7 +2,7 @@ module "crt-4063" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "crt-4063"
-  client_name                         = "CRT"
+  client_name                         = "MOTI Custom Realm Login"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -19,8 +19,6 @@ module "crt-4063" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:3000/",
-    "http://localhost:3000/*",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/moti-custom/*"
   ]
 }
