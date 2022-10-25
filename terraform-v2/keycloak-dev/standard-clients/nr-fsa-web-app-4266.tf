@@ -11,21 +11,22 @@ module "nr-fsa-web-app-4266" {
   idps = [
     "idir",
     "bceidboth",
-    "github",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/*",
+    "https://nrfesampleapp-24-app.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*"
+    "https://nrfesampleapp-24-app.apps.silver.devops.gov.bc.ca/"
   ]
 }
