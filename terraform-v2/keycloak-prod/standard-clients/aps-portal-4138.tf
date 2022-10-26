@@ -11,6 +11,7 @@ module "aps-portal-4138" {
   idps = [
     "idir",
     "azureidir",
+    "githubpublic",
     "common"
   ]
   description                  = "CSS App Created"
