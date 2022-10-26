@@ -13,12 +13,14 @@ module "jsb-csrs-4126" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:8080/*",
+    "https://dev.childsupportrecalc.gov.bc.ca/*",
     "https://test.childsupportrecalc.gov.bc.ca/*",
     "+"
   ]
@@ -26,6 +28,7 @@ module "jsb-csrs-4126" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:8080/*",
+    "https://dev.childsupportrecalc.gov.bc.ca/*",
     "https://test.childsupportrecalc.gov.bc.ca/*"
   ]
 }
