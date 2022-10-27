@@ -93,7 +93,7 @@ module "github" {
   standard_realm_name = local.standard_realm_name
   client_id           = var.github_client_id
   client_secret       = var.github_client_secret
-  github_org          = "bcgov"
+  github_org          = "bcgov bcgov-c BCDevOps"
 }
 
 module "standard_clients" {
@@ -112,6 +112,15 @@ module "master_idir_link" {
   idp_realm_id     = module.idir.realm_id
   idp_realm_name   = module.idir.realm_name
   idp_display_name = "IDIR"
+  idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
+}
+
+module "master_azureidir_link" {
+  source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
+  keycloak_url     = var.keycloak_url
+  idp_realm_id     = module.azureidir.realm_id
+  idp_realm_name   = module.azureidir.realm_name
+  idp_display_name = "Azure IDIR"
   idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
 }
 
