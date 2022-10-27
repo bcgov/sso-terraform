@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "crt_4065_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "crt-4065" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -17,14 +13,16 @@ module "crt-4065" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.crt_4065_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://dev-crt.th.gov.bc.ca/",
     "https://dev-crt.th.gov.bc.ca/*",
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/auth?kc_idp_hint=IDIR",
     "https://localhost:44349/*"
   ]
 }
