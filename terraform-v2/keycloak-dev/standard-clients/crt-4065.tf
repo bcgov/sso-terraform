@@ -22,7 +22,7 @@ module "crt-4065" {
     "http://localhost:3000/*",
     "https://dev-crt.th.gov.bc.ca/",
     "https://dev-crt.th.gov.bc.ca/*",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/protocol/openid-connect/auth?kc_idp_hint=IDIR",
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/moti-custom/*",
     "https://localhost:44349/*"
   ]
 }
