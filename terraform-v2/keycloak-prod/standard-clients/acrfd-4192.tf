@@ -20,11 +20,13 @@ module "acrfd-4192" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://comment.nrs.gov.bc.ca/admin/",
+    "https://comment.nrs.gov.bc.ca/admin/search",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://comment.nrs.gov.bc.ca/admin/"
+    "https://comment.nrs.gov.bc.ca/admin/",
+    "https://comment.nrs.gov.bc.ca/admin/search"
   ]
 }
