@@ -9,7 +9,6 @@ module "platform-services-4261" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "azureidir",
     "githubpublic",
     "common"
   ]
@@ -20,8 +19,6 @@ module "platform-services-4261" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://argocd.apps.klab.devops.gov.bc.ca/",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/platform-services/*",
-    "https://registry.developer.gov.bc.ca"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/platform-services/*"
   ]
 }
