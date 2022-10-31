@@ -1,5 +1,7 @@
 # sso-terraform
 
+![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)
+
 This repository stores the Terraform scripts to provision BCGov SSO infrastructure in Silver and Gold Keycloak instances.
 
 ## Workflow
