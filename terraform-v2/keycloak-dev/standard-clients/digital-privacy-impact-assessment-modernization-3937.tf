@@ -19,6 +19,7 @@ module "digital-privacy-impact-assessment-modernization-3937" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8080/*"
+    "http://localhost:8080/*",
+    "https://dev.pia.gov.bc.ca"
   ]
 }
