@@ -61,4 +61,4 @@ jobs:
         dev-client-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
         test-client-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
         prod-client-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
-        tasks: update-review-profile-config delete-unused-client-scopes enforce-browser-conditional-otp
+        tasks: update-review-profile-config delete-unused-client-scopes
