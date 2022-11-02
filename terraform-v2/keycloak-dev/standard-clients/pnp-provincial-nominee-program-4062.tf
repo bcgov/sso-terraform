@@ -21,6 +21,7 @@ module "pnp-provincial-nominee-program-4062" {
   valid_redirect_uris = [
     "http://localhost:8000/auth/cb/bcgovidir/",
     "http://localhost:8000/auth/cb/keycloak/",
-    "https://uniques_phase6/auth/oauth-callback"
+    "https://uniques_phase6/auth/oauth-callback",
+    "https://uniques_phase6/auth/oauth-callback/"
   ]
 }
