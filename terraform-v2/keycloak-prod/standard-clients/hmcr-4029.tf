@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "hmcr_4029_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "hmcr-4029" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -17,16 +13,11 @@ module "hmcr-4029" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.hmcr_4029_browserflow.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://hmcr.th.gov.bc.ca/*",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://hmcr.th.gov.bc.ca/*"
   ]
