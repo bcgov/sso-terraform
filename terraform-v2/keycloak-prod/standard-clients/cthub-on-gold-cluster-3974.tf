@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "cthub_on_gold_cluster_3974_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "cthub-on-gold-cluster-3974" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,8 +14,9 @@ module "cthub-on-gold-cluster-3974" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.cthub_on_gold_cluster_3974_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
