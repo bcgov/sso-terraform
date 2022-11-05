@@ -19,6 +19,6 @@ module "idir-kc-4332" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dev.oidc.gov.bc.ca/auth/realms/fcf0kpqr/*"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/bcregistry/*"
   ]
 }
