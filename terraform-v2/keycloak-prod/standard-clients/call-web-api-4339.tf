@@ -13,7 +13,7 @@ module "call-web-api-4339" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = "callwebapi"
+  additional_role_attribute    = "callwebapi;uma_protection"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = false
