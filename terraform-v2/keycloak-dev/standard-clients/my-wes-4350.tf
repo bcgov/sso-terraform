@@ -21,6 +21,11 @@ module "my-wes-4350" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost:4200/*",
+    "http://localhost:4201/*",
+    "http://localhost:4202/*",
+    "https://localhost:44311/*",
+    "https://securesurveys.gov.bc.ca/*",
     "https://securesurveys.gov.bc.ca/wes/*"
   ]
 }
