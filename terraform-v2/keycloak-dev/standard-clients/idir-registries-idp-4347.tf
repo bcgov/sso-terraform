@@ -19,6 +19,6 @@ module "idir-registries-idp-4347" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/bcregistry/*"
+    "https://*"
   ]
 }
