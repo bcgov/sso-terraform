@@ -19,6 +19,7 @@ module "idir-registries-idp-4347" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://*"
+    "https://*",
+    "https://bc-registry-namerequest-sre-3b2420-tools.apps.silver.devops.gov.bc.ca/namerequest/*"
   ]
 }
