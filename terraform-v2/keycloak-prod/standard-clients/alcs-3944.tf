@@ -22,6 +22,6 @@ module "alcs-3944" {
     "https://alcs-prod-api.apps.silver.devops.gov.bc.ca/authorize",
     "https://alcs-prod.apps.silver.devops.gov.bc.ca",
     "https://alcs.nr.gov.bc.ca/",
-    "https://api.alcs.nr.gov.bc.ca/"
+    "https://alcs.nr.gov.bc.ca/api/authorize"
   ]
 }
