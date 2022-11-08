@@ -21,6 +21,8 @@ module "pnp-provincial-nominee-program-4062" {
   valid_redirect_uris = [
     "http://localhost:8000/auth/cb/keycloak/",
     "https://test-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback",
-    "https://test2-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback"
+    "https://test2-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback",
+    "https://uat-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback",
+    "https://uat2-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback"
   ]
 }

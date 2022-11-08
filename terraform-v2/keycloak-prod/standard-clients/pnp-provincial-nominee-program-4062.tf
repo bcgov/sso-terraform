@@ -19,6 +19,9 @@ module "pnp-provincial-nominee-program-4062" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8000/auth/cb/keycloak/"
+    "http://localhost:8000/auth/cb/keycloak/",
+    "https://assessment.pnpapplication.gov.bc.ca/auth/oauth-callback",
+    "https://prod-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback",
+    "https://prod2-assessment.pnpapplication.gov.bc.ca/auth/oauth-callback"
   ]
 }
