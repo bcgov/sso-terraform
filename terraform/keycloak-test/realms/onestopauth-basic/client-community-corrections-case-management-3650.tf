@@ -4,7 +4,7 @@ module "client_community-corrections-case-management-3650" {
   client_id   = "community-corrections-case-management-3650"
   client_name = "community-corrections-case-management-3650"
   valid_redirect_uris = [
-    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/"
+    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/*"
   ]
   description = "CSS App Created"
 }
