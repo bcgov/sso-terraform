@@ -20,6 +20,8 @@ module "coms-showcase-frontend-local-3966" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://127.0.0.1:5173/*",
+    "http://127.0.0.1:8081/*",
     "http://localhost/*",
     "http://localhost:5173/*",
     "http://localhost:8081/*",
@@ -28,6 +30,8 @@ module "coms-showcase-frontend-local-3966" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://127.0.0.1:5173/*",
+    "http://127.0.0.1:8081/*",
     "http://localhost/*",
     "http://localhost:5173/*",
     "http://localhost:8081/*"
