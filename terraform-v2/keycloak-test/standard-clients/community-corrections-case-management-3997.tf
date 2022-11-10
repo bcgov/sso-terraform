@@ -19,6 +19,6 @@ module "community-corrections-case-management-3997" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/realms/cccm/broker/idir/endpoint"
+    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/realms/cccm/broker/IDIR-GOLD/endpoint"
   ]
 }
