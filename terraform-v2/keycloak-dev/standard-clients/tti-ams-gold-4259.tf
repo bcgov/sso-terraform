@@ -26,6 +26,7 @@ module "tti-ams-gold-4259" {
     "https://civilresolutionbc--amsqa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--qa04.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardstribunal--qa.sandbox.lightning.force.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardstribunal--qa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://lrb--qa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://mhreviewboard--qa.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir"
   ]
