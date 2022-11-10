@@ -19,6 +19,7 @@ module "redip-jeri-4336" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8000/auth/cb/keycloak/"
+    "http://localhost:8000/auth/cb/keycloak/",
+    "https://benevity-prod-ciam.okta.com/oauth2/v1/authorize/callback"
   ]
 }
