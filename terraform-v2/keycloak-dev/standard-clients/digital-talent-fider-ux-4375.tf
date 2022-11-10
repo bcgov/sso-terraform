@@ -19,6 +19,6 @@ module "digital-talent-fider-ux-4375" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dtalentfider.apps.silver.devops.gov.bc.ca/oauth/_xvzzxebaqu/callback*"
+    "https://dtalentfider.apps.silver.devops.gov.bc.ca/oauth/_xvzzxebaqu/callback"
   ]
 }
