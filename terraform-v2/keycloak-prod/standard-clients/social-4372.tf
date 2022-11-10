@@ -20,6 +20,6 @@ module "social-4372" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://loginproxy.gov.bc.ca/auth/realms/social/broker/gsa/endpoint"
+    "https://loginproxy.gov.bc.ca/auth/realms/social/*"
   ]
 }
