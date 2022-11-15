@@ -21,6 +21,9 @@ module "documize-4310" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://dds-authz-dev.apps.gov.bc.ca/realms/main/broker/oidc/endpoint",
+    "https://dds-authz-dev.apps.gov.bc.ca/realms/master/broker/oidc/endpoint",
+    "https://dds-authz.apps.gov.bc.ca/realms/main/broker/oidc/endpoint",
     "https://dev-documize.data.gov.bc.ca/*",
     "https://documize.data.gov.bc.ca/*"
   ]
