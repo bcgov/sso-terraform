@@ -2,7 +2,7 @@ module "mines-digital-services-mds-4334" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "mines-digital-services-mds-4334"
-  client_name                         = "Mines Digital Services (MDS)"
+  client_name                         = "MDS-Test"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
