@@ -3,7 +3,7 @@ module "digital-privacy-impact-assessment-modernization-3937" {
   realm_id                            = var.standard_realm_id
   client_id                           = "digital-privacy-impact-assessment-modernization-3937"
   client_name                         = "Digital Privacy Impact Assessment Modernization"
-  access_token_lifespan               = ""
+  access_token_lifespan               = 3600
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
