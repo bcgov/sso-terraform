@@ -18,8 +18,18 @@ module "documize-4310" {
   additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://dds-authz-dev.apps.gov.bc.ca/realms/main/broker/oidc/endpoint",
+    "https://dds-authz-dev.apps.gov.bc.ca/realms/master/broker/oidc/endpoint",
+    "https://dds-authz.apps.gov.bc.ca/realms/main/broker/oidc/endpoint",
+    "https://dev-documize.data.gov.bc.ca/*",
+    "https://documize.data.gov.bc.ca/*",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "https://dds-authz-dev.apps.gov.bc.ca/realms/main/broker/oidc/endpoint",
     "https://dds-authz-dev.apps.gov.bc.ca/realms/master/broker/oidc/endpoint",
