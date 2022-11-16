@@ -20,12 +20,12 @@ module "tians-testing-11-16-b-ce-id-both-4386" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://example",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://example"
+    "https://bcgov.github.io/keycloak-example-apps/*"
   ]
 }
