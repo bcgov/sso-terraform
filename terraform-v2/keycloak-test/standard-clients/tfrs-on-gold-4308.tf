@@ -20,12 +20,14 @@ module "tfrs-on-gold-4308" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://tfrs-frontend-test.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-test.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://tfrs-frontend-test.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
