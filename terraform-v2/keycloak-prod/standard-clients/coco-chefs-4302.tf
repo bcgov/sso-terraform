@@ -19,8 +19,9 @@ module "coco-chefs-4302" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://submit.digital.gov.bc.ca/app",
-    "https://submit.digital.gov.bc.ca/app/form/create",
-    "https://submit.digital.gov.bc.ca/app/user/forms"
+    "https://loginproxy.gov.bc.ca/auth/realms/chefs/broker/bceid-basic/endpoint",
+    "https://loginproxy.gov.bc.ca/auth/realms/chefs/broker/bceid-business/endpoint",
+    "https://loginproxy.gov.bc.ca/auth/realms/chefs/broker/idir/endpoint",
+    "https://submit.digital.gov.bc.ca/app"
   ]
 }
