@@ -10,6 +10,7 @@ module "junmin-new-project-4371" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
@@ -19,12 +20,12 @@ module "junmin-new-project-4371" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:8080",
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:8080"
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi"
   ]
 }
