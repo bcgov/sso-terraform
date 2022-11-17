@@ -20,6 +20,8 @@ module "hmcr-4029" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost:3000/*",
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/moti-custom/*",
     "https://tst-hmcr.th.gov.bc.ca/*"
   ]
 }
