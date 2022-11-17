@@ -10,6 +10,7 @@ module "platform-services-4261" {
   client_offline_session_max_lifespan = ""
   idps = [
     "azureidir",
+    "githubpublic",
     "common"
   ]
   description                  = "CSS App Created"
