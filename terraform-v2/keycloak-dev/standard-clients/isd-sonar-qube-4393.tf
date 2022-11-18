@@ -19,6 +19,7 @@ module "isd-sonar-qube-4393" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://git-dev.apps-isd.sd.gov.bc.ca/user/oauth2/oidc/callback",
     "https://sonarqube-dev.apps-isd.sd.gov.bc.ca/*"
   ]
 }
