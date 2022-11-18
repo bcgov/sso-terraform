@@ -2,7 +2,7 @@ module "nr-fsa-web-app-4266" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "nr-fsa-web-app-4266"
-  client_name                         = "NR FSA Web App"
+  client_name                         = "NR FSA Web App - Local"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -21,12 +21,12 @@ module "nr-fsa-web-app-4266" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/*",
+    "http://localhost:3000/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/*"
+    "http://localhost:3000/*"
   ]
 }
