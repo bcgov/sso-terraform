@@ -22,6 +22,6 @@ module "mines-digital-services-mds-4334" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:1000/*"
+    "http://localhost:1000/return-page?type=login"
   ]
 }
