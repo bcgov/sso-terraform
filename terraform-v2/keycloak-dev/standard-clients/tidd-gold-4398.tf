@@ -20,6 +20,6 @@ module "tidd-gold-4398" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://tradeandinvestbc--meldev.my.salesforce.com/services/authcallback/BCGovSSOIdir",
-    "https://tradeandinvestbclightning--dev.my.salesforce.com/services/authcallback/BCGovSSOIdir"
+    "https://tradeandinvestbclightning--dev.sandbox.my.salesforce.com/services/authcallback/BCGovSSOIdir"
   ]
 }
