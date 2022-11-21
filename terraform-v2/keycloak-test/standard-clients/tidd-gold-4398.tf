@@ -20,6 +20,6 @@ module "tidd-gold-4398" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://tradeandinvestbc--test.my.salesforce.com/services/authcallback/BCGovSSOIdir",
-    "https://tradeandinvestbclightning--test.my.salesforce.com/services/authcallback/BCGovSSOIdir"
+    "https://tradeandinvestbclightning--test.sandbox.my.salesforce.com/services/authcallback/BCGovSSOIdir"
   ]
 }
