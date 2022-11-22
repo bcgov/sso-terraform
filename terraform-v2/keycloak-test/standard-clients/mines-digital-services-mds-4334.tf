@@ -22,6 +22,7 @@ module "mines-digital-services-mds-4334" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://*.apps.silver.devops.gov.bc.ca/*"
+    "http://localhost:3020/*",
+    "https://minespace-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
