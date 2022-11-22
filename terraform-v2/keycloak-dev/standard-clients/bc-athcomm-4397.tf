@@ -20,6 +20,6 @@ module "bc-athcomm-4397" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:3000/callback"
+    "http://localhost:8000/auth/v1/callback"
   ]
 }
