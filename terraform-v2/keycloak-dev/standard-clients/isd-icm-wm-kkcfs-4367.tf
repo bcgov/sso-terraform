@@ -19,6 +19,7 @@ module "isd-icm-wm-kkcfs-4367" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "comdionavisits://auth/callback",
     "https://kkcfs-wm-api.apps.silver.devops.gov.bc.ca/oauth2/callback",
     "https://kkcfs-wm.api.gov.bc.ca/callback"
   ]
