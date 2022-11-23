@@ -98,10 +98,10 @@ jobs:
       with:
         url: ${{ env.API_URL }}/batch/items
         method: PUT
-        data: "{\"ids\": ${{ steps.requests.outputs.response }}, \"success\": \"${{ steps.apply.outcome != 'failure' }}\"}"
+        data: "{\"ids\": ${{ steps.requests.outputs.response }}, \"success\": \"${{ steps.tf.outputs.apply != 'failure' }}\"}"
         customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
         timeout: '60000'
 
     - name: Set Failure Code
-      if: steps.apply.outcome == 'failure'
+      if: steps.tf.outputs.apply == 'failure'
       run: exit 1
