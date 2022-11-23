@@ -20,6 +20,7 @@ module "office-of-the-superintendent-of-prof-governance-4298" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://keycloak-e63731-test.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/keycloak-oidc-gold/endpoint",
     "https://keycloak-e63731-test.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/keycloak-oidc/endpoint"
   ]
 }
