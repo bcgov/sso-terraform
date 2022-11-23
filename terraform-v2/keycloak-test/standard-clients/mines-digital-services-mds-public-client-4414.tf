@@ -21,12 +21,14 @@ module "mines-digital-services-mds-public-client-4414" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:1000",
+    "http://localhost:3020/*",
+    "https://minespace-test.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "http://localhost:3020/*",
+    "https://minespace-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
