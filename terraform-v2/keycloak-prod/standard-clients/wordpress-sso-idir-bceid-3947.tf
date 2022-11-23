@@ -22,6 +22,6 @@ module "wordpress-sso-idir-bceid-3947" {
   valid_redirect_uris = [
     "https://bcfd-test.apps.silver.devops.gov.bc.ca/*",
     "https://feedbcdirectory.gov.bc.ca/*",
-    "https://wp-test.apps.silver.devops.gov.bc.ca/feedbcdirectory"
+    "https://wp-test.apps.silver.devops.gov.bc.ca/feedbcdirectory/*"
   ]
 }
