@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "wordpress_sso_idir_bceid_3947_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "wordpress-sso-idir-bceid-3947" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,12 +14,14 @@ module "wordpress-sso-idir-bceid-3947" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.wordpress_sso_idir_bceid_3947_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://bcfd-test.apps.silver.devops.gov.bc.ca/*",
-    "https://feedbcdirectory.gov.bc.ca/*"
+    "https://feedbcdirectory.gov.bc.ca/*",
+    "https://wp-test.apps.silver.devops.gov.bc.ca/feedbcdirectory"
   ]
 }
