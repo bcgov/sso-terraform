@@ -20,7 +20,6 @@ module "isd-icm-wm-kkcfs-4367" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "comdionavisits://auth/callback",
-    "https://kkcfs-wm-api.apps.silver.devops.gov.bc.ca/oauth2/callback",
     "https://kkcfs-wm-diona.api.gov.bc.ca/*",
     "https://kkcfs-wm.api.gov.bc.ca/*"
   ]
