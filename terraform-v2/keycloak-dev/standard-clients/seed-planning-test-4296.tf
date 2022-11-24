@@ -2,7 +2,7 @@ module "seed-planning-test-4296" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "seed-planning-test-4296"
-  client_name                         = "Seed Planning Test - Localhost"
+  client_name                         = "Seed Planning Test - Local and Dev"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -20,12 +20,14 @@ module "seed-planning-test-4296" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/*",
+    "http://localhost:3000/home",
+    "https://nrfesampleapp-*-app.apps.silver.devops.gov.bc.ca/home",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*"
+    "http://localhost:3000/home",
+    "https://nrfesampleapp-*-app.apps.silver.devops.gov.bc.ca/home"
   ]
 }
