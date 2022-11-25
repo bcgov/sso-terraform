@@ -20,14 +20,12 @@ module "seed-planning-test-4296" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/home",
-    "https://nrfesampleapp-*-app.apps.silver.devops.gov.bc.ca/home",
+    "*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/home",
-    "https://nrfesampleapp-*-app.apps.silver.devops.gov.bc.ca/home"
+    "*"
   ]
 }
