@@ -21,11 +21,13 @@ module "seed-planning-test-4296" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/home",
+    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/home"
+    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/home",
+    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html"
   ]
 }
