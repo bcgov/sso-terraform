@@ -22,6 +22,6 @@ module "tians-testing-custom-realm-setup-4404" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/zorin-dev-custom-realm/*"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/tian-test-realm/*"
   ]
 }
