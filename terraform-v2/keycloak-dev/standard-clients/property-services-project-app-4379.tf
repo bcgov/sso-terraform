@@ -19,6 +19,7 @@ module "property-services-project-app-4379" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-test-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
@@ -28,6 +29,7 @@ module "property-services-project-app-4379" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-test-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
