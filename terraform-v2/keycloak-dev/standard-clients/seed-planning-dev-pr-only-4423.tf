@@ -22,7 +22,7 @@ module "seed-planning-dev-pr-only-4423" {
   web_origins = [
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca",
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html",
+    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html",
     "+"
   ]
@@ -31,7 +31,7 @@ module "seed-planning-dev-pr-only-4423" {
   valid_redirect_uris = [
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca",
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html",
+    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso.html"
   ]
 }
