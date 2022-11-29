@@ -20,6 +20,7 @@ module "crt-4065" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "https://crt.th.gov.bc.ca/",
-    "https://crt.th.gov.bc.ca/*"
+    "https://crt.th.gov.bc.ca/*",
+    "https://loginproxy.gov.bc.ca/auth/realms/moti-custom/*"
   ]
 }

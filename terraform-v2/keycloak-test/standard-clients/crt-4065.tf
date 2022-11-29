@@ -19,6 +19,7 @@ module "crt-4065" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "https://test.loginproxy.gov.bc.ca/auth/realms/moti-custom/*",
     "https://tst-crt.th.gov.bc.ca/",
     "https://tst-crt.th.gov.bc.ca/*"
   ]
