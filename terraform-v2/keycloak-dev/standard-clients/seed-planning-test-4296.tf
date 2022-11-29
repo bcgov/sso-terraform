@@ -22,6 +22,7 @@ module "seed-planning-test-4296" {
   web_origins = [
     "http://localhost:3000/home",
     "http://localhost:3000/login-success",
+    "http://localhost:3000/silent-check-sso",
     "http://localhost:3000/silent-check-sso.html",
     "+"
   ]
@@ -30,6 +31,7 @@ module "seed-planning-test-4296" {
   valid_redirect_uris = [
     "http://localhost:3000/home",
     "http://localhost:3000/login-success",
+    "http://localhost:3000/silent-check-sso",
     "http://localhost:3000/silent-check-sso.html"
   ]
 }
