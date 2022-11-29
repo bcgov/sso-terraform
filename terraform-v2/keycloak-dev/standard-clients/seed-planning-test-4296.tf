@@ -21,17 +21,15 @@ module "seed-planning-test-4296" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/home",
-    "http://localhost:3000/login-success",
+    "http://localhost:3000/logout",
     "http://localhost:3000/silent-check-sso",
-    "http://localhost:3000/silent-check-sso.html",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/home",
-    "http://localhost:3000/login-success",
-    "http://localhost:3000/silent-check-sso",
-    "http://localhost:3000/silent-check-sso.html"
+    "http://localhost:3000/logout",
+    "http://localhost:3000/silent-check-sso"
   ]
 }
