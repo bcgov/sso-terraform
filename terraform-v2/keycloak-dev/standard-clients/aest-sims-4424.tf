@@ -23,6 +23,7 @@ module "aest-sims-4424" {
     "http://localhost:3000/*",
     "http://localhost:8080/*",
     "http://localhost:8081/*",
-    "https://dev-aest-sims.apps.silver.devops.gov.bc.ca/*"
+    "https://dev-aest-sims.apps.silver.devops.gov.bc.ca/*",
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/aestsims/*"
   ]
 }
