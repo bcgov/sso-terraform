@@ -19,6 +19,6 @@ module "eao-epic-4433" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://loginproxy.gov.bc.ca/auth/admin/eao-epic/console/"
+    "https://loginproxy.gov.bc.ca/auth/realms/eao-epic/*"
   ]
 }
