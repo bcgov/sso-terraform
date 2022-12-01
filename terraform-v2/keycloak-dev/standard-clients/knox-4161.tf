@@ -21,6 +21,7 @@ module "knox-4161" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:8250/oidc/callback",
-    "https://vault-iit-dev.apps.silver.devops.gov.bc.ca/ui/*"
+    "https://vault-iit-dev.apps.silver.devops.gov.bc.ca/ui/*",
+    "https://vault-iit-dev.apps.silver.devops.gov.bc.ca/v1/*"
   ]
 }
