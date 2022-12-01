@@ -2,7 +2,7 @@ module "traffic-courts-online-4437" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "traffic-courts-online-4437"
-  client_name                         = ""
+  client_name                         = "Traffic Courts Online"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
