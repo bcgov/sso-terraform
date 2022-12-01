@@ -19,6 +19,6 @@ module "front-counter-bc-fider-4293" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://fcbctestfider.apps.gold.devops.gov.bc.ca/"
+    "https://fcbctestfider.apps.silver.devops.gov.bc.ca/oauth/_fider/callback"
   ]
 }
