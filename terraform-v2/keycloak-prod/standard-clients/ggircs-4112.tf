@@ -20,6 +20,6 @@ module "ggircs-4112" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cas-ggircs-test.apps.silver.devops.gov.bc.ca/*"
+    "https://cas-ggircs.apps.silver.devops.gov.bc.ca/*"
   ]
 }
