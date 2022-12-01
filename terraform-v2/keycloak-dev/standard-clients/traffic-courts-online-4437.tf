@@ -19,6 +19,6 @@ module "traffic-courts-online-4437" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://staff-web-0198bb-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://oidc-0198bb-dev.apps.silver.devops.gov.bc.ca/realms/traffic-court/broker/idir/endpoint"
   ]
 }
