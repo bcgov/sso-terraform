@@ -16,14 +16,8 @@ module "front-counter-bc-fider-4293" {
   additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://fcbcdevfider.apps.gold.devops.gov.bc.ca/",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://fcbcdevfider.apps.gold.devops.gov.bc.ca/"
   ]
