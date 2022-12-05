@@ -16,8 +16,14 @@ module "community-information-tool-4411" {
   additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://communityinformationtool.gov.bc.ca/cit-dashboard/home",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "https://communityinformationtool.gov.bc.ca/cit-dashboard/home"
   ]
