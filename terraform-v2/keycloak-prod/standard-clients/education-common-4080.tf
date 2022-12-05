@@ -20,6 +20,8 @@ module "education-common-4080" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://soam-prod.apps.silver.devops.gov.bc.ca/auth/realms/ECAS/broker/basic-bceid/endpoint",
+    "https://soam-prod.apps.silver.devops.gov.bc.ca/auth/realms/ECAS/broker/basic-bceid/endpoint/logout_response",
     "https://soam-prod.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/gold_keycloak_bcdevexchange_idir/endpoint",
     "https://soam-prod.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_bceid/endpoint",
     "https://soam-prod.apps.silver.devops.gov.bc.ca/auth/realms/master/broker/keycloak_bcdevexchange_bceid/endpoint/logout_response",
