@@ -10,7 +10,6 @@ module "gwells-4121" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,12 +19,14 @@ module "gwells-4121" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "*",
+    "https://apps.nrs.gov.bc.ca/gwells/*",
+    "https://gwells.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*"
+    "https://apps.nrs.gov.bc.ca/gwells/*",
+    "https://gwells.apps.silver.devops.gov.bc.ca/*"
   ]
 }
