@@ -20,6 +20,7 @@ module "wordpress-sso-idir-bceid-3947" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://bcfd-test.apps.silver.devops.gov.bc.ca/*"
+    "https://bcfd-test.apps.silver.devops.gov.bc.ca/*",
+    "https://feedbcdirectory.gov.bc.ca/*"
   ]
 }
