@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "work_bc_3968_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "work-bc-3968" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -17,8 +13,9 @@ module "work-bc-3968" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.work_bc_3968_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
