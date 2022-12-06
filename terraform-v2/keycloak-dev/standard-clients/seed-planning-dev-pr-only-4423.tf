@@ -20,16 +20,18 @@ module "seed-planning-dev-pr-only-4423" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/dashboard",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/home",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/logout",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrfesampleapp-28-app.apps.silver.devops.gov.bc.ca/silent-check-sso"
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/dashboard",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/home",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/logout",
+    "https://nrsparwebapp-10-app.apps.silver.devops.gov.bc.ca/silent-check-sso"
   ]
 }
