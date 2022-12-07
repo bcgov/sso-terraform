@@ -18,6 +18,7 @@ module "alcs-portal-4399" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://alcs-prod-portal-api.apps.silver.devops.gov.bc.ca/authorize",
     "https://alcs.nr.gov.bc.ca/"
   ]
 }
