@@ -10,7 +10,6 @@ module "serve-legal-documents-4299" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,6 +19,7 @@ module "serve-legal-documents-4299" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://keycloak-a60371-test.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/keycloak-oidc-gold/endpoint",
     "https://keycloak-a60371-test.apps.silver.devops.gov.bc.ca/auth/realms/forms-flow-ai/broker/keycloak-oidc/endpoint"
   ]
 }
