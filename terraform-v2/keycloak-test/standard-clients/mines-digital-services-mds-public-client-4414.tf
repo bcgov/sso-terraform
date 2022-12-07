@@ -23,6 +23,7 @@ module "mines-digital-services-mds-public-client-4414" {
   web_origins = [
     "http://localhost:3000/*",
     "http://localhost:3020/*",
+    "https://minespace-dev.apps.silver.devops.gov.bc.ca/*",
     "https://minespace-test.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -31,6 +32,7 @@ module "mines-digital-services-mds-public-client-4414" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "http://localhost:3020/*",
+    "https://minespace-dev.apps.silver.devops.gov.bc.ca/*",
     "https://minespace-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }

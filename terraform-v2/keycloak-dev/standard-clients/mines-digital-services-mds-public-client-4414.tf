@@ -24,6 +24,7 @@ module "mines-digital-services-mds-public-client-4414" {
     "http://localhost:1000",
     "http://localhost:3000/*",
     "http://localhost:3020/*",
+    "https://minespace-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -31,6 +32,7 @@ module "mines-digital-services-mds-public-client-4414" {
   valid_redirect_uris = [
     "http://localhost:1000",
     "http://localhost:3000/*",
-    "http://localhost:3020/*"
+    "http://localhost:3020/*",
+    "https://minespace-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
