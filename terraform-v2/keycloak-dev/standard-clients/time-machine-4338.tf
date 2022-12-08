@@ -20,6 +20,7 @@ module "time-machine-4338" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:8080/*",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "https://web-ed57f0-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -27,6 +28,7 @@ module "time-machine-4338" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:8080/*",
+    "https://bcgov.github.io/keycloak-example-apps/*",
     "https://web-ed57f0-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
