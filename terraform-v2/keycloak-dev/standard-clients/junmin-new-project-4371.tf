@@ -22,7 +22,7 @@ module "junmin-new-project-4371" {
   web_origins = [
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*",
-    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi2*",
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi3*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -30,6 +30,6 @@ module "junmin-new-project-4371" {
   valid_redirect_uris = [
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi*",
-    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi2*"
+    "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi3*"
   ]
 }
