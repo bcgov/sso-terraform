@@ -10,7 +10,6 @@ module "ministry-of-finance-intranet-3804" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,8 +19,7 @@ module "ministry-of-finance-intranet-3804" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://dev.intranet.fin.gov.bc.ca/*",
-    "http://localhost:8000",
+    "http://localhost:8000/",
     "http://localhost:8000/*",
     "http://localhost:8000/openid-connect/keycloak",
     "https://dev.intranet.fin.gov.bc.ca/",
