@@ -13,19 +13,18 @@ module "bio-hub-browser-4230" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://restorationtracker.nrs.gov.bc.ca/*",
-    "https://sims.nrs.gov.bc.ca/*",
+    "https://biohub-platform.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://restorationtracker.nrs.gov.bc.ca/*",
-    "https://sims.nrs.gov.bc.ca/*"
+    "https://biohub-platform.apps.silver.devops.gov.bc.ca/*"
   ]
 }
