@@ -20,6 +20,6 @@ module "digital-gov-bc-ca-prod-idir-4463" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://des-test.apps.silver.devops.gov.bc.ca/"
+    "https://des-test.apps.silver.devops.gov.bc.ca"
   ]
 }
