@@ -13,7 +13,7 @@ module "exit-survey-admin-4373" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = "exitsurveyadmin"
+  additional_role_attribute    = "user_roles"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
