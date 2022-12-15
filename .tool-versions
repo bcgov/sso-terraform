@@ -1,6 +1,6 @@
-python 3.8.6
+python 3.11.0
 docker-compose 1.28.6
 terraform 1.1.4
 terraform-docs 0.12.1
-tflint 0.28.1
+tflint 0.43.0
 git-chglog 0.14.2

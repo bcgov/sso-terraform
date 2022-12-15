@@ -7,6 +7,7 @@ locals {
   bceidboth_realm_name                  = "bceidboth"
   github_realm_name                     = "github"
   siteminder_single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
+  sandbox_keycloak_url                  = "https://sso-keycloak-4-b861c7-test.apps.silver.devops.gov.bc.ca"
 }
 
 module "standard" {
@@ -44,17 +45,19 @@ module "idir" {
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
   sub_to_username            = true
+  sandbox_keycloak_url       = local.sandbox_keycloak_url
 }
 
 module "azureidir" {
-  source              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-azureidir"
-  keycloak_url        = var.keycloak_url
-  realm_name          = local.azureidir_realm_name
-  standard_realm_name = local.standard_realm_name
-  azure_tenant_id     = var.azureidir_tenant_id
-  azure_client_id     = var.azureidir_client_id
-  azure_client_secret = var.azureidir_client_secret
-  sub_to_username     = true
+  source               = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-azureidir"
+  keycloak_url         = var.keycloak_url
+  realm_name           = local.azureidir_realm_name
+  standard_realm_name  = local.standard_realm_name
+  azure_tenant_id      = var.azureidir_tenant_id
+  azure_client_id      = var.azureidir_client_id
+  azure_client_secret  = var.azureidir_client_secret
+  sub_to_username      = true
+  sandbox_keycloak_url = local.sandbox_keycloak_url
 }
 
 module "bceidbasic" {
@@ -66,6 +69,7 @@ module "bceidbasic" {
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
   sub_to_username            = true
+  sandbox_keycloak_url       = local.sandbox_keycloak_url
 }
 
 
@@ -78,6 +82,7 @@ module "bceidbusiness" {
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
   sub_to_username            = true
+  sandbox_keycloak_url       = local.sandbox_keycloak_url
 }
 
 module "bceidboth" {
@@ -89,6 +94,7 @@ module "bceidboth" {
   single_sign_on_service_url = local.siteminder_single_sign_on_service_url
   signing_certificate        = var.siteminder_signing_certificate
   sub_to_username            = true
+  sandbox_keycloak_url       = local.sandbox_keycloak_url
 }
 
 module "github" {
