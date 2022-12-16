@@ -11,18 +11,16 @@ module "ciip-4440" {
   idps = [
     "idir",
     "azureidir",
-    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = "groups"
-  login_theme                  = ""
+  login_theme                  = "bcgov-idp-stopper-no-header-title"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:3004/*",
-    "https://dev.ciip.gov.bc.ca/*"
+    "https://ciip.gov.bc.ca/*"
   ]
 }
