@@ -15,15 +15,12 @@ module "seed-planning-test-4296" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/home",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/logout",
@@ -33,10 +30,6 @@ module "seed-planning-test-4296" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrfesampleapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/home",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/logout",
