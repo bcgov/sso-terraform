@@ -5,6 +5,7 @@ module "gdx-suite-crm-4453" {
   client_name        = "GDX SuiteCRM"
   assertion_lifespan = ""
   valid_redirect_uris = [
+    "http://localhost",
     "https://gdx-suitecrm-dev.apps.silver.devops.gov.bc.ca/*"
   ]
   idps = [
