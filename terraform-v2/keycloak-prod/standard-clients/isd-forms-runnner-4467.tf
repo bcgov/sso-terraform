@@ -10,7 +10,6 @@ module "isd-forms-runnner-4467" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
@@ -21,6 +20,6 @@ module "isd-forms-runnner-4467" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://socialforms-dev.apps.gov.bc.ca/*"
+    "https://socialforms.apps.gov.bc.ca/*"
   ]
 }
