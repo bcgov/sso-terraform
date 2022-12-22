@@ -21,6 +21,7 @@ module "isd-forms-runnner-4467" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "*",
     "https://socialforms-dev.apps.gov.bc.ca/*"
   ]
 }
