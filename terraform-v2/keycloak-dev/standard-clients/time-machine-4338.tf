@@ -14,11 +14,13 @@ module "time-machine-4338" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000/*",
     "http://localhost:8080/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://web-ed57f0-dev.apps.silver.devops.gov.bc.ca/*",
@@ -27,6 +29,7 @@ module "time-machine-4338" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "http://localhost:8080/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://web-ed57f0-dev.apps.silver.devops.gov.bc.ca/*"
