@@ -15,23 +15,18 @@ module "seed-planning-dev-pr-only-4423" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
+    "https://nrsparwebapp-*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/home",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrsparwebapp-11-app.apps.silver.devops.gov.bc.ca/silent-check-sso"
+    "https://nrsparwebapp-*"
   ]
 }
