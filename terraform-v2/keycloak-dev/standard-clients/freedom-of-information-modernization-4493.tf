@@ -21,6 +21,6 @@ module "freedom-of-information-modernization-4493" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint"
   ]
 }
