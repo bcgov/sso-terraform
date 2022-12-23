@@ -16,6 +16,7 @@ module "mines-digital-services-mds-public-client-4414" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
@@ -24,6 +25,7 @@ module "mines-digital-services-mds-public-client-4414" {
     "http://localhost:1000",
     "http://localhost:3000/*",
     "http://localhost:3020/*",
+    "https://mds-dev.apps.silver.devops.gov.bc.ca/*",
     "https://minespace-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -33,6 +35,7 @@ module "mines-digital-services-mds-public-client-4414" {
     "http://localhost:1000",
     "http://localhost:3000/*",
     "http://localhost:3020/*",
+    "https://mds-dev.apps.silver.devops.gov.bc.ca/*",
     "https://minespace-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
