@@ -14,6 +14,7 @@ module "property-services-project-app-4379" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
@@ -22,6 +23,7 @@ module "property-services-project-app-4379" {
     "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://pims-app-devin-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-test-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://tst-pims.th.gov.bc.ca/*",
     "+"
@@ -32,6 +34,7 @@ module "property-services-project-app-4379" {
     "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://pims-app-devin-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-test-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://tst-pims.th.gov.bc.ca/*"
   ]
