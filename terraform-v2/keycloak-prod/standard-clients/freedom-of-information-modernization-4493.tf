@@ -20,6 +20,7 @@ module "freedom-of-information-modernization-4493" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/github/endpoint",
     "https://loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint"
   ]
 }
