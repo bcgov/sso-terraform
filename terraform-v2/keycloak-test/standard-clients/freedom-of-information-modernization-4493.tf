@@ -22,6 +22,8 @@ module "freedom-of-information-modernization-4493" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://test.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/github/endpoint",
-    "https://test.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint"
+    "https://test.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/github/endpoint/logout_response",
+    "https://test.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint",
+    "https://test.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint/logout_response"
   ]
 }
