@@ -2,7 +2,7 @@ module "sso-grafana-4492" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "sso-grafana-4492"
-  client_name                         = "SSO Grafana"
+  client_name                         = "SSO Dashboard"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -20,6 +20,7 @@ module "sso-grafana-4492" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://sso-grafana.apps.gold.devops.gov.bc.ca/*"
+    "https://sso-grafana.apps.gold.devops.gov.bc.ca/*",
+    "https://sso-minio.apps.gold.devops.gov.bc.ca/*"
   ]
 }
