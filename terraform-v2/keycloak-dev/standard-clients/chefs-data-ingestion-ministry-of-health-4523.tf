@@ -21,6 +21,7 @@ module "chefs-data-ingestion-ministry-of-health-4523" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/*",
     "https://medis-chefs-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
