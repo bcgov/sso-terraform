@@ -18,8 +18,15 @@ module "https-apps-isd-sd-gov-bc-ca-jenkins-4527" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://apps-isd.sd.gov.bc.ca/jenkins/",
+    "https://apps-isd.sd.gov.bc.ca/jenkins/*",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "https://apps-isd.sd.gov.bc.ca/jenkins/",
     "https://apps-isd.sd.gov.bc.ca/jenkins/*"
