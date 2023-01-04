@@ -20,6 +20,7 @@ module "sso-grafana-4492" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://sso-grafana.apps.gold.devops.gov.bc.ca/*",
     "https://sso-grafana.apps.gold.devops.gov.bc.ca/*",
     "https://sso-minio.apps.gold.devops.gov.bc.ca/*"
   ]
