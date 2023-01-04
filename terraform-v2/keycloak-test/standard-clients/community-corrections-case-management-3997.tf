@@ -14,11 +14,12 @@ module "community-corrections-case-management-3997" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/realms/cccm/broker/IDIR/endpoint"
+    "https://cccm-keycloak-abb712-test.apps.gold.devops.gov.bc.ca/realms/cccm/broker/idir/endpoint"
   ]
 }
