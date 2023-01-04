@@ -21,6 +21,7 @@ module "https-apps-isd-sd-gov-bc-ca-jenkins-4527" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://*",
     "https://apps-isd.sd.gov.bc.ca/jenkins/*",
     "https://oidcdebugger.com/debug"
   ]
