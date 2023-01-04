@@ -22,6 +22,7 @@ module "chefs-data-ingestion-ministry-of-health-4523" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/*",
+    "https://keycloak-c2da03-dev.apps.silver.devops.gov.bc.ca/*",
     "https://medis-chefs-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
