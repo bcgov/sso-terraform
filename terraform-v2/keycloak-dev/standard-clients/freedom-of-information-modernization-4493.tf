@@ -24,7 +24,6 @@ module "freedom-of-information-modernization-4493" {
     "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/github/endpoint",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/github/endpoint/logout_response",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint/logout_response",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/protocol/openid-connect/logout"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/foi-mod/broker/idir/endpoint/logout_response"
   ]
 }
