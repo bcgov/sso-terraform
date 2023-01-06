@@ -9,7 +9,7 @@ module "bceid-registries-idp-4349" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "bceidbasic",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
