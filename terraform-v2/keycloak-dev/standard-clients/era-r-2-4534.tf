@@ -13,7 +13,7 @@ module "era-r-2-4534" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = ""
+  additional_role_attribute    = "responders-portal-api ess-backend"
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
