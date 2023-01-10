@@ -9,7 +9,6 @@ module "azure-idir-test-4529" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "idir",
     "azureidir",
     "common"
   ]
