@@ -20,12 +20,12 @@ module "pbgp-4412" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://admin.pbgp.apps.silver.devops.gov.bc.ca",
+    "https://pbgp.th.gov.bc.ca",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://admin.pbgp.apps.silver.devops.gov.bc.ca"
+    "https://pbgp.th.gov.bc.ca"
   ]
 }
