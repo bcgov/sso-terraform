@@ -10,6 +10,7 @@ module "court-interpreter-scheduling-4528" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
