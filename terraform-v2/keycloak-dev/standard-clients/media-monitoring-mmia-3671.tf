@@ -22,13 +22,17 @@ module "media-monitoring-mmia-3671" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:40080/*",
+    "https://mmia-dev.apps.silver.devops.gov.bc.ca/*",
     "https://tno-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-sub-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:40080/*",
-    "https://tno-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://mmia-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-sub-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
