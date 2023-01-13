@@ -13,13 +13,15 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://fam-user-pool-mature-mole-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://nr-custom-auth-test.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/"
+    "https://dev-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://prod-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
   ]
 }
