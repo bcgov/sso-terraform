@@ -20,7 +20,6 @@ module "alcs-portal-4399" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8081/*",
-    "https://alcs-dev-portal-api.apps.silver.devops.gov.bc.ca/*"
+    "https://alcs-test-portal-api.apps.silver.devops.gov.bc.ca/*"
   ]
 }
