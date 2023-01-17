@@ -20,8 +20,6 @@ module "myccs-idir-4142" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost*",
-    "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback_idir",
-    "https://test.mychildcareservices.gov.bc.ca/api/auth/callback_idir"
+    "https://mychildcareservices.gov.bc.ca/api/auth/callback_idir"
   ]
 }
