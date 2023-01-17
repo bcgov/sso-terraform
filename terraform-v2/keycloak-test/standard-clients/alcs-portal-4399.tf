@@ -22,6 +22,7 @@ module "alcs-portal-4399" {
   valid_redirect_uris = [
     "http://localhost:8081/*",
     "http://localhost:8083/*",
+    "https://alcs-dev-portal-api.apps.silver.devops.gov.bc.ca/*",
     "https://alcs-test-portal-api.apps.silver.devops.gov.bc.ca/*"
   ]
 }
