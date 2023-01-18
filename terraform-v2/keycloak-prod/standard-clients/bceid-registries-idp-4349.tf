@@ -19,6 +19,6 @@ module "bceid-registries-idp-4349" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://test.loginproxy.gov.bc.ca/auth/realms/bcregistry/broker/bceid/endpoint"
+    "https://loginproxy.gov.bc.ca/auth/realms/bcregistry/broker/bceid/endpoint"
   ]
 }
