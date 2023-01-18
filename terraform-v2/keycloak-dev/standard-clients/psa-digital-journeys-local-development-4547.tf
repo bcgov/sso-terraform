@@ -24,6 +24,7 @@ module "psa-digital-journeys-local-development-4547" {
     "*",
     "http://localhost:3000/*",
     "https://digital-journeys-keycloak-dev.apps.silver.devops.gov.bc.ca/auth/realms/psa-digital-journey-dev/*",
+    "https://keycloak.freshworks.club/auth/realms/psa-digital-journey-local/*",
     "https://keycloak.freshworks.club/auth/realms/psa-digital-journey-local/*"
   ]
 }
