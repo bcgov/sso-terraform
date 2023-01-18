@@ -21,6 +21,7 @@ module "psa-digital-journeys-local-development-4547" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "*",
     "http://localhost:3000/*",
     "https://digital-journeys-keycloak-dev.apps.silver.devops.gov.bc.ca/auth/realms/psa-digital-journey-dev/*",
     "https://keycloak.freshworks.club/auth/realms/psa-digital-journey-local/*"
