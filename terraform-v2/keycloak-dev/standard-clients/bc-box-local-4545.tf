@@ -10,7 +10,8 @@ module "bc-box-local-4545" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidboth",
+    "bceidbasic",
+    "bceidbusiness",
     "githubbcgov",
     "common"
   ]
