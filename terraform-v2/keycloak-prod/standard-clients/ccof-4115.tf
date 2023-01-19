@@ -9,7 +9,6 @@ module "ccof-4115" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,7 +19,6 @@ module "ccof-4115" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback",
-    "https://test.mychildcareservices.gov.bc.ca/api/auth/callback"
+    "https://mychildcareservices.gov.bc.ca/api/auth/callback"
   ]
 }
