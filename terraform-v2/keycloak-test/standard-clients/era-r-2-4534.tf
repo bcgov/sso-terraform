@@ -2,7 +2,7 @@ module "era-r-2-4534" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "era-r-2-4534"
-  client_name                         = "ERA R2"
+  client_name                         = "ERA R2 Responders Portal TEST"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
