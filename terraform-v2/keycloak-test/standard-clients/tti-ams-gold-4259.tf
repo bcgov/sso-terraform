@@ -14,6 +14,7 @@ module "tti-ams-gold-4259" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
@@ -22,7 +23,7 @@ module "tti-ams-gold-4259" {
     "https://bchrt--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://bcmoag--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://bcrb--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://cabro--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://cabro--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
