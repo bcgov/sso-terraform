@@ -20,15 +20,15 @@ module "tti-ams-gold-4259" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://bchrt--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://bcmoag--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://bcrb--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://bchrt--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://bcmoag--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://bcrb--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://cabro--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://employmentstandardsboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://employmentstandardstribunal--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://lrb--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
-    "https://mhreviewboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir"
+    "https://employmentstandardsboard--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardstribunal--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://lrb--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://mhreviewboard--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir"
   ]
 }
