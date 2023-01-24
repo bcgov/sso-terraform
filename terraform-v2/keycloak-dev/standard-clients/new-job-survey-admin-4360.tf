@@ -14,6 +14,7 @@ module "new-job-survey-admin-4360" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = "user_roles"
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
