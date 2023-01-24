@@ -20,6 +20,6 @@ module "work-bc-mobile-admin-dev-4559" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://workbc-mobile-admin-client-551bf1-dev.apps.silver.devops.gov.bc.ca/"
+    "https://workbc-mobile-admin-client-551bf1-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
