@@ -26,6 +26,7 @@ module "tti-ams-gold-4259" {
     "https://cabro--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://civilresolutionbc--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
+    "https://employmentstandardsboard--staging.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardsboard--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://employmentstandardstribunal--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
     "https://lrb--staging.sandbox.my.salesforce.com/services/authcallback/PathfinderIdir",
