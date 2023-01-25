@@ -9,7 +9,7 @@ module "ministry-of-finance-intranet-3804" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "azureidir",
+    "idir",
     "common"
   ]
   description                  = "CSS App Created"
