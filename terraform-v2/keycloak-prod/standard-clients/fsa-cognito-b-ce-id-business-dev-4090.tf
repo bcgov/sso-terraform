@@ -9,6 +9,7 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
