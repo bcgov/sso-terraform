@@ -10,6 +10,7 @@ module "zeva-on-gold-4543" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
