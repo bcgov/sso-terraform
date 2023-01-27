@@ -10,7 +10,6 @@ module "invasives-bc-4565" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
@@ -21,16 +20,12 @@ module "invasives-bc-4565" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/*",
-    "http://localhost:8100/*",
-    "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
+    "https://invasivesbc.gov.bc.ca/home/landing",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*",
-    "http://localhost:8100/*",
-    "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
+    "https://invasivesbc.gov.bc.ca/home/landing"
   ]
 }
