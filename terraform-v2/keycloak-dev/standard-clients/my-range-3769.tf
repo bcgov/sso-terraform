@@ -22,11 +22,13 @@ module "my-range-3769" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
+    "https://myrangebc-dev.apps.silver.devops.gov.bc.ca/return-page?type=login",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*"
+    "http://localhost:3000/*",
+    "https://myrangebc-dev.apps.silver.devops.gov.bc.ca/return-page?type=login"
   ]
 }
