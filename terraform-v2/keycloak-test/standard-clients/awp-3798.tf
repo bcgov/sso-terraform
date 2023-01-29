@@ -14,11 +14,14 @@ module "awp-3798" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://127.0.0.1:44317/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://localhost:44317/*",
     "https://tst-awp.th.gov.bc.ca/*",
