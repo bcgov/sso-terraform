@@ -21,6 +21,7 @@ module "awp-3798" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://10.0.2.2:44317/*",
     "https://127.0.0.1:44317/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://localhost:44317/*",
