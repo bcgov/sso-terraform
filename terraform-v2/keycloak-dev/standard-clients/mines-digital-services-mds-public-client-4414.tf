@@ -3,7 +3,7 @@ module "mines-digital-services-mds-public-client-4414" {
   realm_id                            = var.standard_realm_id
   client_id                           = "mines-digital-services-mds-public-client-4414"
   client_name                         = "Mines Digital Services (MDS) (Public Client)"
-  access_token_lifespan               = 300
+  access_token_lifespan               = 900
   client_session_idle_timeout         = 1800
   client_session_max_lifespan         = 1800
   client_offline_session_idle_timeout = 1800
