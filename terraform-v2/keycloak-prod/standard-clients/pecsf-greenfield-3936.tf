@@ -21,6 +21,7 @@ module "pecsf-greenfield-3936" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:8000/login/keycloak/callback",
-    "https://pecsf-prod.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
+    "https://pecsf-prod.apps.silver.devops.gov.bc.ca/login/keycloak/callback",
+    "https://pecsf.gov.bc.ca/login/keycloak/callback"
   ]
 }
