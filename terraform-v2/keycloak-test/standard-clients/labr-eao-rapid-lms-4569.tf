@@ -2,7 +2,7 @@ module "labr-eao-rapid-lms-4569" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "labr-eao-rapid-lms-4569"
-  client_name                         = "LABR EAO RapidLMS"
+  client_name                         = "EAO WeKnowTraining TEST"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
