@@ -10,7 +10,7 @@ module "pims-local-test-4292" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidbusiness",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
