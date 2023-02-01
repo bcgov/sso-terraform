@@ -2,7 +2,7 @@ module "secure-image-api-3995" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "secure-image-api-3995"
-  client_name                         = "Secure Image"
+  client_name                         = "secureImageAPI"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -20,6 +20,6 @@ module "secure-image-api-3995" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev-secure-image-kcg.apps.silver.devops.gov.bc.ca/v1/auth/callback"
+    "https://secure-image.mcf.gov.bc.ca/v1/auth/callback"
   ]
 }
