@@ -2,7 +2,7 @@ module "secure-image-3950" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "secure-image-3950"
-  client_name                         = "Secure Image"
+  client_name                         = "secureImage"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -20,14 +20,12 @@ module "secure-image-3950" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://oidcdebugger.com/debug",
     "secure-image://client",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://oidcdebugger.com/debug",
     "secure-image://client"
   ]
 }
