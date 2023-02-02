@@ -22,6 +22,7 @@ module "seed-planning-test-4296" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/dashboard",
+    "http://localhost:3000/landing",
     "http://localhost:3000/logout",
     "http://localhost:3000/silent-check-sso",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
@@ -33,6 +34,7 @@ module "seed-planning-test-4296" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/dashboard",
+    "http://localhost:3000/landing",
     "http://localhost:3000/logout",
     "http://localhost:3000/silent-check-sso",
     "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
