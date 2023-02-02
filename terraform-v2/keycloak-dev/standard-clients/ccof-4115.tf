@@ -20,6 +20,7 @@ module "ccof-4115" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost*"
+    "http://localhost*",
+    "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback"
   ]
 }
