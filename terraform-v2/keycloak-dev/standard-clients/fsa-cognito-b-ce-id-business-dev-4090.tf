@@ -21,7 +21,7 @@ module "fsa-cognito-b-ce-id-business-dev-4090" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://dev-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca",
+    "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/*",
     "https://prod-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
   ]
