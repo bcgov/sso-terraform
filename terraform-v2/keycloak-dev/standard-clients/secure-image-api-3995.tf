@@ -20,6 +20,7 @@ module "secure-image-api-3995" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dev-secure-image-kcg.apps.silver.devops.gov.bc.ca/v1/auth/callback"
+    "https://dev-secure-image-kcg.apps.silver.devops.gov.bc.ca/v1/auth/callback",
+    "https://secure-image-dev.apps.gov.bc.ca/v1/auth/callback"
   ]
 }
