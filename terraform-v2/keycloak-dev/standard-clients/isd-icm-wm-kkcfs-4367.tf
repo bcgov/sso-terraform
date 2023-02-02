@@ -22,7 +22,7 @@ module "isd-icm-wm-kkcfs-4367" {
   valid_redirect_uris = [
     "comdionavisits://auth/callback",
     "https://icmint620b-cysndevds.api.gov.bc.ca/*",
-    "https://icmint621b-cysndevds.api.gov.bc.ca/",
+    "https://icmint621b-cysndevds.api.gov.bc.ca/*",
     "https://kkcfs-wm-diona.api.gov.bc.ca/*",
     "https://kkcfs-wm.api.gov.bc.ca/*"
   ]
