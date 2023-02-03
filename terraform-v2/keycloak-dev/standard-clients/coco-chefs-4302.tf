@@ -23,6 +23,7 @@ module "coco-chefs-4302" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://chefs-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://chefs-fider.apps.silver.devops.gov.bc.ca/",
     "https://dev.loginproxy.gov.bc.ca/*"
   ]
 }
