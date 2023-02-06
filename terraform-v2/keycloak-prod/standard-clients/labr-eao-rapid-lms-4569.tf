@@ -20,6 +20,7 @@ module "labr-eao-rapid-lms-4569" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://bc-eao.rapidlms.com/users/sessions/oidc_sessions",
     "https://localhost"
   ]
 }
