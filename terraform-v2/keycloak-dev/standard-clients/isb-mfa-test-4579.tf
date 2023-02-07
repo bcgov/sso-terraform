@@ -10,6 +10,7 @@ module "isb-mfa-test-4579" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
