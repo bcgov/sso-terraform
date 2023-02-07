@@ -102,7 +102,6 @@ variable "dev_event_realms" {
   type        = list(string)
   default = [
     "vtkayq4c", // SBC_With_BCEID
-    "v45fd2kb", // Student Online
     "ytaqhqia", // BCStats
     "fcf0kpqr", // registries
     "tz0e228w", // Court Services
@@ -114,7 +113,6 @@ variable "test_event_realms" {
   type        = list(string)
   default = [
     "vtkayq4c", // SBC_With_BCEID
-    "v45fd2kb", // Student Online
     "ytaqhqia", // BCStats
     "fcf0kpqr", // registries
     "tz0e228w", // Court Services
