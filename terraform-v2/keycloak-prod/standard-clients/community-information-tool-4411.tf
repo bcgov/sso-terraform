@@ -10,6 +10,7 @@ module "community-information-tool-4411" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
