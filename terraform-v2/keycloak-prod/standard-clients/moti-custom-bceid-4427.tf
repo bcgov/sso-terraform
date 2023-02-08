@@ -10,6 +10,7 @@ module "moti-custom-bceid-4427" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
