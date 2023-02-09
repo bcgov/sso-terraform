@@ -3,7 +3,7 @@ module "mds-fncs-4586" {
   realm_id                            = var.standard_realm_id
   client_id                           = "mds-fncs-4586"
   client_name                         = "MDS-FNCS"
-  access_token_lifespan               = 300
+  access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
