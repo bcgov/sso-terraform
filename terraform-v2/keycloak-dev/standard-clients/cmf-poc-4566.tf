@@ -20,12 +20,12 @@ module "cmf-poc-4566" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:1000",
+    "https://alpha-ssr-rt-c57b11-dev.apps.gold.devops.gov.bc.ca/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "https://alpha-ssr-rt-c57b11-dev.apps.gold.devops.gov.bc.ca/"
   ]
 }
