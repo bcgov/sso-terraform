@@ -22,7 +22,7 @@ module "pims-local-test-4292" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000",
-    "http://localhost:3000/*",
+    "http://localhost:3000/",
     "http://localhost:3000/login",
     "+"
   ]
@@ -30,7 +30,7 @@ module "pims-local-test-4292" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000",
-    "http://localhost:3000/*",
+    "http://localhost:3000/",
     "http://localhost:3000/login"
   ]
 }
