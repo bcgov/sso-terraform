@@ -22,6 +22,7 @@ module "pims-frontend-4391" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://pims.gov.bc.ca",
+    "https://pims.gov.bc.ca/",
     "https://pims.gov.bc.ca/login",
     "+"
   ]
@@ -29,6 +30,7 @@ module "pims-frontend-4391" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://pims.gov.bc.ca",
+    "https://pims.gov.bc.ca/",
     "https://pims.gov.bc.ca/login"
   ]
 }
