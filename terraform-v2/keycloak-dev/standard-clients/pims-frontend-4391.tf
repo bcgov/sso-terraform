@@ -23,7 +23,17 @@ module "pims-frontend-4391" {
   web_origins = [
     "https://pims-dev.apps.silver.devops.gov.bc.ca",
     "https://pims-dev.apps.silver.devops.gov.bc.ca/",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/access/requests",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/administrativeAreas",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/agencies",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/users",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/dispose/projects/draft",
     "https://pims-dev.apps.silver.devops.gov.bc.ca/login",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/approval/requests",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/list",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/spl",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/properties/list",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/reports/spl",
     "+"
   ]
   standard_flow_enabled    = true
@@ -31,6 +41,16 @@ module "pims-frontend-4391" {
   valid_redirect_uris = [
     "https://pims-dev.apps.silver.devops.gov.bc.ca",
     "https://pims-dev.apps.silver.devops.gov.bc.ca/",
-    "https://pims-dev.apps.silver.devops.gov.bc.ca/login"
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/access/requests",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/administrativeAreas",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/agencies",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/admin/users",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/dispose/projects/draft",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/login",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/approval/requests",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/list",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/projects/spl",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/properties/list",
+    "https://pims-dev.apps.silver.devops.gov.bc.ca/reports/spl"
   ]
 }
