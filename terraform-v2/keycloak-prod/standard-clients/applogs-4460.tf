@@ -20,6 +20,6 @@ module "applogs-4460" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://applogs-2-p.apps.gov.bc.ca/int"
+    "https://applogs-2-p.apps.gov.bc.ca/int/"
   ]
 }
