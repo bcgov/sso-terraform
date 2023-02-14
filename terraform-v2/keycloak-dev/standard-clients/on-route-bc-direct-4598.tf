@@ -23,12 +23,14 @@ module "on-route-bc-direct-4598" {
   web_origins = [
     "http://localhost:3000",
     "https://*.silver.devops.gov.bc.ca/",
+    "https://onroutebc-202-frontend.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000",
-    "https://*.silver.devops.gov.bc.ca/"
+    "https://*.silver.devops.gov.bc.ca/",
+    "https://onroutebc-202-frontend.apps.silver.devops.gov.bc.ca/"
   ]
 }
