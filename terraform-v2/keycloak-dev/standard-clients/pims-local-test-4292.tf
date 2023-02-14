@@ -22,15 +22,35 @@ module "pims-local-test-4292" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/",
-    "http://localhost:3000/*",
+    "http://localhost:3000/",
+    "http://localhost:3000/admin/access/requests",
+    "http://localhost:3000/admin/administrativeAreas",
+    "http://localhost:3000/admin/agencies",
+    "http://localhost:3000/admin/users",
+    "http://localhost:3000/dispose/projects/draft",
     "http://localhost:3000/login",
+    "http://localhost:3000/projects/approval/requests",
+    "http://localhost:3000/projects/list",
+    "http://localhost:3000/projects/spl",
+    "http://localhost:3000/properties/list",
+    "http://localhost:3000/reports/spl",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/",
-    "http://localhost:3000/*",
-    "http://localhost:3000/login"
+    "http://localhost:3000/",
+    "http://localhost:3000/admin/access/requests",
+    "http://localhost:3000/admin/administrativeAreas",
+    "http://localhost:3000/admin/agencies",
+    "http://localhost:3000/admin/users",
+    "http://localhost:3000/dispose/projects/draft",
+    "http://localhost:3000/login",
+    "http://localhost:3000/projects/approval/requests",
+    "http://localhost:3000/projects/list",
+    "http://localhost:3000/projects/spl",
+    "http://localhost:3000/properties/list",
+    "http://localhost:3000/reports/spl"
   ]
 }
