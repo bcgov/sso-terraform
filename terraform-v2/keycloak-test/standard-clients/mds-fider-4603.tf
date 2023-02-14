@@ -20,6 +20,7 @@ module "mds-fider-4603" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://fider-4c2ba9-test.apps.silver.devops.gov.bc.ca/"
+    "https://fider-4c2ba9-test.apps.silver.devops.gov.bc.ca/",
+    "https://fider-4c2ba9-test.apps.silver.devops.gov.bc.ca/oauth/_6tb93ffege/callback"
   ]
 }
