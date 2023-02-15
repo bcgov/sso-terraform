@@ -22,12 +22,18 @@ module "my-range-3769" {
   web_origins = [
     "https://myrangebc.gov.bc.ca",
     "https://myrangebc.gov.bc.ca/return-page",
+    "https://myrangebc.gov.bc.ca/return-page?type=login",
+    "https://myrangebc.gov.bc.ca/return-page?type=logout",
+    "https://myrangebc.gov.bc.ca/return-page?type=smlogin",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://myrangebc.gov.bc.ca",
-    "https://myrangebc.gov.bc.ca/return-page"
+    "https://myrangebc.gov.bc.ca/return-page",
+    "https://myrangebc.gov.bc.ca/return-page?type=login",
+    "https://myrangebc.gov.bc.ca/return-page?type=logout",
+    "https://myrangebc.gov.bc.ca/return-page?type=smlogin"
   ]
 }
