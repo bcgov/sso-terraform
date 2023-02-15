@@ -2,7 +2,7 @@ module "my-range-3769" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "my-range-3769"
-  client_name                         = "test"
+  client_name                         = "MyRange"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -21,11 +21,13 @@ module "my-range-3769" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://myrangebc.gov.bc.ca",
+    "https://myrangebc.gov.bc.ca/return-page",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://myrangebc.gov.bc.ca"
+    "https://myrangebc.gov.bc.ca",
+    "https://myrangebc.gov.bc.ca/return-page"
   ]
 }
