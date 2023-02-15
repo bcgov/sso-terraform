@@ -21,7 +21,7 @@ module "isd-icm-wm-kkcfs-4367" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "comdionavisits://auth/callback",
-    "https://icmint620b-sitds.api.gov.bc.ca/*",
-    "https://icmint621b-sitds.api.gov.bc.ca/*"
+    "https://icmint620b.api.gov.bc.ca/*",
+    "https://icmint621b.api.gov.bc.ca/*"
   ]
 }
