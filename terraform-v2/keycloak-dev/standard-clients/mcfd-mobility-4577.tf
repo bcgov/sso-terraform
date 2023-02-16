@@ -20,14 +20,12 @@ module "mcfd-mobility-4577" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "*",
     "hestia://client",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*",
     "hestia://client"
   ]
 }
