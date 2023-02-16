@@ -22,13 +22,13 @@ module "community-information-tool-4411" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
-    "http://localhost:80",
+    "http://localhost:80/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "http://localhost:80"
+    "http://localhost:80/*"
   ]
 }
