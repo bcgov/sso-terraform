@@ -22,7 +22,6 @@ module "community-information-tool-4411" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://127.0.0.1/*",
-    "http://localhost*",
     "http://localhost:3000/*",
     "+"
   ]
@@ -30,7 +29,6 @@ module "community-information-tool-4411" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://127.0.0.1/*",
-    "http://localhost*",
     "http://localhost:3000/*"
   ]
 }
