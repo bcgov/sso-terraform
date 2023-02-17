@@ -21,11 +21,13 @@ module "mcfd-mobility-4577" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "hestia://client",
+    "https://hestia-dev.api.gov.bc.ca",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "hestia://client"
+    "hestia://client",
+    "https://hestia-dev.api.gov.bc.ca"
   ]
 }
