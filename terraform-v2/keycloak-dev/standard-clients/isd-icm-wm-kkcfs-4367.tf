@@ -23,6 +23,7 @@ module "isd-icm-wm-kkcfs-4367" {
     "comdionavisits://auth/callback",
     "https://icmint620b-cysndevds.api.gov.bc.ca/*",
     "https://icmint621b-cysndevds.api.gov.bc.ca/*",
+    "https://icmint678-cysndevds.api.gov.bc.ca/*",
     "https://kkcfs-wm-diona.api.gov.bc.ca/*",
     "https://kkcfs-wm.api.gov.bc.ca/*"
   ]
