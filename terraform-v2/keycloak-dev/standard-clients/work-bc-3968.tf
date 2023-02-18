@@ -20,6 +20,7 @@ module "work-bc-3968" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://aws-dev.workbc.ca/openid-connect/keycloak"
+    "https://aws-dev.workbc.ca/openid-connect/keycloak",
+    "https://dev.workbc.ca/openid-connect/keycloak"
   ]
 }
