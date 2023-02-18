@@ -20,6 +20,7 @@ module "jpidp-4624" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dev.common-sso.justice.gov.bc.ca/auth/realms/IDIR/broker/idir/endpoint"
+    "https://dev.common-sso.justice.gov.bc.ca/auth/realms/IDIR/broker/idir/endpoint",
+    "https://dev.common-sso.justice.gov.bc.ca/auth/realms/IDIR/broker/idirtest/endpoint"
   ]
 }
