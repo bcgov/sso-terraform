@@ -10,6 +10,7 @@ module "rocket-chat-sso-4623" {
   client_offline_session_max_lifespan = ""
   idps = [
     "azureidir",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
