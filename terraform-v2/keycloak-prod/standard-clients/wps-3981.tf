@@ -26,6 +26,7 @@ module "wps-3981" {
     "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator*",
     "https://psu.nrs.gov.bc.ca/hfi-calculator",
     "https://psu.nrs.gov.bc.ca/morecast",
+    "https://psu.nrs.gov.bc.ca/morecast-2",
     "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/auto-spatial-advisory",
@@ -33,6 +34,7 @@ module "wps-3981" {
     "https://wps-prod.apps.silver.devops.gov.bc.ca/fire-behaviour-calculator*",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/hfi-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast",
+    "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast-2",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/percentile-calculator",
     "+"
   ]
@@ -45,6 +47,7 @@ module "wps-3981" {
     "https://psu.nrs.gov.bc.ca/fire-behaviour-calculator*",
     "https://psu.nrs.gov.bc.ca/hfi-calculator",
     "https://psu.nrs.gov.bc.ca/morecast",
+    "https://psu.nrs.gov.bc.ca/morecast-2",
     "https://psu.nrs.gov.bc.ca/percentile-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/auto-spatial-advisory",
@@ -52,6 +55,7 @@ module "wps-3981" {
     "https://wps-prod.apps.silver.devops.gov.bc.ca/fire-behaviour-calculator*",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/hfi-calculator",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast",
+    "https://wps-prod.apps.silver.devops.gov.bc.ca/morecast-2",
     "https://wps-prod.apps.silver.devops.gov.bc.ca/percentile-calculator"
   ]
 }
