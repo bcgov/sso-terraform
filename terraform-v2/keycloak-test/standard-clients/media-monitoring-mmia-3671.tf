@@ -21,14 +21,26 @@ module "media-monitoring-mmia-3671" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://mmia-test-0.apps.silver.devops.gov.bc.ca/*",
+    "https://mmia-test-1.apps.silver.devops.gov.bc.ca/*",
+    "https://mmia-test-2.apps.silver.devops.gov.bc.ca/*",
     "https://mmia-test.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-0.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-1.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-2.apps.silver.devops.gov.bc.ca/*",
     "https://tno-test.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://mmia-test-0.apps.silver.devops.gov.bc.ca/*",
+    "https://mmia-test-1.apps.silver.devops.gov.bc.ca/*",
+    "https://mmia-test-2.apps.silver.devops.gov.bc.ca/*",
     "https://mmia-test.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-0.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-1.apps.silver.devops.gov.bc.ca/*",
+    "https://tno-dev-2.apps.silver.devops.gov.bc.ca/*",
     "https://tno-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
