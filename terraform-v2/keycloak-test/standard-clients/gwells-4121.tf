@@ -2,7 +2,7 @@ module "gwells-4121" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "gwells-4121"
-  client_name                         = "GWELLS"
+  client_name                         = "Groundwater Wells and Aquifers"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -22,11 +22,15 @@ module "gwells-4121" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
+    "http://localhost:8080",
+    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*"
+    "*",
+    "http://localhost:8080",
+    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells"
   ]
 }

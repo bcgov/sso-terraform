@@ -2,7 +2,7 @@ module "gwells-4121" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "gwells-4121"
-  client_name                         = "GWELLS"
+  client_name                         = "Groundwater Wells and Aquifers"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
