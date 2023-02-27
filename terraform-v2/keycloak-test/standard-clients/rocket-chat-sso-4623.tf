@@ -21,6 +21,8 @@ module "rocket-chat-sso-4623" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://chat-test.developer.gov.bc.ca/"
+    "http://chat-test.developer.gov.bc.ca/",
+    "https://test-chat.apps.gold.devops.gov.bc.ca/*",
+    "https://test-chat.apps.gold.devops.gov.bc.ca/_oauth/goldkeycloak"
   ]
 }
