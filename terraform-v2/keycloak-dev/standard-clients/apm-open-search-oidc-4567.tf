@@ -20,7 +20,6 @@ module "apm-open-search-oidc-4567" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dev-opensearch-user-domain.auth.ca-central-1.amazoncognito.com/*",
     "https://search-dev-opensearch-xnpjj3d3kvmo2hzyvpkpoqfgnq.ca-central-1.es.amazonaws.com/_dashboards"
   ]
 }
