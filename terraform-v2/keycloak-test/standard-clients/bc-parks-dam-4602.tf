@@ -5,7 +5,7 @@ module "bc-parks-dam-4602" {
   client_name        = "BC Parks DAM"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://testapps.nrs.gov.bc.ca/int/parksdam/"
+    "https://testapps.nrs.gov.bc.ca/int/parksdam"
   ]
   idps = [
     "idir",
