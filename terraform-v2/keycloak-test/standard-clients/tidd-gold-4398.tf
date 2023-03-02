@@ -14,12 +14,13 @@ module "tidd-gold-4398" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://tradeandinvestbc--test.my.salesforce.com/services/authcallback/BCGovSSOIdir",
-    "https://tradeandinvestbclightning--test.sandbox.my.salesforce.com/services/authcallback/BCGovSSOIdir"
+    "https://tradeandinvestbc--test.sandbox.my.salesforce.com/services/authcallback/BCGovSSOIdir"
   ]
 }
