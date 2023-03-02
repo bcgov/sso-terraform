@@ -14,11 +14,13 @@ module "exit-survey-admin-4373" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = "user_roles"
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://esa-d82eaa-test.apps.silver.devops.gov.bc.ca/*",
     "https://securesurveys.gov.bc.ca/test/Exit/admin/*",
     "https://securesurveys.gov.bc.ca/test/exit/admin/*",
     "+"
@@ -26,6 +28,7 @@ module "exit-survey-admin-4373" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://esa-d82eaa-test.apps.silver.devops.gov.bc.ca/*",
     "https://securesurveys.gov.bc.ca/test/Exit/admin/*",
     "https://securesurveys.gov.bc.ca/test/exit/admin/*"
   ]
