@@ -11,6 +11,7 @@ module "ciip-4440" {
   idps = [
     "idir",
     "azureidir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
