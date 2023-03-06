@@ -11,6 +11,7 @@ module "mines-digital-services-mds-public-client-4414" {
   idps = [
     "idir",
     "azureidir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
