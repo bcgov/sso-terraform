@@ -5,7 +5,7 @@ module "first-nations-spill-notification-project-4660" {
   client_name        = "First Nations Spill Notification Project"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://portal.alertable.ca/sso/saml/970939fa-56cb-46cb-80ba-865c088c6a2f/acs/"
+    "https://portal-test.peasi.ca/sso/saml/02b67544-02f5-4309-b08d-2b032b6e4ec5/acs/"
   ]
   idps = [
     "idir",
