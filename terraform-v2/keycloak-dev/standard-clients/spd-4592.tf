@@ -22,7 +22,7 @@ module "spd-4592" {
   web_origins = [
     "http://localhost:4200",
     "http://localhost:4200/*",
-    "https://frontend-dev.apps.emerald.devops.gov.bc.ca/*",
+    "https://spd-screening-portal-dev.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -30,6 +30,6 @@ module "spd-4592" {
   valid_redirect_uris = [
     "http://localhost:4200",
     "http://localhost:4200/*",
-    "https://frontend-dev.apps.emerald.devops.gov.bc.ca/*"
+    "https://spd-screening-portal-dev.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
