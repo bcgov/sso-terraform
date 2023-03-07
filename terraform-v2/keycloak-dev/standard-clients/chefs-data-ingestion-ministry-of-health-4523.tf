@@ -23,6 +23,10 @@ module "chefs-data-ingestion-ministry-of-health-4523" {
   valid_redirect_uris = [
     "https://dev.loginproxy.gov.bc.ca/auth/realms/standard/*",
     "https://keycloak-c2da03-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://medis-chefs-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://keycloak-c2da03-prod.apps.silver.devops.gov.bc.ca/*",
+    "https://keycloak-c2da03-test.apps.silver.devops.gov.bc.ca/*",
+    "https://medis-chefs-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://medis-chefs-prod.apps.silver.devops.gov.bc.ca/*",
+    "https://medis-chefs-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
