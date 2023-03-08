@@ -20,7 +20,13 @@ module "cvcom-4576" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://ect-cvcom.th.gov.bc.ca/",
+    "https://ect-cvcom.th.gov.bc.ca/*",
     "https://localhost:44328/",
-    "https://localhost:44328/*"
+    "https://localhost:44328/*",
+    "https://tst-cvcom.th.gov.bc.ca/",
+    "https://tst-cvcom.th.gov.bc.ca/*",
+    "https://uat-cvcom.th.gov.bc.ca/",
+    "https://uat-cvcom.th.gov.bc.ca/*"
   ]
 }
