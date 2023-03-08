@@ -24,8 +24,6 @@ module "on-route-bc-direct-4598" {
     "*",
     "http://localhost:3000",
     "https://*.silver.devops.gov.bc.ca/",
-    "https://dev-cvcom.th.gov.bc.ca/",
-    "https://dev-cvcom.th.gov.bc.ca/*",
     "https://onroutebc-202-frontend.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
@@ -35,8 +33,6 @@ module "on-route-bc-direct-4598" {
     "*",
     "http://localhost:3000",
     "https://*.silver.devops.gov.bc.ca/",
-    "https://dev-cvcom.th.gov.bc.ca/",
-    "https://dev-cvcom.th.gov.bc.ca/*",
     "https://onroutebc-202-frontend.apps.silver.devops.gov.bc.ca/"
   ]
 }
