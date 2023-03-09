@@ -24,25 +24,41 @@ module "bc-box-local-4545" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://127.0.0.1/oidc/callback",
+    "http://127.0.0.1/oidc/logout",
     "http://127.0.0.1:5173/oidc/callback",
+    "http://127.0.0.1:5173/oidc/logout",
     "http://127.0.0.1:8080/oidc/callback",
+    "http://127.0.0.1:8080/oidc/logout",
     "http://127.0.0.1:8081/oidc/callback",
+    "http://127.0.0.1:8081/oidc/logout",
     "http://localhost/oidc/callback",
+    "http://localhost/oidc/logout",
     "http://localhost:5173/oidc/callback",
+    "http://localhost:5173/oidc/logout",
     "http://localhost:8080/oidc/callback",
+    "http://localhost:8080/oidc/logout",
     "http://localhost:8081/oidc/callback",
+    "http://localhost:8081/oidc/logout",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://127.0.0.1/oidc/callback",
+    "http://127.0.0.1/oidc/logout",
     "http://127.0.0.1:5173/oidc/callback",
+    "http://127.0.0.1:5173/oidc/logout",
     "http://127.0.0.1:8080/oidc/callback",
+    "http://127.0.0.1:8080/oidc/logout",
     "http://127.0.0.1:8081/oidc/callback",
+    "http://127.0.0.1:8081/oidc/logout",
     "http://localhost/oidc/callback",
+    "http://localhost/oidc/logout",
     "http://localhost:5173/oidc/callback",
+    "http://localhost:5173/oidc/logout",
     "http://localhost:8080/oidc/callback",
-    "http://localhost:8081/oidc/callback"
+    "http://localhost:8080/oidc/logout",
+    "http://localhost:8081/oidc/callback",
+    "http://localhost:8081/oidc/logout"
   ]
 }
