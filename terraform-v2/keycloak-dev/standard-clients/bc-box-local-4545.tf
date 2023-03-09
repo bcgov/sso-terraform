@@ -23,26 +23,26 @@ module "bc-box-local-4545" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://127.0.0.1/*",
-    "http://127.0.0.1:5173/*",
-    "http://127.0.0.1:8080/*",
-    "http://127.0.0.1:8081/*",
-    "http://localhost/*",
-    "http://localhost:5173/*",
-    "http://localhost:8080/*",
-    "http://localhost:8081/*",
+    "http://127.0.0.1/oidc/callback",
+    "http://127.0.0.1:5173/oidc/callback",
+    "http://127.0.0.1:8080/oidc/callback",
+    "http://127.0.0.1:8081/oidc/callback",
+    "http://localhost/oidc/callback",
+    "http://localhost:5173/oidc/callback",
+    "http://localhost:8080/oidc/callback",
+    "http://localhost:8081/oidc/callback",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://127.0.0.1/*",
-    "http://127.0.0.1:5173/*",
-    "http://127.0.0.1:8080/*",
-    "http://127.0.0.1:8081/*",
-    "http://localhost/*",
-    "http://localhost:5173/*",
-    "http://localhost:8080/*",
-    "http://localhost:8081/*"
+    "http://127.0.0.1/oidc/callback",
+    "http://127.0.0.1:5173/oidc/callback",
+    "http://127.0.0.1:8080/oidc/callback",
+    "http://127.0.0.1:8081/oidc/callback",
+    "http://localhost/oidc/callback",
+    "http://localhost:5173/oidc/callback",
+    "http://localhost:8080/oidc/callback",
+    "http://localhost:8081/oidc/callback"
   ]
 }
