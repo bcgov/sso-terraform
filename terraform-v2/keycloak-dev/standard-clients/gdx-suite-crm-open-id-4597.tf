@@ -20,7 +20,7 @@ module "gdx-suite-crm-open-id-4597" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost/*",
+    "http://localhost:8080/*",
     "https://gdx-suitecrm-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
