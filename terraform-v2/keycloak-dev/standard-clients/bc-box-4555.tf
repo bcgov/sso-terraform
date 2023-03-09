@@ -24,12 +24,14 @@ module "bc-box-4555" {
   web_origins = [
     "*",
     "https://bcbox-dev-master.apps.silver.devops.gov.bc.ca/oidc/callback",
+    "https://bcbox-dev-master.apps.silver.devops.gov.bc.ca/oidc/logout",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
-    "https://bcbox-dev-master.apps.silver.devops.gov.bc.ca/oidc/callback"
+    "https://bcbox-dev-master.apps.silver.devops.gov.bc.ca/oidc/callback",
+    "https://bcbox-dev-master.apps.silver.devops.gov.bc.ca/oidc/logout"
   ]
 }
