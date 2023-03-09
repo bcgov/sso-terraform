@@ -20,12 +20,12 @@ module "bc-box-4555" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/*",
+    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/callback",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/*"
+    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/callback"
   ]
 }
