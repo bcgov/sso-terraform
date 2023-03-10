@@ -25,6 +25,7 @@ module "court-interpreter-scheduling-4528" {
     "http://localhost:3000/*",
     "http://localhost:8080/*",
     "http://localhost:8081/*",
-    "https://court-interpreter-scheduling-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://court-interpreter-scheduling-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/court-services-jag/*"
   ]
 }
