@@ -10,7 +10,6 @@ module "mines-digital-services-mds-public-client-4414" {
   client_offline_session_max_lifespan = 1800
   idps = [
     "idir",
-    "azureidir",
     "bceidboth",
     "common"
   ]
