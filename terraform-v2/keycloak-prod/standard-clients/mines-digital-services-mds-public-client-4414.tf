@@ -25,6 +25,7 @@ module "mines-digital-services-mds-public-client-4414" {
     "https://mds-prod.apps.silver.devops.gov.bc.ca/*",
     "https://metabase-4c2ba9-prod.apps.silver.devops.gov.bc.ca/*",
     "https://minesdigitalservices.gov.bc.ca/*",
+    "https://minespace.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -32,6 +33,7 @@ module "mines-digital-services-mds-public-client-4414" {
   valid_redirect_uris = [
     "https://mds-prod.apps.silver.devops.gov.bc.ca/*",
     "https://metabase-4c2ba9-prod.apps.silver.devops.gov.bc.ca/*",
-    "https://minesdigitalservices.gov.bc.ca/*"
+    "https://minesdigitalservices.gov.bc.ca/*",
+    "https://minespace.gov.bc.ca/*"
   ]
 }
