@@ -14,12 +14,14 @@ module "digital-privacy-impact-assessment-modernization-3937" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:8080/*",
-    "https://dev.pia.gov.bc.ca/*"
+    "https://dev.pia.gov.bc.ca/*",
+    "https://pia.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
