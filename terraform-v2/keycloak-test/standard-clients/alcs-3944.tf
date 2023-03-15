@@ -24,6 +24,7 @@ module "alcs-3944" {
     "http://localhost:4200/*",
     "http://localhost:4201/*",
     "http://localhost:8080/*",
+    "http://localhost:8081/*",
     "http://localhost:8083/*",
     "https://alcs-dev-api.apps.silver.devops.gov.bc.ca/*",
     "https://alcs-dev-portal-api.apps.silver.devops.gov.bc.ca/*",
