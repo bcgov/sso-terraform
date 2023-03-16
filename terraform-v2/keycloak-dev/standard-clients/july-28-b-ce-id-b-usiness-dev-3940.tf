@@ -18,17 +18,8 @@ module "july-28-b-ce-id-b-usiness-dev-3940" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "http://localhost:3000/*",
-    "http://localhost:3000/api/auth/callback/keycloak",
-    "https://bcgov.github.io/keycloak-example-apps/*",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/zorin_test_realm_march15/*",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "http://localhost:3000/api/auth/callback/keycloak",
