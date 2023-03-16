@@ -24,6 +24,10 @@ module "roadsafety-digital-forms-gold-4355" {
     "http://localhost:8080/*",
     "http://localhost:8080/roadside-forms/*",
     "https://dev.jag.gov.bc.ca/roadside-forms/*",
+    "https://dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://dh-prohibition-web-app-test.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-dh-prohibition-web-app-test.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://test.jag.gov.bc.ca/roadside-forms/*",
     "+"
   ]
@@ -33,6 +37,10 @@ module "roadsafety-digital-forms-gold-4355" {
     "http://localhost:8080/*",
     "http://localhost:8080/roadside-forms/*",
     "https://dev.jag.gov.bc.ca/roadside-forms/*",
+    "https://dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://dh-prohibition-web-app-test.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-dh-prohibition-web-app-test.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://test.jag.gov.bc.ca/roadside-forms/*"
   ]
 }
