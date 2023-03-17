@@ -23,6 +23,7 @@ module "zeva-on-gold-4543" {
   web_origins = [
     "http://localhost:3000/*",
     "https://logontest7.gov.bc.ca/*",
+    "https://zeva-dev-1513.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -31,6 +32,7 @@ module "zeva-on-gold-4543" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://logontest7.gov.bc.ca/*",
+    "https://zeva-dev-1513.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
