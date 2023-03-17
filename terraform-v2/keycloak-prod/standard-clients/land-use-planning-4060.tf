@@ -20,12 +20,12 @@ module "land-use-planning-4060" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://planninginpartnership.ca/*",
+    "https://www.planninginpartnership.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://planninginpartnership.ca/*"
+    "https://www.planninginpartnership.ca/*"
   ]
 }
