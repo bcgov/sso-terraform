@@ -25,6 +25,7 @@ module "june-2-idir-only-testing-3730" {
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/sso-team-testing/*",
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/zorintest-march23/*"
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/zorintest-march23/*",
+    "https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/master/*"
   ]
 }
