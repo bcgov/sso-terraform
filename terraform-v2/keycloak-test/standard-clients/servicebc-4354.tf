@@ -21,6 +21,6 @@ module "servicebc-4354" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/servicebc/*"
+    "https://test.loginproxy.gov.bc.ca/auth/realms/servicebc/*"
   ]
 }

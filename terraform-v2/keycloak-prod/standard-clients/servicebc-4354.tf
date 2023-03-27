@@ -10,7 +10,6 @@ module "servicebc-4354" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
@@ -21,6 +20,6 @@ module "servicebc-4354" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://dev.loginproxy.gov.bc.ca/auth/realms/servicebc/*"
+    "https://loginproxy.gov.bc.ca/auth/realms/servicebc/*"
   ]
 }
