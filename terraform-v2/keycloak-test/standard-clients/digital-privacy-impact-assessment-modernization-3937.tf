@@ -21,6 +21,7 @@ module "digital-privacy-impact-assessment-modernization-3937" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://dpia-webapp-test.apps.silver.devops.gov.bc.ca",
+    "https://test-pia.apps.emerald.devops.gov.bc.ca/*",
     "https://test.pia.gov.bc.ca/*"
   ]
 }
