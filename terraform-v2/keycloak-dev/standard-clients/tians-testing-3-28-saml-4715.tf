@@ -9,6 +9,7 @@ module "tians-testing-3-28-saml-4715" {
   ]
   idps = [
     "idir",
+    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
