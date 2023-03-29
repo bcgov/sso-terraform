@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "august_9_dev_b_ce_id_both_3982_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "august-9-dev-b-ce-id-both-3982" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -13,12 +9,15 @@ module "august-9-dev-b-ce-id-both-3982" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "idir",
     "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.august_9_dev_b_ce_id_both_3982_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
