@@ -20,7 +20,7 @@ module "sabc-applications-vss-4101" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://10.0.0.52:8015/app-login",
+    "http://10.0.0.51:8015/app-login",
     "https://tbtb-vss-06cb9b-prod.apps.silver.devops.gov.bc.ca/app-login"
   ]
 }
