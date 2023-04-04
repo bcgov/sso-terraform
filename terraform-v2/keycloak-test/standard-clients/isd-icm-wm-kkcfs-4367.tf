@@ -23,6 +23,9 @@ module "isd-icm-wm-kkcfs-4367" {
     "comdionavisits://auth/callback",
     "hestia://client",
     "https://icmint620b-sitds.api.gov.bc.ca/*",
-    "https://icmint621b-sitds.api.gov.bc.ca/*"
+    "https://icmint621b-sitds.api.gov.bc.ca/*",
+    "https://icmint678-sitds.api.gov.bc.ca/*",
+    "https://icmint679-sitds.api.gov.bc.ca/*",
+    "https://icmint680-sitds.api.gov.bc.ca/*"
   ]
 }
