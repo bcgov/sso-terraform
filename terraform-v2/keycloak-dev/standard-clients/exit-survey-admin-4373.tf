@@ -24,6 +24,7 @@ module "exit-survey-admin-4373" {
     "http://local-frontend-c746eb-tools.apps.silver.devops.gov.bc.ca",
     "http://localhost:3000/*",
     "http://localhost:5051/*",
+    "https://erap.apps.gov.bc.ca/exitsurveyadmin-dev/*",
     "https://securesurveys.gov.bc.ca/dev/Exit/admin/*",
     "https://securesurveys.gov.bc.ca/dev/exit/admin/*",
     "+"
@@ -35,6 +36,7 @@ module "exit-survey-admin-4373" {
     "http://local-frontend-c746eb-tools.apps.silver.devops.gov.bc.ca",
     "http://localhost:3000/*",
     "http://localhost:5051/*",
+    "https://erap.apps.gov.bc.ca/exitsurveyadmin-dev/*",
     "https://securesurveys.gov.bc.ca/dev/Exit/admin/*",
     "https://securesurveys.gov.bc.ca/dev/exit/admin/*"
   ]
