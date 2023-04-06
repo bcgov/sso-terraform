@@ -21,6 +21,7 @@ module "court-services-4626" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://dev.loginproxy.gov.bc.ca/auth/realms/court-services-jag/*",
     "https://test.loginproxy.gov.bc.ca/auth/realms/court-services-jag/*"
   ]
 }
