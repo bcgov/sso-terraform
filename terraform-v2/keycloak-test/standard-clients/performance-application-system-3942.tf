@@ -14,11 +14,14 @@ module "performance-application-system-3942" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://performance-332842-test.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
+    "https://performance-332842-test.apps.silver.devops.gov.bc.ca/login/keycloak/callback",
+    "https://performance-332842-training.apps.silver.devops.gov.bc.ca/login/keycloak/callback"
   ]
 }
