@@ -21,7 +21,7 @@ module "digital-privacy-impact-assessment-modernization-3937" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:8080/*",
-    "https://dev.pia.gov.bc.ca/*",
-    "https://pia.apps.emerald.devops.gov.bc.ca/*"
+    "https://dev-pia.apps.emerald.devops.gov.bc.ca/*",
+    "https://dev.pia.gov.bc.ca/*"
   ]
 }
