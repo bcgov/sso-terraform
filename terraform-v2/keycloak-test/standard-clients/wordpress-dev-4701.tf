@@ -20,6 +20,6 @@ module "wordpress-dev-4701" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dm-wp-test.apps.silver.devops.gov.bc.ca/"
+    "https://dm-wp-test.apps.silver.devops.gov.bc.ca"
   ]
 }
