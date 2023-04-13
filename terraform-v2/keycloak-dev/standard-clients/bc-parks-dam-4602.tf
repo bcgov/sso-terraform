@@ -5,7 +5,7 @@ module "bc-parks-dam-4602" {
   client_name        = "BC Parks DAM"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "http://localhost:8000/plugins/simplesaml/lib/www/module.php/saml/sp/saml2-acs.php/resourcespace-sp"
   ]
   idps = [
     "idir",
