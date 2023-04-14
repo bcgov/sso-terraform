@@ -11,7 +11,6 @@ module "tians-testing-3-8-multiple-id-ps-4664" {
   idps = [
     "idir",
     "azureidir",
-    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
