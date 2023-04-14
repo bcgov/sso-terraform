@@ -10,6 +10,8 @@ module "bc-box-4555" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
