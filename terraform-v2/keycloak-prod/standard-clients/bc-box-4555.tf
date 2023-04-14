@@ -24,12 +24,16 @@ module "bc-box-4555" {
   web_origins = [
     "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/callback",
     "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/logout",
+    "https://bcbox.nrs.gov.bc.ca/oidc/callback",
+    "https://bcbox.nrs.gov.bc.ca/oidc/logout",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/callback",
-    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/logout"
+    "https://bcbox-prod-master.apps.silver.devops.gov.bc.ca/oidc/logout",
+    "https://bcbox.nrs.gov.bc.ca/oidc/callback",
+    "https://bcbox.nrs.gov.bc.ca/oidc/logout"
   ]
 }
