@@ -21,7 +21,7 @@ module "nmp-msa-4797" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
-    "http://localhost:5001",
+    "http://localhost:8080",
     "https://agri-nmp-msa-test.apps.silver.devops.gov.bc.ca",
     "+"
   ]
@@ -29,7 +29,7 @@ module "nmp-msa-4797" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
-    "http://localhost:5001",
+    "http://localhost:8080",
     "https://agri-nmp-msa-test.apps.silver.devops.gov.bc.ca"
   ]
 }
