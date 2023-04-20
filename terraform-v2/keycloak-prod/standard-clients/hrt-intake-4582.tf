@@ -20,6 +20,7 @@ module "hrt-intake-4582" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://angular-on-nginx-2cf5e3-prod.apps.silver.devops.gov.bc.ca/api/v1/oidc/auth/cb/",
     "https://intake.bchrt.bc.ca/api/v1/oidc/auth/cb/",
     "https://intake.bchrt.bc.ca/hrt/hrt",
     "https://intake.bchrt.bc.ca/hrt/hrt-group",
