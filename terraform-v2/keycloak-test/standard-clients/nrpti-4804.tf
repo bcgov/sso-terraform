@@ -21,13 +21,13 @@ module "nrpti-4804" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
-    "http://localhost:8080",
+    "http://localhost:4200",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
-    "http://localhost:8080"
+    "http://localhost:4200"
   ]
 }
