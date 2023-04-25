@@ -20,6 +20,7 @@ module "era-r-2-4534" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://era-responders-training.embc.gov.bc.ca/*",
     "https://era-responders.embc.gov.bc.ca/*",
     "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi/*",
     "+"
@@ -27,6 +28,7 @@ module "era-r-2-4534" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://era-responders-training.embc.gov.bc.ca/*",
     "https://era-responders.embc.gov.bc.ca/*",
     "https://logon7.gov.bc.ca/clp-cgi/logoff.cgi/*"
   ]
