@@ -2,7 +2,7 @@ module "bwat-4669" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "bwat-4669"
-  client_name                         = "BWAT-DEV"
+  client_name                         = "BWAT"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -10,7 +10,6 @@ module "bwat-4669" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
@@ -21,12 +20,12 @@ module "bwat-4669" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "*",
+    "https://bwat.foundryspatial.com",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*"
+    "https://bwat.foundryspatial.com"
   ]
 }

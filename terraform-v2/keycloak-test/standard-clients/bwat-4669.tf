@@ -2,7 +2,7 @@ module "bwat-4669" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "bwat-4669"
-  client_name                         = "BWAT-DEV"
+  client_name                         = "BWAT-TEST"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
