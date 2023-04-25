@@ -20,6 +20,7 @@ module "media-monitoring-mmia-3671" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://editor.mmia.gov.bc.ca",
     "https://mmia.apps.silver.devops.gov.bc",
     "https://tno.apps.silver.devops.gov.bc.ca",
     "+"
@@ -27,6 +28,7 @@ module "media-monitoring-mmia-3671" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://editor.mmia.gov.bc.ca",
     "https://mmia.apps.silver.devops.gov.bc",
     "https://tno.apps.silver.devops.gov.bc.ca"
   ]
