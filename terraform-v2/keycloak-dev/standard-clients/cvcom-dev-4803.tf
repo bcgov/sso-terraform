@@ -25,6 +25,10 @@ module "cvcom-dev-4803" {
     "https://dev-cvcom.th.gov.bc.ca/",
     "https://dev-cvcom.th.gov.bc.ca/*",
     "https://localhost:44328/",
-    "https://localhost:44328/*"
+    "https://localhost:44328/*",
+    "https://tst-cvcom-proxied.th.gov.bc.ca/",
+    "https://tst-cvcom-proxied.th.gov.bc.ca/*",
+    "https://tst-cvcom.th.gov.bc.ca/",
+    "https://tst-cvcom.th.gov.bc.ca/*"
   ]
 }
