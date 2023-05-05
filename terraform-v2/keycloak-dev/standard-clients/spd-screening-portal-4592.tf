@@ -1,7 +1,7 @@
-module "spd-4592" {
+module "spd-screening-portal-4592" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
-  client_id                           = "spd-4592"
+  client_id                           = "spd-screening-portal-4592"
   client_name                         = "SPD"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
