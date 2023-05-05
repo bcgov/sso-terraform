@@ -21,12 +21,12 @@ module "spd-screening-portal-4830" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/",
+    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/"
+    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
