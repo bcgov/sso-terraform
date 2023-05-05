@@ -10,6 +10,7 @@ module "may-4-test-6-pm-4826" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,12 +21,14 @@ module "may-4-test-6-pm-4826" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/"
   ]
 }
