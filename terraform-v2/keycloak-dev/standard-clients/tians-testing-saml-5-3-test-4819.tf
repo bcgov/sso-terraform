@@ -12,7 +12,7 @@ module "tians-testing-saml-5-3-test-4819" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = ""
+  additional_role_attribute    = "abc"
   logout_post_binding_url      = "http://localhost:8080/logout/callback"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
