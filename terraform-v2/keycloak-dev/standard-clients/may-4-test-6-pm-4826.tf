@@ -21,6 +21,7 @@ module "may-4-test-6-pm-4826" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:1000/*",
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/",
     "+"
@@ -28,6 +29,7 @@ module "may-4-test-6-pm-4826" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:1000/*",
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/"
   ]
