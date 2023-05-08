@@ -4,13 +4,13 @@ module "client_roadsafety-digital-forms-2443" {
   client_id   = "roadsafety-digital-forms-2443"
   client_name = "roadsafety-digital-forms-2443"
   valid_redirect_uris = [
-    "https://jag.gov.bc.ca/roadside-forms/*"
+    "https://jag.gov.bc.ca/roadside-forms1/*"
   ]
   description                = "CSS App Created"
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
   web_origins = [
-    "https://jag.gov.bc.ca/roadside-forms/*",
+    "https://jag.gov.bc.ca/roadside-forms1/*",
     "+"
   ]
 }
