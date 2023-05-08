@@ -26,9 +26,9 @@ module "seed-planning-test-4296" {
     "http://localhost:3000/dashboard",
     "http://localhost:3000/logout",
     "http://localhost:3000/silent-check-sso",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso",
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/dashboard",
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/logout",
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/silent-check-sso",
     "+"
   ]
   standard_flow_enabled    = true
@@ -39,8 +39,8 @@ module "seed-planning-test-4296" {
     "http://localhost:3000/dashboard",
     "http://localhost:3000/logout",
     "http://localhost:3000/silent-check-sso",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/dashboard",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/logout",
-    "https://nrsparwebapp-test-app.apps.silver.devops.gov.bc.ca/silent-check-sso"
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/dashboard",
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/logout",
+    "https://nr-spar-test-frontend.apps.silver.devops.gov.bc.ca/silent-check-sso"
   ]
 }
