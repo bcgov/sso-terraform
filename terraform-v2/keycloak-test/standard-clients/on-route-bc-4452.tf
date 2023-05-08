@@ -22,6 +22,6 @@ module "on-route-bc-4452" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://localhost:3000/oauth/callback",
-    "https://tst.onroutebc.gov.bc.ca/*"
+    "https://test.onroutebc.gov.bc.ca/*"
   ]
 }
