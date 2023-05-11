@@ -8,6 +8,7 @@ module "stack-overflow-saml-sso-4837" {
     "https://stackoverflow.developer.gov.bc.ca/auth/saml2/post"
   ]
   idps = [
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
