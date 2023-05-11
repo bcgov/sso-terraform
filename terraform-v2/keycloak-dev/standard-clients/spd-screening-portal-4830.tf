@@ -22,6 +22,7 @@ module "spd-screening-portal-4830" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:4200/*",
+    "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
     "https://spd-screening-portal-dev.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
@@ -29,6 +30,7 @@ module "spd-screening-portal-4830" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:4200/*",
+    "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
     "https://spd-screening-portal-dev.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
