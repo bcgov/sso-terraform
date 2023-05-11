@@ -14,6 +14,7 @@ module "itvr-on-gold-cluster-3972" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
@@ -21,12 +22,14 @@ module "itvr-on-gold-cluster-3972" {
   web_origins = [
     "http://localhost:3000/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "https://itvr-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/"
   ]
 }
