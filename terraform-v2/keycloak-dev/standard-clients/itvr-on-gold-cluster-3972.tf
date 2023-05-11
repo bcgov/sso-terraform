@@ -22,7 +22,7 @@ module "itvr-on-gold-cluster-3972" {
   web_origins = [
     "http://localhost:3000/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/",
+    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -30,6 +30,6 @@ module "itvr-on-gold-cluster-3972" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://itvr-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/"
+    "https://itvr-frontend-dev-501.apps.silver.devops.gov.bc.ca/*"
   ]
 }
