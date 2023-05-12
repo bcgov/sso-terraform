@@ -20,6 +20,6 @@ module "wordpress-4439" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://digital-test.apps.silver.devops.gov.bc.ca"
+    "https://abc123.apps.silver.devops.gov.bc.ca"
   ]
 }
