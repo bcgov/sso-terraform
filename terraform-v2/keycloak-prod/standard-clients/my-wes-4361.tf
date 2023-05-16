@@ -20,12 +20,12 @@ module "my-wes-4361" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://securesurveys.gov.bc.ca/wes",
+    "https://securesurveys.gov.bc.ca/wes/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://securesurveys.gov.bc.ca/wes"
+    "https://securesurveys.gov.bc.ca/wes/*"
   ]
 }
