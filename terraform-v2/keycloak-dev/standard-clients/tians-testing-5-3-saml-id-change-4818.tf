@@ -1,10 +1,11 @@
 module "tians-testing-5-3-saml-id-change-4818" {
   source             = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client-saml"
   realm_id           = var.standard_realm_id
-  client_id          = "Tian-SAML-5-3-update"
+  client_id          = "Tian-SAML-5-17-update"
   client_name        = "Tian's Testing 5/3 SAML ID Change"
   assertion_lifespan = ""
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "http://localhost:8080/*"
   ]
   idps = [
