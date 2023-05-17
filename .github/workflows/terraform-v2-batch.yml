@@ -104,7 +104,7 @@ jobs:
         customHeaders: '{"Authorization": "${{ secrets.GH_SECRET }}"}'
         timeout: '60000'
     - name: Fetch Terraform Log
-      if: steps.tf.outputs.apply == 'failure'
+      if: steps.tf.outputs.init == 'failure' || steps.tf.outputs.apply == 'failure'
       id: summary
       run: |
         # `tr` joins lines and `sed` removes single/double quotes
@@ -112,7 +112,7 @@ jobs:
         echo "$summary"
         echo "summary=$summary" >> "$GITHUB_OUTPUT"
     - name: Rocket.Chat Notification
-      if: steps.tf.outputs.apply == 'failure'
+      if: steps.tf.outputs.init == 'failure' || steps.tf.outputs.apply == 'failure'
       uses: fjogeleit/http-request-action@master
       with:
         url: ${{ secrets.RC_SSO_ALERTS_WEBHOOK }}
@@ -121,5 +121,5 @@ jobs:
         data: '{"text": "Terraform Batch Job Failed! @jsharman  @Marco  @zorin.samji @nithinshekar.kuruba", "attachments": [{"color": "#FF0000","author_name": "${{ github.actor }}", "title": "Failed job", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "fields": [{"title": "Error Summary", "value": "${{ steps.summary.outputs.summary }}", "short": false}]}]}'
 
     - name: Set Failure Code
-      if: steps.tf.outputs.apply == 'failure'
+      if: steps.tf.outputs.init == 'failure' || steps.tf.outputs.apply == 'failure'
       run: exit 1
