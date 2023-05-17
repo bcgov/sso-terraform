@@ -11,6 +11,7 @@ module "tians-testing-5-10-both-4843" {
   idps = [
     "idir",
     "bceidbasic",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
@@ -21,6 +22,7 @@ module "tians-testing-5-10-both-4843" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localhost:8000",
     "https://example"
   ]
 }

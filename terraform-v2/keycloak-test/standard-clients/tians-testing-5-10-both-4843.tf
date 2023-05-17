@@ -11,6 +11,7 @@ module "tians-testing-5-10-both-4843" {
   idps = [
     "idir",
     "bceidbasic",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
