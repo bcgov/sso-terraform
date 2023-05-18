@@ -20,6 +20,7 @@ module "inspect-bc-mussels-4817" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://api-dev-invasivesbc.apps.silver.devops.gov.bc.ca",
     "https://api-invasivesbc.apps.silver.devops.gov.bc.ca",
     "ibc-ios://client",
     "+"
@@ -27,6 +28,7 @@ module "inspect-bc-mussels-4817" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://api-dev-invasivesbc.apps.silver.devops.gov.bc.ca",
     "https://api-invasivesbc.apps.silver.devops.gov.bc.ca",
     "ibc-ios://client"
   ]
