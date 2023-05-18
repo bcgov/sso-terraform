@@ -21,6 +21,6 @@ module "stack-overflow-sso-4628" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://stackoverflow.developer.gov.bc.ca/"
+    "https://loginproxy.gov.bc.ca/auth/realms/devexperience/*"
   ]
 }
