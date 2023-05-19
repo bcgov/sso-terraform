@@ -14,6 +14,8 @@ module "css-app-in-gold-4128" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
@@ -24,6 +26,7 @@ module "css-app-in-gold-4128" {
     "https://bcgov.github.io/sso-requests-dev/*",
     "https://bcgov.github.io/sso-requests-test/*",
     "https://bcgov.github.io/sso-terraform-dev/*",
+    "https://sso-requests-c6af30-dev.apps.gold.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -33,6 +36,7 @@ module "css-app-in-gold-4128" {
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://bcgov.github.io/sso-requests-dev/*",
     "https://bcgov.github.io/sso-requests-test/*",
-    "https://bcgov.github.io/sso-terraform-dev/*"
+    "https://bcgov.github.io/sso-terraform-dev/*",
+    "https://sso-requests-c6af30-dev.apps.gold.devops.gov.bc.ca/*"
   ]
 }
