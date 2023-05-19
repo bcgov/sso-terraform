@@ -21,7 +21,9 @@ module "isd-alm-4856" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://oidcdebugger.com/debug",
+    "https://qc-dev.icm.gov.bc.ca/osp/a/alm/auth/oauth2/landingpad",
     "https://qc-icm-test.apps.gov.bc.ca/osp/a/alm/auth/oauth2/landingpad",
+    "https://qc-test.icm.gov.bc.ca/osp/a/alm/auth/oauth2/landingpad",
     "https://qc.icm.gov.bc.ca/osp/a/alm/auth/oauth2/landingpad"
   ]
 }
