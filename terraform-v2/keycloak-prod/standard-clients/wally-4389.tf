@@ -14,11 +14,13 @@ module "wally-4389" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:8080/*",
     "https://wally-grafana.pathfinder.gov.bc.ca/*",
     "https://wally.apps.silver.devops.gov.bc.ca/*",
     "https://wally.nrs.gov.bc.ca/*",
@@ -28,6 +30,7 @@ module "wally-4389" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:8080/*",
     "https://wally-grafana.pathfinder.gov.bc.ca/*",
     "https://wally.apps.silver.devops.gov.bc.ca/*",
     "https://wally.nrs.gov.bc.ca/*",
