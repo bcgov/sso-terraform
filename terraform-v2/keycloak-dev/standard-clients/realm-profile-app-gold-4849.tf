@@ -27,6 +27,7 @@ module "realm-profile-app-gold-4849" {
     "http://localhost:8089/*",
     "http://realm-registry-b861c7-dev.apps.silver.devops.gov.bc.ca/*",
     "http://realm-registry-dev.apps.silver.devops.gov.bc.ca/*",
-    "http://realm-registry.apps.silver.devops.gov.bc.ca/*"
+    "http://realm-registry.apps.silver.devops.gov.bc.ca/*",
+    "https://bcgov.github.io/keycloak-example-apps/*"
   ]
 }
