@@ -21,6 +21,6 @@ module "af-cdss-4847" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cdss.powerappsportals.com/*"
+    "https://cdss.powerappsportals.com/signin-openid_1"
   ]
 }
