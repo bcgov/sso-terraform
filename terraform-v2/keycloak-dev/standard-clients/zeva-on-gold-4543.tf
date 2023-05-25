@@ -25,7 +25,7 @@ module "zeva-on-gold-4543" {
     "https://logontest7.gov.bc.ca/*",
     "https://zeva-dev-1609.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1646.apps.silver.devops.gov.bc.ca/*",
-    "https://zeva-dev-1762.apps.silver.devops.gov.bc.ca",
+    "https://zeva-dev-1762.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -36,7 +36,7 @@ module "zeva-on-gold-4543" {
     "https://logontest7.gov.bc.ca/*",
     "https://zeva-dev-1609.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1646.apps.silver.devops.gov.bc.ca/*",
-    "https://zeva-dev-1762.apps.silver.devops.gov.bc.ca",
+    "https://zeva-dev-1762.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
