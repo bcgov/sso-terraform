@@ -22,7 +22,6 @@ module "af-pods-4800" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:1000/*",
-    "https://af-pods-dev.powerappsportals.com/*"
+    "https://af-pods-dev.powerappsportals.com/signin-openid_1"
   ]
 }
