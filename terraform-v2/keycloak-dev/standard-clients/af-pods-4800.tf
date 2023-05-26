@@ -9,9 +9,8 @@ module "af-pods-4800" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "azureidir",
-    "bceidbasic",
-    "bceidbusiness",
+    "idir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
