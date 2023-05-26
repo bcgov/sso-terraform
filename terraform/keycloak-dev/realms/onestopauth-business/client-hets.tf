@@ -11,5 +11,5 @@ module "client_hets" {
   web_origins                = ["+"]
   access_type                = "PUBLIC"
   pkce_code_challenge_method = "S256"
-
+  enabled                    = false
 }
