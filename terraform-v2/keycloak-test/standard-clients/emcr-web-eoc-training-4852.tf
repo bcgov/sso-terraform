@@ -5,7 +5,7 @@ module "emcr-web-eoc-training-4852" {
   client_name        = "EMCR WebEOC TRAINING"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://bc.demo.webeocasp.com/bc/*"
+    "https://bctraining.demo.webeocasp.com/bctraining/*"
   ]
   idps = [
     "idir",
