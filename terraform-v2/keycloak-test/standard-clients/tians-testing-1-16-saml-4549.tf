@@ -5,7 +5,7 @@ module "tians-testing-1-16-saml-4549" {
   client_name        = "Tian's Testing - 1/16 SAML"
   assertion_lifespan = 1800
   valid_redirect_uris = [
-    "http://localhost:8080"
+    "http://localhost:8080/*"
   ]
   idps = [
     "idir",
