@@ -14,7 +14,7 @@ module "waiting-queue-4805" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = ""
+  additional_role_attribute    = "roles"
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
