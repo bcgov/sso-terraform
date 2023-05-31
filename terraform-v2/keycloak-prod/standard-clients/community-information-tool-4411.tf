@@ -24,6 +24,7 @@ module "community-information-tool-4411" {
     "https://cit-web-b4e935-prod.apps.silver.devops.gov.bc.ca/*",
     "https://communityinformationtool.gov.bc.ca/*",
     "https://communityinformationtool.gov.bc.ca/cit-dashboard/home",
+    "https://communitylandopportunities.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -31,6 +32,7 @@ module "community-information-tool-4411" {
   valid_redirect_uris = [
     "https://cit-web-b4e935-prod.apps.silver.devops.gov.bc.ca/*",
     "https://communityinformationtool.gov.bc.ca/*",
-    "https://communityinformationtool.gov.bc.ca/cit-dashboard/home"
+    "https://communityinformationtool.gov.bc.ca/cit-dashboard/home",
+    "https://communitylandopportunities.gov.bc.ca/*"
   ]
 }
