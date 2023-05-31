@@ -22,11 +22,13 @@ module "community-information-tool-4411" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://test.communityinformationtool.gov.bc.ca/*",
+    "https://test.communitylandopportunities.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://test.communityinformationtool.gov.bc.ca/*"
+    "https://test.communityinformationtool.gov.bc.ca/*",
+    "https://test.communitylandopportunities.gov.bc.ca/*"
   ]
 }
