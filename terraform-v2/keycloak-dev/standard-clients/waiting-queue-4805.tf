@@ -21,14 +21,14 @@ module "waiting-queue-4805" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:5027/authentication/login-callback",
-    "https://waitingqueue-admin-dev.apps.silver.devops.gov.bc.ca/authentication/login-callback",
+    "http://localhost:5027/authentication/*",
+    "https://waitingqueue-admin-dev.apps.silver.devops.gov.bc.ca/authentication/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:5027/authentication/login-callback",
-    "https://waitingqueue-admin-dev.apps.silver.devops.gov.bc.ca/authentication/login-callback"
+    "http://localhost:5027/authentication/*",
+    "https://waitingqueue-admin-dev.apps.silver.devops.gov.bc.ca/authentication/*"
   ]
 }
