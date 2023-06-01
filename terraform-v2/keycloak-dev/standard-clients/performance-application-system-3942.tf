@@ -11,6 +11,7 @@ module "performance-application-system-3942" {
   idps = [
     "idir",
     "azureidir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
