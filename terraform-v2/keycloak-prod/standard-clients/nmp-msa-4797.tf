@@ -20,12 +20,12 @@ module "nmp-msa-4797" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://agri-nmp-msa-dev.apps.silver.devops.gov.bc.ca",
+    "https://agri-nmp-msa.apps.silver.devops.gov.bc.ca",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://agri-nmp-msa-dev.apps.silver.devops.gov.bc.ca"
+    "https://agri-nmp-msa.apps.silver.devops.gov.bc.ca"
   ]
 }

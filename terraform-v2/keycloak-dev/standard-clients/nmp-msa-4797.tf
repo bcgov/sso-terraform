@@ -21,11 +21,13 @@ module "nmp-msa-4797" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
+    "https://agri-nmp-msa-dev.apps.silver.devops.gov.bc.ca",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*"
+    "*",
+    "https://agri-nmp-msa-dev.apps.silver.devops.gov.bc.ca"
   ]
 }
