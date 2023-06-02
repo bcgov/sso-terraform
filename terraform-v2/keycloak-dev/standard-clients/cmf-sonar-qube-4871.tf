@@ -5,7 +5,6 @@ module "cmf-sonar-qube-4871" {
   client_name        = "CMF SonarQube"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "*",
     "https://sonarqube-48aa05-tools.apps.silver.devops.gov.bc.ca/*"
   ]
   idps = [
