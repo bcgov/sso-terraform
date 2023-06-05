@@ -22,17 +22,15 @@ module "community-information-tool-4411" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://cit-web-b4e935-prod.apps.silver.devops.gov.bc.ca/*",
-    "https://communityinformationtool.gov.bc.ca/*",
-    "https://communityinformationtool.gov.bc.ca/cit-dashboard/home",
-    "https://communitylandopportunities.gov.bc.ca/*",
+    "https://www.communityinformationtool.gov.bc.ca/*",
+    "https://www.communitylandopportunities.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://cit-web-b4e935-prod.apps.silver.devops.gov.bc.ca/*",
-    "https://communityinformationtool.gov.bc.ca/*",
-    "https://communityinformationtool.gov.bc.ca/cit-dashboard/home",
-    "https://communitylandopportunities.gov.bc.ca/*"
+    "https://www.communityinformationtool.gov.bc.ca/*",
+    "https://www.communitylandopportunities.gov.bc.ca/*"
   ]
 }
