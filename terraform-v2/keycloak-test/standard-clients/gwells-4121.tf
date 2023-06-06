@@ -22,15 +22,15 @@ module "gwells-4121" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
-    "http://localhost:8080",
-    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells",
+    "http://localhost:8080/*",
+    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
-    "http://localhost:8080",
-    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells"
+    "http://localhost:8080/*",
+    "https://gwells-staging.apps.silver.devops.gov.bc.ca/gwells/*"
   ]
 }

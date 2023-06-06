@@ -22,13 +22,13 @@ module "gwells-4121" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://apps.nrs.gov.bc.ca/gwells/*",
-    "https://gwells.apps.silver.devops.gov.bc.ca",
+    "https://gwells.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://apps.nrs.gov.bc.ca/gwells/*",
-    "https://gwells.apps.silver.devops.gov.bc.ca"
+    "https://gwells.apps.silver.devops.gov.bc.ca/*"
   ]
 }
