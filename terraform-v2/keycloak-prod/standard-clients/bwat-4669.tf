@@ -20,12 +20,14 @@ module "bwat-4669" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://bwat.foundryspatial.com",
+    "https://bwt-prod.bcwatertool.ca",
+    "https://bwt-prod.bcwatertool.ca/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://bwat.foundryspatial.com"
+    "https://bwt-prod.bcwatertool.ca",
+    "https://bwt-prod.bcwatertool.ca/"
   ]
 }
