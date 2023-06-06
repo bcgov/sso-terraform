@@ -11,6 +11,7 @@ module "aest-sims-4424" {
   idps = [
     "idir",
     "azureidir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
