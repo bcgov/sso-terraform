@@ -18,7 +18,6 @@ jobs:
       API_URL: ${{ secrets.WEBAPP_API_URL }}
     steps:
     - uses: hmarr/debug-action@v2
-    - uses: actions/checkout@v2
 
     - name: Wake Up API
       uses: fjogeleit/http-request-action@master
@@ -43,7 +42,22 @@ jobs:
       run: |
         count=$(jq length <<< ${{ steps.requests.outputs.response }})
         echo "$count"
-        echo "::set-output name=count::$count"
+        echo "count=$count" >> $GITHUB_OUTPUT
+
+    - name: Checkout Terraform Modules
+      if: steps.count.outputs.count != '0'
+      uses: actions/checkout@v3
+      with:
+        repository: bcgov/sso-terraform-modules
+        ref: main
+
+    - id: tf-modules
+      if: steps.count.outputs.count != '0'
+      name: Get Terraform Modules Latest SHA
+      run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - uses: actions/checkout@v2
 
     - name: Pull the main branch again
       if: steps.count.outputs.count != '0'
@@ -53,7 +67,7 @@ jobs:
     - name: Setup Terraform
       if: steps.count.outputs.count != '0'
       id: tf
-      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.59.0
+      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.60.0
       with:
         context: ./terraform-v2
         tf-version: ${{ env.TF_VERSION }}
@@ -88,11 +102,12 @@ jobs:
         prod-github-client-id: ${{ secrets.PROD_GITHUB_CLIENT_ID }}
         prod-github-client-secret: ${{ secrets.PROD_GITHUB_CLIENT_SECRET }}
         apply: true
+        tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
       continue-on-error: true
 
     - name: Setup NPM Packages
       if: steps.count.outputs.count != '0'
-      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.59.0
+      uses: bcgov/sso-requests-actions/actions/setup-yarn@v0.60.0
 
     - name: Update Requests Status
       if: steps.count.outputs.count != '0'
