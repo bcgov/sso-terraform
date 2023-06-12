@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "cdogs_showcase_frontend_4097_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "cdogs-showcase-frontend-4097" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -18,11 +14,14 @@ module "cdogs-showcase-frontend-4097" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.cdogs_showcase_frontend_4097_browserflow.id
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "*",
     "http://localhost:8080/*",
     "https://dgrsc-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
@@ -30,6 +29,7 @@ module "cdogs-showcase-frontend-4097" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "*",
     "http://localhost:8080/*",
     "https://dgrsc-dev.apps.silver.devops.gov.bc.ca/*"
   ]
