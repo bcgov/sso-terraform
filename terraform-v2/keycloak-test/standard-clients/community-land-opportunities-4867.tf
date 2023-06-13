@@ -2,7 +2,7 @@ module "community-land-opportunities-4867" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "community-land-opportunities-4867"
-  client_name                         = "Community Land Opportunities - Test"
+  client_name                         = "Community Investment Opportunities Tool - Test"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
