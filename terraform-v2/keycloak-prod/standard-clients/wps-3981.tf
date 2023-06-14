@@ -20,6 +20,7 @@ module "wps-3981" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000/morecast-2*",
     "https://psu.nrs.gov.bc.ca",
     "https://psu.nrs.gov.bc.ca/auto-spatial-advisory",
     "https://psu.nrs.gov.bc.ca/c-haines",
@@ -41,6 +42,7 @@ module "wps-3981" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:3000/morecast-2*",
     "https://psu.nrs.gov.bc.ca",
     "https://psu.nrs.gov.bc.ca/auto-spatial-advisory",
     "https://psu.nrs.gov.bc.ca/c-haines",
