@@ -11,6 +11,7 @@ module "saw-sx-4892" {
   idps = [
     "idir",
     "azureidir",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
