@@ -22,6 +22,7 @@ module "community-land-opportunities-4867" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://127.0.0.1/*",
+    "http://localhost/*",
     "http://localhost:3000/*",
     "https://dev.communitylandopportunities.gov.bc.ca/*",
     "+"
@@ -30,6 +31,7 @@ module "community-land-opportunities-4867" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://127.0.0.1/*",
+    "http://localhost/*",
     "http://localhost:3000/*",
     "https://dev.communitylandopportunities.gov.bc.ca/*"
   ]
