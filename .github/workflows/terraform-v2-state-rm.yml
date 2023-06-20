@@ -19,6 +19,20 @@ jobs:
     timeout-minutes: 30
     steps:
     - uses: hmarr/debug-action@v2
+
+    - name: Checkout Terraform Modules
+      if: steps.count.outputs.count != '0'
+      uses: actions/checkout@v3
+      with:
+        repository: bcgov/sso-terraform-modules
+        ref: main
+
+    - id: tf-modules
+      if: steps.count.outputs.count != '0'
+      name: Get Terraform Modules Latest SHA
+      run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      shell: bash
+
     - uses: actions/checkout@v2
 
     - name: Setup Terraform
@@ -46,3 +60,4 @@ jobs:
         prod-github-client-id: ${{ secrets.PROD_GITHUB_CLIENT_ID }}
         prod-github-client-secret: ${{ secrets.PROD_GITHUB_CLIENT_SECRET }}
         state-rm: ${{ github.event.inputs.resource_address }}
+        tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
