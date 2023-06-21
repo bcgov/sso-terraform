@@ -20,6 +20,7 @@ module "realm-profile-app-gold-4849" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost:3000/*",
     "http://realm-registry.apps.silver.devops.gov.bc.ca/*",
     "https://realm-registry-dev.apps.silver.devops.gov.bc.ca/*"
   ]
