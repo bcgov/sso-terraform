@@ -21,6 +21,7 @@ module "august-9-b-ce-id-business-only-3970" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
+    "http://localhost:3500/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/zorin_test_realm_march15/*"
   ]
