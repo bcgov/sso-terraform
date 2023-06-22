@@ -23,7 +23,7 @@ module "community-land-opportunities-4867" {
   web_origins = [
     "http://localhost/*",
     "http://localhost:3000/*",
-    "https://ciot-web-d2cb5f-dev.apps.silver.devops.gov.bc.ca",
+    "https://ciot-web-d2cb5f-dev.apps.silver.devops.gov.bc.ca/*",
     "https://dev.communitylandopportunities.gov.bc.ca/*",
     "+"
   ]
@@ -32,7 +32,7 @@ module "community-land-opportunities-4867" {
   valid_redirect_uris = [
     "http://localhost/*",
     "http://localhost:3000/*",
-    "https://ciot-web-d2cb5f-dev.apps.silver.devops.gov.bc.ca",
+    "https://ciot-web-d2cb5f-dev.apps.silver.devops.gov.bc.ca/*",
     "https://dev.communitylandopportunities.gov.bc.ca/*"
   ]
 }
