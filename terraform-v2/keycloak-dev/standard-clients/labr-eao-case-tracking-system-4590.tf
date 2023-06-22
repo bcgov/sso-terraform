@@ -22,6 +22,7 @@ module "labr-eao-case-tracking-system-4590" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://localhost/*",
-    "https://localhost/*"
+    "https://localhost/*",
+    "https://localhost:44300/signin-oidc"
   ]
 }
