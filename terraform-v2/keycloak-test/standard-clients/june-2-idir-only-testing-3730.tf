@@ -22,6 +22,8 @@ module "june-2-idir-only-testing-3730" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost/*",
+    "http://localhost:3000/*",
+    "http://localhost:3500/*",
     "https://bcgov.github.io/keycloak-example-apps/*"
   ]
 }

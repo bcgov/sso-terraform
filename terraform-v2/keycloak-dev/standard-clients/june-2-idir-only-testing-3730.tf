@@ -23,6 +23,7 @@ module "june-2-idir-only-testing-3730" {
   valid_redirect_uris = [
     "http://localhost:3000",
     "http://localhost:3000/*",
+    "http://localhost:3500/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/sso-team-testing/*",
     "https://dev.loginproxy.gov.bc.ca/auth/realms/zorintest-march23/*",
