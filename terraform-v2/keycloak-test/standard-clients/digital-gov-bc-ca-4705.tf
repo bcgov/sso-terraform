@@ -20,6 +20,6 @@ module "digital-gov-bc-ca-4705" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://dm-wp-test.apps.silver.devops.gov.bc.ca"
+    "https://digital-test.apps.silver.devops.gov.bc.ca"
   ]
 }
