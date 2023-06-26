@@ -9,6 +9,7 @@ module "june-26-test-b-ce-id-flow-4853" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "idir",
     "common"
   ]
   description                  = "CSS App Created"
