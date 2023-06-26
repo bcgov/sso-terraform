@@ -10,6 +10,8 @@ module "june-26-b-ce-id-basic-business-test-4904" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
