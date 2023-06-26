@@ -1,7 +1,3 @@
-data "keycloak_authentication_flow" "psa_moodle_3969_browserflow" {
-  realm_id = var.standard_realm_id
-  alias    = "idp stopper"
-}
 module "psa-moodle-3969" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
@@ -17,10 +13,19 @@ module "psa-moodle-3969" {
     "common"
   ]
   description                  = "CSS App Created"
+  additional_role_attribute    = ""
+  login_theme                  = ""
   override_authentication_flow = true
-  browser_authentication_flow  = data.keycloak_authentication_flow.psa_moodle_3969_browserflow.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://moodle-950003-dev.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php",
+    "https://moodle.virtuallearn.ca/admin/oauth2callback.php",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "https://moodle-950003-dev.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php",
     "https://moodle.virtuallearn.ca/admin/oauth2callback.php"
