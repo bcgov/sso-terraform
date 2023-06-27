@@ -17,15 +17,8 @@ module "psa-moodle-3969" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://learning.gww.gov.bc.ca/admin/oauth2callback.php",
-    "https://moodle-950003-prod.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://learning.gww.gov.bc.ca/admin/oauth2callback.php",
     "https://moodle-950003-prod.apps.silver.devops.gov.bc.ca/admin/oauth2callback.php"
