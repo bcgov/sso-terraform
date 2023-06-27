@@ -23,8 +23,7 @@ module "css-app-in-gold-4128" {
   web_origins = [
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
-    "https://bcgov.github.io/sso-requests-dev/*",
-    "https://bcgov.github.io/sso-requests-test/*",
+    "https://bcgov.github.io/sso-requests-sandbox/*",
     "https://bcgov.github.io/sso-terraform-dev/*",
     "https://sso-requests-c6af30-dev.apps.gold.devops.gov.bc.ca/*",
     "+"
@@ -34,8 +33,7 @@ module "css-app-in-gold-4128" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://bcgov.github.io/keycloak-example-apps/*",
-    "https://bcgov.github.io/sso-requests-dev/*",
-    "https://bcgov.github.io/sso-requests-test/*",
+    "https://bcgov.github.io/sso-requests-sandbox/*",
     "https://bcgov.github.io/sso-terraform-dev/*",
     "https://sso-requests-c6af30-dev.apps.gold.devops.gov.bc.ca/*"
   ]
