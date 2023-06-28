@@ -21,16 +21,14 @@ module "community-information-tool-4411" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://dev.communityinformationtool.gov.bc.ca",
     "http://localhost:3000/*",
-    "https://cit-web-b4e935-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev.communityinformationtool.gov.bc.ca",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://dev.communityinformationtool.gov.bc.ca",
     "http://localhost:3000/*",
-    "https://cit-web-b4e935-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://dev.communityinformationtool.gov.bc.ca"
   ]
 }
