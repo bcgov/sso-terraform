@@ -20,6 +20,6 @@ module "unity-4899" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:8082"
+    "https://unity.gov.bc.ca"
   ]
 }
