@@ -11,7 +11,8 @@ module "unity-4898" {
   idps = [
     "idir",
     "azureidir",
-    "bceidboth",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
