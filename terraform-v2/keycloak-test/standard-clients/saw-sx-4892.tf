@@ -25,6 +25,7 @@ module "saw-sx-4892" {
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
     "https://uat-awp.th.gov.bc.ca/*",
+    "https://uat-sawsx.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -32,6 +33,7 @@ module "saw-sx-4892" {
   valid_redirect_uris = [
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
-    "https://uat-awp.th.gov.bc.ca/*"
+    "https://uat-awp.th.gov.bc.ca/*",
+    "https://uat-sawsx.apps.silver.devops.gov.bc.ca/*"
   ]
 }
