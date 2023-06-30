@@ -22,8 +22,8 @@ module "common-hosted-form-service-elmsd-4917" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8080",
-    "http://localhost:8081",
-    "http://localhost:8082"
+    "http://localhost:8080/*",
+    "http://localhost:8081/*",
+    "http://localhost:8082/*"
   ]
 }
