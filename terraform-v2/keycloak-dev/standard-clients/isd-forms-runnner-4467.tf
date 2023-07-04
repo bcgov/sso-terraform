@@ -22,6 +22,7 @@ module "isd-forms-runnner-4467" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "*",
-    "https://socialforms-dev.apps.gov.bc.ca/*"
+    "https://socialforms-dev.apps.gov.bc.ca/*",
+    "https://socialsector-sso-dev.apps.gov.bc.ca/realms/orbeon-dev/broker/oidc/endpoint"
   ]
 }
