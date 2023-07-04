@@ -24,9 +24,9 @@ module "saw-sx-4892" {
   web_origins = [
     "http://127.0.0.1:3000/*",
     "http://localhost:3000/*",
-    "http://localhost:44374/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://dev-sawsx.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost:44374/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -34,8 +34,8 @@ module "saw-sx-4892" {
   valid_redirect_uris = [
     "http://127.0.0.1:3000/*",
     "http://localhost:3000/*",
-    "http://localhost:44374/*",
     "https://dev-awp.th.gov.bc.ca/*",
-    "https://dev-sawsx.apps.silver.devops.gov.bc.ca/*"
+    "https://dev-sawsx.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost:44374/*"
   ]
 }
