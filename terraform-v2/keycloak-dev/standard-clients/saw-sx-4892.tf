@@ -26,6 +26,7 @@ module "saw-sx-4892" {
     "http://localhost:3000/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://dev-sawsx.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost:44317/*",
     "https://localhost:44374/*",
     "+"
   ]
@@ -36,6 +37,7 @@ module "saw-sx-4892" {
     "http://localhost:3000/*",
     "https://dev-awp.th.gov.bc.ca/*",
     "https://dev-sawsx.apps.silver.devops.gov.bc.ca/*",
+    "https://localhost:44317/*",
     "https://localhost:44374/*"
   ]
 }
