@@ -23,6 +23,7 @@ module "tfrs-on-gold-4308" {
   web_origins = [
     "http://localhost:3000/*",
     "https://logontest7.gov.bc.ca/*",
+    "https://tfrs-dev-jan.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -31,6 +32,7 @@ module "tfrs-on-gold-4308" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://logontest7.gov.bc.ca/*",
+    "https://tfrs-dev-jan.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
