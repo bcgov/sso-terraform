@@ -15,7 +15,7 @@ module "isd-forms-runnner-4467" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
-  login_theme                  = ""
+  login_theme                  = "bcgov-idp-stopper-no-header-title"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
   standard_flow_enabled        = true
