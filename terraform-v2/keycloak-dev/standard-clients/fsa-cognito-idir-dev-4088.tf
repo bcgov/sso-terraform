@@ -23,6 +23,7 @@ module "fsa-cognito-idir-dev-4088" {
     "https://dev-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://oidcdebuggersecure-3d5c3f-dev.apps.silver.devops.gov.bc.ca/",
     "https://prod-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
+    "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://tools-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
   ]
 }

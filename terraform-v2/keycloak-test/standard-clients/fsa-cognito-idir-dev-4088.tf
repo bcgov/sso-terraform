@@ -22,6 +22,7 @@ module "fsa-cognito-idir-dev-4088" {
   valid_redirect_uris = [
     "https://dev-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
     "https://prod-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
-    "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
+    "https://test-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse",
+    "https://tools-fam-user-pool-domain.auth.ca-central-1.amazoncognito.com/oauth2/idpresponse"
   ]
 }
