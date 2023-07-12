@@ -22,6 +22,7 @@ module "media-monitoring-mmia-3671" {
   web_origins = [
     "https://editor.mmia.gov.bc.ca",
     "https://mmia.apps.silver.devops.gov.bc",
+    "https://mmia.gov.bc.ca",
     "https://tno.apps.silver.devops.gov.bc.ca",
     "+"
   ]
@@ -30,6 +31,7 @@ module "media-monitoring-mmia-3671" {
   valid_redirect_uris = [
     "https://editor.mmia.gov.bc.ca",
     "https://mmia.apps.silver.devops.gov.bc",
+    "https://mmia.gov.bc.ca",
     "https://tno.apps.silver.devops.gov.bc.ca"
   ]
 }
