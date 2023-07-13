@@ -20,6 +20,8 @@ module "met-gold-4795" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://epic-engage-oidc.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint",
+    "https://epic-engage-oidc.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint/logout_response",
     "https://met-oidc.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint",
     "https://met-oidc.apps.gold.devops.gov.bc.ca/auth/realms/met/broker/idir/endpoint/logout_response"
   ]
