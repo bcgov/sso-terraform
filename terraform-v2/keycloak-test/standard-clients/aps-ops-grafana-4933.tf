@@ -20,7 +20,7 @@ module "aps-ops-grafana-4933" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://ops-grafana-test-b8840c-test.apps.gold.devops.gov.bc.ca/*",
-    "https://ops-grafana-test-b8840c-test.apps.golddr.devops.gov.bc.ca/*"
+    "https://ops-grafana-test-b8840c-test.apps.gold.devops.gov.bc.ca/login/generic_oauth",
+    "https://ops-grafana-test-b8840c-test.apps.golddr.devops.gov.bc.ca/login/generic_oauth"
   ]
 }
