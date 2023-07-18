@@ -22,6 +22,7 @@ module "saw-sx-4892" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://test-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
     "https://uat-awp.th.gov.bc.ca/*",
@@ -31,6 +32,7 @@ module "saw-sx-4892" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://test-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
     "https://uat-awp.th.gov.bc.ca/*",
