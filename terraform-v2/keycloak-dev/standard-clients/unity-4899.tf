@@ -21,6 +21,6 @@ module "unity-4899" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "https://dev.unity.gov.bc.ca",
-    "https://localhost:44300/*"
+    "https://localhost:44342/*"
   ]
 }
