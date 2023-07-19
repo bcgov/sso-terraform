@@ -22,6 +22,7 @@ module "saw-sx-4892" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://10.0.0.41:3000/*",
     "http://127.0.0.1:3000/*",
     "http://localhost:3000/*",
     "https://dev-awp.th.gov.bc.ca/*",
@@ -35,6 +36,7 @@ module "saw-sx-4892" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://10.0.0.41:3000/*",
     "http://127.0.0.1:3000/*",
     "http://localhost:3000/*",
     "https://dev-awp.th.gov.bc.ca/*",
