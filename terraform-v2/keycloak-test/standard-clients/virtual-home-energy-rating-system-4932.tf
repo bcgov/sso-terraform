@@ -21,7 +21,6 @@ module "virtual-home-energy-rating-system-4932" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:3000/oauth",
     "https://cleanbc.gov.bc.ca/"
   ]
 }
