@@ -11,8 +11,7 @@ module "drive-bc-4941" {
   idps = [
     "idir",
     "azureidir",
-    "bceidbasic",
-    "bceidbusiness",
+    "bceidboth",
     "githubbcgov",
     "common"
   ]
