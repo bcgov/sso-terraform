@@ -13,7 +13,7 @@ module "tians-testing-7-5-all-idps-4922" {
     "azureidir",
     "bceidbasic",
     "bceidbusiness",
-    "githubpublic",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
