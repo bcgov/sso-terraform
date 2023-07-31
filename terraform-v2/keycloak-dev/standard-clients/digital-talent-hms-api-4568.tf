@@ -2,7 +2,7 @@ module "digital-talent-hms-api-4568" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "digital-talent-hms-api-4568"
-  client_name                         = "Jan 30"
+  client_name                         = "Digital Talent"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -10,6 +10,7 @@ module "digital-talent-hms-api-4568" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
     "common"
   ]
   description                  = "CSS App Created"
