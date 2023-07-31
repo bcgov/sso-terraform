@@ -10,6 +10,7 @@ module "work-bc-wage-subsidy-front-end-4421" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
