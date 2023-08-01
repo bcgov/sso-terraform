@@ -11,6 +11,7 @@ module "tians-testing-8-1-terraform-run-4949" {
   idps = [
     "idir",
     "bceidbasic",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
