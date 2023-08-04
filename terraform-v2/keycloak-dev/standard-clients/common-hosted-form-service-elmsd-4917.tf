@@ -24,6 +24,7 @@ module "common-hosted-form-service-elmsd-4917" {
   valid_redirect_uris = [
     "http://localhost:8080/*",
     "http://localhost:8081/*",
-    "http://localhost:8082/*"
+    "http://localhost:8082/*",
+    "https://chefs-dev-master.apps.silver.devops.gov.bc.ca/*"
   ]
 }
