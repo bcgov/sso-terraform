@@ -10,6 +10,7 @@ module "tians-testing-8-4-email-flow-4954" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "githubpublic",
     "common"
   ]
   description                  = "CSS App Created"
