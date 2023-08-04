@@ -22,6 +22,7 @@ module "common-hosted-form-service-elmsd-4917" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "*"
+    "*",
+    "https://chefs-dev-master.apps.silver.devops.gov.bc.ca/app/*"
   ]
 }
