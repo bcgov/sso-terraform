@@ -9,6 +9,7 @@ module "epd-digital-services-4946" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
