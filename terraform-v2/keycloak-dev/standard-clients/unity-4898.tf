@@ -25,6 +25,7 @@ module "unity-4898" {
   valid_redirect_uris = [
     "http://localhost:8080/*",
     "http://localhost:8081/*",
-    "http://localhost:8082/*"
+    "http://localhost:8082/*",
+    "https://localhost:44342/*"
   ]
 }
