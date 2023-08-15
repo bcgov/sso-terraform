@@ -20,6 +20,6 @@ module "open-school-bc-4937" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost*"
+    "https://osbclearning.com/pathfindersso_test_20230725/*"
   ]
 }
