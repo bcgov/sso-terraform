@@ -21,6 +21,6 @@ module "citz-imb-august-hack-4988" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://hollandaise-frontend-ec1236-test.apps.silver.devops.gov.bc.ca/*"
+    "https://hollandaise-frontend-ec1236-test.apps.silver.devops.gov.bc.ca"
   ]
 }
