@@ -22,7 +22,7 @@ module "mod-chefs-local-3831" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost:8080",
+    "http://localhost:5173",
     "http://localhost:8082",
     "http://localhost:8082/realms/chefs/broker/idir/endpoint"
   ]
