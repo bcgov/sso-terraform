@@ -10,6 +10,8 @@ module "unity-4899" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
@@ -20,11 +22,12 @@ module "unity-4899" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localhost:8080/*",
+    "http://localhost:8081/*",
+    "http://localhost:8082/*",
     "https://dev.unity.gov.bc.ca",
     "https://localhost:44342/*",
-    "https://localhost:8080/*",
-    "https://localhost:8081/*",
-    "https://localhost:8082/*",
+    "https://localhost:8084/*",
     "https://unity.gov.bc.ca.localhost/*",
     "https://unity.gov.bc.ca.test/*"
   ]
