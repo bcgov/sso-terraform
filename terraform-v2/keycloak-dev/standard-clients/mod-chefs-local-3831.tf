@@ -23,7 +23,7 @@ module "mod-chefs-local-3831" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost/auth/callback",
-    "http://localhost:5173",
+    "http://localhost:5173/auth/callback",
     "http://localhost:8082/realms/chefs/broker/idir/endpoint"
   ]
 }
