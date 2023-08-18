@@ -26,6 +26,7 @@ module "awp-3798" {
     "https://dev-awp.th.gov.bc.ca/*",
     "https://localhost:44317/*",
     "https://tst-awp.th.gov.bc.ca/*",
+    "https://uat-awp-proxied.th.gov.bc.ca",
     "https://uat-awp.th.gov.bc.ca/*",
     "https://uat-sawsx.apps.silver.devops.gov.bc.ca"
   ]
