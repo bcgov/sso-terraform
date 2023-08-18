@@ -2,7 +2,7 @@ module "af-pods-4800" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "af-pods-4800"
-  client_name                         = "AF-PODS"
+  client_name                         = "Ministry of Agriculture and Food Program Operation Data System"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
