@@ -21,6 +21,6 @@ module "test-ea-4991" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://192.168.1.67:8081/app/"
+    "https://192.168.1.67:8081/app/"
   ]
 }
