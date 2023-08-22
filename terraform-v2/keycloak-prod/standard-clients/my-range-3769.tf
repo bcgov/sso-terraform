@@ -21,6 +21,8 @@ module "my-range-3769" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://myrangebc-dev.apps.silver.devops.gov.bc.ca/return-page",
+    "https://myrangebc-test.apps.silver.devops.gov.bc.ca/return-page",
     "https://myrangebc.gov.bc.ca",
     "https://myrangebc.gov.bc.ca/return-page",
     "https://myrangebc.gov.bc.ca/return-page?type=login",
@@ -31,6 +33,8 @@ module "my-range-3769" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://myrangebc-dev.apps.silver.devops.gov.bc.ca/return-page",
+    "https://myrangebc-test.apps.silver.devops.gov.bc.ca/return-page",
     "https://myrangebc.gov.bc.ca",
     "https://myrangebc.gov.bc.ca/return-page",
     "https://myrangebc.gov.bc.ca/return-page?type=login",
