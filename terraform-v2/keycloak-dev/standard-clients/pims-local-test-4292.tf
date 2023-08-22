@@ -21,8 +21,8 @@ module "pims-local-test-4292" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:3000",
     "http://localhost:3000/",
-    "http://localhost:3000/*",
     "http://localhost:3000/admin/access/requests",
     "http://localhost:3000/admin/administrativeAreas",
     "http://localhost:3000/admin/agencies",
@@ -39,8 +39,8 @@ module "pims-local-test-4292" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:3000",
     "http://localhost:3000/",
-    "http://localhost:3000/*",
     "http://localhost:3000/admin/access/requests",
     "http://localhost:3000/admin/administrativeAreas",
     "http://localhost:3000/admin/agencies",
