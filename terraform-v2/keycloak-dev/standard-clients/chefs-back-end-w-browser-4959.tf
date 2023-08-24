@@ -11,7 +11,8 @@ module "chefs-back-end-w-browser-4959" {
   idps = [
     "idir",
     "azureidir",
-    "bceidboth",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
