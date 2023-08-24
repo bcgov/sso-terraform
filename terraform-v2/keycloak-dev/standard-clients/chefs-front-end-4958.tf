@@ -10,7 +10,8 @@ module "chefs-front-end-4958" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "bceidboth",
+    "bceidbasic",
+    "bceidbusiness",
     "common"
   ]
   description                  = "CSS App Created"
