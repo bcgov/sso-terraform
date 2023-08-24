@@ -22,6 +22,7 @@ module "unity-4899" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localhost:44342/*",
     "http://localhost:8080/*",
     "http://localhost:8081/*",
     "http://localhost:8082/*",
