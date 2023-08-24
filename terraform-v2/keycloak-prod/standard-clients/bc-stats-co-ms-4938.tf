@@ -20,6 +20,6 @@ module "bc-stats-co-ms-4938" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://coms-df9936-dev.apps.silver.devops.gov.bc.ca/"
+    "https://bcstatscoms.apps.gov.bc.ca/*"
   ]
 }

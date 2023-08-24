@@ -2,7 +2,7 @@ module "bc-stats-co-ms-4938" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "bc-stats-co-ms-4938"
-  client_name                         = "BCStats COMs"
+  client_name                         = "BCStats COMs Dev"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -21,6 +21,6 @@ module "bc-stats-co-ms-4938" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "http://localhost*"
+    "https://bcstatscoms-dev.apps.gov.bc.ca/*"
   ]
 }
