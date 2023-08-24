@@ -2,7 +2,7 @@ module "bc-stats-coms-bc-box-4936" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "bc-stats-coms-bc-box-4936"
-  client_name                         = "BCStats COMS & BC Box"
+  client_name                         = "BC Stats LockBox Test"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -21,12 +21,12 @@ module "bc-stats-coms-bc-box-4936" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "*",
+    "https://bcstatslockbox-test.apps.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "*"
+    "https://bcstatslockbox-test.apps.gov.bc.ca/*"
   ]
 }
