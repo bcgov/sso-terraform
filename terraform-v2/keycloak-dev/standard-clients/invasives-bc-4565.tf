@@ -22,9 +22,10 @@ module "invasives-bc-4565" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
-    "http://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/*",
     "http://localhost:3000/*",
     "http://localhost:8100/*",
+    "https://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
+    "https://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/*",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing",
     "+"
   ]
@@ -32,9 +33,10 @@ module "invasives-bc-4565" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
-    "http://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/*",
     "http://localhost:3000/*",
     "http://localhost:8100/*",
+    "https://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
+    "https://dev-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/*",
     "https://dev-invasivesbci.apps.silver.devops.gov.bc.ca/home/landing"
   ]
 }
