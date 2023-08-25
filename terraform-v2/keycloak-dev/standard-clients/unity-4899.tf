@@ -24,6 +24,7 @@ module "unity-4899" {
   valid_redirect_uris = [
     "http://localhost:44342/*",
     "http://localhost:8080/*",
+    "http://localhost:8082/*",
     "https://dev-unity.apps.silver.devops.gov.bc.ca/*",
     "https://dev.unity.gov.bc.ca/*",
     "https://localhost:44342/*",
