@@ -27,8 +27,6 @@ module "unity-4899" {
     "https://dev-unity.apps.silver.devops.gov.bc.ca/*",
     "https://dev.unity.gov.bc.ca/*",
     "https://localhost:44342/*",
-    "https://localhost:8080/*",
-    "https://unity-grantmanager-web-d18498-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://unity-grantmanager-web-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://localhost:8080/*"
   ]
 }
