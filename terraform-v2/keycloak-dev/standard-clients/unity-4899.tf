@@ -24,13 +24,11 @@ module "unity-4899" {
   valid_redirect_uris = [
     "http://localhost:44342/*",
     "http://localhost:8080/*",
-    "http://localhost:8081/*",
-    "http://localhost:8082/*",
-    "https://dev.unity.gov.bc.ca",
+    "https://dev-unity.apps.silver.devops.gov.bc.ca/*",
+    "https://dev.unity.gov.bc.ca/*",
     "https://localhost:44342/*",
-    "https://localhost:8084/*",
+    "https://localhost:8080/*",
     "https://unity-grantmanager-web-d18498-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://unity.gov.bc.ca.localhost/*",
-    "https://unity.gov.bc.ca.test/*"
+    "https://unity-grantmanager-web-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }

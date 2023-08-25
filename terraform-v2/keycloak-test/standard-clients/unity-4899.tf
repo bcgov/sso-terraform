@@ -22,6 +22,8 @@ module "unity-4899" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://test.unity.gov.bc.ca"
+    "https://test-unity.apps.silver.devops.gov.bc.ca/*",
+    "https://test.unity.gov.bc.ca/*",
+    "https://unity-grantmanager-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
