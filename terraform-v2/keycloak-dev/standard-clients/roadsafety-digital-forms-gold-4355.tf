@@ -22,6 +22,8 @@ module "roadsafety-digital-forms-gold-4355" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
+    "http://localhost:5000/*",
+    "http://localhost:5002/*",
     "http://localhost:8080/*",
     "http://localhost:8080/roadside-forms/*",
     "https://dev.jag.gov.bc.ca/roadside-forms/*",
@@ -36,6 +38,8 @@ module "roadsafety-digital-forms-gold-4355" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
+    "http://localhost:5000/*",
+    "http://localhost:5002/*",
     "http://localhost:8080/*",
     "http://localhost:8080/roadside-forms/*",
     "https://dev.jag.gov.bc.ca/roadside-forms/*",
