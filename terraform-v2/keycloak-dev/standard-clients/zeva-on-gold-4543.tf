@@ -28,6 +28,7 @@ module "zeva-on-gold-4543" {
     "https://zeva-dev-1767.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1786.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1877.apps.silver.devops.gov.bc.ca/*",
+    "https://zeva-dev-1932.apps.silver.devops.gov.bc.ca",
     "https://zeva-dev-1934.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
@@ -42,6 +43,7 @@ module "zeva-on-gold-4543" {
     "https://zeva-dev-1767.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1786.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev-1877.apps.silver.devops.gov.bc.ca/*",
+    "https://zeva-dev-1932.apps.silver.devops.gov.bc.ca",
     "https://zeva-dev-1934.apps.silver.devops.gov.bc.ca/*",
     "https://zeva-dev.apps.silver.devops.gov.bc.ca/*"
   ]
