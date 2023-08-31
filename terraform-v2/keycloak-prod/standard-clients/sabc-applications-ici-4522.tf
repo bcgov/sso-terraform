@@ -21,6 +21,7 @@ module "sabc-applications-ici-4522" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://10.0.0.51:3333/app-login",
+    "http://127.0.0.1:3333/app-login",
     "https://tbtb-ici-06cb9b-dev.apps.silver.devops.gov.bc.ca/app-login"
   ]
 }
