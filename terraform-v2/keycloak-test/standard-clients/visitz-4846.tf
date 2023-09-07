@@ -21,6 +21,7 @@ module "visitz-4846" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
+    "https://socialsector-sso-dev.apps.gov.bc.ca/realms/mcfd/broker/keycloak-oidc/endpoint",
     "visitz://mobile-client",
     "+"
   ]
@@ -28,6 +29,7 @@ module "visitz-4846" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
+    "https://socialsector-sso-dev.apps.gov.bc.ca/realms/mcfd/broker/keycloak-oidc/endpoint",
     "visitz://mobile-client"
   ]
 }
