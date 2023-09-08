@@ -9,6 +9,7 @@ module "visitz-confidential-5001" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
+    "idir",
     "azureidir",
     "common"
   ]
@@ -21,6 +22,7 @@ module "visitz-confidential-5001" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "*",
-    "https://socialsector-sso-dev.apps.gov.bc.ca/realms/mcfd/broker/azureidir/endpoint"
+    "https://socialsector-sso-dev.apps.gov.bc.ca/realms/mcfd/broker/azureidir/endpoint",
+    "visitz://mobile-client"
   ]
 }
