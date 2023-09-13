@@ -22,12 +22,14 @@ module "bcat-standard-4952" {
   web_origins = [
     "http://localhost:3000/*",
     "https://bcat-bfe2da-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev-bcat.th.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
-    "https://bcat-bfe2da-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://bcat-bfe2da-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev-bcat.th.gov.bc.ca/*"
   ]
 }
