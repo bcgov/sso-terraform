@@ -10,6 +10,7 @@ module "tians-testing-9-13-post-release-testing-5006" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "githubbcgov",
     "common"
   ]
   description                  = "CSS App Created"
