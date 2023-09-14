@@ -21,6 +21,7 @@ module "bcat-standard-4952" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
+    "https://bcat-bfe2da-prod.apps.silver.devops.gov.bc.ca/*",
     "https://bcat.th.gov.bc.ca/*",
     "+"
   ]
@@ -28,6 +29,7 @@ module "bcat-standard-4952" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
+    "https://bcat-bfe2da-prod.apps.silver.devops.gov.bc.ca/*",
     "https://bcat.th.gov.bc.ca/*"
   ]
 }
