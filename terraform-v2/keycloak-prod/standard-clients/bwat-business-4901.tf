@@ -21,11 +21,13 @@ module "bwat-business-4901" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://bwat.bcwatertool.ca",
+    "https://bwat.bcwatertool.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://bwat.bcwatertool.ca"
+    "https://bwat.bcwatertool.ca",
+    "https://bwat.bcwatertool.ca/*"
   ]
 }
