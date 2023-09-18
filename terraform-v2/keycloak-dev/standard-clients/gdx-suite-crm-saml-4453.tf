@@ -1,4 +1,4 @@
-module "gdx-suite-crm-4453" {
+module "gdx-suite-crm-saml-4453" {
   source             = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client-saml"
   realm_id           = var.standard_realm_id
   client_id          = "gdx-suite-crm-4453"
