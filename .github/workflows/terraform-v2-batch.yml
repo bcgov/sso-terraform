@@ -118,7 +118,7 @@ jobs:
         url: ${{ secrets.RC_SSO_ALERTS_WEBHOOK }}
         method: POST
         customHeaders: '{"Content-Type": "application/json"}'
-        data: '{"text": "Terraform Batch Job Failed! @jsharman @jonathan.langlois @Marco  @zorin.samji @nithinshekar.kuruba", "attachments": [{"color": "#FF0000","author_name": "${{ github.actor }}", "title": "Failed job", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "fields": [{"title": "Error Summary", "value": "${{ steps.summary.outputs.summary }}", "short": false}]}]}'
+        data: '{"text": "Terraform Batch Job Failed! @jsharman @jlanglois @Marco  @zorin.samji @nithinshekar.kuruba", "attachments": [{"color": "#FF0000","author_name": "${{ github.actor }}", "title": "Failed job", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "fields": [{"title": "Error Summary", "value": "${{ steps.summary.outputs.summary }}", "short": false}]}]}'
 
     - name: Set Failure Code
       if: steps.tf.outputs.apply == 'failure'
