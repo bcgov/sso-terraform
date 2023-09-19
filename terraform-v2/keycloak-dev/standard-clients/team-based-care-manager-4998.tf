@@ -22,11 +22,13 @@ module "team-based-care-manager-4998" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://dev.tbcm.freshworks.club/",
+    "https://localhost:3000/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://dev.tbcm.freshworks.club/"
+    "https://dev.tbcm.freshworks.club/",
+    "https://localhost:3000/*"
   ]
 }
