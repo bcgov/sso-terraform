@@ -22,6 +22,7 @@ module "on-route-bc-direct-4598" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost*",
+    "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-frontend.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
@@ -29,6 +30,7 @@ module "on-route-bc-direct-4598" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost*",
+    "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-frontend.apps.silver.devops.gov.bc.ca/"
   ]
 }
