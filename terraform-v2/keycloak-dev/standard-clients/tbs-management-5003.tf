@@ -20,6 +20,6 @@ module "tbs-management-5003" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cdss.powerappsportals.com/signin-openid_1"
+    "https://tbsmanagement-dev.powerappsportals.com/signin-openid_1"
   ]
 }
