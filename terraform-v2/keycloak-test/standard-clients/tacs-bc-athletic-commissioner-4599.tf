@@ -20,6 +20,7 @@ module "tacs-bc-athletic-commissioner-4599" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "http://localdev:8000/auth/v1/callback",
     "http://localhost:8000/auth/v1/callback"
   ]
 }
