@@ -20,7 +20,7 @@ module "wordpress-sso-idir-3946" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cloud-test.apps.silver.devops.gov.bc.ca/*",
+    "https://eibc.apps.silver.devops.gov.bc.ca/*",
     "https://wp-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
