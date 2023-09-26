@@ -5,7 +5,7 @@ module "gdx-browserstack-5012" {
   client_name        = "GDX Browserstack - DEV"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://www.browserstack.com/"
+    "https://login.browserstack.com/*"
   ]
   idps = [
     "idir",
