@@ -6,6 +6,9 @@ module "gdx-browserstack-5012" {
   assertion_lifespan = ""
   valid_redirect_uris = [
     "https://live.browserstack.com/*",
+    "https://login.browserstack.com/auth/realms/6d0c9eb9d7c86a9e0258b275b467c4f3",
+    "https://login.browserstack.com/auth/realms/6d0c9eb9d7c86a9e0258b275b467c4f3/broker/f5f6d13d51a9bb64426cbcf69b380c17/endpoint",
+    "https://login.browserstack.com/auth/realms/6d0c9eb9d7c86a9e0258b275b467c4f3/broker/f5f6d13d51a9bb64426cbcf69b380c17/endpoint/clients/f5f6d13d51a9bb64426cbcf69b380c17",
     "https://test.alpha.qa.gov.bc.ca/*",
     "https://www.browserstack.com/*"
   ]
