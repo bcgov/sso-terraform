@@ -5,7 +5,9 @@ module "gdx-browserstack-5012" {
   client_name        = "GDX Browserstack - DEV"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://login.browserstack.com/*"
+    "https://live.browserstack.com/*",
+    "https://test.alpha.qa.gov.bc.ca/*",
+    "https://www.browserstack.com/*"
   ]
   idps = [
     "idir",
@@ -13,7 +15,7 @@ module "gdx-browserstack-5012" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
-  logout_post_binding_url      = ""
+  logout_post_binding_url      = "https://www.browserstack.com/"
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
