@@ -23,12 +23,14 @@ module "invasives-bc-4565" {
   web_origins = [
     "https://invasivesbc.gov.bc.ca/",
     "https://invasivesbc.gov.bc.ca/home/landing",
+    "invasivesbc://localhost/",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://invasivesbc.gov.bc.ca/",
-    "https://invasivesbc.gov.bc.ca/home/landing"
+    "https://invasivesbc.gov.bc.ca/home/landing",
+    "invasivesbc://localhost/"
   ]
 }
