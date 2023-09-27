@@ -10,6 +10,7 @@ module "digital-gov-bc-ca-4705" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
