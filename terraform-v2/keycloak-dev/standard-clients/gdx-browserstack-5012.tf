@@ -1,7 +1,7 @@
 module "gdx-browserstack-5012" {
   source             = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client-saml"
   realm_id           = var.standard_realm_id
-  client_id          = "gdx-browserstack-5012"
+  client_id          = "https://login.browserstack.com/auth/realms/6d0c9eb9d7c86a9e0258b275b467c4f3"
   client_name        = "GDX Browserstack - DEV"
   assertion_lifespan = ""
   valid_redirect_uris = [
