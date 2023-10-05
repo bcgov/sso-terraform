@@ -23,6 +23,7 @@ module "saw-sx-4892" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://awp.th.gov.bc.ca/*",
+    "https://sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://sawsx.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -30,6 +31,7 @@ module "saw-sx-4892" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://awp.th.gov.bc.ca/*",
+    "https://sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://sawsx.apps.silver.devops.gov.bc.ca/*"
   ]
 }
