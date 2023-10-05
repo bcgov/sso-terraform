@@ -26,6 +26,7 @@ module "saw-sx-4892" {
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
     "https://uat-awp.th.gov.bc.ca/*",
+    "https://uat-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://uat-sawsx.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -36,6 +37,7 @@ module "saw-sx-4892" {
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
     "https://uat-awp.th.gov.bc.ca/*",
+    "https://uat-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://uat-sawsx.apps.silver.devops.gov.bc.ca/*"
   ]
 }
