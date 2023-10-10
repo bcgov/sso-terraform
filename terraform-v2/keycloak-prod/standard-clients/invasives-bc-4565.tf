@@ -23,6 +23,8 @@ module "invasives-bc-4565" {
   web_origins = [
     "https://invasivesbc.gov.bc.ca/",
     "https://invasivesbc.gov.bc.ca/home/landing",
+    "https://prod-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
+    "https://prod-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/",
     "invasivesbc://localhost/",
     "+"
   ]
@@ -31,6 +33,8 @@ module "invasives-bc-4565" {
   valid_redirect_uris = [
     "https://invasivesbc.gov.bc.ca/",
     "https://invasivesbc.gov.bc.ca/home/landing",
+    "https://prod-invasivesbci-appv2.apps.silver.devops.gov.bc.ca",
+    "https://prod-invasivesbci-appv2.apps.silver.devops.gov.bc.ca/",
     "invasivesbc://localhost/"
   ]
 }
