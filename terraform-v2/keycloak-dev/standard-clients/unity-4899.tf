@@ -26,7 +26,7 @@ module "unity-4899" {
     "http://localhost:8080/*",
     "http://localhost:8082/*",
     "https://dev-unity.apps.silver.devops.gov.bc.ca/*",
-    "https://dev.unity.gov.bc.ca/*",
+    "https://dev2-unity.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:44342/*",
     "https://localhost:8080/*",
     "https://oauth.pstmn.io/*"
