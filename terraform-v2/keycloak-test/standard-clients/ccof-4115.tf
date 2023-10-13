@@ -21,6 +21,7 @@ module "ccof-4115" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback",
-    "https://ofm-frontend-test-e1800b-dev.apps.silver.devops.gov.bc.ca/api/auth/callback"
+    "https://ofm-frontend-test-e1800b-dev.apps.silver.devops.gov.bc.ca/api/auth/callback",
+    "https://test.mychildcareservices.gov.bc.ca/api/auth/callback"
   ]
 }
