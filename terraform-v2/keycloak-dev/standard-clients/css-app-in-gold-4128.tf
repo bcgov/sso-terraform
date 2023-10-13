@@ -3,7 +3,7 @@ module "css-app-in-gold-4128" {
   realm_id                            = var.standard_realm_id
   client_id                           = "css-app-in-gold-4128"
   client_name                         = "Common Hosted Single Sign-on"
-  access_token_lifespan               = ""
+  access_token_lifespan               = 600
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
