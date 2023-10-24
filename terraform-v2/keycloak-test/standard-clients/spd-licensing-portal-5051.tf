@@ -20,12 +20,16 @@ module "spd-licensing-portal-5051" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://localhost:4200/*",
+    "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
     "https://spd-licensing-portal-test.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://localhost:4200/*",
+    "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
     "https://spd-licensing-portal-test.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
