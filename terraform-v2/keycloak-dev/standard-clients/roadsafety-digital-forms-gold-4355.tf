@@ -31,7 +31,7 @@ module "roadsafety-digital-forms-gold-4355" {
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/roadside-forms*",
+    "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -47,6 +47,6 @@ module "roadsafety-digital-forms-gold-4355" {
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/*",
     "https://rsbc-dh-prohibition-web-app-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/*",
-    "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/roadside-forms*"
+    "https://rsbc-roadside-forms-app-frontend-dev.apps.silver.devops.gov.bc.ca/roadside-forms/*"
   ]
 }
