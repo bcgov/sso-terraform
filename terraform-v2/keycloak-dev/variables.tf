@@ -59,3 +59,13 @@ variable "github_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "verifiablecredential_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "verifiablecredential_client_secret" {
+  type      = string
+  sensitive = true
+}
