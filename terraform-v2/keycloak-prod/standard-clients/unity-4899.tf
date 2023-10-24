@@ -20,6 +20,7 @@ module "unity-4899" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://unity.gov.bc.ca"
+    "https://prod-unity.apps.silver.devops.gov.bc.ca/*",
+    "https://unity.gov.bc.ca/*"
   ]
 }
