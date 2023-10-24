@@ -20,6 +20,7 @@ module "one-team-jenkins-4595" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://cd-io.nrs.gov.bc.ca/*",
     "https://oneteam-jenkins.apps.silver.devops.gov.bc.ca/*"
   ]
 }
