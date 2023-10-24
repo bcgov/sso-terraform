@@ -8,32 +8,36 @@ locals {
   github_realm_name                     = "github"
   siteminder_single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
   sandbox_client_redirect_uri           = "https://test.sandbox.loginproxy.gov.bc.ca/*"
+  verifiablecredential_realm_name       = "verifiablecredential"
 }
 
 module "standard" {
   source       = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-standard"
   keycloak_url = var.keycloak_url
 
-  standard_realm_name      = local.standard_realm_name
-  idir_realm_name          = local.idir_realm_name
-  azureidir_realm_name     = local.azureidir_realm_name
-  bceidbasic_realm_name    = local.bceidbasic_realm_name
-  bceidbusiness_realm_name = local.bceidbusiness_realm_name
-  bceidboth_realm_name     = local.bceidboth_realm_name
-  github_realm_name        = local.github_realm_name
+  standard_realm_name             = local.standard_realm_name
+  idir_realm_name                 = local.idir_realm_name
+  azureidir_realm_name            = local.azureidir_realm_name
+  bceidbasic_realm_name           = local.bceidbasic_realm_name
+  bceidbusiness_realm_name        = local.bceidbusiness_realm_name
+  bceidboth_realm_name            = local.bceidboth_realm_name
+  github_realm_name               = local.github_realm_name
+  verifiablecredential_realm_name = local.verifiablecredential_realm_name
 
-  idir_client_id              = module.idir.standard_client_id
-  idir_client_secret          = module.idir.standard_client_secret
-  azureidir_client_id         = module.azureidir.standard_client_id
-  azureidir_client_secret     = module.azureidir.standard_client_secret
-  bceidbasic_client_id        = module.bceidbasic.standard_client_id
-  bceidbasic_client_secret    = module.bceidbasic.standard_client_secret
-  bceidbusiness_client_id     = module.bceidbusiness.standard_client_id
-  bceidbusiness_client_secret = module.bceidbusiness.standard_client_secret
-  bceidboth_client_id         = module.bceidboth.standard_client_id
-  bceidboth_client_secret     = module.bceidboth.standard_client_secret
-  github_client_id            = module.github.standard_client_id
-  github_client_secret        = module.github.standard_client_secret
+  idir_client_id                     = module.idir.standard_client_id
+  idir_client_secret                 = module.idir.standard_client_secret
+  azureidir_client_id                = module.azureidir.standard_client_id
+  azureidir_client_secret            = module.azureidir.standard_client_secret
+  bceidbasic_client_id               = module.bceidbasic.standard_client_id
+  bceidbasic_client_secret           = module.bceidbasic.standard_client_secret
+  bceidbusiness_client_id            = module.bceidbusiness.standard_client_id
+  bceidbusiness_client_secret        = module.bceidbusiness.standard_client_secret
+  bceidboth_client_id                = module.bceidboth.standard_client_id
+  bceidboth_client_secret            = module.bceidboth.standard_client_secret
+  github_client_id                   = module.github.standard_client_id
+  github_client_secret               = module.github.standard_client_secret
+  verifiablecredential_client_id     = module.verifiablecredential.standard_client_id
+  verifiablecredential_client_secret = module.verifiablecredential.standard_client_secret
 }
 
 module "idir" {
@@ -106,6 +110,19 @@ module "github" {
   client_secret       = var.github_client_secret
   github_org          = "bcgov bcgov-c BCDevOps"
   sub_to_username     = true
+}
+
+module "verifiablecredential" {
+  source                             = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-verifiablecredential"
+  keycloak_url                       = var.keycloak_url
+  realm_name                         = local.verifiablecredential_realm_name
+  standard_realm_name                = local.standard_realm_name
+  verifiablecredential_client_id     = var.verifiablecredential_client_id
+  verifiablecredential_client_secret = var.verifiablecredential_client_secret
+  authorization_url                  = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/authorize"
+  token_url                          = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/token"
+  sub_to_username                    = true
+  sandbox_client_redirect_uri        = local.sandbox_client_redirect_uri
 }
 
 module "standard_clients" {

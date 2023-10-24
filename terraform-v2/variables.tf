@@ -97,6 +97,36 @@ variable "prod_keycloak_url" {
   type        = string
 }
 
+variable "dev_verifiablecredential_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_verifiablecredential_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_verifiablecredential_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_verifiablecredential_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_verifiablecredential_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_verifiablecredential_client_secret" {
+  type      = string
+  sensitive = true
+}
+
 variable "test_siteminder_signing_certificate" {
   type      = string
   sensitive = true
