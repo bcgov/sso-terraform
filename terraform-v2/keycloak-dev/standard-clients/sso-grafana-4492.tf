@@ -23,6 +23,7 @@ module "sso-grafana-4492" {
   valid_redirect_uris = [
     "http://sso-grafana-sandbox.apps.gold.devops.gov.bc.ca/*",
     "https://sso-grafana-sandbox.apps.gold.devops.gov.bc.ca/*",
-    "https://sso-minio-sandbox.apps.gold.devops.gov.bc.ca/*"
+    "https://sso-minio-sandbox.apps.gold.devops.gov.bc.ca/*",
+    "https://uzw525hsr2.execute-api.ca-central-1.amazonaws.com/*"
   ]
 }
