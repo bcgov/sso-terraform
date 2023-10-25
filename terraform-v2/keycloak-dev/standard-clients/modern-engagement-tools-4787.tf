@@ -13,12 +13,18 @@ module "modern-engagement-tools-4787" {
     "common"
   ]
   description                  = "CSS App Created"
-  additional_role_attribute    = ""
+  additional_role_attribute    = "tenant_id"
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "http://localhost:3000/*",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:3000/*"
   ]
