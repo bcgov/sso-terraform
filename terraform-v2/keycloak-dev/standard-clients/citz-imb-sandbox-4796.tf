@@ -23,6 +23,6 @@ module "citz-imb-sandbox-4796" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://localhost/*",
-    "https://spr-ap*"
+    "https://set-ap*"
   ]
 }
