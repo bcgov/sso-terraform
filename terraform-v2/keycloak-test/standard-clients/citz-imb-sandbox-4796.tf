@@ -22,6 +22,6 @@ module "citz-imb-sandbox-4796" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost/*"
+    "*"
   ]
 }
