@@ -5,7 +5,7 @@ module "conn-ccbc-portal-3934" {
   client_name                         = "Connecting Communities BC (dev)"
   access_token_lifespan               = ""
   client_session_idle_timeout         = 28800
-  client_session_max_lifespan         = ""
+  client_session_max_lifespan         = 28800
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
