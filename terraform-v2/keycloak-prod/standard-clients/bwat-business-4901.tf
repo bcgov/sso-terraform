@@ -10,6 +10,7 @@ module "bwat-business-4901" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
+    "bceidboth",
     "common"
   ]
   description                  = "CSS App Created"
