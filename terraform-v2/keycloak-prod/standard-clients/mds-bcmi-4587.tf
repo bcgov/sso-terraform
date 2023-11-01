@@ -3,7 +3,7 @@ module "mds-bcmi-4587" {
   realm_id                            = var.standard_realm_id
   client_id                           = "mds-bcmi-4587"
   client_name                         = "MDS-BCMI"
-  access_token_lifespan               = ""
+  access_token_lifespan               = 900
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
   client_offline_session_idle_timeout = ""
