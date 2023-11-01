@@ -22,7 +22,7 @@ module "standard" {
   bceidbusiness_realm_name        = local.bceidbusiness_realm_name
   bceidboth_realm_name            = local.bceidboth_realm_name
   github_realm_name               = local.github_realm_name
-  digitalcredential_realm_name = local.digitalcredential_realm_name
+  digitalcredential_realm_name    = local.digitalcredential_realm_name
 
   idir_client_id                     = module.idir.standard_client_id
   idir_client_secret                 = module.idir.standard_client_secret
