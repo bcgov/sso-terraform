@@ -21,18 +21,14 @@ module "bwat-business-4901" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://bwat-test.bcwatertool.ca",
-    "https://bwat-test.bcwatertool.ca/*",
+    "*",
     "https://pwat-test.bcwatertool.ca",
-    "https://pwat-test.bcwatertool.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://bwat-test.bcwatertool.ca",
-    "https://bwat-test.bcwatertool.ca/*",
-    "https://pwat-test.bcwatertool.ca",
-    "https://pwat-test.bcwatertool.ca/*"
+    "*",
+    "https://pwat-test.bcwatertool.ca"
   ]
 }
