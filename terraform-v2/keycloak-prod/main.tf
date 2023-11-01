@@ -8,7 +8,7 @@ locals {
   github_realm_name                     = "github"
   siteminder_single_sign_on_service_url = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
   sandbox_client_redirect_uri           = "https://sandbox.loginproxy.gov.bc.ca/*"
-  verifiablecredential_realm_name       = "verifiablecredential"
+  digitalcredential_realm_name          = "digitalcredential"
 }
 
 module "standard" {
@@ -22,7 +22,7 @@ module "standard" {
   bceidbusiness_realm_name        = local.bceidbusiness_realm_name
   bceidboth_realm_name            = local.bceidboth_realm_name
   github_realm_name               = local.github_realm_name
-  verifiablecredential_realm_name = local.verifiablecredential_realm_name
+  digitalcredential_realm_name = local.digitalcredential_realm_name
 
   idir_client_id                     = module.idir.standard_client_id
   idir_client_secret                 = module.idir.standard_client_secret
@@ -36,8 +36,8 @@ module "standard" {
   bceidboth_client_secret            = module.bceidboth.standard_client_secret
   github_client_id                   = module.github.standard_client_id
   github_client_secret               = module.github.standard_client_secret
-  verifiablecredential_client_id     = module.verifiablecredential.standard_client_id
-  verifiablecredential_client_secret = module.verifiablecredential.standard_client_secret
+  digitalcredential_client_id        = module.digitalcredential.standard_client_id
+  digitalcredential_client_secret    = module.digitalcredential.standard_client_secret
 }
 
 module "idir" {
@@ -112,13 +112,13 @@ module "github" {
   sub_to_username     = true
 }
 
-module "verifiablecredential" {
-  source                             = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-verifiablecredential"
+module "digitalcredential" {
+  source                             = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-digitalcredential"
   keycloak_url                       = var.keycloak_url
-  realm_name                         = local.verifiablecredential_realm_name
+  realm_name                         = local.digitalcredential_realm_name
   standard_realm_name                = local.standard_realm_name
-  verifiablecredential_client_id     = var.verifiablecredential_client_id
-  verifiablecredential_client_secret = var.verifiablecredential_client_secret
+  digitalcredential_client_id        = var.digitalcredential_client_id
+  digitalcredential_client_secret    = var.digitalcredential_client_secret
   authorization_url                  = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
   token_url                          = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
   sub_to_username                    = true

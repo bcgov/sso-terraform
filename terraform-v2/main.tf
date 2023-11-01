@@ -12,8 +12,8 @@ module "keycloak_dev" {
   azureidir_client_secret            = var.dev_azureidir_client_secret
   github_client_id                   = var.dev_github_client_id
   github_client_secret               = var.dev_github_client_secret
-  verifiablecredential_client_id     = var.dev_verifiablecredential_client_id
-  verifiablecredential_client_secret = var.dev_verifiablecredential_client_secret
+  digitalcredential_client_id        = var.dev_digitalcredential_client_id
+  digitalcredential_client_secret    = var.dev_digitalcredential_client_secret
 
 }
 
@@ -31,8 +31,8 @@ module "keycloak_test" {
   azureidir_client_secret            = var.test_azureidir_client_secret
   github_client_id                   = var.test_github_client_id
   github_client_secret               = var.test_github_client_secret
-  verifiablecredential_client_id     = var.test_verifiablecredential_client_id
-  verifiablecredential_client_secret = var.test_verifiablecredential_client_secret
+  digitalcredential_client_id        = var.test_digitalcredential_client_id
+  digitalcredential_client_secret    = var.test_digitalcredential_client_secret
 }
 
 module "keycloak_prod" {
@@ -49,6 +49,6 @@ module "keycloak_prod" {
   azureidir_client_secret            = var.prod_azureidir_client_secret
   github_client_id                   = var.prod_github_client_id
   github_client_secret               = var.prod_github_client_secret
-  verifiablecredential_client_id     = var.prod_verifiablecredential_client_id
-  verifiablecredential_client_secret = var.prod_verifiablecredential_client_secret
+  digitalcredential_client_id        = var.prod_digitalcredential_client_id
+  digitalcredential_client_secret    = var.prod_digitalcredential_client_secret
 }
