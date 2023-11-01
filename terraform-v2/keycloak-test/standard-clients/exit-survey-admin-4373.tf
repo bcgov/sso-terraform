@@ -20,16 +20,14 @@ module "exit-survey-admin-4373" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://erap.apps.gov.bc.ca/exitsurveyadmin-test/*",
     "https://esa-d82eaa-test.apps.silver.devops.gov.bc.ca/*",
-    "https://securesurveys.gov.bc.ca/test/Exit/admin/*",
-    "https://securesurveys.gov.bc.ca/test/exit/admin/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://esa-d82eaa-test.apps.silver.devops.gov.bc.ca/*",
-    "https://securesurveys.gov.bc.ca/test/Exit/admin/*",
-    "https://securesurveys.gov.bc.ca/test/exit/admin/*"
+    "https://erap.apps.gov.bc.ca/exitsurveyadmin-test/*",
+    "https://esa-d82eaa-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }

@@ -21,23 +21,13 @@ module "exit-survey-admin-4373" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "*",
-    "http://local-frontend-c746eb-tools.apps.silver.devops.gov.bc.ca",
-    "http://localhost:3000/*",
-    "http://localhost:5051/*",
     "https://erap.apps.gov.bc.ca/exitsurveyadmin-dev/*",
-    "https://securesurveys.gov.bc.ca/dev/Exit/admin/*",
-    "https://securesurveys.gov.bc.ca/dev/exit/admin/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "*",
-    "http://local-frontend-c746eb-tools.apps.silver.devops.gov.bc.ca",
-    "http://localhost:3000/*",
-    "http://localhost:5051/*",
-    "https://erap.apps.gov.bc.ca/exitsurveyadmin-dev/*",
-    "https://securesurveys.gov.bc.ca/dev/Exit/admin/*",
-    "https://securesurveys.gov.bc.ca/dev/exit/admin/*"
+    "https://erap.apps.gov.bc.ca/exitsurveyadmin-dev/*"
   ]
 }
