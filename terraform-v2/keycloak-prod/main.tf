@@ -15,29 +15,29 @@ module "standard" {
   source       = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-standard"
   keycloak_url = var.keycloak_url
 
-  standard_realm_name             = local.standard_realm_name
-  idir_realm_name                 = local.idir_realm_name
-  azureidir_realm_name            = local.azureidir_realm_name
-  bceidbasic_realm_name           = local.bceidbasic_realm_name
-  bceidbusiness_realm_name        = local.bceidbusiness_realm_name
-  bceidboth_realm_name            = local.bceidboth_realm_name
-  github_realm_name               = local.github_realm_name
-  digitalcredential_realm_name    = local.digitalcredential_realm_name
+  standard_realm_name          = local.standard_realm_name
+  idir_realm_name              = local.idir_realm_name
+  azureidir_realm_name         = local.azureidir_realm_name
+  bceidbasic_realm_name        = local.bceidbasic_realm_name
+  bceidbusiness_realm_name     = local.bceidbusiness_realm_name
+  bceidboth_realm_name         = local.bceidboth_realm_name
+  github_realm_name            = local.github_realm_name
+  digitalcredential_realm_name = local.digitalcredential_realm_name
 
-  idir_client_id                     = module.idir.standard_client_id
-  idir_client_secret                 = module.idir.standard_client_secret
-  azureidir_client_id                = module.azureidir.standard_client_id
-  azureidir_client_secret            = module.azureidir.standard_client_secret
-  bceidbasic_client_id               = module.bceidbasic.standard_client_id
-  bceidbasic_client_secret           = module.bceidbasic.standard_client_secret
-  bceidbusiness_client_id            = module.bceidbusiness.standard_client_id
-  bceidbusiness_client_secret        = module.bceidbusiness.standard_client_secret
-  bceidboth_client_id                = module.bceidboth.standard_client_id
-  bceidboth_client_secret            = module.bceidboth.standard_client_secret
-  github_client_id                   = module.github.standard_client_id
-  github_client_secret               = module.github.standard_client_secret
-  digitalcredential_client_id        = module.digitalcredential.standard_client_id
-  digitalcredential_client_secret    = module.digitalcredential.standard_client_secret
+  idir_client_id                  = module.idir.standard_client_id
+  idir_client_secret              = module.idir.standard_client_secret
+  azureidir_client_id             = module.azureidir.standard_client_id
+  azureidir_client_secret         = module.azureidir.standard_client_secret
+  bceidbasic_client_id            = module.bceidbasic.standard_client_id
+  bceidbasic_client_secret        = module.bceidbasic.standard_client_secret
+  bceidbusiness_client_id         = module.bceidbusiness.standard_client_id
+  bceidbusiness_client_secret     = module.bceidbusiness.standard_client_secret
+  bceidboth_client_id             = module.bceidboth.standard_client_id
+  bceidboth_client_secret         = module.bceidboth.standard_client_secret
+  github_client_id                = module.github.standard_client_id
+  github_client_secret            = module.github.standard_client_secret
+  digitalcredential_client_id     = module.digitalcredential.standard_client_id
+  digitalcredential_client_secret = module.digitalcredential.standard_client_secret
 }
 
 module "idir" {
@@ -113,16 +113,16 @@ module "github" {
 }
 
 module "digitalcredential" {
-  source                             = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-digitalcredential"
-  keycloak_url                       = var.keycloak_url
-  realm_name                         = local.digitalcredential_realm_name
-  standard_realm_name                = local.standard_realm_name
-  digitalcredential_client_id        = var.digitalcredential_client_id
-  digitalcredential_client_secret    = var.digitalcredential_client_secret
-  authorization_url                  = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
-  token_url                          = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
-  sub_to_username                    = true
-  sandbox_client_redirect_uri        = local.sandbox_client_redirect_uri
+  source                          = "github.com/bcgov/sso-terraform-modules?ref=dev/modules/base-realms/realm-digitalcredential"
+  keycloak_url                    = var.keycloak_url
+  realm_name                      = local.digitalcredential_realm_name
+  standard_realm_name             = local.standard_realm_name
+  digitalcredential_client_id     = var.digitalcredential_client_id
+  digitalcredential_client_secret = var.digitalcredential_client_secret
+  authorization_url               = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
+  token_url                       = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
+  sub_to_username                 = true
+  sandbox_client_redirect_uri     = local.sandbox_client_redirect_uri
 }
 
 module "standard_clients" {
