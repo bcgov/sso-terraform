@@ -22,7 +22,7 @@ module "url-shortener-5087" {
   valid_redirect_uris = [
     "http://localhost:3000",
     "http://localhost:3000/",
-    "http://localhost:3000/*?",
+    "http://localhost:3000/*",
     "https://gdx-analytics-url-shortener-c6d33e-dev.apps.silver.devops.gov.bc.ca"
   ]
 }
