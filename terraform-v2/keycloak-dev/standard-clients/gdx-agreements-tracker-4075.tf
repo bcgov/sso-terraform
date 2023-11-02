@@ -22,6 +22,7 @@ module "gdx-agreements-tracker-4075" {
   web_origins = [
     "http://0.0.0.0/*",
     "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://gdx-agreements-tracker-prod.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:3000/*",
     "https://oauth.pstmn.io/v1/callback",
     "+"
@@ -31,6 +32,7 @@ module "gdx-agreements-tracker-4075" {
   valid_redirect_uris = [
     "http://0.0.0.0/*",
     "https://gdx-agreements-tracker-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://gdx-agreements-tracker-prod.apps.silver.devops.gov.bc.ca/*",
     "https://localhost:3000/*",
     "https://oauth.pstmn.io/v1/callback"
   ]
