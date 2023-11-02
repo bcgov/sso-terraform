@@ -21,6 +21,6 @@ module "reporting-verification-systems-5085" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "http://127.0.0.1:8019/applogin",
-    "http://rvs-06cb9b-dev.apps.silver.devops.gov.bc.ca/applogin"
+    "https://rvs-06cb9b-dev.apps.silver.devops.gov.bc.ca/applogin"
   ]
 }
