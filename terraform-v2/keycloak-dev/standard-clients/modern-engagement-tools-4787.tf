@@ -21,11 +21,13 @@ module "modern-engagement-tools-4787" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:3000/*",
+    "http://localhost:3001/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*"
+    "http://localhost:3000/*",
+    "http://localhost:3001/*"
   ]
 }
