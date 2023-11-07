@@ -21,6 +21,6 @@ module "service-now-login-4834" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "https://econ.service-now.com/oauth_redirect.do"
+    "https://econ.service-now.com/navpage.do"
   ]
 }
