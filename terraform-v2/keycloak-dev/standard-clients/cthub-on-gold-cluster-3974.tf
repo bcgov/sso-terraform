@@ -24,6 +24,7 @@ module "cthub-on-gold-cluster-3974" {
     "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/",
     "https://cthub-dev.apps.silver.devops.gov.bc.ca/",
     "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/oauth-authorized/keycloak/",
     "+"
   ]
   standard_flow_enabled    = true
@@ -31,6 +32,7 @@ module "cthub-on-gold-cluster-3974" {
   valid_redirect_uris = [
     "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/",
     "https://cthub-dev.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/"
+    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/",
+    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/oauth-authorized/keycloak/"
   ]
 }
