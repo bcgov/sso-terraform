@@ -22,11 +22,17 @@ module "roadsafety-digital-forms-gold-4355" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://jag.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/api/*",
+    "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://test.jag.gov.bc.ca/roadside-forms/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://jag.gov.bc.ca/roadside-forms/*"
+    "https://jag.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/api/*",
+    "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://test.jag.gov.bc.ca/roadside-forms/*"
   ]
 }
