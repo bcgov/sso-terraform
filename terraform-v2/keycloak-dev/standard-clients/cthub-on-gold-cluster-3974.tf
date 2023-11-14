@@ -21,18 +21,16 @@ module "cthub-on-gold-cluster-3974" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-dev.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/oauth-authorized/keycloak/",
+    "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/*",
+    "https://cthub-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-dev.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/",
-    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/oauth-authorized/keycloak/"
+    "https://cthub-dev-73.apps.silver.devops.gov.bc.ca/*",
+    "https://cthub-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://cthub-superset-dev.apps.silver.devops.gov.bc.ca/*"
   ]
 }
