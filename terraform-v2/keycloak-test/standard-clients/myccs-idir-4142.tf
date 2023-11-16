@@ -22,6 +22,7 @@ module "myccs-idir-4142" {
   valid_redirect_uris = [
     "https://dev.mychildcareservices.gov.bc.ca/api/auth/callback_idir",
     "https://ofm-frontend-test-e1800b-dev.apps.silver.devops.gov.bc.ca/api/auth/callback_idir",
+    "https://ofm-frontend-uat-e1800b-test.apps.silver.devops.gov.bc.ca/api/auth/callback_idir",
     "https://test.mychildcareservices.gov.bc.ca/api/auth/callback_idir"
   ]
 }
