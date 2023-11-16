@@ -23,6 +23,7 @@ module "on-route-bc-direct-4598" {
   web_origins = [
     "http://localhost*",
     "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
+    "https://onroutebc-test-experiment-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-frontend.apps.silver.devops.gov.bc.ca/",
     "+"
   ]
@@ -31,6 +32,7 @@ module "on-route-bc-direct-4598" {
   valid_redirect_uris = [
     "http://localhost*",
     "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
+    "https://onroutebc-test-experiment-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-frontend.apps.silver.devops.gov.bc.ca/"
   ]
 }
