@@ -21,6 +21,6 @@ module "obps-4953" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://registration.industrialemissions.gov.bc.ca"
+    "https://registration.industryemissions.gov.bc.ca/*"
   ]
 }
