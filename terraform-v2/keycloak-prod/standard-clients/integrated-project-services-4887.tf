@@ -5,7 +5,7 @@ module "integrated-project-services-4887" {
   client_name        = "Integrated Project Services"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://ipsmoti.pmweb.com/*"
+    "https://ipsmoti.pmweb.com/PMWebSAML/"
   ]
   idps = [
     "idir",
@@ -14,6 +14,7 @@ module "integrated-project-services-4887" {
   description                  = "CSS App Created"
   additional_role_attribute    = ""
   logout_post_binding_url      = ""
+  sign_assertions              = false
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
