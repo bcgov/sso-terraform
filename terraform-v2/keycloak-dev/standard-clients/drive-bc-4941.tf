@@ -24,13 +24,13 @@ module "drive-bc-4941" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://localhost:8000/*",
-    "https://drivebc-backend-c59ecc-dev.apps.silver.devops.gov.bc.ca/*",
+    "https://dev-drivebc.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://localhost:8000/*",
-    "https://drivebc-backend-c59ecc-dev.apps.silver.devops.gov.bc.ca/*"
+    "https://dev-drivebc.apps.silver.devops.gov.bc.ca/*"
   ]
 }

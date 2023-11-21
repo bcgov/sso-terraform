@@ -23,12 +23,14 @@ module "drive-bc-4941" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "https://drivebc-backend-c59ecc-test.apps.silver.devops.gov.bc.ca/*",
+    "https://test-drivebc.apps.silver.devops.gov.bc.ca/*",
+    "https://uat-drivebc.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "https://drivebc-backend-c59ecc-test.apps.silver.devops.gov.bc.ca/*"
+    "https://test-drivebc.apps.silver.devops.gov.bc.ca/*",
+    "https://uat-drivebc.apps.silver.devops.gov.bc.ca/*"
   ]
 }
