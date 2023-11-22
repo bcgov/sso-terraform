@@ -5,7 +5,8 @@ module "integrated-project-services-4887" {
   client_name        = "Integrated Project Services"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "https://ipsmoti.pmweb.com/PMWebSAML/"
+    "https://ipsmoti.pmweb.com/PMWebSAML/",
+    "https://ipsmoti.pmweb.com/PMWebSAML/*"
   ]
   idps = [
     "idir",
