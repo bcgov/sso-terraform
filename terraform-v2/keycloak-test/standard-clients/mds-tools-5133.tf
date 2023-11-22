@@ -20,6 +20,7 @@ module "mds-tools-5133" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://kibana-dev.apps.silver.devops.gov.bc.ca/*",
     "https://kibana-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
