@@ -17,8 +17,17 @@ module "cvcom-5134" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  standard_flow_enabled        = true
-  service_accounts_enabled     = false
+  access_type                  = "PUBLIC"
+  pkce_code_challenge_method   = "S256"
+  web_origins = [
+    "https://cvcom.th.gov.bc.ca/",
+    "https://cvcom.th.gov.bc.ca/*",
+    "https://localhost:44328/",
+    "https://localhost:44328/*",
+    "+"
+  ]
+  standard_flow_enabled    = true
+  service_accounts_enabled = false
   valid_redirect_uris = [
     "https://cvcom.th.gov.bc.ca/",
     "https://cvcom.th.gov.bc.ca/*",
