@@ -2,7 +2,7 @@ module "dss-mapping-services-5140" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "dss-mapping-services-5140"
-  client_name                         = "DSS-Mapping-Services"
+  client_name                         = "DSS-Mapping-Services-AWStats"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -10,7 +10,6 @@ module "dss-mapping-services-5140" {
   client_offline_session_max_lifespan = ""
   idps = [
     "idir",
-    "azureidir",
     "common"
   ]
   description                  = "CSS App Created"
