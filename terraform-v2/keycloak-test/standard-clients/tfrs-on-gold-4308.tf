@@ -22,6 +22,7 @@ module "tfrs-on-gold-4308" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "https://logontest7.gov.bc.ca/*",
+    "https://tfrs-test-jan.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-test.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
@@ -29,6 +30,7 @@ module "tfrs-on-gold-4308" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "https://logontest7.gov.bc.ca/*",
+    "https://tfrs-test-jan.apps.silver.devops.gov.bc.ca/*",
     "https://tfrs-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
