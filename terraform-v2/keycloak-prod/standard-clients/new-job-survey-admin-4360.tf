@@ -20,12 +20,14 @@ module "new-job-survey-admin-4360" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "https://erap.apps.gov.bc.ca/newjobsurveyadmin/*",
     "https://njsa-c746eb-prod.apps.silver.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "https://erap.apps.gov.bc.ca/newjobsurveyadmin/*",
     "https://njsa-c746eb-prod.apps.silver.devops.gov.bc.ca/*"
   ]
 }
