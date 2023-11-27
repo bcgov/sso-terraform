@@ -20,8 +20,10 @@ module "aps-po-c-roles-3864" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://*",
     "https://hello-py-api-api-gov-bc-ca.dev.api.gov.bc.ca/cb",
     "https://test-oidc-dev-api-gov-bc-ca.dev.api.gov.bc.ca/awstats.pl",
+    "https://test-oidc-dev-api-gov-bc-ca.dev.api.gov.bc.ca/awstats/awstats.pl",
     "https://test-oidc-dev-api-gov-bc-ca.dev.api.gov.bc.ca/subfolder/"
   ]
 }
