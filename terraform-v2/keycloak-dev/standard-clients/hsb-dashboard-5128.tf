@@ -22,6 +22,7 @@ module "hsb-dashboard-5128" {
   service_accounts_enabled     = true
   valid_redirect_uris = [
     "https://dev-hsb.apps.emerald.devops.gov.bc.ca/",
+    "https://dev-hsb.apps.emerald.devops.gov.bc.ca/*",
     "https://dev-hsb.apps.emerald.devops.gov.bc.ca/api/auth/callback/keycloak"
   ]
 }
