@@ -22,9 +22,14 @@ module "isd-icm-wm-kkcfs-4367" {
   valid_redirect_uris = [
     "comdionavisits://auth/callback",
     "https://icmint620b-sitds.api.gov.bc.ca/*",
+    "https://icmint620b-sitps.api.gov.bc.ca/*",
     "https://icmint621b-sitds.api.gov.bc.ca/*",
+    "https://icmint621b-sitps.api.gov.bc.ca/*",
     "https://icmint678-sitds.api.gov.bc.ca/*",
+    "https://icmint678-sitps.api.gov.bc.ca/*",
     "https://icmint679-sitds.api.gov.bc.ca/*",
-    "https://icmint680-sitds.api.gov.bc.ca/*"
+    "https://icmint679-sitps.api.gov.bc.ca/*",
+    "https://icmint680-sitds.api.gov.bc.ca/*",
+    "https://icmint680-sitps.api.gov.bc.ca/*"
   ]
 }
