@@ -24,6 +24,9 @@ module "roadsafety-digital-forms-gold-4355" {
     "https://jag.gov.bc.ca/roadside-forms/*",
     "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/api/*",
     "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/api/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://test.jag.gov.bc.ca/roadside-forms/*",
     "+"
   ]
@@ -33,6 +36,9 @@ module "roadsafety-digital-forms-gold-4355" {
     "https://jag.gov.bc.ca/roadside-forms/*",
     "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/api/*",
     "https://rsbc-roadside-forms-app-frontend-prod.apps.silver.devops.gov.bc.ca/roadside-forms/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/api/*",
+    "https://rsbc-roadside-forms-app-frontend-stage.apps.silver.devops.gov.bc.ca/roadside-forms/*",
     "https://test.jag.gov.bc.ca/roadside-forms/*"
   ]
 }
