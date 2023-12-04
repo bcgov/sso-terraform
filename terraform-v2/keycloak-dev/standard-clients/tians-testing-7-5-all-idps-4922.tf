@@ -21,16 +21,8 @@ module "tians-testing-7-5-all-idps-4922" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "http://localhost:3000/*",
-    "http://localhost:3500/*",
-    "https://bcgov.github.io/keycloak-example-apps/*",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "http://localhost:3500/*",
