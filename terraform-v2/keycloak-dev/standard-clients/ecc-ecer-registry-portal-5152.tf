@@ -2,7 +2,7 @@ module "ecc-ecer-registry-portal-5152" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "ecc-ecer-registry-portal-5152"
-  client_name                         = "ECC-ECER-Registry-Portal"
+  client_name                         = "ECC ECER Portal"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
