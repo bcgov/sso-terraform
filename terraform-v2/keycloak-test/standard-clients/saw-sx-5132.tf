@@ -22,6 +22,8 @@ module "saw-sx-5132" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
+    "http://127.0.0.1:3000/*",
+    "http://localhost:3000/*",
     "https://test-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
@@ -33,6 +35,8 @@ module "saw-sx-5132" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
+    "http://127.0.0.1:3000/*",
+    "http://localhost:3000/*",
     "https://test-sawsx-hangfire.apps.silver.devops.gov.bc.ca/*",
     "https://test-sawsx.apps.silver.devops.gov.bc.ca/*",
     "https://tst-awp.th.gov.bc.ca/*",
