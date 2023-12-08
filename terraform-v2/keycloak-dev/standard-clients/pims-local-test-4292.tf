@@ -23,6 +23,7 @@ module "pims-local-test-4292" {
   web_origins = [
     "http://localhost:3000",
     "http://localhost:3000/",
+    "http://localhost:3000/access/request",
     "http://localhost:3000/admin/access/requests",
     "http://localhost:3000/admin/administrativeAreas",
     "http://localhost:3000/admin/agencies",
@@ -41,6 +42,7 @@ module "pims-local-test-4292" {
   valid_redirect_uris = [
     "http://localhost:3000",
     "http://localhost:3000/",
+    "http://localhost:3000/access/request",
     "http://localhost:3000/admin/access/requests",
     "http://localhost:3000/admin/administrativeAreas",
     "http://localhost:3000/admin/agencies",
