@@ -22,6 +22,7 @@ module "property-services-project-app-dev-only-4699" {
   web_origins = [
     "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
+    "https://localhost:3000/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-devin-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "+"
@@ -31,6 +32,7 @@ module "property-services-project-app-dev-only-4699" {
   valid_redirect_uris = [
     "http://localhost:3000/*",
     "https://dev-pims.th.gov.bc.ca/*",
+    "https://localhost:3000/*",
     "https://pims-app-3cd915-dev.apps.silver.devops.gov.bc.ca/*",
     "https://pims-app-devin-3cd915-dev.apps.silver.devops.gov.bc.ca/*"
   ]
