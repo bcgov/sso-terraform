@@ -5,7 +5,7 @@ module "bc-parks-dam-4602" {
   client_name        = "BC Parks DAM"
   assertion_lifespan = ""
   valid_redirect_uris = [
-    "http://localhost:1000"
+    "https://dam.lqc63d-prod.nimbus.cloud.gov.bc.ca/plugins/simplesaml/lib/www/module.php/saml/sp/saml2-acs.php/resourcespace-sp"
   ]
   idps = [
     "idir",
@@ -13,6 +13,8 @@ module "bc-parks-dam-4602" {
   ]
   description                  = "CSS App Created"
   additional_role_attribute    = ""
+  logout_post_binding_url      = ""
+  sign_assertions              = false
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
 }
