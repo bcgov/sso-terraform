@@ -21,6 +21,7 @@ module "talent-cloud-5163" {
   pkce_code_challenge_method   = "S256"
   web_origins = [
     "http://hcapemployers.localhost:4000/*",
+    "http://localhost:3050/*",
     "http://localhost:4000/*",
     "+"
   ]
@@ -28,6 +29,7 @@ module "talent-cloud-5163" {
   service_accounts_enabled = false
   valid_redirect_uris = [
     "http://hcapemployers.localhost:4000/*",
+    "http://localhost:3050/*",
     "http://localhost:4000/*"
   ]
 }
