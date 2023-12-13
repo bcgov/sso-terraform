@@ -20,15 +20,8 @@ module "drive-bc-4941" {
   login_theme                  = ""
   override_authentication_flow = true
   browser_authentication_flow  = data.keycloak_authentication_flow.idp_stopper.id
-  access_type                  = "PUBLIC"
-  pkce_code_challenge_method   = "S256"
-  web_origins = [
-    "https://test-drivebc.apps.silver.devops.gov.bc.ca/*",
-    "https://uat-drivebc.apps.silver.devops.gov.bc.ca/*",
-    "+"
-  ]
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
+  standard_flow_enabled        = true
+  service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://test-drivebc.apps.silver.devops.gov.bc.ca/*",
     "https://uat-drivebc.apps.silver.devops.gov.bc.ca/*"
