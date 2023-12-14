@@ -9,8 +9,6 @@ module "drive-bc-4941" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "idir",
-    "azureidir",
     "bceidboth",
     "githubbcgov",
     "common"
