@@ -24,6 +24,7 @@ module "spd-screening-portal-4830" {
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
     "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*",
+    "https://test-spd-screening-portal.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
@@ -31,6 +32,7 @@ module "spd-screening-portal-4830" {
   valid_redirect_uris = [
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
-    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*"
+    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*",
+    "https://test-spd-screening-portal.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
