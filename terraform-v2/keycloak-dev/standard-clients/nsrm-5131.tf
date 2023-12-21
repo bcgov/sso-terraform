@@ -22,6 +22,7 @@ module "nsrm-5131" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://nsrm.falcon.local/*",
-    "https://localhost:3000/*"
+    "https://localhost:3000/*",
+    "https://localhost:3010/*"
   ]
 }
