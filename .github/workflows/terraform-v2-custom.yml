@@ -1,23 +1,16 @@
-name: Terraform
+name: Terraform Custom Realm Batch Job
 
 on:
-  push:
-    branches:
-    - dev
-    - main
-    paths:
-    - terraform-v2-custom/**
-    - .github/workflows/terraform-v2-custom.yml
-  pull_request:
-    paths:
-    - terraform-v2-custom/**
-    - .github/workflows/terraform-v2-custom.yml
+  workflow_dispatch:
+  schedule:
+  - cron: 0 12 * * *
 
 env:
   TF_VERSION: 1.1.4
   KEYCLOAK_V2_DEV_URL: https://dev.loginproxy.gov.bc.ca
   KEYCLOAK_V2_TEST_URL: https://test.loginproxy.gov.bc.ca
   KEYCLOAK_V2_PROD_URL: https://loginproxy.gov.bc.ca
+  REALM_REGISTRY_API_URL: ${{ secrets.REALM_REGISTRY_API_URL }}
 
 jobs:
   terraform:
@@ -26,25 +19,44 @@ jobs:
     - uses: hmarr/debug-action@v2
     - uses: actions/checkout@v2
 
+    - name: Fetch Requests Count
+      id: requests
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
+        method: GET
+        customHeaders: '{"Authorization": "${{ secrets.REALM_REGISTRY_GH_API_TOKEN }}"}'
+        timeout: '60000'
+
+    - name: Get Requests Count
+      id: count
+      run: |
+        count=$(jq length <<< ${{ steps.requests.outputs.response }})
+        echo "$count"
+        echo "count=$count" >> $GITHUB_OUTPUT
+
     - name: Setup Terraform
+      if: steps.count.outputs.count != '0'
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: ${{ env.TF_VERSION }}
 
     - name: Terraform Format
       id: fmt
+      if: steps.count.outputs.count != '0'
       run: terraform fmt -check
       working-directory: ./terraform-v2-custom
 
     - name: Terraform Variables
+      if: steps.count.outputs.count != '0'
       run: |
         cat >"config.tf" <<EOF
         terraform {
           backend "s3" {
-            bucket = "xgr00q-prod-keycloak"
+            bucket = "xgr00q-dev-keycloak"
             key    = "keycloak/gold-custom"
             region = "ca-central-1"
-            dynamodb_table = "xgr00q-prod-state-locking"
+            dynamodb_table = "xgr00q-dev-state-locking"
             access_key = "${{ secrets.TF_S3_ACCESS_KEY }}"
             secret_key = "${{ secrets.TF_S3_SECRET_KEY }}"
             role_arn   = "${{ secrets.TF_S3_ROLE_ARN }}"
@@ -69,61 +81,41 @@ jobs:
       working-directory: ./terraform-v2-custom
 
     - name: Terraform Init
+      if: steps.count.outputs.count != '0'
       id: init
       run: terraform init -upgrade
       working-directory: ./terraform-v2-custom
 
     - name: Terraform Plan
+      if: steps.count.outputs.count != '0'
       id: plan
-      if: github.event_name == 'pull_request'
       run: terraform plan -no-color
       working-directory: ./terraform-v2-custom
       continue-on-error: true
 
-    - name: Truncate Terraform Plan
-      run: |
-        plan=$(tail -n 1000 <<'EOF'
-        ${{ format('{0}', steps.plan.outputs.stdout) }}
-        EOF
-        )
-        echo "PLAN<<EOF" >> $GITHUB_ENV
-        echo "${plan:0:65536}" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
-
-    - uses: actions/github-script@0.9.0
-      if: github.event_name == 'pull_request'
+    - name: Update Realm Request TF Plan Status
+      if: steps.count.outputs.count != '0'
+      uses: fjogeleit/http-request-action@master
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-          #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-          <details><summary>Show Plan</summary>
-
-          \`\`\`${process.env.PLAN}\`\`\`
-
-          </details>
-
-          *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-
-          github.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: output
-          })
+        url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
+        method: PUT
+        data: "{\"ids\": ${{ steps.requests.outputs.response }}, \"action\": \"tf_plan\", \"success\": \"${{ steps.plan.outcome != 'failure' }}\"}"
+        customHeaders: '{"Authorization": "${{ secrets.REALM_REGISTRY_GH_API_TOKEN }}"}'
+        timeout: '60000'
 
     - name: Terraform Plan Status
-      if: steps.plan.outcome == 'failure'
+      if: steps.count.outputs.count != '0' && steps.plan.outcome == 'failure'
       run: exit 1
 
     - name: Terraform Apply
-      if: github.event_name == 'push'
+      if: steps.count.outputs.count != '0' && steps.plan.outcome != 'failure'
+      id: apply
       run: terraform apply -auto-approve
       working-directory: ./terraform-v2-custom
+      continue-on-error: true
 
     - uses: bcgov/sso-requests-actions/keycloak@v0.63.0
-      if: github.event_name == 'push'
+      if: steps.count.outputs.count != '0' && steps.apply.outcome != 'failure'
       with:
         dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
@@ -132,3 +124,17 @@ jobs:
         test-client-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
         prod-client-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
         tasks: create-master-viewer
+
+    - name: Update Realm Request TF Apply Status
+      if: steps.count.outputs.count != '0'
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
+        method: PUT
+        data: "{\"ids\": ${{ steps.requests.outputs.response }}, \"action\": \"tf_apply\", \"success\": \"${{ steps.apply.outcome != 'failure' }}\"}"
+        customHeaders: '{"Authorization": "${{ secrets.REALM_REGISTRY_GH_API_TOKEN }}"}'
+        timeout: '60000'
+
+    - name: Terraform Apply Status
+      if: steps.count.outputs.count != '0' && steps.apply.outcome == 'failure'
+      run: exit 1
