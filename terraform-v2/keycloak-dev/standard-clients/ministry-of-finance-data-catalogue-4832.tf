@@ -20,6 +20,7 @@ module "ministry-of-finance-data-catalogue-4832" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "https://dev.cat.data.fin.gov.bc.ca/openid-connect/keycloak",
     "https://dv21.openplus.ca/openid-connect/keycloak",
     "https://mfin-data-catalogue.apps.silver.devops.gov.bc.ca/openid-connect/keycloak"
   ]
