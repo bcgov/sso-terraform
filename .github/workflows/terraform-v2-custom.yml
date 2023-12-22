@@ -53,10 +53,10 @@ jobs:
         cat >"config.tf" <<EOF
         terraform {
           backend "s3" {
-            bucket = "xgr00q-dev-keycloak"
+            bucket = "xgr00q-prod-keycloak"
             key    = "keycloak/gold-custom"
             region = "ca-central-1"
-            dynamodb_table = "xgr00q-dev-state-locking"
+            dynamodb_table = "xgr00q-prod-state-locking"
             access_key = "${{ secrets.TF_S3_ACCESS_KEY }}"
             secret_key = "${{ secrets.TF_S3_SECRET_KEY }}"
             role_arn   = "${{ secrets.TF_S3_ROLE_ARN }}"
