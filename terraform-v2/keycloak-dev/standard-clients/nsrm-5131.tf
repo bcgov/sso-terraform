@@ -22,6 +22,7 @@ module "nsrm-5131" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "http://nsrm.falcon.local/*",
+    "https://dev-nsrm.econ.gov.bc.ca/*",
     "https://localhost:3000/*",
     "https://localhost:3010/*"
   ]
