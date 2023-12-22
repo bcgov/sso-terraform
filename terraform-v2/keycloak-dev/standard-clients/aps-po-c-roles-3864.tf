@@ -20,6 +20,7 @@ module "aps-po-c-roles-3864" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
+    "http://localhost:5555/*",
     "https://*",
     "https://test-oidc-dev-api-gov-bc-ca.dev.api.gov.bc.ca/oauth2_callback"
   ]
