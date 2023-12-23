@@ -2,7 +2,7 @@ module "ministry-of-finance-data-catalogue-4832" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "ministry-of-finance-data-catalogue-4832"
-  client_name                         = "Ministry of Finance Data Catalogue"
+  client_name                         = "Ministry of Finance Data Catalogue Prod"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
@@ -20,6 +20,7 @@ module "ministry-of-finance-data-catalogue-4832" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://cat.data.fin.gov.bc.ca/openid-connect/keycloak"
+    "https://cat.data.fin.gov.bc.ca/openid-connect/keycloak",
+    "https://mfin-data-catalogue-prod.apps.silver.devops.gov.bc.ca/openid-connect/keycloak"
   ]
 }
