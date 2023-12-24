@@ -20,6 +20,7 @@ module "virtual-home-energy-rating-system-4932" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
+    "https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca/",
     "https://cleanbc.gov.bc.ca/"
   ]
 }
