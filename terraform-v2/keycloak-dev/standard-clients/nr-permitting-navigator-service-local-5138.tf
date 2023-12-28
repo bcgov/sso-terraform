@@ -2,7 +2,7 @@ module "nr-permitting-navigator-service-local-5138" {
   source                              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
   realm_id                            = var.standard_realm_id
   client_id                           = "nr-permitting-navigator-service-local-5138"
-  client_name                         = "NR Permitting Navigator Service - local"
+  client_name                         = "NR PermitConnect Navigator Service - local"
   access_token_lifespan               = ""
   client_session_idle_timeout         = ""
   client_session_max_lifespan         = ""
