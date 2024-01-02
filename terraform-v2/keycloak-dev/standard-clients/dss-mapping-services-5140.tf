@@ -20,6 +20,6 @@ module "dss-mapping-services-5140" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://awstats-dlvr.apps.gov.bc.ca/*"
+    "https://awstats.apps.gov.bc.ca/*"
   ]
 }
