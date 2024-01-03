@@ -9,7 +9,7 @@ module "property-inventory-management-system-5189" {
   client_offline_session_idle_timeout = ""
   client_offline_session_max_lifespan = ""
   idps = [
-    "azureidir",
+    "idir",
     "common"
   ]
   description                  = "CSS App Created"
