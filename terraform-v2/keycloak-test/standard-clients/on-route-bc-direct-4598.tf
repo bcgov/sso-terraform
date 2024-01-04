@@ -21,7 +21,7 @@ module "on-route-bc-direct-4598" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost*",
+    "http://localhost:3000/",
     "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-latest-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-experiment-frontend.apps.silver.devops.gov.bc.ca/",
@@ -31,7 +31,7 @@ module "on-route-bc-direct-4598" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost*",
+    "http://localhost:3000/",
     "https://onroutebc-demo-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-latest-frontend.apps.silver.devops.gov.bc.ca/",
     "https://onroutebc-test-experiment-frontend.apps.silver.devops.gov.bc.ca/",
