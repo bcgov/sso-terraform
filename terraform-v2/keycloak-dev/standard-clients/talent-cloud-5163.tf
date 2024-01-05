@@ -20,16 +20,16 @@ module "talent-cloud-5163" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://hcapemployers.localhost:4000/*",
     "http://localhost:3050/*",
     "http://localhost:4000/*",
+    "https://tcloud-client-cd4869-dev.apps.gold.devops.gov.bc.ca/*",
     "+"
   ]
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://hcapemployers.localhost:4000/*",
     "http://localhost:3050/*",
-    "http://localhost:4000/*"
+    "http://localhost:4000/*",
+    "https://tcloud-client-cd4869-dev.apps.gold.devops.gov.bc.ca/*"
   ]
 }
