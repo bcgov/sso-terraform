@@ -23,7 +23,6 @@ module "spd-screening-portal-4830" {
   web_origins = [
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
-    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*",
     "https://test-spd-screening-portal.apps.emerald.devops.gov.bc.ca/*",
     "+"
   ]
@@ -32,7 +31,6 @@ module "spd-screening-portal-4830" {
   valid_redirect_uris = [
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
-    "https://spd-screening-portal-test.apps.emerald.devops.gov.bc.ca/*",
     "https://test-spd-screening-portal.apps.emerald.devops.gov.bc.ca/*"
   ]
 }
