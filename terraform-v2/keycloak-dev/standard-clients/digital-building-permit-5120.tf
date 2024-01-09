@@ -22,6 +22,7 @@ module "digital-building-permit-5120" {
   standard_flow_enabled        = true
   service_accounts_enabled     = true
   valid_redirect_uris = [
-    "http://localhost:3000/*"
+    "http://localhost:3000/*",
+    "http://localhost:3000/api/auth/keycloak/callback*"
   ]
 }
