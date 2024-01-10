@@ -21,7 +21,7 @@ module "community-information-tool-4411" {
   access_type                  = "PUBLIC"
   pkce_code_challenge_method   = "S256"
   web_origins = [
-    "http://localhost:3000/*",
+    "http://localhost:80/*",
     "https://dev.communityinformationtool.gov.bc.ca/",
     "https://dev.communityinformationtool.gov.bc.ca/*",
     "+"
@@ -29,7 +29,7 @@ module "community-information-tool-4411" {
   standard_flow_enabled    = true
   service_accounts_enabled = false
   valid_redirect_uris = [
-    "http://localhost:3000/*",
+    "http://localhost:80/*",
     "https://dev.communityinformationtool.gov.bc.ca/",
     "https://dev.communityinformationtool.gov.bc.ca/*"
   ]
