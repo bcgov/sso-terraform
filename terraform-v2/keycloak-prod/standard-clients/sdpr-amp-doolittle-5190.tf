@@ -21,6 +21,6 @@ module "sdpr-amp-doolittle-5190" {
   standard_flow_enabled        = true
   service_accounts_enabled     = false
   valid_redirect_uris = [
-    "https://knowledge.social.gov.bc.ca"
+    "https://knowledge.social.gov.bc.ca/sso"
   ]
 }
