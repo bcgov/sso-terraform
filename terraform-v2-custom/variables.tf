@@ -1,21 +1,10 @@
 # KEYCLOAK_DEV
-variable "dev_client_id" {
-  description = "The client_id for the Keycloak client in Master Realm"
-  default     = "terraform-cli"
-  type        = string
-}
-
-variable "dev_client_secret" {
-  description = "The client_secret for the Keycloak client"
-  default     = ""
-  type        = string
-  sensitive   = true
-}
 
 variable "dev_username" {
   description = "The username of the user used by the provider for authentication via the password grant"
   default     = ""
   type        = string
+  sensitive   = true
 }
 
 variable "dev_password" {
@@ -32,23 +21,12 @@ variable "dev_keycloak_url" {
 }
 
 # KEYCLOAK_TEST
-variable "test_client_id" {
-  description = "The client_id for the Keycloak client in Master Realm"
-  default     = "terraform-cli"
-  type        = string
-}
-
-variable "test_client_secret" {
-  description = "The client_secret for the Keycloak client"
-  default     = ""
-  type        = string
-  sensitive   = true
-}
 
 variable "test_username" {
   description = "The username of the user used by the provider for authentication via the password grant"
   default     = ""
   type        = string
+  sensitive   = true
 }
 
 variable "test_password" {
@@ -65,23 +43,12 @@ variable "test_keycloak_url" {
 }
 
 # KEYCLOAK_PROD
-variable "prod_client_id" {
-  description = "The client_id for the Keycloak client in Master Realm"
-  default     = "terraform-cli"
-  type        = string
-}
-
-variable "prod_client_secret" {
-  description = "The client_secret for the Keycloak client"
-  default     = ""
-  type        = string
-  sensitive   = true
-}
 
 variable "prod_username" {
   description = "The username of the user used by the provider for authentication via the password grant"
   default     = ""
   type        = string
+  sensitive   = true
 }
 
 variable "prod_password" {
