@@ -4,17 +4,11 @@ variable "client_id" {
   type        = string
 }
 
-variable "client_secret" {
-  description = "The client_secret for the Keycloak client"
-  default     = ""
-  type        = string
-  sensitive   = true
-}
-
 variable "username" {
   description = "The username of the user used by the provider for authentication via the password grant"
   default     = ""
   type        = string
+  sensitive   = true
 }
 
 variable "password" {
