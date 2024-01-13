@@ -21,7 +21,6 @@ module "wordpress-sso-idir-3946" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://0.0.0.0/*",
-    "https://cloud-test.apps.silver.devops.gov.bc.ca/*",
     "https://localhost/*",
     "https://wp-dev.apps.silver.devops.gov.bc.ca/*"
   ]

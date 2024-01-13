@@ -21,6 +21,7 @@ module "wordpress-sso-idir-3946" {
   service_accounts_enabled     = false
   valid_redirect_uris = [
     "https://eibc.apps.silver.devops.gov.bc.ca/*",
+    "https://feedbcdirectory.apps.silver.devops.gov.bc.ca/*",
     "https://wp-test.apps.silver.devops.gov.bc.ca/*"
   ]
 }
