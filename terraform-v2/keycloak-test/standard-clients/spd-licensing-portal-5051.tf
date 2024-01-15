@@ -22,7 +22,8 @@ module "spd-licensing-portal-5051" {
   web_origins = [
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
-    "https://spd-licensing-portal-test.apps.emerald.devops.gov.bc.ca/*",
+    "https://test-spd-licensing-portal.apps.emerald.devops.gov.bc.ca/*",
+    "https://training-spd-licensing-portal.apps.emerald.devops.gov.bc.ca/",
     "+"
   ]
   standard_flow_enabled    = true
@@ -30,6 +31,7 @@ module "spd-licensing-portal-5051" {
   valid_redirect_uris = [
     "http://localhost:4200/*",
     "https://logontest7.gov.bc.ca/clp-cgi/logoff.cgi",
-    "https://spd-licensing-portal-test.apps.emerald.devops.gov.bc.ca/*"
+    "https://test-spd-licensing-portal.apps.emerald.devops.gov.bc.ca/*",
+    "https://training-spd-licensing-portal.apps.emerald.devops.gov.bc.ca/"
   ]
 }
