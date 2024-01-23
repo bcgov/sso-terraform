@@ -125,16 +125,6 @@ module "digitalcredential" {
   sandbox_client_redirect_uri     = local.sandbox_client_redirect_uri
 }
 
-module "standard_clients" {
-  source            = "./standard-clients"
-  standard_realm_id = module.standard.realm_id
-}
-
-module "standard_service_clients" {
-  source            = "./standard-service-accounts"
-  standard_realm_id = module.standard.realm_id
-}
-
 module "master_idir_link" {
   source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
