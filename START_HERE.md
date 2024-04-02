@@ -13,5 +13,3 @@ Include other instructions/information as needed. You could find the following t
 - [license](./LICENSE): use one that applies to your project
 - [how to contribute](./CONTRIBUTING.md)
 - [code of conduct](./CODE_OF_CONDUCT.md)
-
-## Step 3:
