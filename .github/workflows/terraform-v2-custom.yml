@@ -16,12 +16,12 @@ jobs:
   terraform:
     runs-on: ubuntu-20.04
     steps:
-    - uses: hmarr/debug-action@v2
-    - uses: actions/checkout@v2
+    - uses: hmarr/debug-action@v3
+    - uses: actions/checkout@v4
 
     - name: Fetch Requests Count
       id: requests
-      uses: fjogeleit/http-request-action@master
+      uses: fjogeleit/http-request-action@v1
       with:
         url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
         method: GET
@@ -37,7 +37,7 @@ jobs:
 
     - name: Setup Terraform
       if: steps.count.outputs.count != '0'
-      uses: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v3
       with:
         terraform_version: ${{ env.TF_VERSION }}
 
@@ -98,7 +98,7 @@ jobs:
 
     - name: Update Realm Request TF Plan Status
       if: steps.count.outputs.count != '0'
-      uses: fjogeleit/http-request-action@master
+      uses: fjogeleit/http-request-action@v1
       with:
         url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
         method: PUT
@@ -133,7 +133,7 @@ jobs:
 
     - name: Update Realm Request TF Apply Status
       if: steps.count.outputs.count != '0'
-      uses: fjogeleit/http-request-action@master
+      uses: fjogeleit/http-request-action@v1
       with:
         url: ${{ env.REALM_REGISTRY_API_URL }}/realms/pending
         method: PUT
