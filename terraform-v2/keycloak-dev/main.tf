@@ -36,8 +36,8 @@ module "standard" {
   github_client_id            = module.github.standard_client_id
   github_client_secret        = module.github.standard_client_secret
 
-  digitalcredential_client_id         = module.digitalcredential.standard_client_id
-  digitalcredential_client_secret     = module.digitalcredential.standard_client_secret
+  digitalcredential_client_id         = var.digitalcredential_client_id
+  digitalcredential_client_secret     = var.digitalcredential_client_secret
   digitalcredential_authorization_url = "https://vc-authn-oidc-dev.apps.silver.devops.gov.bc.ca/authorize"
   digitalcredential_token_url         = "https://vc-authn-oidc-dev.apps.silver.devops.gov.bc.ca/token"
 }
