@@ -64,10 +64,16 @@ jobs:
         prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
         dev-github-client-id: ${{ secrets.DEV_GITHUB_CLIENT_ID }}
         dev-github-client-secret: ${{ secrets.DEV_GITHUB_CLIENT_SECRET }}
+        dev-digitalcredential-client-id: ${{ secrets.DEV_DIGITALCREDENTIAL_CLIENT_ID }}
+        dev-digitalcredential-client-secret: ${{ secrets.DEV_DIGITALCREDENTIAL_CLIENT_SECRET }}
         test-github-client-id: ${{ secrets.TEST_GITHUB_CLIENT_ID }}
         test-github-client-secret: ${{ secrets.TEST_GITHUB_CLIENT_SECRET }}
+        test-digitalcredential-client-id: ${{ secrets.TEST_DIGITALCREDENTIAL_CLIENT_ID }}
+        test-digitalcredential-client-secret: ${{ secrets.TEST_DIGITALCREDENTIAL_CLIENT_SECRET }}
         prod-github-client-id: ${{ secrets.PROD_GITHUB_CLIENT_ID }}
         prod-github-client-secret: ${{ secrets.PROD_GITHUB_CLIENT_SECRET }}
+        prod-digitalcredential-client-id: ${{ secrets.PROD_DIGITALCREDENTIAL_CLIENT_ID }}
+        prod-digitalcredential-client-secret: ${{ secrets.PROD_DIGITALCREDENTIAL_CLIENT_SECRET }}
         apply: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
 
