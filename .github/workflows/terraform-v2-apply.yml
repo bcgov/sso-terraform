@@ -16,14 +16,12 @@ jobs:
     - uses: hmarr/debug-action@v3
 
     - name: Checkout Terraform Modules
-      if: steps.count.outputs.count != '0'
       uses: actions/checkout@v4
       with:
         repository: bcgov/sso-terraform-modules
         ref: main
 
     - id: tf-modules
-      if: steps.count.outputs.count != '0'
       name: Get Terraform Modules Latest SHA
       run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       shell: bash
