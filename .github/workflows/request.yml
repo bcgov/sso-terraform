@@ -34,4 +34,4 @@ jobs:
         url: ${{ secrets.RC_SSO_ALERTS_WEBHOOK }}
         method: POST
         customHeaders: '{"Content-Type": "application/json"}'
-        data: '{"text": "Terraform Client Request Failed! @jsharman  @Marco  @zorin.samji @nithinshekar.kuruba", "attachments": [{"color": "#FF0000","author_name": "${{ github.actor }}", "title": "Failed job", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}'
+        data: '{"text": "Terraform Client Request Failed! @jsharman @Marco @nithinshekar.kuruba", "attachments": [{"color": "#FF0000","author_name": "${{ github.actor }}", "title": "Failed job", "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}", "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}]}'
