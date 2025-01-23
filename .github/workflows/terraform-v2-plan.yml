@@ -31,7 +31,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Setup Terraform
-      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.63.0
+      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.66.0
       with:
         context: ./terraform-v2
         tf-version: ${{ env.TF_VERSION }}
@@ -41,13 +41,16 @@ jobs:
         tf-s3-access-key: ${{ secrets.TF_S3_ACCESS_KEY }}
         tf-s3-secret-key: ${{ secrets.TF_S3_SECRET_KEY }}
         tf-s3-role-arn: ${{ secrets.TF_S3_ROLE_ARN }}
-        kc-provider-version: 4.4.0
+        kc-provider-version: 5.0.0
         kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
         kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
-        kc-dev-secret: ${{ secrets.KEYCLOAK_V2_DEV_CLIENT_SECRET }}
-        kc-test-secret: ${{ secrets.KEYCLOAK_V2_TEST_CLIENT_SECRET }}
-        kc-prod-secret: ${{ secrets.KEYCLOAK_V2_PROD_CLIENT_SECRET }}
+        kc-dev-username: ${{ secrets.KEYCLOAK_V2_DEV_USERNAME }}
+        kc-test-username: ${{ secrets.KEYCLOAK_V2_TEST_USERNAME }}
+        kc-prod-username: ${{ secrets.KEYCLOAK_V2_PROD_USERNAME }}
+        kc-dev-password: ${{ secrets.KEYCLOAK_V2_DEV_PASSWORD }}
+        kc-test-password: ${{ secrets.KEYCLOAK_V2_TEST_PASSWORD }}
+        kc-prod-password: ${{ secrets.KEYCLOAK_V2_PROD_PASSWORD }}
         test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}
         prod-siteminder-signing-certificate: ${{ secrets.PROD_SITEMINDER_SIGNING_CERTIFICATE }}
         dev-azureidir-tenant-id: ${{ secrets.DEV_AZUREIDIR_TENANT_ID }}
@@ -61,9 +64,15 @@ jobs:
         prod-azureidir-client-secret: ${{ secrets.PROD_AZUREIDIR_CLIENT_SECRET }}
         dev-github-client-id: ${{ secrets.DEV_GITHUB_CLIENT_ID }}
         dev-github-client-secret: ${{ secrets.DEV_GITHUB_CLIENT_SECRET }}
+        dev-digitalcredential-client-id: ${{ secrets.DEV_DIGITALCREDENTIAL_CLIENT_ID }}
+        dev-digitalcredential-client-secret: ${{ secrets.DEV_DIGITALCREDENTIAL_CLIENT_SECRET }}
         test-github-client-id: ${{ secrets.TEST_GITHUB_CLIENT_ID }}
         test-github-client-secret: ${{ secrets.TEST_GITHUB_CLIENT_SECRET }}
+        test-digitalcredential-client-id: ${{ secrets.TEST_DIGITALCREDENTIAL_CLIENT_ID }}
+        test-digitalcredential-client-secret: ${{ secrets.TEST_DIGITALCREDENTIAL_CLIENT_SECRET }}
         prod-github-client-id: ${{ secrets.PROD_GITHUB_CLIENT_ID }}
         prod-github-client-secret: ${{ secrets.PROD_GITHUB_CLIENT_SECRET }}
+        prod-digitalcredential-client-id: ${{ secrets.PROD_DIGITALCREDENTIAL_CLIENT_ID }}
+        prod-digitalcredential-client-secret: ${{ secrets.PROD_DIGITALCREDENTIAL_CLIENT_SECRET }}
         plan: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
