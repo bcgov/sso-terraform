@@ -40,6 +40,8 @@ module "standard" {
   digitalcredential_client_secret     = var.digitalcredential_client_secret
   digitalcredential_authorization_url = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/authorize"
   digitalcredential_token_url         = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/token"
+
+  add_backwards_compatible_mappers = true
 }
 
 module "idir" {
