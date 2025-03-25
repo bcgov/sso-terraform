@@ -15,7 +15,7 @@ jobs:
         pr=$(curl ${{ github.event.pull_request._links.self.href }})
         labels=$(jq ".labels" <<< "$pr")
         botLabel=$(jq -c '.[] | select(.name | contains("auto_generated")).name' <<< "$labels")
-        echo "::set-output name=botLabel::$botLabel"
+        echo "{count}={$count}" >> $GITHUB_OUTPUT
 
     - name: Setup Tools
       if: steps.pr.outputs.botLabel != '"auto_generated"'

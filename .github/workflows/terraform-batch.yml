@@ -41,7 +41,7 @@ jobs:
       run: |
         count=$(jq length <<< ${{ steps.requests.outputs.response }})
         echo "$count"
-        echo "::set-output name=count::$count"
+        echo "{count}={$count}" >> $GITHUB_OUTPUT
 
     - name: Pull the main branch again
       if: steps.count.outputs.count != '0'
