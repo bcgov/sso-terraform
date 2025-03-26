@@ -15,11 +15,11 @@ jobs:
         pr=$(curl ${{ github.event.pull_request._links.self.href }})
         labels=$(jq ".labels" <<< "$pr")
         botLabel=$(jq -c '.[] | select(.name | contains("auto_generated")).name' <<< "$labels")
-        echo "::set-output name=botLabel::$botLabel"
+        echo "{count}={$count}" >> $GITHUB_OUTPUT
 
     - name: Setup Tools
       if: steps.pr.outputs.botLabel != '"auto_generated"'
-      uses: bcgov/sso-requests-actions/actions/setup-tools@v0.63.0
+      uses: bcgov/sso-requests-actions/actions/setup-tools@v0.69.0
 
     - name: Rerun Pre-Commit Hooks on CI
       if: steps.pr.outputs.botLabel != '"auto_generated"'
