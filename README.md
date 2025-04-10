@@ -2,26 +2,7 @@
 
 ![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)
 
-This repository stores the Terraform scripts to provision BCGov SSO infrastructure in Silver and Gold Keycloak instances.
-
-## Workflow
-
-The general workflow for an SSO integration creation/update is:
-
-1. The requester makes a request via [CSS self-service app](https://bcgov.github.io/sso-requests).
-1. The [CSS self-service app](https://bcgov.github.io/sso-requests) backend server dispatches `request` GitHub action.
-
-   - see [.github/workflows/request.yml](.github/workflows/request.yml)
-
-1. The `request` GitHub action creates a PR with the changes and send the PR information to [CSS self-service app](https://bcgov.github.io/sso-requests) backend server.
-1. The [CSS self-service app](https://bcgov.github.io/sso-requests) backend server merges the PR via GitHub API endpoint.
-1. The [CSS self-service app](https://bcgov.github.io/sso-requests) batch service dispatches `terraform-batch` GitHub actions every given interval.
-
-   - see [.github/workflows/terraform-batch.yml](.github/workflows/terraform-batch.yml)
-   - see [.github/workflows/terraform-v2-batch.yml](.github/workflows/terraform-v2-batch.yml)
-
-1. The `terraform-batch` GitHub actions communicate with the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server to check if there is a pending request and if so, applies the Terraform scripts.
-1. Once the Terraform scripts applied, it sends the results back to the [CSS self-service app](https://bcgov.github.io/sso-requests) backend server.
+This repository stores the Terraform scripts to provision BCGov SSO infrastructure in the Gold Keycloak instances.
 
 ## Related Repositories
 
@@ -29,8 +10,11 @@ The general workflow for an SSO integration creation/update is:
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
 1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
 1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.
+1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.
 
 ## Custom Realms in Gold cluster
+
+**(deprecated)**
 
 Gold custom realms are managed by Terrafrom in a separate Terraform backend state. To create a new custom realm, create a new Terraform script that has the required definition of the realm:
 
