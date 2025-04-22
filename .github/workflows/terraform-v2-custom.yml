@@ -115,7 +115,7 @@ jobs:
       working-directory: ./terraform-v2-custom
       continue-on-error: true
 
-    - uses: bcgov/sso-requests-actions/keycloak@v0.64.0
+    - uses: bcgov/sso-requests-actions/keycloak@v0.74.0
       if: steps.count.outputs.count != '0' && steps.apply.outcome != 'failure'
       with:
         dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
