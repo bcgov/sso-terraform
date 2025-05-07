@@ -14,7 +14,7 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 
 ## The actions
 
-There are currently 5 actions in this repo that modify the terraform state of the loginproxy deployments.  When the actions are run against the `dev` branch changes are applied to the SANDBOX environments.  When run against `main` the actions are run against the production environments.  When run against any other branch the actions will fail without making changes.
+There are currently 3 actions in this repo that modify the terraform state of the loginproxy deployments.  When the actions are run against the `dev` branch changes are applied to the SANDBOX environments.  When run against `main` the actions are run against the production environments.  When run against any other branch the actions will fail without making changes.
 
 ### Terraform Plan
 
