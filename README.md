@@ -12,6 +12,42 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.
 
+## The actions
+
+There are currently 5 actions in this repo that modify the terraform state of the loginproxy deployments.  When the actions are run against the `dev` branch changes are applied to the SANDBOX environments.  When run against `main` the actions are run against the production environments.  When run against any other branch the actions will fail without making changes.
+
+### Terraform Plan
+
+Before attempting to apply terraform changes, run the terraform plan action.  It will give an idea of what changes will take place.
+
+`sso-terraform/.github/workflows/terraform-v2-plan.yml`
+
+### Terraform Apply
+
+This action will apply the configuration changes to `dev`, `test`, and `prod` environments in the `SANDBOX` or `PRODUCTION` environment.
+
+`sso-terraform/.github/workflows/terraform-v2-apply.yml`
+
+### Terraform Custom Realm Batch Job
+
+**removed**
+
+Formerly used by realm registry for state management
+### Terraform State Remove
+
+**removed**
+
+Formerly removed specific parts of the terraform state.
+
+### Request
+
+**removed**
+
+Formerly interacted with the CSS app's API to create requests
+
+
+
+
 ## Custom Realms in Gold cluster
 
 **(deprecated)**
