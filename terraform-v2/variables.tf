@@ -167,6 +167,41 @@ variable "test_azureidir_client_secret" {
   sensitive = true
 }
 
+variable "test_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+
+
+
+
+
 variable "prod_azureidir_tenant_id" {
   type      = string
   sensitive = true

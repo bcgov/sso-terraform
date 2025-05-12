@@ -25,6 +25,11 @@ module "keycloak_test" {
   azureidir_tenant_id             = var.test_azureidir_tenant_id
   azureidir_client_id             = var.test_azureidir_client_id
   azureidir_client_secret         = var.test_azureidir_client_secret
+  azureidir_authorization_url     = var.test_azureidir_authorization_url
+  azureidir_token_url             = var.test_azureidir_token_url
+  azureidir_user_info_url         = var.test_azureidir_user_info_url
+  azureidir_jwks_url              = var.test_azureidir_jwks_url
+  azureidir_logout_url            = var.test_azureidir_logout_url
   github_client_id                = var.test_github_client_id
   github_client_secret            = var.test_github_client_secret
   digitalcredential_client_id     = var.test_digitalcredential_client_id

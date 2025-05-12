@@ -61,6 +61,11 @@ module "azureidir" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.azureidir_realm_name
   standard_realm_name         = local.standard_realm_name
+  authorization_url           = var.azureidir_authorization_url
+  token_url                   = var.azureidir_token_url
+  user_info_url               = var.azureidir_user_info_url
+  jwks_url                    = var.azureidir_jwks_url
+  logout_url                  = var.azureidir_logout_url
   azure_tenant_id             = var.azureidir_tenant_id
   azure_client_id             = var.azureidir_client_id
   azure_client_secret         = var.azureidir_client_secret

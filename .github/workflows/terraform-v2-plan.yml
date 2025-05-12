@@ -26,6 +26,11 @@ jobs:
         echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-dev-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-dev-state-locking" >> $GITHUB_ENV
+        echo "TF_VAR_test_azureidir_authorization_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
+        echo "TF_VAR_test_azureidir_token_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
+        echo "TF_VAR_test_azureidir_user_info_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
+        echo "TF_VAR_test_azureidir_jwks_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
+        echo "TF_VAR_test_azureidir_logout_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
 
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
