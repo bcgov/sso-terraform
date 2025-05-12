@@ -7,7 +7,7 @@ locals {
   bceidboth_realm_name                  = "bceidboth"
   github_realm_name                     = "github"
   siteminder_single_sign_on_service_url = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
-  sandbox_client_redirect_uri           = "https://sso-keycloak-c6af30-dev.apps.golddr.devops.gov.bc.ca/*"
+  sandbox_client_redirect_uri           = ""
   digitalcredential_realm_name          = "digitalcredential"
 }
 
