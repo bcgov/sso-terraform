@@ -41,7 +41,8 @@ jobs:
         echo "TF_VAR_prod_azureidir_user_info_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
         echo "TF_VAR_prod_azureidir_jwks_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
         echo "TF_VAR_prod_azureidir_logout_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
-
+        echo "TF_VAR_test_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
+        echo "TF_VAR_prod_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
 
 
     - name: Set main environment to PRODUCTION

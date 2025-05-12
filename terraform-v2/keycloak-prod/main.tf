@@ -1,14 +1,13 @@
 locals {
-  standard_realm_name                   = "standard"
-  idir_realm_name                       = "idir"
-  azureidir_realm_name                  = "azureidir"
-  bceidbasic_realm_name                 = "bceidbasic"
-  bceidbusiness_realm_name              = "bceidbusiness"
-  bceidboth_realm_name                  = "bceidboth"
-  github_realm_name                     = "github"
-  siteminder_single_sign_on_service_url = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
-  sandbox_client_redirect_uri           = ""
-  digitalcredential_realm_name          = "digitalcredential"
+  standard_realm_name          = "standard"
+  idir_realm_name              = "idir"
+  azureidir_realm_name         = "azureidir"
+  bceidbasic_realm_name        = "bceidbasic"
+  bceidbusiness_realm_name     = "bceidbusiness"
+  bceidboth_realm_name         = "bceidboth"
+  github_realm_name            = "github"
+  sandbox_client_redirect_uri  = ""
+  digitalcredential_realm_name = "digitalcredential"
 }
 
 module "standard" {
@@ -50,7 +49,7 @@ module "idir" {
   realm_name                  = local.idir_realm_name
   standard_realm_name         = local.standard_realm_name
   saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
-  single_sign_on_service_url  = local.siteminder_single_sign_on_service_url
+  single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
   sandbox_client_redirect_uri = local.sandbox_client_redirect_uri
@@ -79,7 +78,7 @@ module "bceidbasic" {
   realm_name                  = local.bceidbasic_realm_name
   standard_realm_name         = local.standard_realm_name
   saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbasic/"
-  single_sign_on_service_url  = local.siteminder_single_sign_on_service_url
+  single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
   sandbox_client_redirect_uri = local.sandbox_client_redirect_uri
@@ -92,7 +91,7 @@ module "bceidbusiness" {
   realm_name                  = local.bceidbusiness_realm_name
   standard_realm_name         = local.standard_realm_name
   saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbusiness/"
-  single_sign_on_service_url  = local.siteminder_single_sign_on_service_url
+  single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
   sandbox_client_redirect_uri = local.sandbox_client_redirect_uri
@@ -104,7 +103,7 @@ module "bceidboth" {
   realm_name                  = local.bceidboth_realm_name
   standard_realm_name         = local.standard_realm_name
   saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness/"
-  single_sign_on_service_url  = local.siteminder_single_sign_on_service_url
+  single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
   sandbox_client_redirect_uri = local.sandbox_client_redirect_uri

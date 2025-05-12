@@ -1,3 +1,8 @@
+variable "siteminder_single_sign_on_service_url" {
+  type    = string
+  default = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
+}
+
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
   default     = "admin-cli"

@@ -137,6 +137,18 @@ variable "prod_siteminder_signing_certificate" {
   sensitive = true
 }
 
+variable "prod_siteminder_single_sign_on_service_url" {
+  type      = string
+  sensitive = false
+  default   = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
+}
+
+variable "test_siteminder_single_sign_on_service_url" {
+  type      = string
+  sensitive = false
+  default   = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
+}
+
 variable "dev_azureidir_tenant_id" {
   type      = string
   sensitive = true
