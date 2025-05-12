@@ -50,6 +50,35 @@ variable "azureidir_client_secret" {
   sensitive = true
 }
 
+variable "azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
 variable "github_client_id" {
   type      = string
   sensitive = true

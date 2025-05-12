@@ -152,6 +152,38 @@ variable "dev_azureidir_client_secret" {
   sensitive = true
 }
 
+variable "dev_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+
+
 variable "test_azureidir_tenant_id" {
   type      = string
   sensitive = true
@@ -215,6 +247,36 @@ variable "prod_azureidir_client_id" {
 variable "prod_azureidir_client_secret" {
   type      = string
   sensitive = true
+}
+
+variable "prod_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
 }
 
 variable "dev_github_client_id" {

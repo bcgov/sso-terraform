@@ -8,6 +8,11 @@ module "keycloak_dev" {
   azureidir_tenant_id             = var.dev_azureidir_tenant_id
   azureidir_client_id             = var.dev_azureidir_client_id
   azureidir_client_secret         = var.dev_azureidir_client_secret
+  azureidir_authorization_url     = var.dev_azureidir_authorization_url
+  azureidir_token_url             = var.dev_azureidir_token_url
+  azureidir_user_info_url         = var.dev_azureidir_user_info_url
+  azureidir_jwks_url              = var.dev_azureidir_jwks_url
+  azureidir_logout_url            = var.dev_azureidir_logout_url
   github_client_id                = var.dev_github_client_id
   github_client_secret            = var.dev_github_client_secret
   digitalcredential_client_id     = var.dev_digitalcredential_client_id
@@ -46,6 +51,11 @@ module "keycloak_prod" {
   azureidir_tenant_id             = var.prod_azureidir_tenant_id
   azureidir_client_id             = var.prod_azureidir_client_id
   azureidir_client_secret         = var.prod_azureidir_client_secret
+  azureidir_authorization_url     = var.prod_azureidir_authorization_url
+  azureidir_token_url             = var.prod_azureidir_token_url
+  azureidir_user_info_url         = var.prod_azureidir_user_info_url
+  azureidir_jwks_url              = var.prod_azureidir_jwks_url
+  azureidir_logout_url            = var.prod_azureidir_logout_url
   github_client_id                = var.prod_github_client_id
   github_client_secret            = var.prod_github_client_secret
   digitalcredential_client_id     = var.prod_digitalcredential_client_id
