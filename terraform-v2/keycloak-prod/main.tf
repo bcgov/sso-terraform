@@ -37,10 +37,9 @@ module "standard" {
 
   digitalcredential_client_id         = var.digitalcredential_client_id
   digitalcredential_client_secret     = var.digitalcredential_client_secret
-  digitalcredential_authorization_url = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
-  digitalcredential_token_url         = "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
-
-  add_backwards_compatible_mappers = true
+  digitalcredential_authorization_url = var.prod_digital_credential_url != "" ? "${var.prod_digital_credential_url}/authorize" : "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
+  digitalcredential_token_url         = var.prod_digital_credential_url != "" ? "${var.prod_digital_credential_url}/token" : "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
+  add_backwards_compatible_mappers    = true
 }
 
 module "idir" {

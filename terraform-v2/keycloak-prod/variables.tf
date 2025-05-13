@@ -109,3 +109,8 @@ variable "digitalcredential_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "prod_digital_credential_url" {
+  type      = string
+  sensitive = false
+}

@@ -16,6 +16,7 @@ module "keycloak_dev" {
   azureidir_logout_url                  = var.dev_azureidir_logout_url
   github_client_id                      = var.dev_github_client_id
   github_client_secret                  = var.dev_github_client_secret
+  github_org                            = var.github_org
   digitalcredential_client_id           = var.dev_digitalcredential_client_id
   digitalcredential_client_secret       = var.dev_digitalcredential_client_secret
 
@@ -65,4 +66,5 @@ module "keycloak_prod" {
   github_org                            = var.github_org
   digitalcredential_client_id           = var.prod_digitalcredential_client_id
   digitalcredential_client_secret       = var.prod_digitalcredential_client_secret
+  prod_digital_credential_url           = var.prod_digital_credential_url
 }
