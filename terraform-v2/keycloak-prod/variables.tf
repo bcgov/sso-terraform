@@ -95,6 +95,11 @@ variable "github_client_secret" {
   sensitive = true
 }
 
+variable "github_org" {
+  default = "bcgov bcgov-c BCDevOps"
+  type    = string
+}
+
 variable "digitalcredential_client_id" {
   type      = string
   sensitive = true

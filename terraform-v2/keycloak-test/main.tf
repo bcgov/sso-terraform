@@ -116,7 +116,7 @@ module "github" {
   standard_realm_name = local.standard_realm_name
   client_id           = var.github_client_id
   client_secret       = var.github_client_secret
-  github_org          = "bcgov bcgov-c BCDevOps"
+  github_org          = var.github_org
   sub_to_username     = true
 }
 

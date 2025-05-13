@@ -320,3 +320,8 @@ variable "prod_github_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "github_org" {
+  default = "bcgov bcgov-c BCDevOps"
+  type    = string
+}
