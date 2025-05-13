@@ -4,6 +4,7 @@ on: workflow_dispatch
 
 env:
   TF_VERSION: 1.1.4
+  PROJECT_SUFFIX: NOT_SET
 
 jobs:
   terraform:
@@ -22,7 +23,7 @@ jobs:
         echo "KEYCLOAK_V2_DEV_URL=https://dev.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_PROD_URL=https://sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "PROJECT=SANDBOX" >> $GITHUB_ENV
+        echo "PROJECT_SUFFIX=_SANDBOX" >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-dev-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-dev-state-locking" >> $GITHUB_ENV
@@ -53,7 +54,7 @@ jobs:
         echo "KEYCLOAK_V2_DEV_URL=https://dev.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_PROD_URL=https://loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "PROJECT=PRODUCTION" >> $GITHUB_ENV
+        echo 'PROJECT_SUFFIX=""' >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
@@ -81,41 +82,41 @@ jobs:
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
         tf-s3-bucket-key: keycloak/gold #Same in prod and sandbox
         tf-s3-dynamodb-table: ${{ env.TF_S3_DYNAMODB_TABLE }}
-        tf-s3-access-key: ${{ secrets[format('TF_S3_ACCESS_KEY_{0}', env.PROJECT)] }}
-        tf-s3-secret-key: ${{ secrets[format('TF_S3_SECRET_KEY_{0}', env.PROJECT)] }}
-        tf-s3-role-arn: ${{ secrets[format('TF_S3_ROLE_ARN_{0}', env.PROJECT)] }}
+        tf-s3-access-key: ${{ secrets[format('TF_S3_ACCESS_KEY{0}', env.PROJECT_SUFFIX)] }}
+        tf-s3-secret-key: ${{ secrets[format('TF_S3_SECRET_KEY{0}', env.PROJECT_SUFFIX)] }}
+        tf-s3-role-arn: ${{ secrets[format('TF_S3_ROLE_ARN{0}', env.PROJECT_SUFFIX)] }}
         kc-provider-version: 5.0.0
         kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
         kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
-        kc-dev-username: ${{ secrets[format('KEYCLOAK_V2_DEV_USERNAME_{0}', env.PROJECT)] }} #TERRAFORM CLI? OR ADMIN CRED
-        kc-test-username: ${{ secrets[format('KEYCLOAK_V2_TEST_USERNAME_{0}', env.PROJECT)] }}
-        kc-prod-username: ${{ secrets[format('KEYCLOAK_V2_PROD_USERNAME_{0}', env.PROJECT)] }}
-        kc-dev-password: ${{ secrets[format('KEYCLOAK_V2_DEV_PASSWORD_{0}', env.PROJECT)] }}
-        kc-test-password: ${{ secrets[format('KEYCLOAK_V2_TEST_PASSWORD_{0}', env.PROJECT)] }}
-        kc-prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD_{0}', env.PROJECT)] }}
+        kc-dev-username: ${{ secrets[format('KEYCLOAK_V2_DEV_USERNAME{0}', env.PROJECT_SUFFIX)] }}
+        kc-test-username: ${{ secrets[format('KEYCLOAK_V2_TEST_USERNAME{0}', env.PROJECT_SUFFIX)] }}
+        kc-prod-username: ${{ secrets[format('KEYCLOAK_V2_PROD_USERNAME{0}', env.PROJECT_SUFFIX)] }}
+        kc-dev-password: ${{ secrets[format('KEYCLOAK_V2_DEV_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
+        kc-test-password: ${{ secrets[format('KEYCLOAK_V2_TEST_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
+        kc-prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
         test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }} #same for production and sandbox
         prod-siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }} #prod for Production, test for sandbox
-        dev-azureidir-tenant-id: ${{ secrets[format('DEV_AZUREIDIR_TENANT_ID_{0}', env.PROJECT)] }}
-        dev-azureidir-client-id: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_ID_{0}', env.PROJECT)] }}
-        dev-azureidir-client-secret: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        test-azureidir-tenant-id: ${{ secrets[format('TEST_AZUREIDIR_TENANT_ID_{0}', env.PROJECT)] }}
-        test-azureidir-client-id: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_ID_{0}', env.PROJECT)] }}
-        test-azureidir-client-secret: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        prod-azureidir-tenant-id: ${{ secrets[format('PROD_AZUREIDIR_TENANT_ID_{0}', env.PROJECT)] }}
-        prod-azureidir-client-id: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_ID_{0}', env.PROJECT)] }}
-        prod-azureidir-client-secret: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        dev-github-client-id: ${{ secrets[format('DEV_GITHUB_CLIENT_ID_{0}', env.PROJECT)] }}
-        dev-github-client-secret: ${{ secrets[format('DEV_GITHUB_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        dev-digitalcredential-client-id: ${{ secrets[format('DEV_DIGITALCREDENTIAL_CLIENT_ID_{0}', env.PROJECT)] }}
-        dev-digitalcredential-client-secret: ${{ secrets[format('DEV_DIGITALCREDENTIAL_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        test-github-client-id: ${{ secrets[format('TEST_GITHUB_CLIENT_ID_{0}', env.PROJECT)] }}
-        test-github-client-secret: ${{ secrets[format('TEST_GITHUB_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        test-digitalcredential-client-id: ${{ secrets[format('TEST_DIGITALCREDENTIAL_CLIENT_ID_{0}', env.PROJECT)] }}
-        test-digitalcredential-client-secret: ${{ secrets[format('TEST_DIGITALCREDENTIAL_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        prod-github-client-id: ${{ secrets[format('PROD_GITHUB_CLIENT_ID_{0}', env.PROJECT)] }}
-        prod-github-client-secret: ${{ secrets[format('PROD_GITHUB_CLIENT_SECRET_{0}', env.PROJECT)] }}
-        prod-digitalcredential-client-id: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_ID_{0}', env.PROJECT)] }}
-        prod-digitalcredential-client-secret: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_SECRET_{0}', env.PROJECT)] }}
+        dev-azureidir-tenant-id: ${{ secrets[format('DEV_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-azureidir-client-id: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-azureidir-client-secret: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        test-azureidir-tenant-id: ${{ secrets[format('TEST_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-azureidir-client-id: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-azureidir-client-secret: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        prod-azureidir-tenant-id: ${{ secrets[format('PROD_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-azureidir-client-id: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-azureidir-client-secret: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        dev-github-client-id: ${{ secrets[format('DEV_GITHUB_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-github-client-secret: ${{ secrets[format('DEV_GITHUB_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        dev-digitalcredential-client-id: ${{ secrets[format('DEV_DIGITALCREDENTIAL_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-digitalcredential-client-secret: ${{ secrets[format('DEV_DIGITALCREDENTIAL_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        test-github-client-id: ${{ secrets[format('TEST_GITHUB_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-github-client-secret: ${{ secrets[format('TEST_GITHUB_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        test-digitalcredential-client-id: ${{ secrets[format('TEST_DIGITALCREDENTIAL_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-digitalcredential-client-secret: ${{ secrets[format('TEST_DIGITALCREDENTIAL_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        prod-github-client-id: ${{ secrets[format('PROD_GITHUB_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-github-client-secret: ${{ secrets[format('PROD_GITHUB_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        prod-digitalcredential-client-id: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-digitalcredential-client-secret: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
         plan: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
