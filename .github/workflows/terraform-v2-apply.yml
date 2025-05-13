@@ -123,10 +123,10 @@ jobs:
         dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
         prod-keycloak-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
-        kc-dev-username: ${{ secrets[format('KEYCLOAK_V2_DEV_USERNAME_{0}', env.PROJECT)] }}
-        kc-test-username: ${{ secrets[format('KEYCLOAK_V2_TEST_USERNAME_{0}', env.PROJECT)] }}
-        kc-prod-username: ${{ secrets[format('KEYCLOAK_V2_PROD_USERNAME_{0}', env.PROJECT)] }}
-        kc-dev-password: ${{ secrets[format('KEYCLOAK_V2_DEV_PASSWORD_{0}', env.PROJECT)] }}
-        kc-test-password: ${{ secrets[format('KEYCLOAK_V2_TEST_PASSWORD_{0}', env.PROJECT)] }}
-        kc-prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD_{0}', env.PROJECT)] }}
+        dev-username: ${{ secrets[format('KEYCLOAK_V2_DEV_USERNAME_{0}', env.PROJECT)] }}
+        test-username: ${{ secrets[format('KEYCLOAK_V2_TEST_USERNAME_{0}', env.PROJECT)] }}
+        prod-username: ${{ secrets[format('KEYCLOAK_V2_PROD_USERNAME_{0}', env.PROJECT)] }}
+        dev-password: ${{ secrets[format('KEYCLOAK_V2_DEV_PASSWORD_{0}', env.PROJECT)] }}
+        test-password: ${{ secrets[format('KEYCLOAK_V2_TEST_PASSWORD_{0}', env.PROJECT)] }}
+        prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD_{0}', env.PROJECT)] }}
         tasks: update-review-profile-config delete-unused-client-scopes
