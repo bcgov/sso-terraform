@@ -4,7 +4,6 @@ on: workflow_dispatch
 
 env:
   TF_VERSION: 1.1.4
-  PROJECT_SUFFIX: NOT_SET
 
 jobs:
   terraform:
@@ -47,14 +46,13 @@ jobs:
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
         echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
 
-
+    # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
       run: |
         echo "KEYCLOAK_V2_DEV_URL=https://dev.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_PROD_URL=https://loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo 'PROJECT_SUFFIX=""' >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
