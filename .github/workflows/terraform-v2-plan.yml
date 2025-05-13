@@ -5,7 +5,7 @@ on: workflow_dispatch
 env:
   TF_VERSION: 1.1.4
   PROJECT_SUFFIX: NOT_SET
-  PROJECT_SUFFIX_TWO: NOT_SET
+  # PROJECT_SUFFIX_TWO: NOT_SET
 
 jobs:
   terraform:
@@ -16,11 +16,12 @@ jobs:
     - name: Fail if not main or dev
       if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
       run: |
+        echo ${{ format('KEYCLOAK_V2_DEV_USERNAME{0}', env.PROJECT_SUFFIX_TWO) }}
         echo 'PROJECT_SUFFIX_TWO=""' >> $GITHUB_ENV
         echo "The new suffix is:"
-        echo $env.PROJECT_SUFFIX
-        echo ${{ format('KEYCLOAK_V2_DEV_USERNAME{0}', env.PROJECT_SUFFIX) }}
-        echo ${{ format('KEYCLOAK_V2_DEV_USERNAME{0}', env.PROJECT_SUFFIX_TWO) }}
+        echo env.PROJECT_SUFFIX
+        echo ${{ format('KEYCLOAK_V2_DEV_USERNAME_{0}', env.PROJECT_SUFFIX) }}
+        echo ${{ format('KEYCLOAK_V2_DEV_USERNAME_{0}', env.PROJECT_SUFFIX_TWO) }}
         echo "This workflow only runs on main or dev branches."
         exit 1
     - name: Set dev environment to SANDBOX
