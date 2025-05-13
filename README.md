@@ -9,13 +9,14 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
 1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
-1. [sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.
+1. ~~[sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.~~ **DEPRECATED**
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.
 
 ## The actions
 
 There are currently 3 actions in this repo that modify the terraform state of the loginproxy deployments.  When the actions are run against the `dev` branch changes are applied to the SANDBOX environments.  When run against `main` the actions are run against the production environments.  When run against any other branch the actions will fail without making changes.
 
+**NOTE: As a design strategy the sandbox and production configuration should mirror each other as closely as possible. However when this is not possible please pass the sandbox config difference into the `TF_VAR`s of the SANDBOX environment creation step of the actions.**
 ### Terraform Plan
 
 Before attempting to apply terraform changes, run the terraform plan action.  It will give an idea of what changes will take place.
