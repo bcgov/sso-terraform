@@ -130,6 +130,7 @@ variable "prod_digitalcredential_client_secret" {
 variable "prod_digital_credential_url" {
   type      = string
   sensitive = false
+  default   = ""
 }
 
 variable "test_siteminder_signing_certificate" {
