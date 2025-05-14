@@ -69,3 +69,12 @@ EOF
 This terraform file is applied when the PR is merged into the `main` branch. A github action will trigger, adding the custom realm to the gold cluster. Deleting the `new-realm.tf` file will delete the custom realm when the change is merged into the `main` branch.
 
 - Please use `Kebab case` for the custom realm Terraform files. e.g. `sso-team-test.tf`
+
+
+## Debugging
+
+If the terraform plan and apply actions are failing do to a failure to release the state lock.  This can be unlocked by doing the following:
+
+ - Log into the AWS dev environment in a local terminal.
+ - In the folder `./terraform-v2` run `terraform init` and `terraform plan`.
+ - If that errors out with a state issue reset the state using, `terraform force-unlock <<ID>>`. The GitHub actions should run smoothly again.
