@@ -1,3 +1,8 @@
+variable "siteminder_single_sign_on_service_url" {
+  type    = string
+  default = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
+}
+
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
   default     = "admin-cli"
@@ -50,6 +55,36 @@ variable "azureidir_client_secret" {
   sensitive = true
 }
 
+variable "azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
 variable "github_client_id" {
   type      = string
   sensitive = true
@@ -60,6 +95,11 @@ variable "github_client_secret" {
   sensitive = true
 }
 
+variable "github_org" {
+  default = "bcgov bcgov-c BCDevOps"
+  type    = string
+}
+
 variable "digitalcredential_client_id" {
   type      = string
   sensitive = true
@@ -68,4 +108,9 @@ variable "digitalcredential_client_id" {
 variable "digitalcredential_client_secret" {
   type      = string
   sensitive = true
+}
+
+variable "prod_digital_credential_url" {
+  type      = string
+  sensitive = false
 }

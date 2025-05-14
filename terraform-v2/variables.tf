@@ -127,6 +127,11 @@ variable "prod_digitalcredential_client_secret" {
   sensitive = true
 }
 
+variable "prod_digital_credential_url" {
+  type      = string
+  sensitive = false
+}
+
 variable "test_siteminder_signing_certificate" {
   type      = string
   sensitive = true
@@ -135,6 +140,18 @@ variable "test_siteminder_signing_certificate" {
 variable "prod_siteminder_signing_certificate" {
   type      = string
   sensitive = true
+}
+
+variable "prod_siteminder_single_sign_on_service_url" {
+  type      = string
+  sensitive = false
+  default   = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
+}
+
+variable "test_siteminder_single_sign_on_service_url" {
+  type      = string
+  sensitive = false
+  default   = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
 variable "dev_azureidir_tenant_id" {
@@ -152,6 +169,38 @@ variable "dev_azureidir_client_secret" {
   sensitive = true
 }
 
+variable "dev_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "dev_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+
+
 variable "test_azureidir_tenant_id" {
   type      = string
   sensitive = true
@@ -167,6 +216,41 @@ variable "test_azureidir_client_secret" {
   sensitive = true
 }
 
+variable "test_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "test_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+
+
+
+
+
 variable "prod_azureidir_tenant_id" {
   type      = string
   sensitive = true
@@ -180,6 +264,36 @@ variable "prod_azureidir_client_id" {
 variable "prod_azureidir_client_secret" {
   type      = string
   sensitive = true
+}
+
+variable "prod_azureidir_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_user_info_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "prod_azureidir_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
 }
 
 variable "dev_github_client_id" {
@@ -210,4 +324,9 @@ variable "prod_github_client_id" {
 variable "prod_github_client_secret" {
   type      = string
   sensitive = true
+}
+
+variable "github_org" {
+  default = "bcgov bcgov-c BCDevOps"
+  type    = string
 }
