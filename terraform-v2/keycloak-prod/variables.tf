@@ -8,6 +8,11 @@ variable "saml_entity_id_url" {
   default = "https://loginproxy.gov.bc.ca/auth/realms/"
 }
 
+variable "saml_idir_override" {
+  type    = string
+  default = "_idir/"
+}
+
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
   default     = "admin-cli"

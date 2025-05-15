@@ -47,7 +47,7 @@ module "idir" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.idir_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "${var.saml_entity_id_url}_idir/"
+  saml_entity_id              = "${var.saml_entity_id_url}${var.saml_idir_override}"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true

@@ -48,6 +48,8 @@ jobs:
         echo "TF_VAR_dev_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
         echo "TF_VAR_test_saml_entity_url=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
         echo "TF_VAR_prod_saml_entity_url=https://sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
+        echo "TF_VAR_prod_saml_idir_override"=_idir1/ >> $GITHUB_ENV
+
 
     # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION

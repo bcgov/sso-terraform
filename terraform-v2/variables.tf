@@ -170,6 +170,10 @@ variable "prod_saml_entity_id_url" {
   default = "https://loginproxy.gov.bc.ca/auth/realms/"
 }
 
+variable "prod_saml_idir_override" {
+  type    = string
+  default = "_idir/"
+}
 
 variable "dev_azureidir_tenant_id" {
   type      = string
