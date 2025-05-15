@@ -48,7 +48,7 @@ module "idir" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.idir_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://test.loginproxy.gov.bc.ca/auth/realms/_idir1/"
+  saml_entity_id              = "${var.saml_entity_id_url}_idir/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -77,7 +77,7 @@ module "bceidbasic" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbasic_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasic1/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasic1/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -90,7 +90,7 @@ module "bceidbusiness" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbusiness_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbusiness1/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbusiness1/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -102,7 +102,7 @@ module "bceidboth" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidboth_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://test.loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness1/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasicbusiness1/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
