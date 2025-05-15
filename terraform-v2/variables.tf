@@ -155,6 +155,22 @@ variable "test_siteminder_single_sign_on_service_url" {
   default   = "https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
+variable "dev_saml_entity_id" {
+  type    = string
+  default = "https://dev.loginproxy.gov.bc.ca/auth/realms/_idir/"
+}
+
+variable "test_saml_entity_id" {
+  type    = string
+  default = "https://test.loginproxy.gov.bc.ca/auth/realms/_idir/"
+}
+
+variable "prod_saml_entity_id" {
+  type    = string
+  default = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
+}
+
+
 variable "dev_azureidir_tenant_id" {
   type      = string
   sensitive = true
