@@ -6,7 +6,7 @@ module "keycloak_dev" {
   password                              = var.dev_password
   siteminder_signing_certificate        = var.test_siteminder_signing_certificate
   siteminder_single_sign_on_service_url = var.test_siteminder_single_sign_on_service_url
-  saml_entity_id                        = var.dev_saml_entity_id
+  saml_entity_id_url                    = var.dev_saml_entity_id_url
   azureidir_tenant_id                   = var.dev_azureidir_tenant_id
   azureidir_client_id                   = var.dev_azureidir_client_id
   azureidir_client_secret               = var.dev_azureidir_client_secret
@@ -31,7 +31,7 @@ module "keycloak_test" {
   password                              = var.test_password
   siteminder_signing_certificate        = var.test_siteminder_signing_certificate
   siteminder_single_sign_on_service_url = var.test_siteminder_single_sign_on_service_url
-  saml_entity_id                        = var.test_saml_entity_id
+  saml_entity_id_url                    = var.test_saml_entity_id_url
   azureidir_tenant_id                   = var.test_azureidir_tenant_id
   azureidir_client_id                   = var.test_azureidir_client_id
   azureidir_client_secret               = var.test_azureidir_client_secret
@@ -55,7 +55,7 @@ module "keycloak_prod" {
   password                              = var.prod_password
   siteminder_signing_certificate        = var.prod_siteminder_signing_certificate
   siteminder_single_sign_on_service_url = var.prod_siteminder_single_sign_on_service_url
-  saml_entity_id                        = var.prod_saml_entity_id
+  saml_entity_id_url                    = var.prod_saml_entity_id_url
   azureidir_tenant_id                   = var.prod_azureidir_tenant_id
   azureidir_client_id                   = var.prod_azureidir_client_id
   azureidir_client_secret               = var.prod_azureidir_client_secret

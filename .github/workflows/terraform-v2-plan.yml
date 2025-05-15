@@ -45,9 +45,9 @@ jobs:
         echo "TF_VAR_prod_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
         echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
-        echo "TF_VAR_dev_saml_entity_id=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/_idir/"  >> $GITHUB_ENV
-        echo "TF_VAR_test_saml_entity_id=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/_idir/"  >> $GITHUB_ENV
-        echo "TF_VAR_prod_saml_entity_id=https://sandbox.loginproxy.gov.bc.ca/auth/realms/_idir/"  >> $GITHUB_ENV
+        echo "TF_VAR_dev_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
+        echo "TF_VAR_test_saml_entity_url=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
+        echo "TF_VAR_prod_saml_entity_url=https://sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
 
 
     # PROJECT_SUFFIX left null for production config

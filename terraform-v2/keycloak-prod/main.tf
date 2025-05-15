@@ -47,7 +47,7 @@ module "idir" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.idir_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = var.saml_entity_id
+  saml_entity_id              = "${var.saml_entity_id_url}_idir/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -76,7 +76,7 @@ module "bceidbasic" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbasic_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbasic/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasic/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -89,7 +89,7 @@ module "bceidbusiness" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbusiness_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbusiness/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbusiness/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -101,7 +101,7 @@ module "bceidboth" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidboth_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "https://loginproxy.gov.bc.ca/auth/realms/_bceidbasicbusiness/"
+  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasicbusiness/"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true

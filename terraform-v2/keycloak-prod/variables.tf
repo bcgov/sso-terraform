@@ -3,9 +3,9 @@ variable "siteminder_single_sign_on_service_url" {
   default = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
-variable "saml_entity_id" {
+variable "saml_entity_id_url" {
   type    = string
-  default = "https://loginproxy.gov.bc.ca/auth/realms/_idir/"
+  default = "https://loginproxy.gov.bc.ca/auth/realms/"
 }
 
 variable "client_id" {
