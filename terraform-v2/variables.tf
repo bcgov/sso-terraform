@@ -175,6 +175,21 @@ variable "prod_saml_idir_override" {
   default = "_idir/"
 }
 
+variable "prod_saml_bceidbusiness_override" {
+  type    = string
+  default = "_bceidbusiness/"
+}
+
+variable "prod_saml_bceidbasicbusiness_override" {
+  type    = string
+  default = "_bceidbasicbusiness/"
+}
+
+variable "prod_saml_bceidbasic_override" {
+  type    = string
+  default = "_bceidbasic/"
+}
+
 variable "dev_azureidir_tenant_id" {
   type      = string
   sensitive = true

@@ -76,7 +76,7 @@ module "bceidbasic" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbasic_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasic/"
+  saml_entity_id              = "${var.saml_entity_id_url}${var.saml_bceidbasic_override}"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -89,7 +89,7 @@ module "bceidbusiness" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbusiness_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "${var.saml_entity_id_url}_bceidbusiness/"
+  saml_entity_id              = "${var.saml_entity_id_url}${saml_bceidbusiness_override}"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
@@ -101,7 +101,7 @@ module "bceidboth" {
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidboth_realm_name
   standard_realm_name         = local.standard_realm_name
-  saml_entity_id              = "${var.saml_entity_id_url}_bceidbasicbusiness/"
+  saml_entity_id              = "${var.saml_entity_id_url}${var.saml_bceidbasicbusiness_override}"
   single_sign_on_service_url  = var.siteminder_single_sign_on_service_url
   signing_certificate         = var.siteminder_signing_certificate
   sub_to_username             = true
