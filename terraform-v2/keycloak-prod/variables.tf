@@ -3,6 +3,31 @@ variable "siteminder_single_sign_on_service_url" {
   default = "https://sfs7.gov.bc.ca/affwebservices/public/saml2sso"
 }
 
+variable "saml_entity_id_url" {
+  type    = string
+  default = "https://loginproxy.gov.bc.ca/auth/realms/"
+}
+
+variable "saml_idir_override" {
+  type    = string
+  default = "_idir/"
+}
+
+variable "saml_bceidbusiness_override" {
+  type    = string
+  default = "_bceidbusiness/"
+}
+
+variable "saml_bceidbasicbusiness_override" {
+  type    = string
+  default = "_bceidbasicbusiness/"
+}
+
+variable "saml_bceidbasic_override" {
+  type    = string
+  default = "_bceidbasic/"
+}
+
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
   default     = "admin-cli"
