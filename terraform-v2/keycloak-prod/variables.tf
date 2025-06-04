@@ -139,3 +139,37 @@ variable "prod_digital_credential_url" {
   type      = string
   sensitive = false
 }
+
+variable "otp_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "otp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "otp_authorization_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "otp_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "otp_jwks_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "otp_logout_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}

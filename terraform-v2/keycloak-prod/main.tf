@@ -6,6 +6,7 @@ locals {
   bceidbusiness_realm_name     = "bceidbusiness"
   bceidboth_realm_name         = "bceidboth"
   github_realm_name            = "github"
+  otp_realm_name               = "otp"
   sandbox_client_redirect_uri  = ""
   digitalcredential_realm_name = "digitalcredential"
 }
@@ -21,6 +22,7 @@ module "standard" {
   bceidbusiness_realm_name = local.bceidbusiness_realm_name
   bceidboth_realm_name     = local.bceidboth_realm_name
   github_realm_name        = local.github_realm_name
+  otp_realm_name           = local.otp_realm_name
 
   idir_client_id              = module.idir.standard_client_id
   idir_client_secret          = module.idir.standard_client_secret
@@ -39,7 +41,11 @@ module "standard" {
   digitalcredential_client_secret     = var.digitalcredential_client_secret
   digitalcredential_authorization_url = var.prod_digital_credential_url != "" ? "${var.prod_digital_credential_url}/authorize" : "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/authorize"
   digitalcredential_token_url         = var.prod_digital_credential_url != "" ? "${var.prod_digital_credential_url}/token" : "https://vc-authn-oidc.apps.silver.devops.gov.bc.ca/token"
-  add_backwards_compatible_mappers    = true
+
+  otp_client_id     = module.otp.standard_client_id
+  otp_client_secret = module.otp.standard_client_secret
+
+  add_backwards_compatible_mappers = true
 }
 
 module "idir" {
@@ -116,6 +122,20 @@ module "github" {
   client_id           = var.github_client_id
   client_secret       = var.github_client_secret
   github_org          = var.github_org
+  sub_to_username     = true
+}
+
+module "otp" {
+  source              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-otp"
+  keycloak_url        = var.keycloak_url
+  realm_name          = local.otp_realm_name
+  standard_realm_name = local.standard_realm_name
+  client_id           = var.otp_client_id
+  client_secret       = var.otp_client_secret
+  authorization_url   = var.otp_authorization_url
+  token_url           = var.otp_token_url
+  jwks_url            = var.otp_jwks_url
+  logout_url          = var.otp_logout_url
   sub_to_username     = true
 }
 
