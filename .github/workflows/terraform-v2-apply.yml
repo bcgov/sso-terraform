@@ -52,12 +52,9 @@ jobs:
         echo "TF_VAR_prod_saml_bceidbusiness_override=_bceidbusiness1/" >> $GITHUB_ENV
         echo "TF_VAR_prod_saml_bceidbasicbusiness_override=_bceidbasicbusiness1/" >> $GITHUB_ENV
         echo "TF_VAR_prod_saml_bceidbasic_override=_bceidbasic1/" >> $GITHUB_ENV
-        echo "TF_VAR_otp_authorization_url=https://otp-sandbox.loginproxy.gov.bc.ca/auth" >> $GITHUB_ENV
-        echo "TF_VAR_otp_token_url=https://otp-sandbox.loginproxy.gov.bc.ca/token" >> $GITHUB_ENV
-        echo "TF_VAR_otp_logout_url=https://otp-sandbox.loginproxy.gov.bc.ca/session/end" >> $GITHUB_ENV
-        echo "TF_VAR_otp_jwks_url=https://otp-sandbox.loginproxy.gov.bc.ca/jwks" >> $GITHUB_ENV
+        echo "TF_VAR_otp_provider_url=https://otp-sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
-      # PROJECT_SUFFIX left null for production config
+        # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
       run: |
@@ -67,10 +64,7 @@ jobs:
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
-        echo "TF_VAR_otp_authorization_url=https://otp.loginproxy.gov.bc.ca/auth" >> $GITHUB_ENV
-        echo "TF_VAR_otp_token_url=https://otp.loginproxy.gov.bc.ca/token" >> $GITHUB_ENV
-        echo "TF_VAR_otp_logout_url=https://otp.loginproxy.gov.bc.ca/session/end" >> $GITHUB_ENV
-        echo "TF_VAR_otp_jwks_url=https://otp.loginproxy.gov.bc.ca/jwks" >> $GITHUB_ENV
+        echo "TF_VAR_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
     - name: Checkout Terraform Modules
       uses: actions/checkout@v4

@@ -150,25 +150,7 @@ variable "otp_client_secret" {
   sensitive = true
 }
 
-variable "otp_authorization_url" {
-  type      = string
-  sensitive = false
-  default   = ""
-}
-
-variable "otp_token_url" {
-  type      = string
-  sensitive = false
-  default   = ""
-}
-
-variable "otp_jwks_url" {
-  type      = string
-  sensitive = false
-  default   = ""
-}
-
-variable "otp_logout_url" {
+variable "otp_provider_url" {
   type      = string
   sensitive = false
   default   = ""
