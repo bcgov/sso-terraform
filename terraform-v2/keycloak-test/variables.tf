@@ -114,3 +114,19 @@ variable "digitalcredential_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "otp_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "otp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "otp_provider_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}

@@ -366,3 +366,33 @@ variable "github_org" {
   default = "bcgov bcgov-c BCDevOps"
   type    = string
 }
+
+variable "dev_otp_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_otp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_otp_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_otp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_otp_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_otp_client_secret" {
+  type      = string
+  sensitive = true
+}
