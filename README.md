@@ -48,29 +48,6 @@ Formerly interacted with the CSS app's API to create requests
 
 
 
-
-## Custom Realms in Gold cluster
-
-**(deprecated)**
-
-Gold custom realms are managed by Terrafrom in a separate Terraform backend state. To create a new custom realm, create a new Terraform script that has the required definition of the realm:
-
-```sh
-cd terraform-v2-custom/keycloak-<env>/custom-realms
-cat >>"new-realm.tf" <<EOF
-module "new-realm" {
-  source     = "github.com/bcgov/sso-terraform-modules?ref=main/modules/custom-realm"
-  realm_name = "new-realm"
-  enabled    = true
-}
-EOF
-```
-
-This terraform file is applied when the PR is merged into the `main` branch. A github action will trigger, adding the custom realm to the gold cluster. Deleting the `new-realm.tf` file will delete the custom realm when the change is merged into the `main` branch.
-
-- Please use `Kebab case` for the custom realm Terraform files. e.g. `sso-team-test.tf`
-
-
 ## Debugging
 
 If the terraform plan and apply actions are failing do to a failure to release the state lock.  This can be unlocked by doing the following:
