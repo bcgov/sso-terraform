@@ -2,9 +2,9 @@ terraform {
   required_version = ">= 1.1.4"
 
   backend "s3" {
-    bucket         = "xgr00q-prod-keycloak"
+    bucket         = "xgr00q-dev-keycloak"
     key            = "keycloak/gold"
-    dynamodb_table = "xgr00q-prod-state-locking"
+    dynamodb_table = "xgr00q-dev-state-locking"
     region         = "ca-central-1"
   }
 

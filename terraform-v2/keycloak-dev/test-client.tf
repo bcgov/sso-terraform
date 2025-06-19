@@ -4,7 +4,7 @@ data "keycloak_authentication_flow" "idp_stopper" {
 }
 
 module "test_client" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/standard-client"
+  source      = "../../terraform-modules/modules/standard-client"
   realm_id    = module.standard.realm_id
   client_id   = "test-client"
   client_name = "SSO Gold Dev"
