@@ -66,19 +66,6 @@ jobs:
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
         echo "TF_VAR_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
-    - name: Checkout Terraform Modules
-      if: steps.count.outputs.count != '0'
-      uses: actions/checkout@v3
-      with:
-        repository: bcgov/sso-terraform-modules
-        ref: ${{ github.ref_name }}
-
-    - id: tf-modules
-      if: steps.count.outputs.count != '0'
-      name: Get Terraform Modules Latest SHA
-      run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      shell: bash
-
     - uses: actions/checkout@v2
 
     - name: Setup Terraform

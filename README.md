@@ -8,9 +8,15 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 
 1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
-1. [sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.
+1. ~~[sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.~~ **DEPRECATED**
 1. ~~[sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.~~ **DEPRECATED**
 1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.
+
+## terraform-modules
+
+Formerly the sso-keycloak terraform config modules were stored in a separate repos, with a separate branch structure.  As of June 19 2025, these modules are all stored in the folder [terraform-modules](./terraform-modules/).  Config on the dev branch will be deployed to sandbox.  Config on the main branch will be deployed to production.
+
+The sso-requests repos uses the dev branch code for it's local development environment.
 
 ## The actions
 
@@ -29,29 +35,13 @@ This action will apply the configuration changes to `dev`, `test`, and `prod` en
 
 `sso-terraform/.github/workflows/terraform-v2-apply.yml`
 
-### Terraform Custom Realm Batch Job
-
-**removed**
-
-Formerly used by realm registry for state management
-### Terraform State Remove
-
-**removed**
-
-Formerly removed specific parts of the terraform state.
-
-### Request
-
-**removed**
-
-Formerly interacted with the CSS app's API to create requests
-
-
 
 ## Debugging
 
 If the terraform plan and apply actions are failing do to a failure to release the state lock.  This can be unlocked by doing the following:
 
- - Log into the AWS dev environment in a local terminal.
+ - Log into the AWS dev/prod environment in a local terminal.
+ - Change the local config.tf to point at the correct `bucket` and `dynamodb_table`
+ - In the folder `./terraform-v2` remove the existing .terraform folder and the .terraform.lock.hcl files
  - In the folder `./terraform-v2` run `terraform init` and `terraform plan`.
  - If that errors out with a state issue reset the state using, `terraform force-unlock <<ID>>`. The GitHub actions should run smoothly again.

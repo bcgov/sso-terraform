@@ -54,7 +54,7 @@ jobs:
         echo "TF_VAR_prod_saml_bceidbasic_override=_bceidbasic1/" >> $GITHUB_ENV
         echo "TF_VAR_otp_provider_url=https://otp-sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
-        # PROJECT_SUFFIX left null for production config
+    # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
       run: |
@@ -65,17 +65,6 @@ jobs:
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
         echo "TF_VAR_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-
-    - name: Checkout Terraform Modules
-      uses: actions/checkout@v4
-      with:
-        repository: bcgov/sso-terraform-modules
-        ref: ${{ github.ref_name }}
-
-    - id: tf-modules
-      name: Get Terraform Modules Latest SHA
-      run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      shell: bash
 
     - uses: actions/checkout@v4
 

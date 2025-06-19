@@ -1,4 +1,4 @@
-# sso-terraform-modules
+# terraform-modules
 
 ### client-attribute-mappers
 
