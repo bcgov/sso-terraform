@@ -5,6 +5,7 @@ module "standard_client" {
   public_attrs = []
   valid_redirect_uris = [
     "${var.keycloak_url}/auth/realms/${var.standard_realm_name}/broker/${var.realm_name}/endpoint",
+    "${var.keycloak_url}/auth/realms/${var.standard_realm_name}/broker/${var.realm_name}/endpoint/logout_response"
   ]
   sub_to_username = var.sub_to_username
 }

@@ -7,7 +7,7 @@ locals {
   digitalcredential_attributes = ["vc_presented_attributes", "pres_req_conf_id"]
   githubpublic_attributes      = ["display_name", "github_id", "github_username", "org_verified", "orgs"]
   githubbcgov_attributes       = ["display_name", "github_id", "github_username", "org_verified", "orgs"]
-  otp_attributes               = ["otp_guid"]
+  otp_attributes               = []
 }
 
 module "realm" {
