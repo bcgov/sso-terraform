@@ -6,7 +6,7 @@ module "saml-test" {
   source             = "../../modules/standard-client-saml"
   realm_id           = var.standard_realm_id
   client_id          = "saml-test"
-  idps               = ["common", "idir", "bceidbasic", "githubbcgov"]
+  idps               = ["common", "idir", "bceidbasic", "githubbcgov", "otp-saml"]
   assertion_lifespan = "120"
 
   override_authentication_flow = true

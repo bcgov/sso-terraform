@@ -59,3 +59,10 @@ module "digitalcredential_scope_mappers_saml" {
   scope_name = module.digitalcredential_idp.alias
   attributes = local.digitalcredential_attributes
 }
+
+module "otp_scope_mappers_saml" {
+  source     = "../../scope-attribute-mappers-saml"
+  realm_id   = module.realm.id
+  scope_name = var.otp_realm_name
+  attributes = local.otp_attributes
+}

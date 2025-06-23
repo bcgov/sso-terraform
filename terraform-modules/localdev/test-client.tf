@@ -17,6 +17,7 @@ module "test_client" {
     "bceidboth",
     "githubpublic",
     "githubbcgov",
+    "otp"
   ]
   standard_flow_enabled      = true
   service_accounts_enabled   = false
