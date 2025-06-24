@@ -396,3 +396,8 @@ variable "prod_otp_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "otp_provider_url" {
+  type    = string
+  default = "https://otp-sandbox.loginproxy.gov.bc.ca"
+}
