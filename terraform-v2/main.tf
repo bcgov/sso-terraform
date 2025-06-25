@@ -22,6 +22,7 @@ module "keycloak_dev" {
   digitalcredential_client_secret       = var.dev_digitalcredential_client_secret
   otp_client_id                         = var.dev_otp_client_id
   otp_client_secret                     = var.dev_otp_client_secret
+  otp_provider_url                      = var.otp_provider_url
 }
 
 module "keycloak_test" {
@@ -48,6 +49,7 @@ module "keycloak_test" {
   digitalcredential_client_secret       = var.test_digitalcredential_client_secret
   otp_client_id                         = var.test_otp_client_id
   otp_client_secret                     = var.test_otp_client_secret
+  otp_provider_url                      = var.otp_provider_url
 }
 
 module "keycloak_prod" {
@@ -79,4 +81,5 @@ module "keycloak_prod" {
   prod_digital_credential_url           = var.prod_digital_credential_url
   otp_client_id                         = var.prod_otp_client_id
   otp_client_secret                     = var.prod_otp_client_secret
+  otp_provider_url                      = var.otp_provider_url
 }
