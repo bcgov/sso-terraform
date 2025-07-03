@@ -52,3 +52,8 @@ variable "otp_realm_name" {
   default = "otp"
   type    = string
 }
+
+variable "backchannel_supported" {
+  description = "Does the external IDP support backchannel logout?"
+  default     = false
+}

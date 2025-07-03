@@ -20,6 +20,8 @@ resource "keycloak_oidc_identity_provider" "otp" {
   validate_signature = true
   disable_user_info  = true
 
+  backchannel_supported = var.backchannel_supported
+
   extra_config = {
     clientAuthMethod = "client_secret_post"
   }
