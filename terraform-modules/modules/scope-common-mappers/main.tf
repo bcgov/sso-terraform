@@ -39,22 +39,6 @@ resource "keycloak_generic_protocol_mapper" "sub_username" {
   }
 }
 
-resource "keycloak_generic_protocol_mapper" "preferred_username" {
-  realm_id        = var.realm_id
-  client_scope_id = keycloak_openid_client_scope.this.id
-  name            = "preferred_username"
-  protocol        = "openid-connect"
-  protocol_mapper = "oidc-usermodel-property-mapper"
-  config = {
-    "introspection.token.claim" : "true",
-    "claim.name" : "preferred_username",
-    "user.attribute" : "username",
-    "id.token.claim" : "true",
-    "access.token.claim" : "true",
-    "userinfo.token.claim" : "true"
-  }
-}
-
 resource "keycloak_generic_protocol_mapper" "given_name" {
   realm_id        = var.realm_id
   client_scope_id = keycloak_openid_client_scope.this.id
