@@ -2,7 +2,7 @@ module "otp_idp" {
   source                = "../../oidc-idp"
   realm_id              = module.realm.id
   alias                 = var.otp_realm_name
-  display_name          = "Email"
+  display_name          = "One Time Passcode"
   gui_order             = "8"
   authorization_url     = "${var.keycloak_url}/auth/realms/${var.otp_realm_name}/protocol/openid-connect/auth"
   token_url             = "${var.keycloak_url}/auth/realms/${var.otp_realm_name}/protocol/openid-connect/token"
