@@ -54,13 +54,13 @@ variable "digitalcredential_client_secret" {
 variable "username" {
   type      = string
   sensitive = true
-  default   = ""
+  default   = "admin"
 }
 
 variable "password" {
   type      = string
   sensitive = true
-  default   = ""
+  default   = "admin"
 }
 
 variable "digitalcredential_authorization_url" {
