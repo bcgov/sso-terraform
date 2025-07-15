@@ -1,11 +1,11 @@
-data "keycloak_authentication_flow" "first_broker_login_v2" {
+resource "keycloak_authentication_flow" "first_broker_login_v2" {
   realm_id = module.realm.id
   alias    = "first broker login v2"
 }
 
 resource "keycloak_authentication_execution" "first_broker_login_v2_review_profile" {
   realm_id          = module.realm.id
-  parent_flow_alias = data.keycloak_authentication_flow.first_broker_login_v2.alias
+  parent_flow_alias = keycloak_authentication_flow.first_broker_login_v2.alias
   authenticator     = "idp-review-profile"
   requirement       = "DISABLED"
   priority          = 10
@@ -15,7 +15,7 @@ resource "keycloak_authentication_subflow" "first_broker_login_v2_user_creation_
   realm_id          = module.realm.id
   alias             = "user-creation-linking"
   description       = "Flow for the existing/non-existing user alternatives"
-  parent_flow_alias = data.keycloak_authentication_flow.first_broker_login_v2.alias
+  parent_flow_alias = keycloak_authentication_flow.first_broker_login_v2.alias
   provider_id       = "basic-flow"
   requirement       = "REQUIRED"
   priority          = 20
