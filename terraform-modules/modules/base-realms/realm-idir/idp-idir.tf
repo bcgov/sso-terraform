@@ -7,7 +7,7 @@ module "idir_idp" {
   single_sign_on_service_url    = var.single_sign_on_service_url
   signing_certificate           = var.signing_certificate
   validate_signature            = var.validate_signature
-  first_broker_login_flow_alias = data.keycloak_authentication_flow.first_broker_login_v2.alias
+  first_broker_login_flow_alias = keycloak_authentication_flow.first_broker_login_v2.alias
 }
 
 resource "keycloak_custom_identity_provider_mapper" "idir_firstname" {
