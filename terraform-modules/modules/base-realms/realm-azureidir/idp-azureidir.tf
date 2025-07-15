@@ -1,16 +1,17 @@
 module "azureidir_idp" {
-  source                = "../../oidc-idp"
-  realm_id              = module.realm.id
-  alias                 = var.realm_name
-  authorization_url     = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/authorize" : var.authorization_url
-  token_url             = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/token" : var.token_url
-  user_info_url         = var.user_info_url != "" ? var.user_info_url : "https://graph.microsoft.com/oidc/userinfo"
-  jwks_url              = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/discovery/v2.0/keys" : var.jwks_url
-  logout_url            = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/logout" : var.logout_url
-  client_id             = var.azure_client_id
-  client_secret         = var.azure_client_secret
-  default_scopes        = "openid profile email"
-  backchannel_supported = false
+  source                        = "../../oidc-idp"
+  realm_id                      = module.realm.id
+  alias                         = var.realm_name
+  authorization_url             = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/authorize" : var.authorization_url
+  token_url                     = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/token" : var.token_url
+  user_info_url                 = var.user_info_url != "" ? var.user_info_url : "https://graph.microsoft.com/oidc/userinfo"
+  jwks_url                      = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/discovery/v2.0/keys" : var.jwks_url
+  logout_url                    = var.azure_tenant_id != "" ? "https://login.microsoftonline.com/${var.azure_tenant_id}/oauth2/v2.0/logout" : var.logout_url
+  client_id                     = var.azure_client_id
+  client_secret                 = var.azure_client_secret
+  default_scopes                = "openid profile email"
+  backchannel_supported         = false
+  first_broker_login_flow_alias = keycloak_authentication_flow.first_broker_login_v2.alias
 }
 
 resource "keycloak_custom_identity_provider_mapper" "azureidir_firstname" {
