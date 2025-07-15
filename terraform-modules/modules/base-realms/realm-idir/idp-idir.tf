@@ -1,12 +1,13 @@
 # see https://registry.terraform.io/providers/keycloak/keycloak/latest/docs/resources/saml_identity_provider
 module "idir_idp" {
-  source                     = "../../saml-idp"
-  realm_id                   = module.realm.id
-  alias                      = var.realm_name
-  entity_id                  = var.saml_entity_id
-  single_sign_on_service_url = var.single_sign_on_service_url
-  signing_certificate        = var.signing_certificate
-  validate_signature         = var.validate_signature
+  source                        = "../../saml-idp"
+  realm_id                      = module.realm.id
+  alias                         = var.realm_name
+  entity_id                     = var.saml_entity_id
+  single_sign_on_service_url    = var.single_sign_on_service_url
+  signing_certificate           = var.signing_certificate
+  validate_signature            = var.validate_signature
+  first_broker_login_flow_alias = data.keycloak_authentication_flow.first_broker_login_v2.alias
 }
 
 resource "keycloak_custom_identity_provider_mapper" "idir_firstname" {
