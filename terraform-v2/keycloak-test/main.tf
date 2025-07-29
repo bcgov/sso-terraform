@@ -6,12 +6,14 @@ locals {
   bceidbusiness_realm_name     = "bceidbusiness"
   bceidboth_realm_name         = "bceidboth"
   github_realm_name            = "github"
+  otp_realm_name               = "otp"
   sandbox_client_redirect_uri  = ""
   digitalcredential_realm_name = "digitalcredential"
+
 }
 
 module "standard" {
-  source       = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-standard"
+  source       = "../../terraform-modules/modules/base-realms/realm-standard"
   keycloak_url = var.keycloak_url
 
   standard_realm_name      = local.standard_realm_name
@@ -21,6 +23,7 @@ module "standard" {
   bceidbusiness_realm_name = local.bceidbusiness_realm_name
   bceidboth_realm_name     = local.bceidboth_realm_name
   github_realm_name        = local.github_realm_name
+  otp_realm_name           = local.otp_realm_name
 
   idir_client_id              = module.idir.standard_client_id
   idir_client_secret          = module.idir.standard_client_secret
@@ -40,11 +43,14 @@ module "standard" {
   digitalcredential_authorization_url = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/authorize"
   digitalcredential_token_url         = "https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca/token"
 
+  otp_client_id     = module.otp.standard_client_id
+  otp_client_secret = module.otp.standard_client_secret
+
   add_backwards_compatible_mappers = true
 }
 
 module "idir" {
-  source                      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-idir"
+  source                      = "../../terraform-modules/modules/base-realms/realm-idir"
   keycloak_url                = var.keycloak_url
   realm_name                  = local.idir_realm_name
   standard_realm_name         = local.standard_realm_name
@@ -56,7 +62,7 @@ module "idir" {
 }
 
 module "azureidir" {
-  source                      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-azureidir"
+  source                      = "../../terraform-modules/modules/base-realms/realm-azureidir"
   keycloak_url                = var.keycloak_url
   realm_name                  = local.azureidir_realm_name
   standard_realm_name         = local.standard_realm_name
@@ -73,7 +79,7 @@ module "azureidir" {
 }
 
 module "bceidbasic" {
-  source                      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidbasic"
+  source                      = "../../terraform-modules/modules/base-realms/realm-bceidbasic"
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbasic_realm_name
   standard_realm_name         = local.standard_realm_name
@@ -86,7 +92,7 @@ module "bceidbasic" {
 
 
 module "bceidbusiness" {
-  source                      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidbusiness"
+  source                      = "../../terraform-modules/modules/base-realms/realm-bceidbusiness"
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidbusiness_realm_name
   standard_realm_name         = local.standard_realm_name
@@ -98,7 +104,7 @@ module "bceidbusiness" {
 }
 
 module "bceidboth" {
-  source                      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-bceidboth"
+  source                      = "../../terraform-modules/modules/base-realms/realm-bceidboth"
   keycloak_url                = var.keycloak_url
   realm_name                  = local.bceidboth_realm_name
   standard_realm_name         = local.standard_realm_name
@@ -110,7 +116,7 @@ module "bceidboth" {
 }
 
 module "github" {
-  source              = "github.com/bcgov/sso-terraform-modules?ref=main/modules/base-realms/realm-github"
+  source              = "../../terraform-modules/modules/base-realms/realm-github"
   keycloak_url        = var.keycloak_url
   realm_name          = local.github_realm_name
   standard_realm_name = local.standard_realm_name
@@ -120,8 +126,22 @@ module "github" {
   sub_to_username     = true
 }
 
+module "otp" {
+  source              = "../../terraform-modules/modules/base-realms/realm-otp"
+  keycloak_url        = var.keycloak_url
+  realm_name          = local.otp_realm_name
+  standard_realm_name = local.standard_realm_name
+  client_id           = var.otp_client_id
+  client_secret       = var.otp_client_secret
+  authorization_url   = "${var.otp_provider_url}/auth"
+  token_url           = "${var.otp_provider_url}/token"
+  jwks_url            = "${var.otp_provider_url}/jwks"
+  logout_url          = "${var.otp_provider_url}/session/end"
+  sub_to_username     = true
+}
+
 module "master_idir_link" {
-  source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
+  source           = "../../terraform-modules/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
   idp_realm_id     = module.idir.realm_id
   idp_realm_name   = module.idir.realm_name
@@ -130,7 +150,7 @@ module "master_idir_link" {
 }
 
 module "master_azureidir_link" {
-  source           = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-idp-link"
+  source           = "../../terraform-modules/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
   idp_realm_id     = module.azureidir.realm_id
   idp_realm_name   = module.azureidir.realm_name
@@ -139,7 +159,7 @@ module "master_azureidir_link" {
 }
 
 module "master_viewer_role" {
-  source      = "github.com/bcgov/sso-terraform-modules?ref=main/modules/master-viewer-role"
+  source      = "../../terraform-modules/modules/master-viewer-role"
   realm_names = ["master", "standard", "idir", "azureidir", "bceidbasic", "bceidbusiness", "bceidboth"]
 
   depends_on = [

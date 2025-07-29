@@ -1,0 +1,3 @@
+module "playground" {
+  source = "./playground"
+}

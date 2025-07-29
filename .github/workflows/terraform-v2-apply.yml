@@ -52,8 +52,9 @@ jobs:
         echo "TF_VAR_prod_saml_bceidbusiness_override=_bceidbusiness1/" >> $GITHUB_ENV
         echo "TF_VAR_prod_saml_bceidbasicbusiness_override=_bceidbasicbusiness1/" >> $GITHUB_ENV
         echo "TF_VAR_prod_saml_bceidbasic_override=_bceidbasic1/" >> $GITHUB_ENV
+        echo "TF_VAR_otp_provider_url=https://otp-sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
-    # PROJECT_SUFFIX left null for production config
+      # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
       run: |
@@ -63,27 +64,17 @@ jobs:
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
-
-    - name: Checkout Terraform Modules
-      uses: actions/checkout@v4
-      with:
-        repository: bcgov/sso-terraform-modules
-        ref: ${{ github.ref_name }}
-
-    - id: tf-modules
-      name: Get Terraform Modules Latest SHA
-      run: echo "latest-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      shell: bash
+        echo "TF_VAR_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
     - uses: actions/checkout@v4
 
     - name: Setup Terraform
-      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.74.0
+      uses: bcgov/sso-requests-actions/actions/setup-terraform@v0.75.0
       with:
         context: ./terraform-v2
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
-        tf-s3-bucket-key: keycloak/gold #Same in prod and sandbox
+        tf-s3-bucket-key: keycloak/gold   #Same in prod and sandbox
         tf-s3-dynamodb-table: ${{ env.TF_S3_DYNAMODB_TABLE }}
         tf-s3-access-key: ${{ secrets[format('TF_S3_ACCESS_KEY{0}', env.PROJECT_SUFFIX)] }}
         tf-s3-secret-key: ${{ secrets[format('TF_S3_SECRET_KEY{0}', env.PROJECT_SUFFIX)] }}
@@ -98,8 +89,8 @@ jobs:
         kc-dev-password: ${{ secrets[format('KEYCLOAK_V2_DEV_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
         kc-test-password: ${{ secrets[format('KEYCLOAK_V2_TEST_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
         kc-prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
-        test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }} #same for production and sandbox
-        prod-siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }} #prod for Production, test for sandbox
+        test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}   #same for production and sandbox
+        prod-siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}   #prod for Production, test for sandbox
         dev-azureidir-tenant-id: ${{ secrets[format('DEV_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
         dev-azureidir-client-id: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         dev-azureidir-client-secret: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
@@ -121,9 +112,14 @@ jobs:
         prod-github-client-secret: ${{ secrets[format('PROD_GITHUB_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
         prod-digitalcredential-client-id: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         prod-digitalcredential-client-secret: ${{ secrets[format('PROD_DIGITALCREDENTIAL_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        dev-otp-client-id: ${{ secrets[format('DEV_OTP_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-otp-client-secret: ${{ secrets[format('DEV_OTP_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        test-otp-client-id: ${{ secrets[format('TEST_OTP_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-otp-client-secret: ${{ secrets[format('TEST_OTP_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        prod-otp-client-id: ${{ secrets[format('PROD_OTP_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-otp-client-secret: ${{ secrets[format('PROD_OTP_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
         apply: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
-
 
     - uses: bcgov/sso-requests-actions/keycloak@v0.74.0
       with:
