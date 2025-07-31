@@ -24,6 +24,7 @@ resource "keycloak_oidc_identity_provider" "otp" {
 
   extra_config = {
     clientAuthMethod = "client_secret_post"
+    prompt           = "login"
   }
 }
 
