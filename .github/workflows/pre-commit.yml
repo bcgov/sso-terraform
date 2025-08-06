@@ -19,7 +19,7 @@ jobs:
 
     - name: Install asdf requirements
       run: |
-        sudo apt-get install -y libssl-dev libreadline-dev uuid-dev docker-compose-plugin
+        sudo apt-get install -y libssl-dev libreadline-dev uuid-dev
     - name: Install asdf
       uses: asdf-vm/actions/setup@v3
     - name: Cache tools
@@ -29,7 +29,7 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
     - name: Install required tools
       run: |
-        cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin add || true
+        cat .tool-versions-precommit | cut -f 1 -d ' ' | xargs -n 1 asdf plugin add || true
         asdf plugin update --all
         asdf install
         asdf reshim
