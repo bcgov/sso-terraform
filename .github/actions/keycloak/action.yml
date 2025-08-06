@@ -1,0 +1,44 @@
+name: SSO Requests - Keycloak
+author: SSO Team
+description: Run 'Keycloak' scripts using the GitHub client
+branding:
+  color: blue
+  icon: code
+inputs:
+  dev-keycloak-url:
+    description: The URL of the Keycloak instance in dev environment
+    required: true
+  test-keycloak-url:
+    description: The URL of the Keycloak instance in test environment
+    required: true
+  prod-keycloak-url:
+    description: The URL of the Keycloak instance in prod environment
+    required: true
+  dev-username:
+    description: The username for the Keycloak admin user in Master Realm in dev environment
+    required: false
+  test-username:
+    description: The username for the Keycloak admin user in Master Realm in test environment
+    required: false
+  prod-username:
+    description: The username for the Keycloak admin user in Master Realm in prod environment
+    required: false
+  dev-password:
+    description: The password for the Keycloak admin user in Master Realm in dev environment
+    required: true
+  test-password:
+    description: The password for the Keycloak admin user in Master Realm in test environment
+    required: true
+  prod-password:
+    description: The password for the Keycloak admin user in Master Realm in prod environment
+    required: true
+  tasks:
+    description: The tasks to run
+    required: true
+
+outputs:
+  result:
+    description: true if succeed, false otherwise
+runs:
+  using: node20
+  main: index.js
