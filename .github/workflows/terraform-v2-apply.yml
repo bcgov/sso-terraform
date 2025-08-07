@@ -69,7 +69,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Setup Terraform
-      uses: ./github/actions/setup-terraform
+      uses: ./.github/actions/setup-terraform
       with:
         context: ./terraform-v2
         tf-version: ${{ env.TF_VERSION }}
@@ -121,7 +121,7 @@ jobs:
         apply: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
 
-    - uses: ./github/actions/keycloak
+    - uses: ./.github/actions/keycloak
       with:
         dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
