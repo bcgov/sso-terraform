@@ -1,4 +1,4 @@
-const KcAdminClient = require('keycloak-admin').default;
+const KcAdminClient = require('@keycloak/keycloak-admin-client').default;
 
 module.exports = async function run({ context, args }) {
   const tasks = (args.tasks || '').split(' ');
