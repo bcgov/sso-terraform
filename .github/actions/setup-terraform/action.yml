@@ -1,0 +1,322 @@
+name: Setup Terraform
+description: Setup SSO Terraform workspace
+
+inputs:
+  context:
+    description: Terraform workspace directory
+    required: false
+    default: .
+  tf-version:
+    description: Terraform version
+    required: true
+  tf-s3-bucket:
+    description: Terraform S3 Remote backend bucket name
+    required: true
+  tf-s3-bucket-key:
+    description: Terraform S3 Remote backend bucket key (path)
+    required: true
+  tf-s3-dynamodb-table:
+    description: Terraform S3 Remote backend DynamoDB table
+    required: true
+  tf-s3-access-key:
+    description: AWS access key to access Terraform S3 Bucket
+    required: true
+  tf-s3-secret-key:
+    description: AWS secret key to access Terraform S3 Bucket
+    required: true
+  tf-s3-role-arn:
+    description: Amazon Resource Name (ARN) of the IAM Role to access Terraform S3 Bucket
+    required: true
+  kc-provider-version:
+    description: Keycloak Terraform provider version
+    required: true
+  kc-dev-url:
+    description: Keycloak url in customer dev environment
+    required: true
+  kc-test-url:
+    description: Keycloak url in customer test environment
+    required: true
+  kc-prod-url:
+    description: Keycloak url in customer prod environment
+    required: true
+  kc-dev-username:
+    description: Keycloak admin username in customer dev environment
+    required: true
+  kc-test-username:
+    description: Keycloak admin username in customer test environment
+    required: true
+  kc-prod-username:
+    description: Keycloak admin username in customer prod environment
+    required: true
+  kc-dev-password:
+    description: Keycloak admin password in customer dev environment
+    required: true
+  kc-test-password:
+    description: Keycloak admin password in customer test environment
+    required: true
+  kc-prod-password:
+    description: Keycloak admin password in customer prod environment
+    required: true
+  test-siteminder-signing-certificate:
+    description: Siteminder signing certificate in test environment
+    required: false
+    default: ''
+  prod-siteminder-signing-certificate:
+    description: Siteminder signing certificate in prod environment
+    required: false
+    default: ''
+  dev-azureidir-tenant-id:
+    description: Azure IDIR Tenant ID in dev environment
+    required: false
+    default: ''
+  dev-azureidir-client-id:
+    description: Azure IDIR Client ID in dev environment
+    required: false
+    default: ''
+  dev-azureidir-client-secret:
+    description: Azure IDIR Client Secret in dev environment
+    required: false
+    default: ''
+  dev-github-client-id:
+    description: GitHub Client ID in dev environment
+    required: false
+    default: ''
+  dev-github-client-secret:
+    description: GitHub Client Secret in dev environment
+    required: false
+    default: ''
+  dev-digitalcredential-client-id:
+    description: Digital Credential Client ID in dev environment
+    required: false
+    default: ''
+  dev-digitalcredential-client-secret:
+    description: Digital Credential Client Secret in dev environment
+    required: false
+    default: ''
+  test-azureidir-tenant-id:
+    description: Azure IDIR Tenant ID in test environment
+    required: false
+    default: ''
+  test-azureidir-client-id:
+    description: Azure IDIR Client ID in test environment
+    required: false
+    default: ''
+  test-azureidir-client-secret:
+    description: Azure IDIR Client Secret in test environment
+    required: false
+    default: ''
+  test-github-client-id:
+    description: GitHub Client ID in test environment
+    required: false
+    default: ''
+  test-github-client-secret:
+    description: GitHub Client Secret in test environment
+    required: false
+    default: ''
+  test-digitalcredential-client-id:
+    description: Digital Credential Client ID in test environment
+    required: false
+    default: ''
+  test-digitalcredential-client-secret:
+    description: Digital Credential Client Secret in test environment
+    required: false
+    default: ''
+  prod-azureidir-tenant-id:
+    description: Azure IDIR Tenant ID in prod environment
+    required: false
+    default: ''
+  prod-azureidir-client-id:
+    description: Azure IDIR Client ID in prod environment
+    required: false
+    default: ''
+  prod-azureidir-client-secret:
+    description: Azure IDIR Client Secret in prod environment
+    required: false
+    default: ''
+  prod-github-client-id:
+    description: GitHub Client ID in prod environment
+    required: false
+    default: ''
+  prod-github-client-secret:
+    description: GitHub Client Secret in prod environment
+    required: false
+    default: ''
+  prod-digitalcredential-client-id:
+    description: Digital Credential Client ID in prod environment
+    required: false
+    default: ''
+  prod-digitalcredential-client-secret:
+    description: Digital Credential Client Secret in prod environment
+    required: false
+    default: ''
+  dev-otp-client-id:
+    description: OTP Client ID in dev environment
+    required: false
+    default: ''
+  dev-otp-client-secret:
+    description: OTP Client Secret in dev environment
+    required: false
+    default: ''
+  test-otp-client-id:
+    description: OTP Client ID in test environment
+    required: false
+    default: ''
+  test-otp-client-secret:
+    description: OTP Client Secret in test environment
+    required: false
+    default: ''
+  prod-otp-client-id:
+    description: OTP Client ID in prod environment
+    required: false
+    default: ''
+  prod-otp-client-secret:
+    description: OTP Client Secret in prod environment
+    required: false
+    default: ''
+  plan:
+    description: Whether to run Terraform plan
+    required: false
+    default: 'false'
+  apply:
+    description: Whether to run Terraform apply
+    required: false
+    default: 'false'
+  state-rm:
+    description: Resource address to remove the state
+    required: false
+    default: ''
+  tf-modules-cache-key:
+    description: Terraform Modules Cache Key
+    required: false
+    default: sso
+
+outputs:
+  init:
+    description: Terraform init outcome
+    value: ${{ steps.init.outcome }}
+  fmt:
+    description: Terraform fmt outcome
+    value: ${{ steps.fmt.outcome }}
+  plan:
+    description: Terraform plan outcome
+    value: ${{ steps.plan.outcome }}
+  apply:
+    description: Terraform apply outcome
+    value: ${{ steps.apply.outcome }}
+
+runs:
+  using: composite
+  steps:
+  - name: Setup Terraform
+    uses: hashicorp/setup-terraform@v3
+    with:
+      terraform_version: ${{ inputs.tf-version }}
+
+  - name: Terraform Format
+    id: fmt
+    run: terraform fmt -check
+    shell: bash
+    working-directory: ${{ inputs.context }}
+
+  - name: Terraform Variables
+    run: |
+      cat >"config.tf" <<EOF
+      terraform {
+        backend "s3" {
+          bucket         = "${{ inputs.tf-s3-bucket }}"
+          key            = "${{ inputs.tf-s3-bucket-key }}"
+          region         = "ca-central-1"
+          dynamodb_table = "${{ inputs.tf-s3-dynamodb-table }}"
+          access_key     = "${{ inputs.tf-s3-access-key }}"
+          secret_key     = "${{ inputs.tf-s3-secret-key }}"
+          role_arn       = "${{ inputs.tf-s3-role-arn }}"
+        }
+        required_providers {
+          keycloak = {
+            source  = "keycloak/keycloak"
+            version = "${{ inputs.kc-provider-version }}"
+          }
+        }
+      }
+      EOF
+
+      cat >"ci.auto.tfvars" <<EOF
+      dev_keycloak_url="${{ inputs.kc-dev-url }}"
+      test_keycloak_url="${{ inputs.kc-test-url }}"
+      prod_keycloak_url="${{ inputs.kc-prod-url }}"
+      dev_username="${{ inputs.kc-dev-username }}"
+      test_username="${{ inputs.kc-test-username }}"
+      prod_username="${{ inputs.kc-prod-username }}"
+      dev_password="${{ inputs.kc-dev-password }}"
+      test_password="${{ inputs.kc-test-password }}"
+      prod_password="${{ inputs.kc-prod-password }}"
+      test_siteminder_signing_certificate="${{ inputs.test-siteminder-signing-certificate }}"
+      prod_siteminder_signing_certificate="${{ inputs.prod-siteminder-signing-certificate }}"
+      dev_azureidir_tenant_id="${{ inputs.dev-azureidir-tenant-id }}"
+      dev_azureidir_client_id="${{ inputs.dev-azureidir-client-id }}"
+      dev_azureidir_client_secret="${{ inputs.dev-azureidir-client-secret }}"
+      dev_digitalcredential_client_id="${{ inputs.dev-digitalcredential-client-id }}"
+      dev_digitalcredential_client_secret="${{ inputs.dev-digitalcredential-client-secret }}"
+      test_azureidir_tenant_id="${{ inputs.test-azureidir-tenant-id }}"
+      test_azureidir_client_id="${{ inputs.test-azureidir-client-id }}"
+      test_azureidir_client_secret="${{ inputs.test-azureidir-client-secret }}"
+      test_digitalcredential_client_id="${{ inputs.test-digitalcredential-client-id }}"
+      test_digitalcredential_client_secret="${{ inputs.test-digitalcredential-client-secret }}"
+      prod_azureidir_tenant_id="${{ inputs.prod-azureidir-tenant-id }}"
+      prod_azureidir_client_id="${{ inputs.prod-azureidir-client-id }}"
+      prod_azureidir_client_secret="${{ inputs.prod-azureidir-client-secret }}"
+      dev_github_client_id="${{ inputs.dev-github-client-id }}"
+      dev_github_client_secret="${{ inputs.dev-github-client-secret }}"
+      test_github_client_id="${{ inputs.test-github-client-id }}"
+      test_github_client_secret="${{ inputs.test-github-client-secret }}"
+      prod_github_client_id="${{ inputs.prod-github-client-id }}"
+      prod_github_client_secret="${{ inputs.prod-github-client-secret }}"
+      prod_digitalcredential_client_id="${{ inputs.prod-digitalcredential-client-id }}"
+      prod_digitalcredential_client_secret="${{ inputs.prod-digitalcredential-client-secret }}"
+      dev_otp_client_id="${{ inputs.dev-otp-client-id }}"
+      dev_otp_client_secret="${{ inputs.dev-otp-client-secret }}"
+      test_otp_client_id="${{ inputs.test-otp-client-id }}"
+      test_otp_client_secret="${{ inputs.test-otp-client-secret }}"
+      prod_otp_client_id="${{ inputs.prod-otp-client-id }}"
+      prod_otp_client_secret="${{ inputs.prod-otp-client-secret }}"
+      EOF
+    shell: bash
+    working-directory: ${{ inputs.context }}
+
+  - name: Cache Terraform Modules
+    id: cache-tf-modules
+    uses: actions/cache@v4
+    with:
+      path: ${{ inputs.context }}/.terraform
+      key: ${{ runner.os }}-terraform-${{ inputs.tf-modules-cache-key }}
+
+  - name: Terraform Init
+    id: init
+    run: terraform init
+    shell: bash
+    working-directory: ${{ inputs.context }}
+
+  - name: Terraform Plan
+    if: inputs.plan == 'true'
+    id: plan
+    run: terraform plan -no-color
+    shell: bash
+    working-directory: ${{ inputs.context }}
+
+  - name: Terraform Apply
+    if: inputs.apply == 'true'
+    id: apply
+    run: terraform apply -auto-approve
+    shell: bash
+    working-directory: ${{ inputs.context }}
+
+    # see https://www.terraform.io/cli/commands/state/rm
+  - name: Terraform State Remove
+    if: inputs.state-rm != ''
+    id: remove
+    run: |
+      address=${{ inputs.state-rm }}
+      echo "$address"
+      terraform state rm "$address"
+    shell: bash
+    working-directory: ${{ inputs.context }}
