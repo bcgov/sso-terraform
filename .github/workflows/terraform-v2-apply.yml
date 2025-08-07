@@ -121,7 +121,14 @@ jobs:
         apply: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
 
-    - uses: ./.github/actions/keycloak
+    - name: Set up node modules
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - run: yarn install --frozen-lockfile
+
+    - name: Apply non terraformable Configuration
+      uses: ./.github/actions/keycloak
       with:
         dev-keycloak-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         test-keycloak-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
