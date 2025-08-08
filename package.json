@@ -20,8 +20,12 @@
   },
   "homepage": "https://github.com/bcgov/sso-terraform#readme",
   "devDependencies": {
-    "keycloak-admin": "^1.14.17",
     "lodash": "^4.17.21",
     "wait-on": "^5.3.0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.1",
+    "@keycloak/keycloak-admin-client": "^26.3.2"
   }
 }

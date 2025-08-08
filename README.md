@@ -7,10 +7,9 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 ## Related Repositories
 
 1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
-1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores the custom GitHub actions used by SSO projects, including this repository.
 1. ~~[sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.~~ **DEPRECATED**
 1. ~~[sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.~~ **DEPRECATED**
-1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.
+~~1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.~~ **DEPRECATED**
 
 ## terraform-modules
 

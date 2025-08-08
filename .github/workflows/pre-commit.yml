@@ -17,13 +17,29 @@ jobs:
         botLabel=$(jq -c '.[] | select(.name | contains("auto_generated")).name' <<< "$labels")
         echo "{count}={$count}" >> $GITHUB_OUTPUT
 
-    - name: Setup Tools
-      if: steps.pr.outputs.botLabel != '"auto_generated"'
-      uses: bcgov/sso-requests-actions/actions/setup-tools@v0.74.0
+    - name: Install asdf requirements
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libssl-dev libreadline-dev uuid-dev
+
+    - name: Install asdf
+      uses: asdf-vm/actions/setup@v3
+
+    - name: Cache tools
+      uses: actions/cache@v4
+      with:
+        path: /home/runner/.asdf
+        key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+
+    - name: Install asdf
+      uses: asdf-vm/actions/install@v3
 
     - name: Rerun Pre-Commit Hooks on CI
-      if: steps.pr.outputs.botLabel != '"auto_generated"'
-      run: pre-commit run --color=always --show-diff-on-failure --all-files
+      run: |
+        pip install -r requirements.txt
+        asdf reshim
+        pre-commit run --color=always --show-diff-on-failure --all-files
+
 
   commitlint:
     runs-on: ubuntu-24.04
