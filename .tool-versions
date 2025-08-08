@@ -3,5 +3,5 @@ terraform 1.1.4
 terraform-docs 0.12.1
 tflint 0.43.0
 git-chglog 0.14.2
-nodejs 22.18.0
+nodejs 24.0.0
 yarn 1.22.4
