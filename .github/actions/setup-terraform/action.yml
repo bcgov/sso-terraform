@@ -292,7 +292,7 @@ runs:
 
   - name: Terraform Init
     id: init
-    run: terraform init
+    run: terraform init -reconfigure
     shell: bash
     working-directory: ${{ inputs.context }}
 

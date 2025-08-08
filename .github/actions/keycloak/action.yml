@@ -40,5 +40,5 @@ outputs:
   result:
     description: true if succeed, false otherwise
 runs:
-  using: node22
+  using: node24
   main: index.js
