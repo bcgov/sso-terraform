@@ -54,6 +54,10 @@ It is recommended to sign Git commits using a GPG key to get the commits verifie
       gitlint install-hook
    ```
 
+## Running the terraform config locally
+
+This is located in the `./sso-terraform-modules` sub folder.  An environment can be set up there using podman.  See the subfolder's README for mor details.
+
 ## Code style and Linting
 
 We use [Terraform fmt](https://www.terraform.io/docs/cli/commands/fmt.html) to format Terraform scripts and [Prettier](https://prettier.io/) to format javascript codebase.
