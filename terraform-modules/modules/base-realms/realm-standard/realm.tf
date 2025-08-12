@@ -13,7 +13,7 @@ locals {
 module "realm" {
   source                               = "../../realm"
   realm_name                           = var.standard_realm_name
-  display_name                         = "Single Sign-On"
+  display_name                         = "Single Sign-On two"
   login_theme                          = "bcgov-idp-stopper"
   offline_session_max_lifespan_enabled = true
 }
@@ -89,3 +89,44 @@ resource "keycloak_openid_client" "logout_redirect_uri_delegator" {
   valid_redirect_uris = ["*"]
   web_origins         = []
 }
+
+# TRY ADDING THIS TO MODIFY THE ROLE, DIDN'T WORK YET
+# resource "keycloak_default_roles" "defalut_roles" {
+#   realm_id = module.realm.id
+#   default_roles = ["uma_authorization"]
+# }
+
+# resource "keycloak_default_roles" "default_roles" {
+#   realm_id      = module.realm.id
+#   default_roles = []
+# }
+
+
+resource "keycloak_default_roles" "realm_default_roles" {
+  realm_id      = module.realm.id
+  default_roles = ["uma_authorization", "offline_access", "account/view-profile"] # Empty list means no default roles
+}
+
+
+# resource "keycloak_role" "basic_user" {
+#   realm_id = keycloak_realm.my_realm.id
+#   name     = "manage-account"
+# }
+
+# resource "keycloak_role_composite" "composite_role" {
+#   realm_id = keycloak_realm.my_realm.id
+#   role_id  = keycloak_role.basic_user.id
+#   composite_roles = []  # Avoid adding other roles here
+# }
+
+# resource "keycloak_realm_default_client_scopes" "default_scopes" {
+#   realm_id  = module.realm.id
+
+#   default_scopes = [
+#     "profile",
+#     "email",
+#     "roles",
+#     "web-origins",
+#     keycloak_openid_client_scope.client_scope.name,
+#   ]
+# }

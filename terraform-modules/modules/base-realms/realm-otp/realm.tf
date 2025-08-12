@@ -39,3 +39,8 @@ resource "keycloak_openid_client" "logout_redirect_uri_delegator" {
   valid_redirect_uris = ["/realms/*"]
   web_origins         = ["+"]
 }
+
+resource "keycloak_default_roles" "realm_default_roles" {
+  realm_id      = module.realm.id
+  default_roles = ["uma_authorization", "offline_access", "account/view-profile"]
+}
