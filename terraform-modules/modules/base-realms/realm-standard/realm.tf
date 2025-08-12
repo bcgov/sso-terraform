@@ -13,7 +13,7 @@ locals {
 module "realm" {
   source                               = "../../realm"
   realm_name                           = var.standard_realm_name
-  display_name                         = "Single Sign-On"
+  display_name                         = "Single Sign-On two"
   login_theme                          = "bcgov-idp-stopper"
   offline_session_max_lifespan_enabled = true
 }
@@ -88,4 +88,9 @@ resource "keycloak_openid_client" "logout_redirect_uri_delegator" {
   root_url            = ""
   valid_redirect_uris = ["*"]
   web_origins         = []
+}
+
+resource "keycloak_default_roles" "realm_default_roles" {
+  realm_id      = module.realm.id
+  default_roles = ["uma_authorization", "offline_access", "account/view-profile"]
 }
