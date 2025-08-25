@@ -7,7 +7,7 @@ locals {
   bceidboth_realm_name         = "bceidboth"
   github_realm_name            = "github"
   otp_realm_name               = "otp"
-  sandbox_client_redirect_uri  = ""
+  sandbox_client_redirect_uri  = "https://dev.sandbox.loginproxy.gov.bc.ca/auth/*"
   digitalcredential_realm_name = "digitalcredential"
 }
 

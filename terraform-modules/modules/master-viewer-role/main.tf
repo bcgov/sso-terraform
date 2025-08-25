@@ -87,3 +87,8 @@ resource "keycloak_openid_client_service_account_realm_role" "viewer_service_acc
   service_account_user_id = keycloak_openid_client.viewer_service_account.service_account_user_id
   role                    = keycloak_role.viewer.name
 }
+
+resource "keycloak_default_roles" "realm_default_roles" {
+  realm_id      = "master"
+  default_roles = ["uma_authorization", "offline_access", "account/view-profile"]
+}

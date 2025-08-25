@@ -65,6 +65,9 @@ jobs:
         echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
         echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
         echo "TF_VAR_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
+        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
 
@@ -79,7 +82,7 @@ jobs:
         tf-s3-access-key: ${{ secrets[format('TF_S3_ACCESS_KEY{0}', env.PROJECT_SUFFIX)] }}
         tf-s3-secret-key: ${{ secrets[format('TF_S3_SECRET_KEY{0}', env.PROJECT_SUFFIX)] }}
         tf-s3-role-arn: ${{ secrets[format('TF_S3_ROLE_ARN{0}', env.PROJECT_SUFFIX)] }}
-        kc-provider-version: 5.0.0
+        kc-provider-version: 5.4.0
         kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}
         kc-prod-url: ${{ env.KEYCLOAK_V2_PROD_URL }}
@@ -91,13 +94,13 @@ jobs:
         kc-prod-password: ${{ secrets[format('KEYCLOAK_V2_PROD_PASSWORD{0}', env.PROJECT_SUFFIX)] }}
         test-siteminder-signing-certificate: ${{ secrets.TEST_SITEMINDER_SIGNING_CERTIFICATE }}   #same for production and sandbox
         prod-siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}   #prod for Production, test for sandbox
-        dev-azureidir-tenant-id: ${{ secrets[format('DEV_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-azureidir-tenant-id: ${{ env.DEV_AZUREIDIR_TENANT_ID }}
         dev-azureidir-client-id: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         dev-azureidir-client-secret: ${{ secrets[format('DEV_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
-        test-azureidir-tenant-id: ${{ secrets[format('TEST_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-azureidir-tenant-id: ${{ env.TEST_AZUREIDIR_TENANT_ID }}
         test-azureidir-client-id: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         test-azureidir-client-secret: ${{ secrets[format('TEST_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
-        prod-azureidir-tenant-id: ${{ secrets[format('PROD_AZUREIDIR_TENANT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-azureidir-tenant-id: ${{ env.PROD_AZUREIDIR_TENANT_ID }}
         prod-azureidir-client-id: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         prod-azureidir-client-secret: ${{ secrets[format('PROD_AZUREIDIR_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
         dev-github-client-id: ${{ secrets[format('DEV_GITHUB_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
