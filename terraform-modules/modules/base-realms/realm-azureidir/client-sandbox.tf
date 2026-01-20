@@ -124,22 +124,3 @@ resource "keycloak_generic_protocol_mapper" "sandbox_client_mapper_userprincipal
     "introspection.token.claim" : "true"
   }
 }
-
-resource "keycloak_generic_protocol_mapper" "sandbox_client_mapper_amr" {
-
-  realm_id  = module.realm.id
-  client_id = keycloak_openid_client.azureidir_sandbox_client.id
-
-  name            = "amr"
-  protocol        = "openid-connect"
-  protocol_mapper = "oidc-usermodel-attribute-mapper"
-  config = {
-    "user.attribute" : "amr",
-    "claim.name" : "amr",
-    "jsonType.label" : "String",
-    "id.token.claim" : "true",
-    "access.token.claim" : "true",
-    "userinfo.token.claim" : "true",
-    "introspection.token.claim" : "true"
-  }
-}

@@ -1,6 +1,6 @@
 locals {
   idir_attributes              = ["display_name", "idir_user_guid", "idir_username"]
-  azureidir_attributes         = ["display_name", "idir_user_guid", "idir_username", "user_principal_name", "amr"]
+  azureidir_attributes         = ["display_name", "idir_user_guid", "idir_username", "user_principal_name"]
   bceidbasic_attributes        = ["display_name", "bceid_user_guid", "bceid_username"]
   bceidbusiness_attributes     = ["display_name", "bceid_user_guid", "bceid_business_guid", "bceid_business_name", "bceid_username"]
   bceidboth_attributes         = ["display_name", "bceid_user_guid", "bceid_business_guid", "bceid_business_name", "bceid_username"]
