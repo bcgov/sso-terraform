@@ -173,6 +173,30 @@ inputs:
     description: OTP Client Secret in prod environment
     required: false
     default: ''
+  dev-ppid-client-id:
+    description: DEV PPID API Client ID
+    required: false
+    default: ''
+  dev-ppid-client-secret:
+    description: DEV PPID API Client Secret
+    required: false
+    default: ''
+  test-ppid-client-id:
+    description: TEST PPID API Client ID
+    required: false
+    default: ''
+  test-ppid-client-secret:
+    description: TEST PPID API Client Secret
+    required: false
+    default: ''
+  prod-ppid-client-id:
+    description: PROD PPID API Client ID
+    required: false
+    default: ''
+  prod-ppid-client-secret:
+    description: PROD PPID API Client Secret
+    required: false
+    default: ''
   plan:
     description: Whether to run Terraform plan
     required: false
@@ -310,7 +334,7 @@ runs:
     shell: bash
     working-directory: ${{ inputs.context }}
 
-    # see https://www.terraform.io/cli/commands/state/rm
+      # see https://www.terraform.io/cli/commands/state/rm
   - name: Terraform State Remove
     if: inputs.state-rm != ''
     id: remove

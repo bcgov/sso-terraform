@@ -128,10 +128,10 @@ module "otp" {
   standard_realm_name = local.standard_realm_name
   client_id           = var.otp_client_id
   client_secret       = var.otp_client_secret
-  authorization_url   = "https://otp-sandbox.loginproxy.gov.bc.ca/auth"
-  token_url           = "https://otp-sandbox.loginproxy.gov.bc.ca/token"
-  jwks_url            = "https://otp-sandbox.loginproxy.gov.bc.ca/jwks"
-  logout_url          = "https://otp-sandbox.loginproxy.gov.bc.ca/session/end"
+  authorization_url   = "${var.otp_provider_url}/auth"
+  token_url           = "${var.otp_provider_url}/token"
+  jwks_url            = "${var.otp_provider_url}/jwks"
+  logout_url          = "${var.otp_provider_url}/session/end"
   sub_to_username     = true
 }
 

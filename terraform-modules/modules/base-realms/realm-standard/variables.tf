@@ -99,3 +99,21 @@ variable "otp_client_secret" {
   type      = string
   sensitive = true
 }
+
+variable "ppid_client_id" {
+  type      = string
+  sensitive = true
+}
+variable "ppid_client_secret" {
+  type      = string
+  sensitive = true
+}
+variable "ppid_api_url" {
+  type = string
+}
+variable "ppid_token_url" {
+  type = string
+}
+variable "ppid_issuer" {
+  type = string
+}
