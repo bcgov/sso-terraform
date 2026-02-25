@@ -3,7 +3,7 @@ name: Terraform V2 Plan
 on: workflow_dispatch
 
 env:
-  TF_VERSION: 1.1.4
+  TF_VERSION: 1.11.0
 
 jobs:
   terraform:
