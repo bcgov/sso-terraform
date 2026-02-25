@@ -55,6 +55,10 @@ jobs:
         echo "TF_VAR_test_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
+        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+
         # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
