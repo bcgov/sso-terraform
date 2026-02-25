@@ -9,6 +9,9 @@ jobs:
   terraform:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
     steps:
     - uses: hmarr/debug-action@v3
     - name: Fail if not main or dev
