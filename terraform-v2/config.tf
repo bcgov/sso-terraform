@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.1.4"
+  required_version = ">= 1.11.0"
 
   backend "s3" {
     bucket = "b46814-dev-keycloak"
