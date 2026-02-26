@@ -19,6 +19,13 @@ jobs:
       run: |
         echo "This workflow only runs on main or dev branches."
         exit 1
+
+    - name: Set common variables
+      run: |
+        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+
     - name: Set dev environment to SANDBOX
       if: github.ref == 'refs/heads/dev'
       run: |
@@ -28,21 +35,6 @@ jobs:
         echo "PROJECT_SUFFIX=_SANDBOX" >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=b46814-dev-keycloak" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_authorization_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_token_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_user_info_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_jwks_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_logout_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_authorization_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_token_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_user_info_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_jwks_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_logout_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_authorization_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_token_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_user_info_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_jwks_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_logout_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
         echo "TF_VAR_test_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_prod_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
@@ -58,10 +50,6 @@ jobs:
         echo "TF_VAR_test_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
-        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-
         # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
@@ -74,9 +62,6 @@ jobs:
         echo "TF_VAR_dev_otp_provider_url=https://dev.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_test_otp_provider_url=https://test.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
 
