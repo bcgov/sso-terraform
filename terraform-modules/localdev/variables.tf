@@ -73,6 +73,11 @@ variable "digitalcredential_token_url" {
   default = ""
 }
 
+variable "otp_provider_url" {
+  type    = string
+  default = ""
+}
+
 variable "otp_client_id" {
   type      = string
   sensitive = true

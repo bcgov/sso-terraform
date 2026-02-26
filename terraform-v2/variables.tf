@@ -411,3 +411,78 @@ variable "prod_otp_provider_url" {
   type    = string
   default = "https://sandbox.otp.loginproxy.gov.bc.ca"
 }
+
+variable "dev_ppid_api_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_ppid_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_ppid_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_ppid_token_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "dev_ppid_issuer" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_ppid_api_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_ppid_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_ppid_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_ppid_token_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "test_ppid_issuer" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_ppid_api_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_ppid_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_ppid_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_ppid_token_url" {
+  type      = string
+  sensitive = true
+}
+
+variable "prod_ppid_issuer" {
+  type      = string
+  sensitive = true
+}

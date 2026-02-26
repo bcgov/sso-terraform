@@ -50,6 +50,18 @@ jobs:
         echo "TF_VAR_test_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
+        echo "TF_VAR_dev_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+
+        echo "TF_VAR_dev_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+
+        echo "TF_VAR_dev_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
+
         # PROJECT_SUFFIX left null for production config
     - name: Set main environment to PRODUCTION
       if: github.ref == 'refs/heads/main'
@@ -62,6 +74,18 @@ jobs:
         echo "TF_VAR_dev_otp_provider_url=https://dev.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_test_otp_provider_url=https://test.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
+
+        echo "TF_VAR_dev_ppid_api_url=https://idtest.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_api_url=https://idtest.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_api_url=https://id.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+
+        echo "TF_VAR_dev_ppid_token_url=https://idtest.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_token_url=https://idtest.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_token_url=https://id.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+
+        echo "TF_VAR_dev_ppid_issuer=dev.otp.gov.bc.ca" >> $GITHUB_ENV
+        echo "TF_VAR_test_ppid_issuer=test.otp.gov.bc.ca" >> $GITHUB_ENV
+        echo "TF_VAR_prod_ppid_issuer=otp.gov.bc.ca" >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
 
@@ -112,5 +136,12 @@ jobs:
         test-otp-client-secret: ${{ secrets[format('TEST_OTP_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
         prod-otp-client-id: ${{ secrets[format('PROD_OTP_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
         prod-otp-client-secret: ${{ secrets[format('PROD_OTP_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        dev-ppid-client-id: ${{ secrets[format('DEV_PPID_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        dev-ppid-client-secret: ${{ secrets[format('DEV_PPID_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        test-ppid-client-id: ${{ secrets[format('TEST_PPID_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        test-ppid-client-secret: ${{ secrets[format('TEST_PPID_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+        prod-ppid-client-id: ${{ secrets[format('PROD_PPID_CLIENT_ID{0}', env.PROJECT_SUFFIX)] }}
+        prod-ppid-client-secret: ${{ secrets[format('PROD_PPID_CLIENT_SECRET{0}', env.PROJECT_SUFFIX)] }}
+
         plan: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
