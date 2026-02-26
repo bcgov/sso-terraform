@@ -297,6 +297,12 @@ runs:
       test_otp_client_secret="${{ inputs.test-otp-client-secret }}"
       prod_otp_client_id="${{ inputs.prod-otp-client-id }}"
       prod_otp_client_secret="${{ inputs.prod-otp-client-secret }}"
+      dev_ppid_client_id="${{ inputs.dev-ppid-client-id }}"
+      dev_ppid_client_secret="${{ inputs.dev-ppid-client-secret }}"
+      test_ppid_client_id="${{ inputs.test-ppid-client-id }}"
+      test_ppid_client_secret="${{ inputs.test-ppid-client-secret }}"
+      prod_ppid_client_id="${{ inputs.prod-ppid-client-id }}"
+      prod_ppid_client_secret="${{ inputs.prod-ppid-client-secret }}"
       EOF
     shell: bash
     working-directory: ${{ inputs.context }}
@@ -328,7 +334,7 @@ runs:
     shell: bash
     working-directory: ${{ inputs.context }}
 
-      # see https://www.terraform.io/cli/commands/state/rm
+        # see https://www.terraform.io/cli/commands/state/rm
   - name: Terraform State Remove
     if: inputs.state-rm != ''
     id: remove
