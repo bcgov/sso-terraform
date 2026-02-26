@@ -413,76 +413,82 @@ variable "prod_otp_provider_url" {
 }
 
 variable "dev_ppid_api_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "dev_ppid_client_id" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "dev_ppid_client_secret" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "dev_ppid_token_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "dev_ppid_issuer" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "test_ppid_api_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "test_ppid_client_id" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "test_ppid_client_secret" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "test_ppid_token_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "test_ppid_issuer" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "prod_ppid_api_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "prod_ppid_client_id" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "prod_ppid_client_secret" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "prod_ppid_token_url" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
 
 variable "prod_ppid_issuer" {
-  type      = string
-  sensitive = true
+  type    = string
+  default = ""
 }
