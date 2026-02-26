@@ -1,5 +1,5 @@
 resource "keycloak_oidc_identity_provider" "ppid_service_account" {
-  realm             = keycloak_realm.realm.id
+  realm             = module.realm.id
   alias             = "ppid-service-account"
   authorization_url = var.ppid_api_url
   client_id         = var.ppid_client_id
