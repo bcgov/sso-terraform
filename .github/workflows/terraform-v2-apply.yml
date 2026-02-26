@@ -3,12 +3,15 @@ name: Terraform V2 Apply
 on: workflow_dispatch
 
 env:
-  TF_VERSION: 1.1.4
+  TF_VERSION: 1.11.0
 
 jobs:
   terraform:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
     steps:
     - uses: hmarr/debug-action@v3
     - name: Fail if not main or dev
@@ -16,6 +19,13 @@ jobs:
       run: |
         echo "This workflow only runs on main or dev branches."
         exit 1
+
+    - name: Set common variables
+      run: |
+        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+
     - name: Set dev environment to SANDBOX
       if: github.ref == 'refs/heads/dev'
       run: |
@@ -24,23 +34,7 @@ jobs:
         echo "KEYCLOAK_V2_PROD_URL=https://sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "PROJECT_SUFFIX=_SANDBOX" >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
-        echo "TF_S3_BUCKET=xgr00q-dev-keycloak" >> $GITHUB_ENV
-        echo "TF_S3_DYNAMODB_TABLE=xgr00q-dev-state-locking" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_authorization_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_token_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_user_info_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_jwks_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_test_azureidir_logout_url=https://test.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_authorization_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_token_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_user_info_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_jwks_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_dev_azureidir_logout_url=https://dev.loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_authorization_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/auth" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_token_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/token" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_user_info_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/userinfo" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_jwks_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/certs" >> $GITHUB_ENV
-        echo "TF_VAR_prod_azureidir_logout_url=https://loginproxy.gov.bc.ca/auth/realms/azureidir/protocol/openid-connect/logout" >> $GITHUB_ENV
+        echo "TF_S3_BUCKET=b46814-dev-keycloak" >> $GITHUB_ENV
         echo "TF_VAR_test_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_prod_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
@@ -64,14 +58,10 @@ jobs:
         echo "KEYCLOAK_V2_TEST_URL=https://test.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_PROD_URL=https://loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
-        echo "TF_S3_BUCKET=xgr00q-prod-keycloak" >> $GITHUB_ENV
-        echo "TF_S3_DYNAMODB_TABLE=xgr00q-prod-state-locking" >> $GITHUB_ENV
+        echo "TF_S3_BUCKET=b46814-prod-keycloak" >> $GITHUB_ENV
         echo "TF_VAR_dev_otp_provider_url=https://dev.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_test_otp_provider_url=https://test.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "TF_VAR_prod_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
 
     - uses: actions/checkout@v4
 
@@ -82,10 +72,7 @@ jobs:
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
         tf-s3-bucket-key: keycloak/gold   #Same in prod and sandbox
-        tf-s3-dynamodb-table: ${{ env.TF_S3_DYNAMODB_TABLE }}
-        tf-s3-access-key: ${{ secrets[format('TF_S3_ACCESS_KEY{0}', env.PROJECT_SUFFIX)] }}
-        tf-s3-secret-key: ${{ secrets[format('TF_S3_SECRET_KEY{0}', env.PROJECT_SUFFIX)] }}
-        tf-s3-role-arn: ${{ secrets[format('TF_S3_ROLE_ARN{0}', env.PROJECT_SUFFIX)] }}
+        tf-aws-deploy-role-arn: ${{ secrets[format('SSO_AWS_GH_ACTIONS_DEPLOYER{0}', env.PROJECT_SUFFIX)] }}
         kc-provider-version: 5.4.0
         kc-dev-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
         kc-test-url: ${{ env.KEYCLOAK_V2_TEST_URL }}

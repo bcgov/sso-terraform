@@ -26,6 +26,7 @@ module "master_idp" {
   token_url                    = "${var.keycloak_url}/auth/realms/${var.idp_realm_name}/protocol/openid-connect/token"
   user_info_url                = "${var.keycloak_url}/auth/realms/${var.idp_realm_name}/protocol/openid-connect/userinfo"
   jwks_url                     = "${var.keycloak_url}/auth/realms/${var.idp_realm_name}/protocol/openid-connect/certs"
+  logout_url                   = "${var.keycloak_url}/auth/realms/${var.idp_realm_name}/protocol/openid-connect/logout"
   post_broker_login_flow_alias = var.otp_required == true ? module.idp_auth_flow.flow_alias : ""
   client_id                    = module.idp_client.client_id
   client_secret                = module.idp_client.client_secret
