@@ -8,7 +8,7 @@ module "digitalcredential_idp" {
   token_url                    = var.digitalcredential_token_url
   client_id                    = var.digitalcredential_client_id
   client_secret                = var.digitalcredential_client_secret
-  client_auth_method           = "client_secret_basic"
+  client_auth_method           = "client_secret_post"
   validate_signature           = false
   forwardParameters            = "pres_req_conf_id"
   default_scopes               = "vc_authn"

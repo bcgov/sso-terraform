@@ -1,5 +1,5 @@
-python 3.11.0
-terraform 1.1.4
+python 3.14.0
+terraform 1.11.0
 terraform-docs 0.12.1
 tflint 0.43.0
 git-chglog 0.14.2
