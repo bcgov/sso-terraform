@@ -23,6 +23,11 @@ module "keycloak_dev" {
   otp_client_id                         = var.dev_otp_client_id
   otp_client_secret                     = var.dev_otp_client_secret
   otp_provider_url                      = var.dev_otp_provider_url
+  ppid_api_url                          = var.dev_ppid_api_url
+  ppid_client_id                        = var.dev_ppid_client_id
+  ppid_client_secret                    = var.dev_ppid_client_secret
+  ppid_token_url                        = var.dev_ppid_token_url
+  ppid_issuer                           = var.dev_ppid_issuer
 }
 
 module "keycloak_test" {
@@ -50,6 +55,11 @@ module "keycloak_test" {
   otp_client_id                         = var.test_otp_client_id
   otp_client_secret                     = var.test_otp_client_secret
   otp_provider_url                      = var.test_otp_provider_url
+  ppid_api_url                          = var.test_ppid_api_url
+  ppid_client_id                        = var.test_ppid_client_id
+  ppid_client_secret                    = var.test_ppid_client_secret
+  ppid_token_url                        = var.test_ppid_token_url
+  ppid_issuer                           = var.test_ppid_issuer
 }
 
 module "keycloak_prod" {
@@ -82,4 +92,9 @@ module "keycloak_prod" {
   otp_client_id                         = var.prod_otp_client_id
   otp_client_secret                     = var.prod_otp_client_secret
   otp_provider_url                      = var.prod_otp_provider_url
+  ppid_api_url                          = var.prod_ppid_api_url
+  ppid_client_id                        = var.prod_ppid_client_id
+  ppid_client_secret                    = var.prod_ppid_client_secret
+  ppid_token_url                        = var.prod_ppid_token_url
+  ppid_issuer                           = var.prod_ppid_issuer
 }

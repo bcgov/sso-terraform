@@ -129,3 +129,31 @@ variable "otp_provider_url" {
   sensitive = false
   default   = ""
 }
+
+variable "ppid_api_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "ppid_client_id" {
+  type      = string
+  sensitive = true
+}
+
+variable "ppid_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "ppid_token_url" {
+  type      = string
+  sensitive = false
+  default   = ""
+}
+
+variable "ppid_issuer" {
+  type      = string
+  sensitive = false
+  default   = ""
+}

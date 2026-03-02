@@ -46,6 +46,12 @@ module "standard" {
   otp_client_id     = module.otp.standard_client_id
   otp_client_secret = module.otp.standard_client_secret
 
+  ppid_api_url       = var.ppid_api_url
+  ppid_client_id     = var.ppid_client_id
+  ppid_client_secret = var.ppid_client_secret
+  ppid_token_url     = var.ppid_token_url
+  ppid_issuer        = var.ppid_issuer
+
   add_backwards_compatible_mappers = true
 }
 
