@@ -399,22 +399,22 @@ variable "prod_otp_client_secret" {
 
 variable "dev_otp_provider_url" {
   type    = string
-  default = "https://dev.sandbox.otp.loginproxy.gov.bc.ca"
+  default = "https://dev.otp.loginproxy.gov.bc.ca"
 }
 
 variable "test_otp_provider_url" {
   type    = string
-  default = "https://test.sandbox.otp.loginproxy.gov.bc.ca"
+  default = "https://test.otp.loginproxy.gov.bc.ca"
 }
 
 variable "prod_otp_provider_url" {
   type    = string
-  default = "https://sandbox.otp.loginproxy.gov.bc.ca"
+  default = "https://otp.loginproxy.gov.bc.ca"
 }
 
 variable "dev_ppid_api_url" {
   type    = string
-  default = ""
+  default = "https://idtest.gov.bc.ca/iis-apis/v1/ppids"
 }
 
 variable "dev_ppid_client_id" {
@@ -431,17 +431,17 @@ variable "dev_ppid_client_secret" {
 
 variable "dev_ppid_token_url" {
   type    = string
-  default = ""
+  default = "https://idtest.gov.bc.ca/oauth2/token"
 }
 
 variable "dev_ppid_issuer" {
   type    = string
-  default = ""
+  default = "dev.otp.gov.bc.ca"
 }
 
 variable "test_ppid_api_url" {
   type    = string
-  default = ""
+  default = "https://idtest.gov.bc.ca/iis-apis/v1/ppids"
 }
 
 variable "test_ppid_client_id" {
@@ -458,17 +458,17 @@ variable "test_ppid_client_secret" {
 
 variable "test_ppid_token_url" {
   type    = string
-  default = ""
+  default = "https://idtest.gov.bc.ca/oauth2/token"
 }
 
 variable "test_ppid_issuer" {
   type    = string
-  default = ""
+  default = "test.otp.gov.bc.ca"
 }
 
 variable "prod_ppid_api_url" {
   type    = string
-  default = ""
+  default = "https://id.gov.bc.ca/iis-apis/v1/ppids"
 }
 
 variable "prod_ppid_client_id" {
@@ -485,10 +485,10 @@ variable "prod_ppid_client_secret" {
 
 variable "prod_ppid_token_url" {
   type    = string
-  default = ""
+  default = "https://id.gov.bc.ca/oauth2/token"
 }
 
 variable "prod_ppid_issuer" {
   type    = string
-  default = ""
+  default = "otp.gov.bc.ca"
 }
