@@ -71,21 +71,6 @@ jobs:
         echo "KEYCLOAK_V2_PROD_URL=https://loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         echo "TF_S3_BUCKET=b46814-prod-keycloak" >> $GITHUB_ENV
-        echo "TF_VAR_dev_otp_provider_url=https://dev.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "TF_VAR_test_otp_provider_url=https://test.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-        echo "TF_VAR_prod_otp_provider_url=https://otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-
-        echo "TF_VAR_dev_ppid_api_url=https://idtest.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-        echo "TF_VAR_test_ppid_api_url=https://idtest.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-        echo "TF_VAR_prod_ppid_api_url=https://id.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-
-        echo "TF_VAR_dev_ppid_token_url=https://idtest.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-        echo "TF_VAR_test_ppid_token_url=https://idtest.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-        echo "TF_VAR_prod_ppid_token_url=https://id.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-
-        echo "TF_VAR_dev_ppid_issuer=dev.otp.gov.bc.ca" >> $GITHUB_ENV
-        echo "TF_VAR_test_ppid_issuer=test.otp.gov.bc.ca" >> $GITHUB_ENV
-        echo "TF_VAR_prod_ppid_issuer=otp.gov.bc.ca" >> $GITHUB_ENV
 
     - uses: actions/checkout@v2
 
