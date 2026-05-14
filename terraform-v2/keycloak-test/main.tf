@@ -162,6 +162,7 @@ module "master_azureidir_link" {
   idp_realm_name   = module.azureidir.realm_name
   idp_display_name = "IDIR - MFA"
   idp_public_attrs = ["display_name", "idir_user_guid", "idir_username"]
+  sub_to_username  = true
 }
 
 module "master_viewer_role" {
