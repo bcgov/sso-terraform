@@ -4,7 +4,7 @@
 
 "@actions/core@^3.0.1":
   version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@actions/core/-/core-3.0.1.tgz#0f4d8b14527ee51e0db061eedc24a206c9f98c23"
+  resolved "https://registry.npmjs.org/@actions/core/-/core-3.0.1.tgz"
   integrity sha512-a6d/Nwahm9fliVGRhdhofo40HjHQasUPusmc7vBfyky+7Z+P2A1J68zyFVaNcEclc/Se+eO595oAr5nwEIoIUA==
   dependencies:
     "@actions/exec" "^3.0.0"
@@ -12,14 +12,14 @@
 
 "@actions/exec@^3.0.0":
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@actions/exec/-/exec-3.0.0.tgz#8c3464d20f0aa4068707757021d7e3c01a7ee203"
+  resolved "https://registry.npmjs.org/@actions/exec/-/exec-3.0.0.tgz"
   integrity sha512-6xH/puSoNBXb72VPlZVm7vQ+svQpFyA96qdDBvhB8eNZOE8LtPf9L4oAsfzK/crCL8YZ+19fKYVnM63Sl+Xzlw==
   dependencies:
     "@actions/io" "^3.0.2"
 
 "@actions/github@^9.1.1":
   version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@actions/github/-/github-9.1.1.tgz#b93be4c36a46cc67cc94d6dfd33c1e33b9c59a6f"
+  resolved "https://registry.npmjs.org/@actions/github/-/github-9.1.1.tgz"
   integrity sha512-tL5JbYOBZHc0ngEnCsaDcryUizIUIlQyIMwy1Wkx93H5HzbBJ7TbiPx2PnFjBwZW0Vh05JmfFZhecE6gglYegA==
   dependencies:
     "@actions/http-client" "^3.0.2"
@@ -32,7 +32,7 @@
 
 "@actions/http-client@^3.0.2":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@actions/http-client/-/http-client-3.0.2.tgz#3db9c83af9d29d51ac8c30b45bc17f7014beb1b2"
+  resolved "https://registry.npmjs.org/@actions/http-client/-/http-client-3.0.2.tgz"
   integrity sha512-JP38FYYpyqvUsz+Igqlc/JG6YO9PaKuvqjM3iGvaLqFnJ7TFmcLyy2IDrY0bI0qCQug8E9K+elv5ZNfw62ZJzA==
   dependencies:
     tunnel "^0.0.6"
@@ -40,7 +40,7 @@
 
 "@actions/http-client@^4.0.0":
   version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@actions/http-client/-/http-client-4.0.1.tgz#22a23a7625ba1326d9ba154012ca8301a27f88a3"
+  resolved "https://registry.npmjs.org/@actions/http-client/-/http-client-4.0.1.tgz"
   integrity sha512-+Nvd1ImaOZBSoPbsUtEhv+1z99H12xzncCkz0a3RuehINE81FZSe2QTj3uvAPTcJX/SCzUQHQ0D1GrPMbrPitg==
   dependencies:
     tunnel "^0.0.6"
@@ -48,12 +48,12 @@
 
 "@actions/io@^3.0.2":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@actions/io/-/io-3.0.2.tgz#6f89b27a159d109836d983efa283997c23b92284"
+  resolved "https://registry.npmjs.org/@actions/io/-/io-3.0.2.tgz"
   integrity sha512-nRBchcMM+QK1pdjO7/idu86rbJI5YHUKCvKs0KxnSYbVe3F51UfGxuZX4Qy/fWlp6l7gWFwIkrOzN+oUK03kfw==
 
 "@keycloak/keycloak-admin-client@^26.3.2":
   version "26.6.2"
-  resolved "https://registry.yarnpkg.com/@keycloak/keycloak-admin-client/-/keycloak-admin-client-26.6.2.tgz#3c47278fe332945823efd0d18fe221bebb609c4b"
+  resolved "https://registry.npmjs.org/@keycloak/keycloak-admin-client/-/keycloak-admin-client-26.6.2.tgz"
   integrity sha512-CEqQ/fzJPkWOTM0LaUeH5KAKlCQGkqlydhpnxFM9Vx1rLyjr9AIqrENPNzt0owYDPIqrl6OYaFZJBAoH8woDpA==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.86"
@@ -67,7 +67,7 @@
 
 "@microsoft/kiota-abstractions@^1.0.0-preview.102", "@microsoft/kiota-abstractions@^1.0.0-preview.86":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-abstractions/-/kiota-abstractions-1.0.0-preview.102.tgz#6a1b50b18353313f381090d399e4775f7794b6d9"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-abstractions/-/kiota-abstractions-1.0.0-preview.102.tgz"
   integrity sha512-WL+S7X+W6zpDO6vFk+FClb5hoUJMV1ZcMHo1H52r2Q49xTuYx9esJqmwh/0EXsftmxKwOOIOoPfO7+Tp5QAddw==
   dependencies:
     "@opentelemetry/api" "^1.7.0"
@@ -77,7 +77,7 @@
 
 "@microsoft/kiota-http-fetchlibrary@^1.0.0-preview.80":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-http-fetchlibrary/-/kiota-http-fetchlibrary-1.0.0-preview.102.tgz#79a8df0feacb0dd0ce11064bb95d0c63f1b923f6"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-http-fetchlibrary/-/kiota-http-fetchlibrary-1.0.0-preview.102.tgz"
   integrity sha512-oXfrPOWkIR2/Gs700n00EY3VDc+Qgz6y7ZiA/f8FHJsnwSjZ017xcWFw2PLzJItczVsad0pq/N5DYnoF6Co11Q==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.102"
@@ -86,7 +86,7 @@
 
 "@microsoft/kiota-serialization-form@^1.0.0-preview.74":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-serialization-form/-/kiota-serialization-form-1.0.0-preview.102.tgz#923ec40461d6be47edf90f276f14a3bea25527d2"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-serialization-form/-/kiota-serialization-form-1.0.0-preview.102.tgz"
   integrity sha512-1w70XAA/F4RgbyNbRAaZCjLAOiKQjdiQDYlNZC9x8g7xgd7tNqYqowt/auQS1A9SZOrT626q6+Gr2xKKyW3wOg==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.102"
@@ -94,7 +94,7 @@
 
 "@microsoft/kiota-serialization-json@^1.0.0-preview.86":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-serialization-json/-/kiota-serialization-json-1.0.0-preview.102.tgz#b64d28fca73a2306787dbfac502a9f5db8d648d4"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-serialization-json/-/kiota-serialization-json-1.0.0-preview.102.tgz"
   integrity sha512-YpIt5pXNX13ND736oJFf0wBYPAafCv+CAE17Fa1HcS1drCdXx8ELPQ5GxGDbQG7J5LIMDgUtBOUmf5R/FrMQ6A==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.102"
@@ -102,7 +102,7 @@
 
 "@microsoft/kiota-serialization-multipart@^1.0.0-preview.67":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-serialization-multipart/-/kiota-serialization-multipart-1.0.0-preview.102.tgz#dec48ad778a28246e51f4cbfbc4ffcdc1615506a"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-serialization-multipart/-/kiota-serialization-multipart-1.0.0-preview.102.tgz"
   integrity sha512-tjwt0m+8+OqZizZU6gBARTcA8suPYS0onD9IUbhKsvRrAJpBIyp07hnyOTXBgE+gurGGbeT3TTl9AUK2ic6DiA==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.102"
@@ -110,7 +110,7 @@
 
 "@microsoft/kiota-serialization-text@^1.0.0-preview.79":
   version "1.0.0-preview.102"
-  resolved "https://registry.yarnpkg.com/@microsoft/kiota-serialization-text/-/kiota-serialization-text-1.0.0-preview.102.tgz#c9b33a4229234b756f509536528e24e08cdd6737"
+  resolved "https://registry.npmjs.org/@microsoft/kiota-serialization-text/-/kiota-serialization-text-1.0.0-preview.102.tgz"
   integrity sha512-ZCihyrXKYGfTz/frqNQvwKsD+EgjhjfclB5/XDrSGNXduisL/f1MbyvjsgmrZnLmtCwX8/v+Mc3vlz716KWYbg==
   dependencies:
     "@microsoft/kiota-abstractions" "^1.0.0-preview.102"
@@ -118,12 +118,12 @@
 
 "@octokit/auth-token@^6.0.0":
   version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@octokit/auth-token/-/auth-token-6.0.0.tgz#b02e9c08a2d8937df09a2a981f226ad219174c53"
+  resolved "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-6.0.0.tgz"
   integrity sha512-P4YJBPdPSpWTQ1NU4XYdvHvXJJDxM6YwpS0FZHRgP7YFkdVxsWcpWGy/NVqlAA7PcPCnMacXlRm1y2PFZRWL/w==
 
 "@octokit/core@^7.0.6":
   version "7.0.6"
-  resolved "https://registry.yarnpkg.com/@octokit/core/-/core-7.0.6.tgz#0d58704391c6b681dec1117240ea4d2a98ac3916"
+  resolved "https://registry.npmjs.org/@octokit/core/-/core-7.0.6.tgz"
   integrity sha512-DhGl4xMVFGVIyMwswXeyzdL4uXD5OGILGX5N8Y+f6W7LhC1Ze2poSNrkF/fedpVDHEEZ+PHFW0vL14I+mm8K3Q==
   dependencies:
     "@octokit/auth-token" "^6.0.0"
@@ -136,7 +136,7 @@
 
 "@octokit/endpoint@^11.0.3":
   version "11.0.3"
-  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-11.0.3.tgz#acf5f7feddde4e12185d5312ee38ff77235d8205"
+  resolved "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-11.0.3.tgz"
   integrity sha512-FWFlNxghg4HrXkD3ifYbS/IdL/mDHjh9QcsNyhQjN8dplUoZbejsdpmuqdA76nxj2xoWPs7p8uX2SNr9rYu0Ag==
   dependencies:
     "@octokit/types" "^16.0.0"
@@ -144,7 +144,7 @@
 
 "@octokit/graphql@^9.0.3":
   version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@octokit/graphql/-/graphql-9.0.3.tgz#5b8341c225909e924b466705c13477face869456"
+  resolved "https://registry.npmjs.org/@octokit/graphql/-/graphql-9.0.3.tgz"
   integrity sha512-grAEuupr/C1rALFnXTv6ZQhFuL1D8G5y8CN04RgrO4FIPMrtm+mcZzFG7dcBm+nq+1ppNixu+Jd78aeJOYxlGA==
   dependencies:
     "@octokit/request" "^10.0.6"
@@ -153,33 +153,33 @@
 
 "@octokit/openapi-types@^27.0.0":
   version "27.0.0"
-  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-27.0.0.tgz#374ea53781965fd02a9d36cacb97e152cefff12d"
+  resolved "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-27.0.0.tgz"
   integrity sha512-whrdktVs1h6gtR+09+QsNk2+FO+49j6ga1c55YZudfEG+oKJVvJLQi3zkOm5JjiUXAagWK2tI2kTGKJ2Ys7MGA==
 
 "@octokit/plugin-paginate-rest@^14.0.0":
   version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-14.0.0.tgz#44dc9fff2dacb148d4c5c788b573ddc044503026"
+  resolved "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-14.0.0.tgz"
   integrity sha512-fNVRE7ufJiAA3XUrha2omTA39M6IXIc6GIZLvlbsm8QOQCYvpq/LkMNGyFlB1d8hTDzsAXa3OKtybdMAYsV/fw==
   dependencies:
     "@octokit/types" "^16.0.0"
 
 "@octokit/plugin-rest-endpoint-methods@^17.0.0":
   version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-17.0.0.tgz#8c54397d3a4060356a1c8a974191ebf945924105"
+  resolved "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-17.0.0.tgz"
   integrity sha512-B5yCyIlOJFPqUUeiD0cnBJwWJO8lkJs5d8+ze9QDP6SvfiXSz1BF+91+0MeI1d2yxgOhU/O+CvtiZ9jSkHhFAw==
   dependencies:
     "@octokit/types" "^16.0.0"
 
 "@octokit/request-error@^7.0.2", "@octokit/request-error@^7.1.0":
   version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@octokit/request-error/-/request-error-7.1.0.tgz#440fa3cae310466889778f5a222b47a580743638"
+  resolved "https://registry.npmjs.org/@octokit/request-error/-/request-error-7.1.0.tgz"
   integrity sha512-KMQIfq5sOPpkQYajXHwnhjCC0slzCNScLHs9JafXc4RAJI+9f+jNDlBNaIMTvazOPLgb4BnlhGJOTbnN0wIjPw==
   dependencies:
     "@octokit/types" "^16.0.0"
 
 "@octokit/request@^10.0.6", "@octokit/request@^10.0.7":
   version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-10.0.10.tgz#45e46934f3d772f006733be6b5ec18f22e54a00c"
+  resolved "https://registry.npmjs.org/@octokit/request/-/request-10.0.10.tgz"
   integrity sha512-KxNC2pTqqhszMNrf12ZRd4PonRgyJdsM4F/jySiddQK+DsRcfBtUvqn8t7UsyZhnRJHvX46OohDt5N3VqIWC2w==
   dependencies:
     "@octokit/endpoint" "^11.0.3"
@@ -191,67 +191,67 @@
 
 "@octokit/types@^16.0.0":
   version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-16.0.0.tgz#fbd7fa590c2ef22af881b1d79758bfaa234dbb7c"
+  resolved "https://registry.npmjs.org/@octokit/types/-/types-16.0.0.tgz"
   integrity sha512-sKq+9r1Mm4efXW1FCk7hFSeJo4QKreL/tTbR0rz/qx/r1Oa2VV83LTA/H/MuCOX7uCIJmQVRKBcbmWoySjAnSg==
   dependencies:
     "@octokit/openapi-types" "^27.0.0"
 
 "@opentelemetry/api@^1.7.0":
   version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.9.1.tgz#c1b0346de336ba55af2d5a7970882037baedec05"
+  resolved "https://registry.npmjs.org/@opentelemetry/api/-/api-1.9.1.tgz"
   integrity sha512-gLyJlPHPZYdAk1JENA9LeHejZe1Ti77/pTeFm/nMXmQH/HFZlcS/O2XJB+L8fkbrNSqhdtlvjBVjxwUYanNH5Q==
 
 "@std-uritemplate/std-uritemplate@^2.0.0":
   version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@std-uritemplate/std-uritemplate/-/std-uritemplate-2.0.10.tgz#c4d964f6480be0ff76c24659038221728238ada6"
+  resolved "https://registry.npmjs.org/@std-uritemplate/std-uritemplate/-/std-uritemplate-2.0.10.tgz"
   integrity sha512-EGxlaZDK+CcvMYzxLWKgQlhNiyGIoznEi/CVnzM1DCiQQh/EwSH0ThvseXJ4g6btu1hvlUZ70SrZD6ahsglXcw==
 
 before-after-hook@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/before-after-hook/-/before-after-hook-4.0.0.tgz#cf1447ab9160df6a40f3621da64d6ffc36050cb9"
+  resolved "https://registry.npmjs.org/before-after-hook/-/before-after-hook-4.0.0.tgz"
   integrity sha512-q6tR3RPqIB1pMiTRMFcZwuG5T8vwp+vUvEG0vuI6B+Rikh5BfPp2fQ82c925FOs+b0lcFQ8CFrL+KbilfZFhOQ==
 
 camelize-ts@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/camelize-ts/-/camelize-ts-3.0.0.tgz#b9a7b4ff802464dc3d6475637a64a9742ad3db09"
+  resolved "https://registry.npmjs.org/camelize-ts/-/camelize-ts-3.0.0.tgz"
   integrity sha512-cgRwKKavoDKLTjO4FQTs3dRBePZp/2Y9Xpud0FhuCOTE86M2cniKN4CCXgRnsyXNMmQMifVHcv6SPaMtTx6ofQ==
 
 content-type@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/content-type/-/content-type-2.0.0.tgz#2fb3ede69dffa0af78ca7c4ce7589680638b56df"
+  resolved "https://registry.npmjs.org/content-type/-/content-type-2.0.0.tgz"
   integrity sha512-j/O/d7GcZCyNl7/hwZAb606rzqkyvaDctLmckbxLzHvFBzTJHuGEdodATcP3yIRoDrLHkIATJuvzbFlp/ki2cQ==
 
 json-with-bigint@^3.5.3:
   version "3.5.8"
-  resolved "https://registry.yarnpkg.com/json-with-bigint/-/json-with-bigint-3.5.8.tgz#1b1edb55a1bc4816ca87ac684297591acd822383"
+  resolved "https://registry.npmjs.org/json-with-bigint/-/json-with-bigint-3.5.8.tgz"
   integrity sha512-eq/4KP6K34kwa7TcFdtvnftvHCD9KvHOGGICWwMFc4dOOKF5t4iYqnfLK8otCRCRv06FXOzGGyqE8h8ElMvvdw==
 
 tinyduration@^3.3.0:
   version "3.4.1"
-  resolved "https://registry.yarnpkg.com/tinyduration/-/tinyduration-3.4.1.tgz#16e864c1af751ce30efa59429f141390ea27f108"
+  resolved "https://registry.npmjs.org/tinyduration/-/tinyduration-3.4.1.tgz"
   integrity sha512-NemFoamVYn7TmtwZKZ3OiliM9fZkr6EWiTM+wKknco6POSy2gS689xx/pXip0JYp40HXpUw6k65CUYHWYUXdaA==
 
 tslib@^2.6.2:
   version "2.8.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
 
 tunnel@^0.0.6:
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
+  resolved "https://registry.npmjs.org/tunnel/-/tunnel-0.0.6.tgz"
   integrity sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==
 
 undici@^6.23.0:
   version "6.26.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-6.26.0.tgz#333a35b7f519c48d2dc6aeb38e4e91d9274e0652"
+  resolved "https://registry.npmjs.org/undici/-/undici-6.26.0.tgz"
   integrity sha512-4yqz8a3n5HmGTlsbADNtr/dJlhkh/55Rq798G6ibiULcXbDtaLpTl1pvdqcbFfeoj3iSi52lePFM7h9H21cw/A==
 
 universal-user-agent@^7.0.0, universal-user-agent@^7.0.2:
   version "7.0.3"
-  resolved "https://registry.yarnpkg.com/universal-user-agent/-/universal-user-agent-7.0.3.tgz#c05870a58125a2dc00431f2df815a77fe69736be"
+  resolved "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-7.0.3.tgz"
   integrity sha512-TmnEAEAsBJVZM/AADELsK76llnwcf9vMKuPz8JflO1frO8Lchitr0fNaN9d+Ap0BjKtqWqd/J17qeDnXh8CL2A==
 
 url-template@^3.1.1:
   version "3.1.1"
-  resolved "https://registry.yarnpkg.com/url-template/-/url-template-3.1.1.tgz#c220d5f3f793d28b0de341002112879cc8a43905"
+  resolved "https://registry.npmjs.org/url-template/-/url-template-3.1.1.tgz"
   integrity sha512-4oszoaEKE/mQOtAmdMWqIRHmkxWkUZMnXFnjQ5i01CuRSK3uluxcH1MRVVVWmhlnzT1SCDfKxxficm2G37qzCA==

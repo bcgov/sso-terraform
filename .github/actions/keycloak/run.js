@@ -1,6 +1,6 @@
-const KcAdminClient = require('@keycloak/keycloak-admin-client').default;
+import KcAdminClient from '@keycloak/keycloak-admin-client';
 
-module.exports = async function run({ context, args }) {
+export default async function run({ context, args }) {
   const tasks = (args.tasks || '').split(' ');
 
   const getKcAdminClient = async (env) => {

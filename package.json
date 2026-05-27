@@ -1,6 +1,7 @@
 {
   "name": "sso-terraform",
   "version": "1.0.0",
+  "type": "module",
   "description": "<!--- [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE) --->",
   "main": "index.js",
   "directories": {
@@ -19,7 +20,6 @@
     "url": "https://github.com/bcgov/sso-terraform/issues"
   },
   "homepage": "https://github.com/bcgov/sso-terraform#readme",
-  "devDependencies": {},
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
