@@ -19,10 +19,12 @@
     "url": "https://github.com/bcgov/sso-terraform/issues"
   },
   "homepage": "https://github.com/bcgov/sso-terraform#readme",
-  "devDependencies": {},
   "dependencies": {
-    "@actions/core": "^3.0.1",
+    "@actions/core": "^1.11.1",
     "@actions/github": "^9.1.1",
     "@keycloak/keycloak-admin-client": "^26.3.2"
+  },
+  "resolutions": {
+    "undici": ">=6.24.0"
   }
 }
