@@ -18,6 +18,16 @@ module "realm" {
   offline_session_max_lifespan_enabled = true
 }
 
+resource "keycloak_realm_default_client_scopes" "default_scopes" {
+  realm_id = module.realm.id
+  default_scopes = var.default_client_scopes
+}
+
+resource "keycloak_realm_optional_client_scopes" "default_scopes" {
+  realm_id = module.realm.id
+  optional_scopes = var.optional_client_scopes
+}
+
 module "idp_auth_flow" {
   source   = "../../idp-stopper-auth-flow"
   realm_id = module.realm.id
