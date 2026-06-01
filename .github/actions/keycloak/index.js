@@ -1,6 +1,6 @@
-const core = require('@actions/core');
-const { context } = require('@actions/github');
-const run = require('./run');
+import * as core from '@actions/core';
+import { context } from '@actions/github';
+import run from './run.js';
 
 process.on('unhandledRejection', handleError);
 main().catch(handleError);

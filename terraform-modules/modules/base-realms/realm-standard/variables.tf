@@ -121,3 +121,15 @@ variable "ppid_token_url" {
 variable "ppid_issuer" {
   type = string
 }
+
+variable "default_client_scopes" {
+  description = "List of client scopes assigned as default to new clients in the standard realm."
+  type        = list(string)
+  default     = ["profile", "email", "roles", "web-origins", "acr", "basic"]
+}
+
+variable "optional_client_scopes" {
+  description = "List of client scopes assigned as optional to new clients in the standard realm."
+  type        = list(string)
+  default     = ["offline_access", "phone", "microprofile-jwt"]
+}
