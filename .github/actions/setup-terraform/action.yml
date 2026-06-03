@@ -21,171 +21,61 @@ inputs:
   kc-provider-version:
     description: Keycloak Terraform provider version
     required: true
-  kc-dev-url:
-    description: Keycloak url in customer dev environment
+  kc-url:
+    description: Keycloak url
     required: true
-  kc-test-url:
-    description: Keycloak url in customer test environment
+  kc-username:
+    description: Keycloak admin username
     required: true
-  kc-prod-url:
-    description: Keycloak url in customer prod environment
+  kc-password:
+    description: Keycloak admin password
     required: true
-  kc-dev-username:
-    description: Keycloak admin username in customer dev environment
-    required: true
-  kc-test-username:
-    description: Keycloak admin username in customer test environment
-    required: true
-  kc-prod-username:
-    description: Keycloak admin username in customer prod environment
-    required: true
-  kc-dev-password:
-    description: Keycloak admin password in customer dev environment
-    required: true
-  kc-test-password:
-    description: Keycloak admin password in customer test environment
-    required: true
-  kc-prod-password:
-    description: Keycloak admin password in customer prod environment
-    required: true
-  test-siteminder-signing-certificate:
-    description: Siteminder signing certificate in test environment
+  siteminder-signing-certificate:
+    description: Siteminder signing certificate
     required: false
     default: ''
-  prod-siteminder-signing-certificate:
-    description: Siteminder signing certificate in prod environment
+  azureidir-tenant-id:
+    description: Azure IDIR Tenant ID
     required: false
     default: ''
-  dev-azureidir-tenant-id:
-    description: Azure IDIR Tenant ID in dev environment
+  azureidir-client-id:
+    description: Azure IDIR Client ID
     required: false
     default: ''
-  dev-azureidir-client-id:
-    description: Azure IDIR Client ID in dev environment
+  azureidir-client-secret:
+    description: Azure IDIR Client Secret
     required: false
     default: ''
-  dev-azureidir-client-secret:
-    description: Azure IDIR Client Secret in dev environment
+  github-client-id:
+    description: GitHub Client ID
     required: false
     default: ''
-  dev-github-client-id:
-    description: GitHub Client ID in dev environment
+  github-client-secret:
+    description: GitHub Client Secret
     required: false
     default: ''
-  dev-github-client-secret:
-    description: GitHub Client Secret in dev environment
+  digitalcredential-client-id:
+    description: Digital Credential Client ID
     required: false
     default: ''
-  dev-digitalcredential-client-id:
-    description: Digital Credential Client ID in dev environment
+  digitalcredential-client-secret:
+    description: Digital Credential Client Secret
     required: false
     default: ''
-  dev-digitalcredential-client-secret:
-    description: Digital Credential Client Secret in dev environment
+  otp-client-id:
+    description: OTP Client ID
     required: false
     default: ''
-  test-azureidir-tenant-id:
-    description: Azure IDIR Tenant ID in test environment
+  otp-client-secret:
+    description: OTP Client Secret
     required: false
     default: ''
-  test-azureidir-client-id:
-    description: Azure IDIR Client ID in test environment
+  ppid-client-id:
+    description: PPID API Client ID
     required: false
     default: ''
-  test-azureidir-client-secret:
-    description: Azure IDIR Client Secret in test environment
-    required: false
-    default: ''
-  test-github-client-id:
-    description: GitHub Client ID in test environment
-    required: false
-    default: ''
-  test-github-client-secret:
-    description: GitHub Client Secret in test environment
-    required: false
-    default: ''
-  test-digitalcredential-client-id:
-    description: Digital Credential Client ID in test environment
-    required: false
-    default: ''
-  test-digitalcredential-client-secret:
-    description: Digital Credential Client Secret in test environment
-    required: false
-    default: ''
-  prod-azureidir-tenant-id:
-    description: Azure IDIR Tenant ID in prod environment
-    required: false
-    default: ''
-  prod-azureidir-client-id:
-    description: Azure IDIR Client ID in prod environment
-    required: false
-    default: ''
-  prod-azureidir-client-secret:
-    description: Azure IDIR Client Secret in prod environment
-    required: false
-    default: ''
-  prod-github-client-id:
-    description: GitHub Client ID in prod environment
-    required: false
-    default: ''
-  prod-github-client-secret:
-    description: GitHub Client Secret in prod environment
-    required: false
-    default: ''
-  prod-digitalcredential-client-id:
-    description: Digital Credential Client ID in prod environment
-    required: false
-    default: ''
-  prod-digitalcredential-client-secret:
-    description: Digital Credential Client Secret in prod environment
-    required: false
-    default: ''
-  dev-otp-client-id:
-    description: OTP Client ID in dev environment
-    required: false
-    default: ''
-  dev-otp-client-secret:
-    description: OTP Client Secret in dev environment
-    required: false
-    default: ''
-  test-otp-client-id:
-    description: OTP Client ID in test environment
-    required: false
-    default: ''
-  test-otp-client-secret:
-    description: OTP Client Secret in test environment
-    required: false
-    default: ''
-  prod-otp-client-id:
-    description: OTP Client ID in prod environment
-    required: false
-    default: ''
-  prod-otp-client-secret:
-    description: OTP Client Secret in prod environment
-    required: false
-    default: ''
-  dev-ppid-client-id:
-    description: DEV PPID API Client ID
-    required: false
-    default: ''
-  dev-ppid-client-secret:
-    description: DEV PPID API Client Secret
-    required: false
-    default: ''
-  test-ppid-client-id:
-    description: TEST PPID API Client ID
-    required: false
-    default: ''
-  test-ppid-client-secret:
-    description: TEST PPID API Client Secret
-    required: false
-    default: ''
-  prod-ppid-client-id:
-    description: PROD PPID API Client ID
-    required: false
-    default: ''
-  prod-ppid-client-secret:
-    description: PROD PPID API Client Secret
+  ppid-client-secret:
+    description: PPID API Client Secret
     required: false
     default: ''
   plan:
@@ -259,50 +149,23 @@ runs:
       EOF
 
       cat >"ci.auto.tfvars" <<EOF
-      dev_keycloak_url="${{ inputs.kc-dev-url }}"
-      test_keycloak_url="${{ inputs.kc-test-url }}"
-      prod_keycloak_url="${{ inputs.kc-prod-url }}"
-      dev_username="${{ inputs.kc-dev-username }}"
-      test_username="${{ inputs.kc-test-username }}"
-      prod_username="${{ inputs.kc-prod-username }}"
-      dev_password="${{ inputs.kc-dev-password }}"
-      test_password="${{ inputs.kc-test-password }}"
-      prod_password="${{ inputs.kc-prod-password }}"
-      test_siteminder_signing_certificate="${{ inputs.test-siteminder-signing-certificate }}"
-      prod_siteminder_signing_certificate="${{ inputs.prod-siteminder-signing-certificate }}"
-      dev_azureidir_tenant_id="${{ inputs.dev-azureidir-tenant-id }}"
-      dev_azureidir_client_id="${{ inputs.dev-azureidir-client-id }}"
-      dev_azureidir_client_secret="${{ inputs.dev-azureidir-client-secret }}"
-      dev_digitalcredential_client_id="${{ inputs.dev-digitalcredential-client-id }}"
-      dev_digitalcredential_client_secret="${{ inputs.dev-digitalcredential-client-secret }}"
-      test_azureidir_tenant_id="${{ inputs.test-azureidir-tenant-id }}"
-      test_azureidir_client_id="${{ inputs.test-azureidir-client-id }}"
-      test_azureidir_client_secret="${{ inputs.test-azureidir-client-secret }}"
-      test_digitalcredential_client_id="${{ inputs.test-digitalcredential-client-id }}"
-      test_digitalcredential_client_secret="${{ inputs.test-digitalcredential-client-secret }}"
-      prod_azureidir_tenant_id="${{ inputs.prod-azureidir-tenant-id }}"
-      prod_azureidir_client_id="${{ inputs.prod-azureidir-client-id }}"
-      prod_azureidir_client_secret="${{ inputs.prod-azureidir-client-secret }}"
-      dev_github_client_id="${{ inputs.dev-github-client-id }}"
-      dev_github_client_secret="${{ inputs.dev-github-client-secret }}"
-      test_github_client_id="${{ inputs.test-github-client-id }}"
-      test_github_client_secret="${{ inputs.test-github-client-secret }}"
-      prod_github_client_id="${{ inputs.prod-github-client-id }}"
-      prod_github_client_secret="${{ inputs.prod-github-client-secret }}"
-      prod_digitalcredential_client_id="${{ inputs.prod-digitalcredential-client-id }}"
-      prod_digitalcredential_client_secret="${{ inputs.prod-digitalcredential-client-secret }}"
-      dev_otp_client_id="${{ inputs.dev-otp-client-id }}"
-      dev_otp_client_secret="${{ inputs.dev-otp-client-secret }}"
-      test_otp_client_id="${{ inputs.test-otp-client-id }}"
-      test_otp_client_secret="${{ inputs.test-otp-client-secret }}"
-      prod_otp_client_id="${{ inputs.prod-otp-client-id }}"
-      prod_otp_client_secret="${{ inputs.prod-otp-client-secret }}"
-      dev_ppid_client_id="${{ inputs.dev-ppid-client-id }}"
-      dev_ppid_client_secret="${{ inputs.dev-ppid-client-secret }}"
-      test_ppid_client_id="${{ inputs.test-ppid-client-id }}"
-      test_ppid_client_secret="${{ inputs.test-ppid-client-secret }}"
-      prod_ppid_client_id="${{ inputs.prod-ppid-client-id }}"
-      prod_ppid_client_secret="${{ inputs.prod-ppid-client-secret }}"
+      keycloak_url="${{ inputs.kc-url }}"
+      username="${{ inputs.kc-username }}"
+      password="${{ inputs.kc-password }}"
+      siteminder_signing_certificate="${{ inputs.siteminder-signing-certificate }}"
+
+      azureidir_tenant_id="${{ inputs.azureidir-tenant-id }}"
+      azureidir_client_id="${{ inputs.azureidir-client-id }}"
+      azureidir_client_secret="${{ inputs.azureidir-client-secret }}"
+      github_client_id="${{ inputs.github-client-id }}"
+      github_client_secret="${{ inputs.github-client-secret }}"
+      digitalcredential_client_id="${{ inputs.digitalcredential-client-id }}"
+      digitalcredential_client_secret="${{ inputs.digitalcredential-client-secret }}"
+      otp_client_id="${{ inputs.otp-client-id }}"
+      otp_client_secret="${{ inputs.otp-client-secret }}"
+      ppid_client_id="${{ inputs.ppid-client-id }}"
+      ppid_client_secret="${{ inputs.ppid-client-secret }}"
+
       EOF
     shell: bash
     working-directory: ${{ inputs.context }}
