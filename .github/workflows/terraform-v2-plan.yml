@@ -34,7 +34,7 @@ jobs:
 
     # TO BE REFACTORED WHEN THE SECRETS ARE MOVED TO OPENSHIFT
     - name: Set dev branch environment to SANDBOX
-      if: github.ref == 'refs/heads/dev'
+      if: github.ref == 'refs/heads/dev'  || github.ref == 'refs/heads/SSOTEAM-2831'
       run: |
         echo "KEYCLOAK_V2_DEV_URL=https://dev.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
