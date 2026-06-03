@@ -30,7 +30,7 @@ variable "saml_bceidbasic_override" {
 
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
-  default     = "admin-cli"
+  default     = "terraform-cli"
   type        = string
 }
 
@@ -56,7 +56,7 @@ variable "password" {
 
 variable "keycloak_url" {
   description = "The URL of the Keycloak instance"
-  default     = "http://localhost:8080"
+  default     = "https://loginproxy.gov.bc.ca"
   type        = string
 }
 
@@ -138,6 +138,7 @@ variable "digitalcredential_client_secret" {
 variable "prod_digital_credential_url" {
   type      = string
   sensitive = false
+  default   = ""
 }
 
 variable "otp_client_id" {
@@ -153,33 +154,35 @@ variable "otp_client_secret" {
 variable "otp_provider_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://otp.loginproxy.gov.bc.ca"
 }
 
 variable "ppid_api_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://id.gov.bc.ca/iis-apis/v1/ppids"
 }
 
 variable "ppid_client_id" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "ppid_client_secret" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "ppid_token_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://id.gov.bc.ca/oauth2/token"
 }
 
 variable "ppid_issuer" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "otp.gov.bc.ca"
 }
