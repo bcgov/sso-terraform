@@ -148,7 +148,7 @@ runs:
       }
       EOF
 
-      cat >"ci.auto.tfvars" <<EOF
+      cat >"ci.auto.tfvars" <<'EOF'
       keycloak_url="${{ inputs.kc-url }}"
       username="${{ inputs.kc-username }}"
       password="${{ inputs.kc-password }}"
