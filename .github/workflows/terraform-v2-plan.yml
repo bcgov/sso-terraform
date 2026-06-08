@@ -86,6 +86,7 @@ jobs:
         echo "KEYCLOAK_V2_PROD_URL=https://loginproxy.gov.bc.ca" >> $GITHUB_ENV
 
         echo "TF_S3_BUCKET=b46814-prod-keycloak" >> $GITHUB_ENV
+        INPUT_ENV="${{ inputs.environment }}"
         if [ "$INPUT_ENV" = "DEV" ]; then
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
         elif [ "$INPUT_ENV" = "TEST" ]; then
