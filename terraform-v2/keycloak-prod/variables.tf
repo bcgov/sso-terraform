@@ -30,7 +30,7 @@ variable "saml_bceidbasic_override" {
 
 variable "client_id" {
   description = "The client_id for the Keycloak client in Master Realm"
-  default     = "terraform-cli"
+  default     = "admin-cli"
   type        = string
 }
 
