@@ -47,7 +47,7 @@ jobs:
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
 
 
-        INPUT_ENV="${{ github.event.inputs.environment }}"
+        INPUT_ENV="${{ inputs.environment }}"
 
         if [ "$INPUT_ENV" = "DEV" ]; then
           echo "TF_VAR_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
@@ -103,25 +103,25 @@ jobs:
         context: ./terraform-v2/keycloak-dev
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
-        tf-s3-bucket-key: keycloak/gold-${{ github.event.inputs.environment }}
+        tf-s3-bucket-key: keycloak/gold-${{ inputs.environment }}
         tf-aws-deploy-role-arn: ${{ secrets[format('SSO_AWS_GH_ACTIONS_DEPLOYER{0}', env.PROJECT_SUFFIX)] }}
         kc-provider-version: 5.4.0
 
 
-        kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', github.event.inputs.environment)] }}
-        kc-username: ${{ secrets[format('KEYCLOAK_V2_{0}_USERNAME{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        kc-password: ${{ secrets[format('KEYCLOAK_V2_{0}_PASSWORD{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        azureidir-tenant-id: ${{ env[format('{0}_AZUREIDIR_TENANT_ID', github.event.inputs.environment)] }}
-        azureidir-client-id: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_ID{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        azureidir-client-secret: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_SECRET{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        github-client-id: ${{ secrets[format('{0}_GITHUB_CLIENT_ID{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        github-client-secret: ${{ secrets[format('{0}_GITHUB_CLIENT_SECRET{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        digitalcredential-client-id: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_ID{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        digitalcredential-client-secret: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_SECRET{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        otp-client-id: ${{ secrets[format('{0}_OTP_CLIENT_ID{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        otp-client-secret: ${{ secrets[format('{0}_OTP_CLIENT_SECRET{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        ppid-client-id: ${{ secrets[format('{0}_PPID_CLIENT_ID{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
-        ppid-client-secret: ${{ secrets[format('{0}_PPID_CLIENT_SECRET{1}', github.event.inputs.environment, env.PROJECT_SUFFIX)] }}
+        kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', inputs.environment)] }}
+        kc-username: ${{ secrets[format('KEYCLOAK_V2_{0}_USERNAME{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        kc-password: ${{ secrets[format('KEYCLOAK_V2_{0}_PASSWORD{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        azureidir-tenant-id: ${{ env[format('{0}_AZUREIDIR_TENANT_ID', inputs.environment)] }}
+        azureidir-client-id: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        azureidir-client-secret: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        github-client-id: ${{ secrets[format('{0}_GITHUB_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        github-client-secret: ${{ secrets[format('{0}_GITHUB_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        digitalcredential-client-id: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        digitalcredential-client-secret: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        otp-client-id: ${{ secrets[format('{0}_OTP_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        otp-client-secret: ${{ secrets[format('{0}_OTP_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        ppid-client-id: ${{ secrets[format('{0}_PPID_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        ppid-client-secret: ${{ secrets[format('{0}_PPID_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
         #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
 
