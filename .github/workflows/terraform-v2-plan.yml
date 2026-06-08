@@ -31,6 +31,7 @@ jobs:
         echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
         echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
         echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
+        echo "LOWER_ENV=$(echo "${{ inputs.environment }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
     # TO BE REFACTORED WHEN THE SECRETS ARE MOVED TO OPENSHIFT
     - name: Set dev branch environment to SANDBOX
@@ -100,20 +101,15 @@ jobs:
     - name: Setup Terraform
       uses: ./.github/actions/setup-terraform
       with:
-      # TEMP CONTEXT FOR TESTING SET WITH VAR IF THIS WORKS
-        context: ./terraform-v2/keycloak-dev
+        context: ./terraform-v2/keycloak-${{ env.LOWER_ENV }}
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
         tf-s3-bucket-key: keycloak/gold-${{ inputs.environment }}
         tf-aws-deploy-role-arn: ${{ secrets[format('SSO_AWS_GH_ACTIONS_DEPLOYER{0}', env.PROJECT_SUFFIX)] }}
         kc-provider-version: 5.4.0
-        # HARDCODE THE VARIABLE NAMES IN
-        kc-url: ${{ env.KEYCLOAK_V2_DEV_URL }}
-        kc-username: ${{ secrets.KEYCLOAK_V2_DEV_USERNAME_SANDBOX }}
-        kc-password: ${{ secrets.KEYCLOAK_V2_DEV_PASSWORD_SANDBOX }}
-        # kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', inputs.environment)] }}
-        # kc-username: ${{ secrets[format('KEYCLOAK_V2_{0}_USERNAME{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        # kc-password: ${{ secrets[format('KEYCLOAK_V2_{0}_PASSWORD{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', inputs.environment)] }}
+        kc-username: ${{ secrets[format('KEYCLOAK_V2_{0}_USERNAME{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        kc-password: ${{ secrets[format('KEYCLOAK_V2_{0}_PASSWORD{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
         azureidir-tenant-id: ${{ env[format('{0}_AZUREIDIR_TENANT_ID', inputs.environment)] }}
         azureidir-client-id: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
         azureidir-client-secret: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
