@@ -75,6 +75,7 @@ jobs:
           echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
+        fi
         # PROJECT_SUFFIX left null for production config
 
     - name: Set main branch environment to PRODUCTION
@@ -91,6 +92,7 @@ jobs:
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
         elif [ "$INPUT_ENV" = "PROD" ]; then
           echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
+        fi
 
     - uses: actions/checkout@v2
 
