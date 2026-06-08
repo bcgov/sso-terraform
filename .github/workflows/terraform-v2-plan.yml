@@ -95,7 +95,8 @@ jobs:
     - name: Setup Terraform
       uses: ./.github/actions/setup-terraform
       with:
-        context: ./terraform-v2
+      # TEMP CONTEXT FOR TESTING SET WITH VAR IF THIS WORKS
+        context: ./terraform-v2/keycloak-dev
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
         tf-s3-bucket-key: keycloak/gold-${{ github.event.inputs.environment }}
