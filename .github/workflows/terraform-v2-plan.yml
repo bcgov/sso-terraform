@@ -19,7 +19,7 @@ jobs:
       contents: read
       id-token: write
     steps:
-    - uses: hmarr/debug-action@v2
+    - uses: hmarr/debug-action@cd1afbd7852b7ad7b1b7a9a1b03efebd3b0a1820
     - name: Fail if not main or dev
       if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
       run: |
@@ -95,7 +95,7 @@ jobs:
           echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         fi
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
     - name: Setup Terraform
       uses: ./.github/actions/setup-terraform
