@@ -26,7 +26,7 @@ variable "password" {
 
 variable "keycloak_url" {
   description = "The URL of the Keycloak instance"
-  default     = "http://localhost:8080"
+  default     = "https://dev.loginproxy.gov.bc.ca"
   type        = string
 }
 
@@ -127,33 +127,35 @@ variable "otp_client_secret" {
 variable "otp_provider_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://dev.otp.loginproxy.gov.bc.ca"
 }
 
 variable "ppid_api_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://idtest.gov.bc.ca/iis-apis/v1/ppids"
 }
 
 variable "ppid_client_id" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "ppid_client_secret" {
   type      = string
   sensitive = true
+  default   = ""
 }
 
 variable "ppid_token_url" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "https://idtest.gov.bc.ca/oauth2/token"
 }
 
 variable "ppid_issuer" {
   type      = string
   sensitive = false
-  default   = ""
+  default   = "dev.otp.gov.bc.ca"
 }
