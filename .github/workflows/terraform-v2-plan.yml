@@ -64,7 +64,7 @@ jobs:
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
         elif [ "$INPUT_ENV" = "PROD" ]; then
-          echo "TF_VAR_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
+          echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_saml_entity_id_url=https://sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_saml_idir_override=_idir1/" >> $GITHUB_ENV
           echo "TF_VAR_saml_bceidbusiness_override=_bceidbusiness1/" >> $GITHUB_ENV
