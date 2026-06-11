@@ -33,6 +33,8 @@ resource "keycloak_oidc_identity_provider" "this" {
   disable_user_info                       = var.disable_user_info
   accepts_prompt_none_forward_from_client = var.accepts_prompt_none_forward_from_client
 
+  provider_id = var.provider_id
+
   extra_config = merge({
     "clientAuthMethod"  = var.client_auth_method
     "tooltip"           = var.tooltip != "" ? var.tooltip : null
