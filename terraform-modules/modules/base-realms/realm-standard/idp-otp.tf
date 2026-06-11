@@ -13,6 +13,7 @@ module "otp_idp" {
   client_secret         = var.otp_client_secret
   backchannel_supported = false
   provider_id           = "oidc-client-home"
+  forwardParameters     = "client_home_url"
 
   post_broker_login_flow_alias = keycloak_authentication_flow.idp_post_login.alias
 }
