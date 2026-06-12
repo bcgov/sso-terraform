@@ -23,8 +23,9 @@ resource "keycloak_oidc_identity_provider" "otp" {
   backchannel_supported = var.backchannel_supported
 
   extra_config = {
-    clientAuthMethod = "client_secret_post"
-    prompt           = "login"
+    clientAuthMethod  = "client_secret_post"
+    prompt            = "login"
+    forwardParameters = "client_home_url"
   }
 }
 
