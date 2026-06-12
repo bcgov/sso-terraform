@@ -1,0 +1,23 @@
+name: Login Openshift Gold
+
+inputs:
+  namespace:
+    description: The namespace to run the scripts
+    required: true
+  oc-server-gold:
+    description: The Gold API server url
+    required: true
+  oc-token-gold:
+    description: The Gold API server bearer token for authentication
+    required: true
+runs:
+  using: composite
+  steps:
+  - name: Login Gold
+    uses: redhat-actions/oc-login@v1
+    with:
+      openshift_server_url: ${{ inputs.oc-server-gold }}
+      openshift_token: ${{ inputs.oc-token-gold }}
+      namespace: ${{ inputs.namespace }}
+      insecure_skip_tls_verify: true
+    continue-on-error: true
