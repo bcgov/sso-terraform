@@ -119,8 +119,8 @@ jobs:
         azureidir-tenant-id: ${{ secrets.AZUREIDIR_TENANT_ID }}
         azureidir-client-id: ${{ secrets.AZUREIDIR_CLIENT_ID }}
         azureidir-client-secret: ${{ secrets.AZUREIDIR_CLIENT_SECRET }}
-        github-client-id: ${{ secrets.GITHUB_CLIENT_ID }}
-        github-client-secret: ${{ secrets.GITHUB_CLIENT_SECRET }}
+        github-client-id: ${{ secrets.IDP_GITHUB_CLIENT_ID }}
+        github-client-secret: ${{ secrets.IDP_GITHUB_CLIENT_SECRET }}
         digitalcredential-client-id: ${{ secrets.DIGITALCREDENTIAL_CLIENT_ID }}
         digitalcredential-client-secret: ${{ secrets.DIGITALCREDENTIAL_CLIENT_SECRET }}
         otp-client-id: ${{ secrets.OTP_CLIENT_ID}}
