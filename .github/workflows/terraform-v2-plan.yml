@@ -111,7 +111,7 @@ jobs:
         tf-s3-bucket-key: keycloak/gold-${{ env.UPPER_ENV }}
         tf-aws-deploy-role-arn: ${{ secrets.SSO_AWS_GH_ACTIONS_DEPLOYER }}
         kc-provider-version: 5.4.0
-        kc-url: ${{ vars.KEYCLOAK_V2_URL, env.UPPER_ENV )] }}
+        kc-url: ${{ vars.KEYCLOAK_V2_URL}}
         kc-username: ${{ secrets.KEYCLOAK_V2_USERNAME }}
         kc-password: ${{ secrets.KEYCLOAK_V2_PASSWORD }}
         azureidir-tenant-id: ${{ vars.AZUREIDIR_TENANT_ID }}
