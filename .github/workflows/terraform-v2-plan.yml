@@ -56,21 +56,21 @@ jobs:
 
         INPUT_ENV="${{ inputs.environment }}"
 
-        if [ "$INPUT_ENV" = "DEV" ]; then
+        if [ "$INPUT_ENV" = "dev" ]; then
           echo "TF_VAR_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://dev.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
           echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
-        elif [ "$INPUT_ENV" = "TEST" ]; then
+        elif [ "$INPUT_ENV" = "test" ]; then
           echo "TF_VAR_saml_entity_id_url=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
           echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
-        elif [ "$INPUT_ENV" = "PROD" ]; then
+        elif [ "$INPUT_ENV" = "prod" ]; then
           echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_saml_entity_id_url=https://sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_saml_idir_override=_idir1/" >> $GITHUB_ENV
@@ -94,11 +94,11 @@ jobs:
 
         echo "TF_S3_BUCKET=b46814-prod-keycloak" >> $GITHUB_ENV
         INPUT_ENV="${{ inputs.environment }}"
-        if [ "$INPUT_ENV" = "DEV" ]; then
+        if [ "$INPUT_ENV" = "dev" ]; then
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
-        elif [ "$INPUT_ENV" = "TEST" ]; then
+        elif [ "$INPUT_ENV" = "test" ]; then
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
-        elif [ "$INPUT_ENV" = "PROD" ]; then
+        elif [ "$INPUT_ENV" = "prod" ]; then
           echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         fi
 
