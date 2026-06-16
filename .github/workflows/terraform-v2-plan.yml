@@ -110,7 +110,7 @@ jobs:
         context: ./terraform-v2/keycloak-${{inputs.environment}}
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
-        tf-s3-bucket-key: keycloak/gold-${{ inputs.environment }}
+        tf-s3-bucket-key: keycloak/gold-${{ env.UPPER_ENV }}
         tf-aws-deploy-role-arn: ${{ secrets.SSO_AWS_GH_ACTIONS_DEPLOYER }}
         kc-provider-version: 5.4.0
         kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', env.UPPER_ENV )] }}
