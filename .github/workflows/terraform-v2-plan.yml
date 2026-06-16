@@ -111,8 +111,8 @@ jobs:
         tf-s3-bucket-key: keycloak/gold-${{ env.UPPER_ENV }}
         tf-aws-deploy-role-arn: ${{ secrets.SSO_AWS_GH_ACTIONS_DEPLOYER }}
         kc-provider-version: 5.4.0
-        kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', env.UPPER_ENV )] }}
-        kc-username: ${{ vars.KEYCLOAK_V2_USERNAME }}
+        kc-url: ${{ vars.KEYCLOAK_V2_URL, env.UPPER_ENV )] }}
+        kc-username: ${{ secrets.KEYCLOAK_V2_USERNAME }}
         kc-password: ${{ secrets.KEYCLOAK_V2_PASSWORD }}
         azureidir-tenant-id: ${{ vars.AZUREIDIR_TENANT_ID }}
         azureidir-client-id: ${{ vars.AZUREIDIR_CLIENT_ID }}
@@ -123,7 +123,7 @@ jobs:
         digitalcredential-client-secret: ${{ secrets.DIGITALCREDENTIAL_CLIENT_SECRET }}
         otp-client-id: ${{ vars.OTP_CLIENT_ID}}
         otp-client-secret: ${{ secrets.OTP_CLIENT_SECRET }}
-        ppid-client-id: ${{ vars.PPID_CLIENT_ID }}
+        ppid-client-id: ${{ secrets.PPID_CLIENT_ID }}
         ppid-client-secret: ${{ secrets.PPID_CLIENT_SECRET }}
         #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
