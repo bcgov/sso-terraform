@@ -113,18 +113,18 @@ jobs:
         tf-aws-deploy-role-arn: ${{ secrets.SSO_AWS_GH_ACTIONS_DEPLOYER }}
         kc-provider-version: 5.4.0
         kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', env.UPPER_ENV )] }}
-        kc-username: ${{ secrets.KEYCLOAK_V2_USERNAME }}
+        kc-username: ${{ env.KEYCLOAK_V2_USERNAME }}
         kc-password: ${{ secrets.KEYCLOAK_V2_PASSWORD }}
-        azureidir-tenant-id: ${{ secrets.AZUREIDIR_TENANT_ID }}
-        azureidir-client-id: ${{ secrets.AZUREIDIR_CLIENT_ID }}
+        azureidir-tenant-id: ${{ env.AZUREIDIR_TENANT_ID }}
+        azureidir-client-id: ${{ env.AZUREIDIR_CLIENT_ID }}
         azureidir-client-secret: ${{ secrets.AZUREIDIR_CLIENT_SECRET }}
-        github-client-id: ${{ secrets.IDP_GITHUB_CLIENT_ID }}
+        github-client-id: ${{ env.IDP_GITHUB_CLIENT_ID }}
         github-client-secret: ${{ secrets.IDP_GITHUB_CLIENT_SECRET }}
-        digitalcredential-client-id: ${{ secrets.DIGITALCREDENTIAL_CLIENT_ID }}
+        digitalcredential-client-id: ${{ env.DIGITALCREDENTIAL_CLIENT_ID }}
         digitalcredential-client-secret: ${{ secrets.DIGITALCREDENTIAL_CLIENT_SECRET }}
-        otp-client-id: ${{ secrets.OTP_CLIENT_ID}}
+        otp-client-id: ${{ env.OTP_CLIENT_ID}}
         otp-client-secret: ${{ secrets.OTP_CLIENT_SECRET }}
-        ppid-client-id: ${{ secrets.PPID_CLIENT_ID }}
+        ppid-client-id: ${{ env.PPID_CLIENT_ID }}
         ppid-client-secret: ${{ secrets.PPID_CLIENT_SECRET }}
         #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
