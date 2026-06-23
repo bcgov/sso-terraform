@@ -139,9 +139,3 @@ variable "otp_provider_id" {
   type        = string
   default     = "oidc"
 }
-
-variable "otp_forward_parameters" {
-  description = "Query Parameters to forward to the IDP"
-  type        = string
-  default     = ""
-}

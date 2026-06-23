@@ -57,3 +57,9 @@ variable "backchannel_supported" {
   description = "Does the external IDP support backchannel logout?"
   default     = false
 }
+
+variable "forward_parameters" {
+  description = "Query Parameters to forward to the IDP"
+  type        = string
+  default     = ""
+}
