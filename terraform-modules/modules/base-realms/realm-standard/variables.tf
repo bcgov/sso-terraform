@@ -133,3 +133,15 @@ variable "optional_client_scopes" {
   type        = list(string)
   default     = ["offline_access", "phone", "microprofile-jwt"]
 }
+
+variable "otp_provider_id" {
+  description = "The Provider ID of the Keycloak OIDC IDP SPI to use"
+  type        = string
+  default     = "oidc"
+}
+
+variable "otp_forward_parameters" {
+  description = "Query Parameters to forward to the IDP"
+  type        = string
+  default     = ""
+}
