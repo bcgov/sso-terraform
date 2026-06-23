@@ -188,3 +188,8 @@ variable "ppid_issuer" {
   sensitive = false
   default   = ""
 }
+
+variable "otp_forward_parameters" {
+  type    = string
+  default = ""
+}

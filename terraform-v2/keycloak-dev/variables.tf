@@ -159,3 +159,8 @@ variable "ppid_issuer" {
   sensitive = false
   default   = "dev.otp.gov.bc.ca"
 }
+
+variable "otp_forward_parameters" {
+  type    = string
+  default = ""
+}

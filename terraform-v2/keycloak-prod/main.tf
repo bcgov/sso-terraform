@@ -143,6 +143,7 @@ module "otp" {
   jwks_url            = "${var.otp_provider_url}/jwks"
   logout_url          = "${var.otp_provider_url}/session/end"
   sub_to_username     = true
+  forward_parameters  = var.otp_forward_parameters
 }
 
 module "master_idir_link" {
