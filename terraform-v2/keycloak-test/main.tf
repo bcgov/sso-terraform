@@ -46,6 +46,8 @@ module "standard" {
   otp_client_id     = module.otp.standard_client_id
   otp_client_secret = module.otp.standard_client_secret
 
+  otp_provider_id = var.otp_provider_id
+
   ppid_api_url       = var.ppid_api_url
   ppid_client_id     = var.ppid_client_id
   ppid_client_secret = var.ppid_client_secret
@@ -144,6 +146,7 @@ module "otp" {
   jwks_url            = "${var.otp_provider_url}/jwks"
   logout_url          = "${var.otp_provider_url}/session/end"
   sub_to_username     = true
+  forward_parameters  = var.otp_forward_parameters
 }
 
 module "master_idir_link" {

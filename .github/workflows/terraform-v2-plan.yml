@@ -6,20 +6,29 @@ on:
       environment:
         description: env to deploy
         type: choice
-        options: [DEV, TEST, PROD]
-        default: DEV
+        options: [dev, test, prod]
+        default: dev
+      staging-env:
+        description: production vs sandbox evironment
+        type: choice
+        options: [sandbox, production]
+        default: sandbox
+
 env:
   TF_VERSION: 1.11.0
 
 jobs:
   terraform:
     runs-on: ubuntu-24.04
+    environment:
+      name: ${{inputs.staging-env}}-${{ inputs.environment }}
+      deployment: false
     timeout-minutes: 30
     permissions:
       contents: read
       id-token: write
     steps:
-    - uses: hmarr/debug-action@v2
+    # - uses: hmarr/debug-action@cd1afbd7852b7ad7b1b7a9a1b03efebd3b0a1820 #v2
     - name: Fail if not main or dev
       if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
       run: |
@@ -27,15 +36,11 @@ jobs:
         exit 1
 
     - name: Set common variables
-      run: |
-        echo "DEV_AZUREIDIR_TENANT_ID=${{ secrets.DEV_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "TEST_AZUREIDIR_TENANT_ID=${{ secrets.TEST_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "PROD_AZUREIDIR_TENANT_ID=${{ secrets.PROD_AZUREIDIR_TENANT_ID }}" >> $GITHUB_ENV
-        echo "LOWER_ENV=$(echo "${{ inputs.environment }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+      run: echo "UPPER_ENV=$(echo "${{ inputs.environment }}" | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
 
-    # TO BE REFACTORED WHEN THE SECRETS ARE MOVED TO OPENSHIFT
+
     - name: Set dev branch environment to SANDBOX
-      if: github.ref == 'refs/heads/dev'
+      if: ${{ inputs.staging-env == 'sandbox' && github.ref == 'refs/heads/dev' }}
       run: |
         echo "KEYCLOAK_V2_DEV_URL=https://dev.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.sandbox.loginproxy.gov.bc.ca" >> $GITHUB_ENV
@@ -49,21 +54,23 @@ jobs:
 
         INPUT_ENV="${{ inputs.environment }}"
 
-        if [ "$INPUT_ENV" = "DEV" ]; then
+        if [ "$INPUT_ENV" = "dev" ]; then
           echo "TF_VAR_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://dev.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
           echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
+          echo "TF_VAR_otp_provider_id=oidc-client-home" >> $GITHUB_ENV
+          echo "TF_VAR_otp_forward_parameters=client_home_url" >> $GITHUB_ENV
 
-        elif [ "$INPUT_ENV" = "TEST" ]; then
+        elif [ "$INPUT_ENV" = "test" ]; then
           echo "TF_VAR_saml_entity_id_url=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
           echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
           echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
-        elif [ "$INPUT_ENV" = "PROD" ]; then
+        elif [ "$INPUT_ENV" = "prod" ]; then
           echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
           echo "TF_VAR_saml_entity_id_url=https://sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_saml_idir_override=_idir1/" >> $GITHUB_ENV
@@ -78,8 +85,8 @@ jobs:
         fi
         # PROJECT_SUFFIX left null for production config
 
-    - name: Set main branch environment to PRODUCTION
-      if: github.ref == 'refs/heads/main'
+    - name: Set environment to PRODUCTION
+      if: ${{ inputs.staging-env == 'production' && github.ref == 'refs/heads/main' }}
       run: |
         echo "KEYCLOAK_V2_DEV_URL=https://dev.loginproxy.gov.bc.ca" >> $GITHUB_ENV
         echo "KEYCLOAK_V2_TEST_URL=https://test.loginproxy.gov.bc.ca" >> $GITHUB_ENV
@@ -87,39 +94,39 @@ jobs:
 
         echo "TF_S3_BUCKET=b46814-prod-keycloak" >> $GITHUB_ENV
         INPUT_ENV="${{ inputs.environment }}"
-        if [ "$INPUT_ENV" = "DEV" ]; then
+        if [ "$INPUT_ENV" = "dev" ]; then
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
-        elif [ "$INPUT_ENV" = "TEST" ]; then
+        elif [ "$INPUT_ENV" = "test" ]; then
           echo "SITEMINDER_PROJECT=TEST" >> $GITHUB_ENV
-        elif [ "$INPUT_ENV" = "PROD" ]; then
+        elif [ "$INPUT_ENV" = "prod" ]; then
           echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         fi
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 #v2
 
     - name: Setup Terraform
       uses: ./.github/actions/setup-terraform
       with:
-        context: ./terraform-v2/keycloak-${{ env.LOWER_ENV }}
+        context: ./terraform-v2/keycloak-${{inputs.environment}}
         tf-version: ${{ env.TF_VERSION }}
         tf-s3-bucket: ${{ env.TF_S3_BUCKET }}
-        tf-s3-bucket-key: keycloak/gold-${{ inputs.environment }}
-        tf-aws-deploy-role-arn: ${{ secrets[format('SSO_AWS_GH_ACTIONS_DEPLOYER{0}', env.PROJECT_SUFFIX)] }}
+        tf-s3-bucket-key: keycloak/gold-${{ env.UPPER_ENV }}
+        tf-aws-deploy-role-arn: ${{ secrets.SSO_AWS_GH_ACTIONS_DEPLOYER }}
         kc-provider-version: 5.4.0
-        kc-url: ${{ env[format('KEYCLOAK_V2_{0}_URL', inputs.environment)] }}
-        kc-username: ${{ secrets[format('KEYCLOAK_V2_{0}_USERNAME{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        kc-password: ${{ secrets[format('KEYCLOAK_V2_{0}_PASSWORD{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        azureidir-tenant-id: ${{ env[format('{0}_AZUREIDIR_TENANT_ID', inputs.environment)] }}
-        azureidir-client-id: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        azureidir-client-secret: ${{ secrets[format('{0}_AZUREIDIR_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        github-client-id: ${{ secrets[format('{0}_GITHUB_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        github-client-secret: ${{ secrets[format('{0}_GITHUB_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        digitalcredential-client-id: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        digitalcredential-client-secret: ${{ secrets[format('{0}_DIGITALCREDENTIAL_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        otp-client-id: ${{ secrets[format('{0}_OTP_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        otp-client-secret: ${{ secrets[format('{0}_OTP_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        ppid-client-id: ${{ secrets[format('{0}_PPID_CLIENT_ID{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
-        ppid-client-secret: ${{ secrets[format('{0}_PPID_CLIENT_SECRET{1}', inputs.environment, env.PROJECT_SUFFIX)] }}
+        kc-url: ${{ vars.KEYCLOAK_V2_URL}}
+        kc-username: ${{ secrets.KEYCLOAK_V2_USERNAME }}
+        kc-password: ${{ secrets.KEYCLOAK_V2_PASSWORD }}
+        azureidir-tenant-id: ${{ vars.AZUREIDIR_TENANT_ID }}
+        azureidir-client-id: ${{ vars.AZUREIDIR_CLIENT_ID }}
+        azureidir-client-secret: ${{ secrets.AZUREIDIR_CLIENT_SECRET }}
+        github-client-id: ${{ vars.IDP_GITHUB_CLIENT_ID }}
+        github-client-secret: ${{ secrets.IDP_GITHUB_CLIENT_SECRET }}
+        digitalcredential-client-id: ${{ vars.DIGITALCREDENTIAL_CLIENT_ID }}
+        digitalcredential-client-secret: ${{ secrets.DIGITALCREDENTIAL_CLIENT_SECRET }}
+        otp-client-id: ${{ vars.OTP_CLIENT_ID}}
+        otp-client-secret: ${{ secrets.OTP_CLIENT_SECRET }}
+        ppid-client-id: ${{ secrets.PPID_CLIENT_ID }}
+        ppid-client-secret: ${{ secrets.PPID_CLIENT_SECRET }}
         #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
 

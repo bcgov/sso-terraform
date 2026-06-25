@@ -22,10 +22,12 @@ resource "keycloak_oidc_identity_provider" "otp" {
 
   backchannel_supported = var.backchannel_supported
 
-  extra_config = {
+  extra_config = merge({
     clientAuthMethod = "client_secret_post"
     prompt           = "login"
-  }
+    }, var.forward_parameters != "" ? {
+    forwardParameters = var.forward_parameters
+  } : {})
 }
 
 resource "keycloak_custom_identity_provider_mapper" "otp_username" {

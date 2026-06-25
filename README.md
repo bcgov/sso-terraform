@@ -7,9 +7,6 @@ This repository stores the Terraform scripts to provision BCGov SSO infrastructu
 ## Related Repositories
 
 1. [sso-requests](https://github.com/bcgov/sso-requests): stores codebase for the main self-service app; `Common Hosted Single Sign-on (CSS)`.
-1. ~~[sso-terraform-modules](https://github.com/bcgov/sso-terraform-modules): stores the custom Terraform modules used this repository.~~ **DEPRECATED**
-1. ~~[sso-terraform-dev](https://github.com/bcgov/sso-terraform-dev): stores the sandbox environment of this repository to mimic the workflows and behaviours.~~ **DEPRECATED**
-~~1. [sso-requests-actions](https://github.com/bcgov/sso-requests-actions): stores actions used by sso-terraform repos.~~ **DEPRECATED**
 
 ## terraform-modules
 
@@ -20,6 +17,8 @@ The sso-requests repos uses the dev branch code for it's local development envir
 ## The actions
 
 There are currently 3 actions in this repo that modify the terraform state of the loginproxy deployments.  When the actions are run against the `dev` branch changes are applied to the SANDBOX environments.  When run against `main` the actions are run against the production environments.  When run against any other branch the actions will fail without making changes.
+
+As of June 2026 these actions now run independantly on the DEV, TEST, and PROD environments.  Each environment has and independant terraform state file.
 
 **NOTE: As a design strategy the sandbox and production configuration should mirror each other as closely as possible. However when this is not possible please pass the sandbox config difference into the `TF_VAR`s of the SANDBOX environment creation step of the actions.**
 ### Terraform Plan
@@ -41,6 +40,6 @@ If the terraform plan and apply actions are failing do to a failure to release t
 
  - Log into the AWS dev/prod environment in a local terminal.
  - Change the local config.tf to point at the correct `bucket` and `dynamodb_table`
- - In the folder `./terraform-v2` remove the existing .terraform folder and the .terraform.lock.hcl files
- - In the folder `./terraform-v2` run `terraform init` and `terraform plan`.
+ - In the folder `./terraform-v2/keycloak-env` remove the existing .terraform folder and the .terraform.lock.hcl files
+ - In the folder `./terraform-v2/keyclaok-env` run `terraform init` and `terraform plan`.
  - If that errors out with a state issue reset the state using, `terraform force-unlock <<ID>>`. The GitHub actions should run smoothly again.
