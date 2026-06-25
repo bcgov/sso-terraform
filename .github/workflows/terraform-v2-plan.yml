@@ -33,8 +33,7 @@ jobs:
       if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
       run: |
         echo "This workflow only runs on main or dev branches."
-        echo "The environment is: ${{ github.job }}"
-
+        echo "The environment is: ${{inputs.staging-env}}-${{ inputs.environment }}"
         exit 1
 
     - name: Set common variables
