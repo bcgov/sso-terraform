@@ -196,3 +196,8 @@ variable "otp_provider_id" {
   type    = string
   default = "oidc"
 }
+
+variable "bcsc_environment" {
+  type    = string
+  default = "prod"
+}

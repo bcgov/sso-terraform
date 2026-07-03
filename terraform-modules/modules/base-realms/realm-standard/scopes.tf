@@ -73,3 +73,9 @@ module "otp_scope_mappers" {
   scope_name = var.otp_realm_name
   attributes = local.otp_attributes
 }
+
+module "pz_scope_mappers" {
+  source           = "../../scope-pz-mappers"
+  realm_id         = module.realm.id
+  bcsc_environment = var.bcsc_environment
+}

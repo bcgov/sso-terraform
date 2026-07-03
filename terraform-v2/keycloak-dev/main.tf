@@ -54,6 +54,8 @@ module "standard" {
   ppid_issuer        = var.ppid_issuer
 
   add_backwards_compatible_mappers = true
+
+  bcsc_environment = var.bcsc_environment
 }
 
 module "idir" {
