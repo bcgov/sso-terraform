@@ -35,6 +35,12 @@ jobs:
         echo "This workflow only runs on main or dev branches."
         exit 1
 
+    - name: Fail if using not main for production environment or dev for sandbox
+      if: (github.ref == 'refs/heads/main' && inputs.environment != 'production') || (github.ref == 'refs/heads/dev' && inputs.environment != 'sandbox')
+      run: |
+        echo "You have to use dev branch for sandbox and main branch for production deployments"
+        exit 1
+
     - name: Set common variables
       run: echo "UPPER_ENV=$(echo "${{ inputs.environment }}" | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
 
@@ -122,7 +128,7 @@ jobs:
         otp-client-secret: ${{ secrets.OTP_CLIENT_SECRET }}
         ppid-client-id: ${{ secrets.PPID_CLIENT_ID }}
         ppid-client-secret: ${{ secrets.PPID_CLIENT_SECRET }}
-          #prod for prod-Production, test for sandbox and dev-Production and test-Production
+            #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
 
         apply: true
@@ -134,7 +140,7 @@ jobs:
         node-version: 20
     - run: yarn install --frozen-lockfile
 
-      # TODO: Refactor this to be environment based after that migration is complete and working
+        # TODO: Refactor this to be environment based after that migration is complete and working
     - name: Apply non terraformable Configuration
       uses: ./.github/actions/keycloak
       with:
