@@ -36,7 +36,7 @@ jobs:
         exit 1
 
     - name: Fail if not using main for production environment or dev for sandbox
-      if: (github.ref == 'refs/heads/main' && inputs.environment != 'production') || (github.ref == 'refs/heads/dev' && inputs.environment != 'sandbox')
+      if: (github.ref == 'refs/heads/main' && inputs.staging-env != 'production') || (github.ref == 'refs/heads/dev' && inputs.staging-env != 'sandbox')
       run: |
         echo "You have to use dev branch for sandbox and main branch for production deployments"
         exit 1
