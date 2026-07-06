@@ -7,7 +7,7 @@ locals {
   )
 }
 
-resource "keycloak_saml_client_scope" "this" {
+resource "keycloak_saml_client_scope" "privacy_zone_scopes" {
   for_each = local.privacy_zone_scopes
 
   realm_id    = var.realm_id
