@@ -35,7 +35,7 @@ jobs:
         echo "This workflow only runs on main or dev branches."
         exit 1
 
-    - name: Fail if using not main for production environment or dev for sandbox
+    - name: Fail if not using main for production environment or dev for sandbox
       if: (github.ref == 'refs/heads/main' && inputs.environment != 'production') || (github.ref == 'refs/heads/dev' && inputs.environment != 'sandbox')
       run: |
         echo "You have to use dev branch for sandbox and main branch for production deployments"
@@ -140,7 +140,7 @@ jobs:
         node-version: 20
     - run: yarn install --frozen-lockfile
 
-        # TODO: Refactor this to be environment based after that migration is complete and working
+          # TODO: Refactor this to be environment based after that migration is complete and working
     - name: Apply non terraformable Configuration
       uses: ./.github/actions/keycloak
       with:
