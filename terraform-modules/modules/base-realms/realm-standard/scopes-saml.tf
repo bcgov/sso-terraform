@@ -66,3 +66,9 @@ module "otp_scope_mappers_saml" {
   scope_name = var.otp_realm_name
   attributes = local.otp_attributes
 }
+
+module "pz_scope_mappers_saml" {
+  source           = "../../scope-pz-mappers-saml"
+  realm_id         = module.realm.id
+  bcsc_environment = var.bcsc_environment
+}
