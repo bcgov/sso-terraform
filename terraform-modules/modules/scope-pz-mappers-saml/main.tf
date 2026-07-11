@@ -23,8 +23,8 @@ resource "keycloak_generic_protocol_mapper" "ppid_mapper" {
 
   name            = "ppid"
   protocol        = "saml"
-  protocol_mapper = "saml-idp-ppid-mapper"
+  protocol_mapper = "saml-ppid-nameid-mapper"
   config = {
-    "attribute.name" : "sub"
+    "nameid.format" : "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
   }
 }
