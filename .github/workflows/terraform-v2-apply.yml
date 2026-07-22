@@ -28,16 +28,21 @@ jobs:
       contents: read
       id-token: write
     steps:
-    # - uses: hmarr/debug-action@cd1afbd7852b7ad7b1b7a9a1b03efebd3b0a1820 #v3
+      # - uses: hmarr/debug-action@cd1afbd7852b7ad7b1b7a9a1b03efebd3b0a1820 #v3
     - name: Fail if not main or dev
       if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/dev'
       run: |
         echo "This workflow only runs on main or dev branches."
         exit 1
 
+    - name: Fail if not using main for production environment or dev for sandbox
+      if: (github.ref == 'refs/heads/main' && inputs.staging-env != 'production') || (github.ref == 'refs/heads/dev' && inputs.staging-env != 'sandbox')
+      run: |
+        echo "You have to use dev branch for sandbox and main branch for production deployments"
+        exit 1
+
     - name: Set common variables
       run: echo "UPPER_ENV=$(echo "${{ inputs.environment }}" | tr '[:lower:]' '[:upper:]')" >> $GITHUB_ENV
-
 
     - name: Set dev environment to SANDBOX
       if: ${{ inputs.staging-env == 'sandbox' && github.ref == 'refs/heads/dev' }}
@@ -51,6 +56,10 @@ jobs:
 
         echo "TF_VAR_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
+        echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
+        echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
+        echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
+        echo "TF_VAR_bcsc_environment=sit" >> $GITHUB_ENV
 
 
         INPUT_ENV="${{ inputs.environment }}"
@@ -58,18 +67,12 @@ jobs:
         if [ "$INPUT_ENV" = "dev" ]; then
           echo "TF_VAR_saml_entity_id_url=https://dev.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://dev.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_id=oidc-client-home" >> $GITHUB_ENV
           echo "TF_VAR_otp_forward_parameters=client_home_url" >> $GITHUB_ENV
 
         elif [ "$INPUT_ENV" = "test" ]; then
           echo "TF_VAR_saml_entity_id_url=https://test.sandbox.loginproxy.gov.bc.ca/auth/realms/"  >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://test.sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
         elif [ "$INPUT_ENV" = "prod" ]; then
           echo "TF_VAR_prod_digital_credential_url=https://vc-authn-oidc-test.apps.silver.devops.gov.bc.ca" >> $GITHUB_ENV
@@ -79,9 +82,6 @@ jobs:
           echo "TF_VAR_saml_bceidbasicbusiness_override=_bceidbasicbusiness1/" >> $GITHUB_ENV
           echo "TF_VAR_saml_bceidbasic_override=_bceidbasic1/" >> $GITHUB_ENV
           echo "TF_VAR_otp_provider_url=https://sandbox.otp.loginproxy.gov.bc.ca" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-          echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
 
         fi
 
@@ -103,7 +103,7 @@ jobs:
           echo "SITEMINDER_PROJECT=PROD" >> $GITHUB_ENV
         fi
 
-    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 #v4
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5   #v4
 
     - name: Setup Terraform
       uses: ./.github/actions/setup-terraform
@@ -128,20 +128,19 @@ jobs:
         otp-client-secret: ${{ secrets.OTP_CLIENT_SECRET }}
         ppid-client-id: ${{ secrets.PPID_CLIENT_ID }}
         ppid-client-secret: ${{ secrets.PPID_CLIENT_SECRET }}
-        #prod for prod-Production, test for sandbox and dev-Production and test-Production
+            #prod for prod-Production, test for sandbox and dev-Production and test-Production
         siteminder-signing-certificate: ${{ secrets[format('{0}_SITEMINDER_SIGNING_CERTIFICATE', env.SITEMINDER_PROJECT)] }}
 
         apply: true
         tf-modules-cache-key: ${{ steps.tf-modules.outputs.latest-sha }}
 
     - name: Set up node modules
-      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 #v4
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020   #v4
       with:
         node-version: 20
     - run: yarn install --frozen-lockfile
 
-
-    # TODO: Refactor this to be environment based after that migration is complete and working
+          # TODO: Refactor this to be environment based after that migration is complete and working
     - name: Apply non terraformable Configuration
       uses: ./.github/actions/keycloak
       with:
