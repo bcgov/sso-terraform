@@ -110,18 +110,6 @@ variable "ppid_client_secret" {
   sensitive = true
 }
 
-variable "ppid_api_url" {
-  type = string
-}
-
-variable "ppid_token_url" {
-  type = string
-}
-
-variable "ppid_issuer" {
-  type = string
-}
-
 variable "default_client_scopes" {
   description = "List of client scopes assigned as default to new clients in the standard realm."
   type        = list(string)
