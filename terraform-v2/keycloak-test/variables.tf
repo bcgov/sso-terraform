@@ -131,12 +131,6 @@ variable "otp_provider_url" {
   default   = "https://test.otp.loginproxy.gov.bc.ca"
 }
 
-variable "ppid_api_url" {
-  type      = string
-  sensitive = false
-  default   = "https://idtest.gov.bc.ca/iis-apis/v1/ppids"
-}
-
 variable "ppid_client_id" {
   type      = string
   sensitive = true
@@ -147,18 +141,6 @@ variable "ppid_client_secret" {
   type      = string
   sensitive = true
   default   = ""
-}
-
-variable "ppid_token_url" {
-  type      = string
-  sensitive = false
-  default   = "https://idtest.gov.bc.ca/oauth2/token"
-}
-
-variable "ppid_issuer" {
-  type      = string
-  sensitive = false
-  default   = "test.otp.gov.bc.ca"
 }
 
 variable "otp_forward_parameters" {

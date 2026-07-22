@@ -55,9 +55,6 @@ jobs:
         echo "TF_S3_BUCKET=b46814-dev-keycloak" >> $GITHUB_ENV
         echo "TF_VAR_siteminder_single_sign_on_service_url=https://sfstest7.gov.bc.ca/affwebservices/public/saml2sso" >> $GITHUB_ENV
         echo "TF_VAR_github_org=bcgov-sso" >> $GITHUB_ENV
-        echo "TF_VAR_ppid_api_url=https://idsit.gov.bc.ca/iis-apis/v1/ppids" >> $GITHUB_ENV
-        echo "TF_VAR_ppid_token_url=https://idsit.gov.bc.ca/oauth2/token" >> $GITHUB_ENV
-        echo "TF_VAR_ppid_issuer=urn:ca:bc:gov:idimwebtests:f2ac23eb-eaa5-4640-93b7-187edbda4b31" >> $GITHUB_ENV
         echo "TF_VAR_bcsc_environment=sit" >> $GITHUB_ENV
 
 
