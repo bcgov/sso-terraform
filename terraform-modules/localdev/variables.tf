@@ -161,12 +161,6 @@ variable "otp_client_secret" {
   default   = ""
 }
 
-variable "ppid_api_url" {
-  type      = string
-  sensitive = false
-  default   = ""
-}
-
 variable "ppid_client_id" {
   type      = string
   sensitive = true
@@ -175,18 +169,6 @@ variable "ppid_client_id" {
 variable "ppid_client_secret" {
   type      = string
   sensitive = true
-}
-
-variable "ppid_token_url" {
-  type      = string
-  sensitive = false
-  default   = ""
-}
-
-variable "ppid_issuer" {
-  type      = string
-  sensitive = false
-  default   = ""
 }
 
 variable "otp_forward_parameters" {
