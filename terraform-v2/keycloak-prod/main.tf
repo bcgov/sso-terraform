@@ -7,6 +7,7 @@ locals {
   bceidboth_realm_name         = "bceidboth"
   github_realm_name            = "github"
   otp_realm_name               = "otp"
+  bcgovidir_realm_name         = "bcgovidir"
   sandbox_client_redirect_uri  = "https://sandbox.loginproxy.gov.bc.ca/auth/*"
   digitalcredential_realm_name = "digitalcredential"
 }
@@ -23,6 +24,7 @@ module "standard" {
   bceidboth_realm_name     = local.bceidboth_realm_name
   github_realm_name        = local.github_realm_name
   otp_realm_name           = local.otp_realm_name
+  bcgovidir_realm_name     = local.bcgovidir_realm_name
 
   idir_client_id              = module.idir.standard_client_id
   idir_client_secret          = module.idir.standard_client_secret
@@ -145,6 +147,15 @@ module "otp" {
   logout_url          = "${var.otp_provider_url}/session/end"
   sub_to_username     = true
   forward_parameters  = var.otp_forward_parameters
+}
+
+module "bcgovidir" {
+  source                      = "../../terraform-modules/modules/base-realms/realm-bcgovidir"
+  keycloak_url                = var.keycloak_url
+  realm_name                  = local.bcgovidir_realm_name
+  standard_realm_name         = local.standard_realm_name
+  sub_to_username             = true
+  sandbox_client_redirect_uri = local.sandbox_client_redirect_uri
 }
 
 module "master_idir_link" {

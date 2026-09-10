@@ -79,3 +79,10 @@ module "pz_scope_mappers" {
   realm_id         = module.realm.id
   bcsc_environment = var.bcsc_environment
 }
+
+module "bcgovidir_scope_mappers" {
+  source     = "../../scope-attribute-mappers"
+  realm_id   = module.realm.id
+  scope_name = var.bcgovidir_realm_name
+  attributes = local.bcgovidir_attributes
+}
