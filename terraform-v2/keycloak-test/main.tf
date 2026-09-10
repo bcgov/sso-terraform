@@ -50,6 +50,9 @@ module "standard" {
 
   otp_provider_id = var.otp_provider_id
 
+  bcgovidir_client_id     = module.bcgovidir.standard_client_id
+  bcgovidir_client_secret = module.bcgovidir.standard_client_secret
+
   ppid_client_id     = var.ppid_client_id
   ppid_client_secret = var.ppid_client_secret
 
