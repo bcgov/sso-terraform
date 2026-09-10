@@ -7,6 +7,7 @@ locals {
   bceidboth_realm_name         = "bceidboth"
   github_realm_name            = "github"
   otp_realm_name               = "otp"
+  bcgovidir_realm_name         = "bcgovidir"
   sandbox_client_redirect_uri  = "https://test.sandbox.loginproxy.gov.bc.ca/auth/*"
   digitalcredential_realm_name = "digitalcredential"
 
@@ -24,6 +25,7 @@ module "standard" {
   bceidboth_realm_name     = local.bceidboth_realm_name
   github_realm_name        = local.github_realm_name
   otp_realm_name           = local.otp_realm_name
+  bcgovidir_realm_name     = local.bcgovidir_realm_name
 
   idir_client_id              = module.idir.standard_client_id
   idir_client_secret          = module.idir.standard_client_secret
