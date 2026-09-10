@@ -150,6 +150,15 @@ module "otp" {
   forward_parameters  = var.otp_forward_parameters
 }
 
+module "bcgovidir" {
+  source                      = "../../terraform-modules/modules/base-realms/realm-bcgovidir"
+  keycloak_url                = var.keycloak_url
+  realm_name                  = local.bcgovidir_realm_name
+  standard_realm_name         = local.standard_realm_name
+  sub_to_username             = true
+  sandbox_client_redirect_uri = local.sandbox_client_redirect_uri
+}
+
 module "master_idir_link" {
   source           = "../../terraform-modules/modules/master-idp-link"
   keycloak_url     = var.keycloak_url
