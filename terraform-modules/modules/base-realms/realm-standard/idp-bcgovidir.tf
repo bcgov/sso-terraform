@@ -12,6 +12,7 @@ module "bcgovidir_idp" {
   client_id             = var.bcgovidir_client_id
   client_secret         = var.bcgovidir_client_secret
   backchannel_supported = false
+  provider_id           = "oidc-client-id-kc-hint"
 
   post_broker_login_flow_alias = keycloak_authentication_flow.idp_post_login.alias
 }
