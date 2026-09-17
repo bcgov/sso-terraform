@@ -4,7 +4,7 @@ module "bcgovidir_idp" {
   alias                 = var.bcgovidir_realm_name
   display_name          = "BCGOV IDIR"
   gui_order             = "9"
-  authorization_url     = "${var.keycloak_url}/auth/realms/${var.bcgovidir_realm_name}/protocol/openid-connect/auth"
+  authorization_url     = "${var.keycloak_url}/auth/realms/${var.bcgovidir_realm_name}/protocol/openid-connect/auth?max_age=0"
   token_url             = "${var.keycloak_url}/auth/realms/${var.bcgovidir_realm_name}/protocol/openid-connect/token"
   user_info_url         = "${var.keycloak_url}/auth/realms/${var.bcgovidir_realm_name}/protocol/openid-connect/userinfo"
   jwks_url              = "${var.keycloak_url}/auth/realms/${var.bcgovidir_realm_name}/protocol/openid-connect/certs"
