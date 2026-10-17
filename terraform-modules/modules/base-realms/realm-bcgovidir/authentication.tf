@@ -22,7 +22,7 @@ resource "keycloak_authentication_execution" "first_broker_login_auto_link_user_
 }
 
 resource "keycloak_authentication_execution_config" "first_broker_login_auto_link_user_create_unique_user_config" {
-  realm_id     = keycloak_realm.realm.id
+  realm_id     = module.realm.id
   execution_id = keycloak_authentication_execution.first_broker_login_auto_link_user_create_unique_user.id
   alias        = "first broker login new create unique user config"
   config = {
