@@ -8,6 +8,7 @@ locals {
   githubpublic_attributes      = ["display_name", "github_id", "github_username", "org_verified", "orgs"]
   githubbcgov_attributes       = ["display_name", "github_id", "github_username", "org_verified", "orgs"]
   otp_attributes               = []
+  bcgovidir_attributes         = ["display_name", "idir_user_guid", "idir_username", "user_principal_name"]
 }
 
 module "realm" {
