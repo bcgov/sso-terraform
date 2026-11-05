@@ -18,30 +18,31 @@ This repository provisions BCGov SSO infrastructure — specifically the Gold Ke
 
 Each Keycloak environment has a **`standard` realm** that acts as the federation hub. It aggregates identity from dedicated per-IDP realms via OIDC broker clients:
 
-| Realm | Identity Provider | Protocol |
-|---|---|---|
-| `idir` | BC Government IDIR (SiteMinder) | SAML |
-| `azureidir` | Azure AD IDIR (MFA) | OIDC |
-| `bceidbasic` | BCeID Basic (SiteMinder) | SAML |
-| `bceidbusiness` | BCeID Business (SiteMinder) | SAML |
-| `bceidboth` | BCeID Basic+Business (SiteMinder) | SAML |
-| `github` | GitHub | OIDC |
-| `otp` | OTP provider | OIDC |
-| `digitalcredential` | Digital Credential (VC) | OIDC |
+| Realm               | Identity Provider                 | Protocol |
+| ------------------- | --------------------------------- | -------- |
+| `idir`              | BC Government IDIR (SiteMinder)   | SAML     |
+| `azureidir`         | Azure AD IDIR (MFA)               | OIDC     |
+| `bceidbasic`        | BCeID Basic (SiteMinder)          | SAML     |
+| `bceidbusiness`     | BCeID Business (SiteMinder)       | SAML     |
+| `bceidboth`         | BCeID Basic+Business (SiteMinder) | SAML     |
+| `github`            | GitHub                            | OIDC     |
+| `otp`               | OTP provider                      | OIDC     |
+| `digitalcredential` | Digital Credential (VC)           | OIDC     |
 
 ### Branch → Environment Mapping
 
-| Branch | Target |
-|---|---|
-| `dev` | SANDBOX (`*.sandbox.loginproxy.gov.bc.ca`) |
-| `main` | PRODUCTION (`*.loginproxy.gov.bc.ca`) |
-| any other | Workflow fails without making changes |
+| Branch    | Target                                     |
+| --------- | ------------------------------------------ |
+| `dev`     | SANDBOX (`*.sandbox.loginproxy.gov.bc.ca`) |
+| `main`    | PRODUCTION (`*.loginproxy.gov.bc.ca`)      |
+| any other | Workflow fails without making changes      |
 
 The CI workflows (`terraform-v2-plan.yml`, `terraform-v2-apply.yml`) only run on `main` or `dev`. Sandbox and production configs should mirror each other; environment differences are passed as `TF_VAR_*` overrides in the workflow.
 
 ### State Backend
 
 Remote state is stored in AWS S3 with DynamoDB locking:
+
 - Sandbox: bucket `b46814-dev-keycloak`
 - Production: bucket `b46814-prod-keycloak`
 - Key: `keycloak/gold` (same for both)
@@ -96,13 +97,14 @@ When sandbox and production configs must diverge, pass the difference as `TF_VAR
 
 ### Module Source Paths
 
-Modules in `terraform-v2/keycloak-*/main.tf` reference `terraform-modules` via relative path (`../../terraform-modules/modules/...`). The Keycloak provider version (currently `5.4.0`) is pinned in both `config.tf` and the CI workflow; keep these in sync.
+Modules in `terraform-v2/keycloak-*/main.tf` reference `terraform-modules` via relative path (`../../terraform-modules/modules/...`). The Keycloak provider version (currently `5.9.0`) is pinned in both `config.tf` and the CI workflow; keep these in sync.
 
 ### Pre-commit Hooks
 
 Enforced on commit: `terraform fmt`, `terraform_docs`, `tflint` (with `terraform_module_pinned_source`, `terraform_typed_variables`, and `terraform_unused_declarations` rules disabled), YAML formatting, and Conventional Commits via gitlint.
 
 Run manually:
+
 ```bash
 pre-commit run --all-files   # run all hooks
 terraform fmt -recursive     # format only
