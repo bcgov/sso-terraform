@@ -13,6 +13,9 @@ resource "keycloak_saml_client_scope" "privacy_zone_scopes" {
   realm_id    = var.realm_id
   name        = "${each.key}-saml"
   description = "${each.value} client scope"
+  extra_config = {
+    "include.in.token.scope" : "false"
+  }
 }
 
 resource "keycloak_generic_protocol_mapper" "ppid_mapper" {
