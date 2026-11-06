@@ -72,3 +72,10 @@ module "pz_scope_mappers_saml" {
   realm_id         = module.realm.id
   bcsc_environment = var.bcsc_environment
 }
+
+module "bcgovidir_scope_mappers_saml" {
+  source     = "../../scope-attribute-mappers-saml"
+  realm_id   = module.realm.id
+  scope_name = var.bcgovidir_realm_name
+  attributes = local.bcgovidir_attributes
+}

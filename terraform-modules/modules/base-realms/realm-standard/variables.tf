@@ -13,6 +13,7 @@ variable "bceidbusiness_realm_name" {}
 variable "bceidboth_realm_name" {}
 variable "github_realm_name" {}
 variable "otp_realm_name" {}
+variable "bcgovidir_realm_name" {}
 
 variable "idir_client_id" {
   type      = string
@@ -96,6 +97,15 @@ variable "otp_client_id" {
   sensitive = true
 }
 variable "otp_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "bcgovidir_client_id" {
+  type      = string
+  sensitive = true
+}
+variable "bcgovidir_client_secret" {
   type      = string
   sensitive = true
 }
