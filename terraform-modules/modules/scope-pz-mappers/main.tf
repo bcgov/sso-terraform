@@ -13,9 +13,10 @@ resource "keycloak_openid_client_scope" "privacy_zone_scopes" {
 
   realm_id = var.realm_id
 
-  name                   = each.key
-  description            = each.value
-  include_in_token_scope = false
+  name                                = each.key
+  description                         = each.value
+  include_in_token_scope              = false
+  include_in_openid_provider_metadata = false
 }
 
 resource "keycloak_generic_protocol_mapper" "ppid_mapper" {
